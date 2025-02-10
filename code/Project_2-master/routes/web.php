@@ -38,13 +38,12 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
-<<<<<<< HEAD
+
 use App\Http\Controllers\LogController;
-=======
 
 use App\Models\SystemLog;
 use Illuminate\Support\Facades\Request;
->>>>>>> 572a0be11db42f3319484c7eddecceb2191728ea
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
