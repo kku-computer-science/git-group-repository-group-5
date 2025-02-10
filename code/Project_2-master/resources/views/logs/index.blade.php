@@ -1,4 +1,4 @@
-@extends('dashboards.users.layouts.user-dash-layout')
+@extends('logs.layout.log-menu')
 @section('title','Dashboard')
 
 @section('content')
