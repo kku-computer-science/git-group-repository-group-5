@@ -15,8 +15,7 @@ class LogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-{
+    public function index(){
     $id = auth()->user()->id;
     if (auth()->user()->hasRole('admin')) {
         $experts = Expertise::all();
@@ -27,6 +26,47 @@ class LogController extends Controller
     }
 
     return view('logs.index', compact('experts')); // ส่งข้อมูล $experts ไปยัง view
+    }
+    
+    public function overall(){
+    $id = auth()->user()->id;
+    if (auth()->user()->hasRole('admin')) {
+        $experts = Expertise::all();
+    } else {
+        $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
+            $query->where('users.id', '=', $id);
+        })->paginate(10);
+    }
+
+    return view('logs.logs-over-all', compact('experts'));
+    }
+
+    public function login()
+    {
+        $id = auth()->user()->id;
+        if (auth()->user()->hasRole('admin')) {
+            $experts = Expertise::all();
+        } else {
+            $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
+                $query->where('users.id', '=', $id);
+            })->paginate(10);
+        }
+
+        return view('logs.logs-login', compact('experts'));
+    }
+    public function error()
+    {
+        $id = auth()->user()->id;
+        if (auth()->user()->hasRole('admin')) {
+            $experts = Expertise::all();
+        } else {
+            $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
+                $query->where('users.id', '=', $id);
+            })->paginate(10);
+        }
+
+        return view('logs.logs-error', compact('experts'));
+    }
 }
 
 
@@ -36,4 +76,4 @@ class LogController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-}
+
