@@ -38,7 +38,13 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+<<<<<<< HEAD
 use App\Http\Controllers\LogController;
+=======
+
+use App\Models\SystemLog;
+use Illuminate\Support\Facades\Request;
+>>>>>>> 572a0be11db42f3319484c7eddecceb2191728ea
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -144,6 +150,16 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
 });
 
 
+Route::get('/test-log', function () {
+    $log = SystemLog::create([
+        'user_id' => Auth::id() ?? 1, // ใช้ user ที่ login อยู่, ถ้าไม่มีให้ใช้ค่า default 1
+        'action' => 'User tested log system',
+        'ip_address' => Request::ip(),
+        'created_at' => now(),
+    ]);
+
+    return response()->json(['success' => true, 'log' => $log]);
+});
 
 // Route::get('/example/pdf', 'ExampleController@pdf_index');
 /*use App\Http\Controllers\FileUpload;

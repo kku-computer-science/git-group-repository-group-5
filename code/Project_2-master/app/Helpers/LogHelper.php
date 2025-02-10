@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 class LogHelper
 {
+    /**
+     * บันทึก Log ลงฐานข้อมูล
+     *
+     * @param string $action - ประเภทของการกระทำ
+     * @param string|null $description - คำอธิบายเพิ่มเติม
+     */
     public static function log($action, $description = null)
     {
         SystemLog::create([
