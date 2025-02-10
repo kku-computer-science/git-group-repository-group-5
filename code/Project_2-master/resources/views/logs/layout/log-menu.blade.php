@@ -140,143 +140,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div> -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
+                    @can('expertises-list')
                     <li class="nav-item">
-                        <a class="nav-link {{ (request()->is('dashboard*')) ? 'active' : '' }}"
-                            href="{{ route('dashboard')}}">
-                            <i class="menu-icon mdi mdi-grid-large"></i>
-                            <span class="menu-title">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item nav-category">Profile</li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ (request()->is('admin/profile*')) ? 'active' : '' }}"
-                            href="{{ route('profile')}}">
-                            <i class="menu-icon mdi mdi-account-circle-outline"></i>
-                            <span class="menu-title">User Profile</span>
-
-                        </a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link {{ (request()->is('admin/settings*')) ? 'active' : '' }}"
-                            href="{{ route('settings')}}">
-                            <i class="menu-icon mdi mdi mdi-settings-outline"></i>
-                            <span class="menu-title">Settings</span>
-
-                        </a>
-                    </li> -->
-                    <li class="nav-item nav-category">Option</li>
-                    @can('funds-list')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('funds.index')}}">
-                            <i class="menu-icon mdi mdi-file-document-box-outline"></i>
-                            <span class="menu-title">Manage Fund</span>
-
-                        </a>
-                    </li>
-                    @endcan
-                    @can('projects-list')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('researchProjects.index')}}">
-                            <i class="menu-icon mdi mdi-book-outline"></i>
-                            <span class="menu-title">Research Project</span>
-
-                        </a>
-                    </li>
-                    @endcan
-                    @can('groups-list')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('researchGroups.index')}}">
-                            <i class="menu-icon mdi mdi-view-dashboard-outline"></i>
-                            <span class="menu-title">Research Group</span>
-
-                        </a>
-                    </li>
-                    @endcan
-                    @can('papers-list')
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#ManagePublications" aria-expanded="false" aria-controls="ManagePublications">
-                            <i class="menu-icon mdi mdi-book-open-page-variant"></i>
-                            <span class="menu-title">Manage Publications</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ManagePublications">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{ route('papers.index')}}">Published research</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/books">Book</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/patents">ผลงานวิชาการอื่นๆ</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    @endcan
-                    @can('export')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('exportfile')}}" >
-                            <i class="menu-icon mdi mdi-file-export"></i>
-                            <span class="menu-title">Export</span>
-                        </a>
-                    </li>
-                    @endcan
-                    @can('user-list')
-                    <li class="nav-item nav-category">Admin</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('users.index')}}">
-                            <i class="menu-icon mdi mdi-account-multiple-outline"></i>
-                            <span class="menu-title">Users</span>
-
-                        </a>
-                    </li>
-                    @endcan
-                    @can('role-list')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('roles.index')}}">
-                            <i class="menu-icon mdi mdi-chart-gantt"></i>
-                            <span class="menu-title">Roles</span>
-
-                        </a>
-                    </li>
-                    @endcan
-                    @can('permission-list')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('permissions.index')}}">
-                            <i class="menu-icon mdi mdi-checkbox-marked-circle-outline"></i>
-                            <span class="menu-title">Permission</span>
-
-                        </a>
-                    </li>
-                    @endcan
-                    @can('departments-list')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('departments.index')}}">
-                            <i class="menu-icon mdi mdi-animation-outline"></i>
-                            <span class="menu-title">Departments</span>
-
-                        </a>
-                    </li>
-                    @endcan
-
-                    @can('programs-list')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('programs.index')}}">
-                            <i class="menu-icon mdi mdi-format-list-bulleted"></i>
-                            <span class="menu-title">Manage Programs</span>
+                        <a class="nav-link" href="{{ route('logs.index')}}">
+                            <i class="menu-icon mdi mdi-view-grid"></i>
+                            <span class="menu-title">Over all</span>
 
                         </a>
                     </li>
                     @endcan
                     @can('expertises-list')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('experts.index')}}">
-                            <i class="menu-icon mdi mdi-buffer"></i>
-                            <span class="menu-title">Manage Expertise</span>
+                        <a class="nav-link" href="{{ route('logs.index')}}">
+                            <i class="menu-icon mdi mdi-file-account"></i>
+                            <span class="menu-title">Log Login</span>
 
                         </a>
                     </li>
                     @endcan
                     @can('expertises-list')
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="{{ route('logs.index')}}">
-                            <i class="menu-icon mdi mdi-monitor-multiple"></i>
-                            <span class="menu-title">Logs System</span>
+                        <a class="nav-link" href="{{ route('logs.index')}}">
+                            <i class="menu-icon mdi mdi-file-excel"></i>
+                            <span class="menu-title">Log Error</span>
 
                         </a>
                     </li>
