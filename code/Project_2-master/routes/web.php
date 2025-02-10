@@ -39,8 +39,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
 
+use App\Http\Controllers\LogController;
+
 use App\Models\SystemLog;
 use Illuminate\Support\Facades\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -142,6 +145,10 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('tests', [TestController::class, 'index']); //call department
     Route::get('tests/{id}', [TestController::class, 'getCategory'])->name('tests'); //call program
 
+    Route::get('logs', [LogController::class, 'index'])->name('logs.index'); // กำหนดชื่อ route
+    Route::get('/logs/overall', [LogController::class, 'overall'])->name('logs.overall');
+    Route::get('/logs/login', [LogController::class, 'login'])->name('logs.login');
+    Route::get('/logs/error', [LogController::class, 'error'])->name('logs.error');
 });
 
 
