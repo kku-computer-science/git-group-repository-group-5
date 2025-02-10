@@ -41,8 +41,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -142,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <ul class="nav">
                     @can('expertises-list')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logs.index')}}">
+                        <a class="nav-link" href="{{ route('logs.overall')}}">
                             <i class="menu-icon mdi mdi-view-grid"></i>
                             <span class="menu-title">Over all</span>
 
@@ -151,7 +151,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @endcan
                     @can('expertises-list')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logs.index')}}">
+                        <a class="nav-link" href="{{ route('logs.login')}}">
                             <i class="menu-icon mdi mdi-file-account"></i>
                             <span class="menu-title">Log Login</span>
 
@@ -160,7 +160,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @endcan
                     @can('expertises-list')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logs.index')}}">
+                        <a class="nav-link" href="{{ route('logs.error')}}">
                             <i class="menu-icon mdi mdi-file-excel"></i>
                             <span class="menu-title">Log Error</span>
 
