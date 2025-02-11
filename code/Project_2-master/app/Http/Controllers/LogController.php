@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Expertise;
 use App\Models\Fund;
 use App\Models\User;
+use App\Models\SystemLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\SystemLog;
@@ -30,6 +31,7 @@ class LogController extends Controller
 
     return view('logs.index', compact('experts')); // ส่งข้อมูล $experts ไปยัง view
     }
+
 
     public function overall()
     {
@@ -70,17 +72,37 @@ class LogController extends Controller
 
     public function login()
     {
-        $id = auth()->user()->id;
+        $id = auth()->id();
+
         if (auth()->user()->hasRole('admin')) {
             $experts = Expertise::all();
+            $logs = SystemLog::with('user')
+                ->whereIn('description', [
+                    'Accessed URL: http://127.0.0.1:8000/login',
+                    'Accessed URL: http://127.0.0.1:8000/logout'
+                ])
+                ->latest()
+                ->get();
         } else {
+
             $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
-                $query->where('users.id', '=', $id);
-            })->paginate(10);
+                $query->where('users.id', $id);
+            })->get();
+
+
+            $logs = SystemLog::with('user')
+                ->where('user_id', $id)
+                ->whereIn('description', [
+                    'Accessed URL: http://127.0.0.1:8000/login',
+                    'Accessed URL: http://127.0.0.1:8000/logout'
+                ])
+                ->latest()
+                ->get();
         }
 
-        return view('logs.logs-login', compact('experts'));
+        return view('logs.logs-login', compact('experts', 'logs'));
     }
+
     public function error()
     {
         $id = auth()->user()->id;
@@ -102,5 +124,5 @@ class LogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
 
