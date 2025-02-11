@@ -39,7 +39,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
 
-
 use App\Http\Controllers\LogController;
 
 use App\Models\SystemLog;
@@ -152,8 +151,6 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('/logs/error', [LogController::class, 'error'])->name('logs.error');
 });
 
-    Route::get('logs/graphData', [LogController::class, 'graphData'])->name('logs.graphData');
-
 
 Route::get('/test-log', function () {
     $log = SystemLog::create([
@@ -186,3 +183,7 @@ Route::get('files/{file}', [FileUpload::class, 'download'])->name('download');*/
 //Route::post('programs', [DropdownController::class, 'getPrograms']);
 //Route::get('tests', [TestController::class, 'index'])->name('tests.index');
 //Route::get('users/create/{id}',[UserController::class, 'getCategory']);
+
+
+// add export
+Route::get('/logs/export', [LogController::class, 'export'])->name('logs.export');

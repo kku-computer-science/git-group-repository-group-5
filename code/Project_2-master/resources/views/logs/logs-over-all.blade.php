@@ -43,7 +43,15 @@
             <a href="{{ route('logs.overall') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-500">
                 Reset
             </a>
+            <a href="{{ route('logs.export', ['format' => 'csv'] + request()->query()) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+        Export CSV
+    </a>
+    <a href="{{ route('logs.export', ['format' => 'json'] + request()->query()) }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        Export JSON
+    </a>
         </div>
+</div>
+
     </form>
 </div>
 
