@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Expertise;
-use App\Models\Fund;
+use App\Models\SystemLog;
 use App\Models\User;
 use App\Models\SystemLog;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-
 
 
 class LogController extends Controller
@@ -18,29 +18,64 @@ class LogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-    $id = auth()->user()->id;
-    if (auth()->user()->hasRole('admin')) {
-        $experts = Expertise::all();
-    } else {
-        $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
-            $query->where('users.id', '=', $id);
-        })->paginate(10);
-    }
-
-    return view('logs.index', compact('experts')); // ส่งข้อมูล $experts ไปยัง view
-    }
-
-
-    public function overall()
+    public function index()
     {
-        // ดึงข้อมูลสำหรับตาราง
-        $logs = SystemLog::with('user')->latest()->paginate(perPage: 50);
+        $id = auth()->user()->id;
+        if (auth()->user()->hasRole('admin')) {
+            $experts = Expertise::all();
+        } else {
+            $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
+                $query->where('users.id', '=', $id);
+            })->paginate(10);
+        }
 
-        // สร้างข้อมูลสำหรับกราฟ - จัดกลุ่มตามชั่วโมง
-        $logsData = SystemLog::selectRaw('HOUR(created_at) as hour, COUNT(*) as count')
-        ->whereDate('created_at', now()->toDateString())
-            ->groupBy('hour')
+        return view('logs.index', compact('experts'));
+    }
+
+public function overall(Request $request)
+    {
+        // Base query with user relationship
+        $query = SystemLog::with('user')->latest();
+
+        // Apply user filter
+        if ($request->filled('user_id')) {
+            $query->where('user_id', $request->user_id);
+        }
+
+        // Apply date filter
+        if ($request->filled('selected_date')) {
+            $selectedDate = Carbon::parse($request->selected_date);
+            $query->whereDate('created_at', $selectedDate);
+        } else {
+            // Default to today if no date selected
+            $query->whereDate('created_at', Carbon::today());
+        }
+
+        // Get users for filter dropdown
+        $users = User::whereIn('id', SystemLog::select('user_id')->distinct())
+                    ->select('id', 'email')
+                    ->orderBy('email')
+                    ->get();
+
+        // Get paginated logs for table
+        $logs = $query->paginate(50);
+
+        // Create chart data - group by hour for the selected date
+        $chartQuery = SystemLog::selectRaw('HOUR(created_at) as hour, COUNT(*) as count');
+        
+        // Apply user filter to chart data
+        if ($request->filled('user_id')) {
+            $chartQuery->where('user_id', $request->user_id);
+        }
+
+        // Use the selected date for the chart, default to today
+        $chartDate = $request->filled('selected_date') 
+            ? Carbon::parse($request->selected_date)->toDateString()
+            : now()->toDateString();
+        
+        $chartQuery->whereDate('created_at', $chartDate);
+
+        $logsData = $chartQuery->groupBy('hour')
             ->orderBy('hour')
             ->get()
             ->map(function ($item) {
@@ -50,7 +85,7 @@ class LogController extends Controller
                 ];
             });
 
-        // เติมชั่วโมงที่ไม่มีข้อมูล
+        // Fill in missing hours with zero counts
         $fullData = collect(range(0, 23))->map(function ($hour) use ($logsData) {
             $hourData = $logsData->firstWhere('hour', $hour);
             return [
@@ -61,12 +96,11 @@ class LogController extends Controller
 
         return view('logs.logs-over-all', [
             'logs' => $logs,
-            'logsData' => $fullData
+            'users' => $users,
+            'logsData' => $fullData,
+            'selectedDate' => $chartDate
         ]);
     }
-
-
-
 
 
     public function login()
@@ -115,13 +149,5 @@ class LogController extends Controller
 
         return view('logs.logs-error', compact('experts'));
     }
+
 }
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-
