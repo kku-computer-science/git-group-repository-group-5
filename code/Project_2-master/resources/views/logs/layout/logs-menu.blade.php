@@ -47,7 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <body>
     <div class=" container-scroller sidebar-dark">
-        <!-- navbar ข้างบน 
+        <!-- navbar ข้างบน
     -->
         <nav class=" navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
@@ -61,7 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- {{ Auth::user()->fname }} {{ Auth::user()->lname }} -->
             <!-- Left navbar links -->
             <div class="navbar-menu-wrapper d-flex align-items-top">
-                <ul class="navbar-nav">
+                {{--  <ul class="navbar-nav">
                     <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
                         <h1 class="welcome-text">Research Information Management System <span
                                 class="text-black fw-bold"></span></h1>
@@ -116,14 +116,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i>
                                 FAQ</a>
                             <a class="dropdown-item"><i
-                                    class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a> -->
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); 
-                        document.getElementById ('logout-form').submit();"> {{ __('Logout') }} <i class="mdi mdi-logout"></i></a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </li>
+                                    class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a> -->  --}}
+                                    <li class="nav-item d-none d-sm-inline-block ms-auto">
+                                        <a class="nav-link text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }} <i class="mdi mdi-logout"></i>
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+
             </div>
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
