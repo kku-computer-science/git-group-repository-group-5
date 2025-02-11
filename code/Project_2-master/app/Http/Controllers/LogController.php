@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\SystemLog;
+//add export
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 
 
@@ -68,6 +70,47 @@ class LogController extends Controller
 
         return view('logs.logs-error', compact('experts'));
     }
+    //add function export
+
+
+public function export(Request $request)
+{
+    $format = $request->query('format', 'csv'); // ค่าเริ่มต้นเป็น CSV
+
+    if ($format === 'json') {
+        return response()->json(SystemLog::all());
+    }
+
+    $response = new StreamedResponse(function () {
+        $handle = fopen('php://output', 'w');
+
+        // เขียน Header ของไฟล์ CSV
+        fputcsv($handle, ['ID', 'User ID', 'Action', 'Description', 'IP Address', 'Created At']);
+
+        // ดึงข้อมูลจากฐานข้อมูลทีละชุด
+        SystemLog::orderBy('created_at', 'desc')->chunk(100, function ($logs) use ($handle) {
+            foreach ($logs as $log) {
+                fputcsv($handle, [
+                    $log->id,
+                    $log->user_id,
+                    $log->action,
+                    $log->description,
+                    $log->ip_address,
+                    $log->created_at,
+                ]);
+            }
+        });
+
+        fclose($handle);
+    });
+
+    $response->headers->set('Content-Type', 'text/csv');
+    $response->headers->set('Content-Disposition', 'attachment; filename="system_logs.csv"');
+
+    return $response;
+}
+
+
 }
 
 
