@@ -12,6 +12,8 @@ class SystemLog extends Model
 
     protected $fillable = ['user_id', 'action', 'description', 'ip_address'];
 
+    public $timestamps = true;
+
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Expertise;
 use App\Models\SystemLog;
 use App\Models\User;
+use App\Models\SystemLog;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -29,7 +30,7 @@ class LogController extends Controller
         return view('logs.index', compact('experts'));
     }
 
-    public function overall(Request $request)
+public function overall(Request $request)
     {
         // Base query with user relationship
         $query = SystemLog::with('user')->latest();
@@ -99,18 +100,38 @@ class LogController extends Controller
         ]);
     }
 
+
     public function login()
     {
-        $id = auth()->user()->id;
+        $id = auth()->id();
+
         if (auth()->user()->hasRole('admin')) {
             $experts = Expertise::all();
+            $logs = SystemLog::with('user')
+                ->whereIn('description', [
+                    'Accessed URL: http://127.0.0.1:8000/login',
+                    'Accessed URL: http://127.0.0.1:8000/logout'
+                ])
+                ->latest()
+                ->get();
         } else {
+
             $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
-                $query->where('users.id', '=', $id);
-            })->paginate(10);
+                $query->where('users.id', $id);
+            })->get();
+
+
+            $logs = SystemLog::with('user')
+                ->where('user_id', $id)
+                ->whereIn('description', [
+                    'Accessed URL: http://127.0.0.1:8000/login',
+                    'Accessed URL: http://127.0.0.1:8000/logout'
+                ])
+                ->latest()
+                ->get();
         }
 
-        return view('logs.logs-login', compact('experts'));
+        return view('logs.logs-login', compact('experts', 'logs'));
     }
 
     public function error()
@@ -126,4 +147,5 @@ class LogController extends Controller
 
         return view('logs.logs-error', compact('experts'));
     }
+
 }
