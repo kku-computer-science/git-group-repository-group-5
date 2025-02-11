@@ -58,7 +58,7 @@
             data: {
                 labels: data.map(item => `${String(item.hour).padStart(2, '0')}:00`),
                 datasets: [{
-                    label: 'จำนวนการเข้าใช้งานระบบ (รายชั่วโมง ใส)',
+                    label: 'จำนวนการเข้าใช้งานระบบ (รายชั่วโมง)',
                     data: data.map(item => item.count),
                     fill: true,
                     borderColor: 'rgb(75, 192, 192)',
