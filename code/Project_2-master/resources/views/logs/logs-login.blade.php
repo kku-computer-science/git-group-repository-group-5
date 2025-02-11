@@ -1,5 +1,5 @@
 @extends('logs.layout.logs-menu')
-@section('title','Dashboard')
+@section('title', 'Dashboard')
 
 @section('content')
 <div class="container">
@@ -26,7 +26,7 @@
                         <td>{{ $log->action }}</td>
                         <td>{{ $log->description }}</td>
                         <td>{{ $log->ip_address }}</td>
-                        <td>{{ $log->created_at }}</td>
+                        <td>{{ $log->created_at->format('Y-m-d H:i:s') }}</td> <!-- แสดงวันที่ในรูปแบบที่เข้าใจง่าย -->
                     </tr>
                     @endforeach
                 </tbody>

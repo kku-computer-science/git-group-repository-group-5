@@ -45,25 +45,38 @@ class LogController extends Controller
     public function login()
     {
         $id = auth()->id();
+
         if (auth()->user()->hasRole('admin')) {
             $experts = Expertise::all();
+
+            // ใช้ whereIn แทน where เพื่อกรองค่า description ที่ตรงกับ URL 'login' และ 'logout'
             $logs = SystemLog::with('user')
-                ->where('action', 'User Activity')
+                ->whereIn('description', [
+                    'Accessed URL: http://127.0.0.1:8000/login',
+                    'Accessed URL: http://127.0.0.1:8000/logout'
+                ])
                 ->latest()
                 ->get();
         } else {
+            // สำหรับกรณีที่ไม่ใช่ admin กรองตาม user_id
             $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
                 $query->where('users.id', $id);
             })->get();
 
+            // ดึง log ของ user นี้ และไม่กรองตาม action
             $logs = SystemLog::with('user')
                 ->where('user_id', $id)
+                ->whereIn('description', [
+                    'Accessed URL: http://127.0.0.1:8000/login',
+                    'Accessed URL: http://127.0.0.1:8000/logout'
+                ])
                 ->latest()
                 ->get();
         }
 
         return view('logs.logs-login', compact('experts', 'logs'));
     }
+
     public function error()
     {
         $id = auth()->user()->id;
