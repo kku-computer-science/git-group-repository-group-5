@@ -39,6 +39,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
 
+
 use App\Http\Controllers\LogController;
 
 use App\Models\SystemLog;
@@ -150,6 +151,8 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('/logs/login', [LogController::class, 'login'])->name('logs.login');
     Route::get('/logs/error', [LogController::class, 'error'])->name('logs.error');
 });
+
+    Route::get('logs/graphData', [LogController::class, 'graphData'])->name('logs.graphData');
 
 
 Route::get('/test-log', function () {
