@@ -7,6 +7,8 @@ use App\Models\SystemLog;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Log;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class LogController extends Controller
 {
@@ -146,5 +148,60 @@ public function overall(Request $request)
 
         return view('logs.logs-error', compact('experts'));
     }
+    
+   public function export(Request $request)
+{
+    $format = $request->query('format', 'csv'); // ค่าเริ่มต้นเป็น CSV
 
+    // กรองข้อมูลตามที่ผู้ใช้เลือก
+    $query = SystemLog::query();
+
+    if ($request->filled('user_id')) {
+        $query->where('user_id', $request->user_id);
+    }
+
+    if ($request->filled('selected_date')) {
+        $selectedDate = Carbon::parse($request->selected_date);
+        $query->whereDate('created_at', $selectedDate);
+    }
+
+    // ถ้าเลือก JSON ให้ส่งออก JSON
+    if ($format === 'json') {
+        return response()->json($query->get());
+    }
+
+    // ถ้าเลือก CSV ให้ส่งออก CSV
+    $response = new StreamedResponse(function () use ($query) {
+        $handle = fopen('php://output', 'w');
+
+        // เขียน Header ของไฟล์ CSV
+        fputcsv($handle, ['NO', 'ID', 'User ID', 'Action', 'Description', 'IP Address', 'Created At']);
+
+        $rowNumber = 1; // เริ่มจาก row 1
+
+        // ดึงข้อมูลตามเงื่อนไขที่กำหนดและเขียนลงไฟล์ CSV
+        $query->orderBy('created_at', 'desc')->chunk(100, function ($logs) use ($handle, &$rowNumber) {
+            foreach ($logs as $log) {
+                fputcsv($handle, [
+                    $rowNumber++, // เพิ่มลำดับ row
+                    $log->id,
+                    $log->user_id,
+                    $log->action,
+                    $log->description,
+                    $log->ip_address,
+                    $log->created_at,
+                ]);
+            }
+        });
+
+        fclose($handle);
+    });
+
+    $response->headers->set('Content-Type', 'text/csv');
+    $response->headers->set('Content-Disposition', 'attachment; filename="filtered_logs.csv"');
+
+    return $response;
+}
+
+    
 }
