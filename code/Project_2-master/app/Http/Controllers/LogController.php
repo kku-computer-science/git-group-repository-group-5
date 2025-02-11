@@ -29,30 +29,23 @@ class LogController extends Controller
         return view('logs.index', compact('experts'));
     }
 
-    /**
-     * Display overall system logs with filtering options.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function overall(Request $request)
     {
+        // Base query with user relationship
         $query = SystemLog::with('user')->latest();
 
-        // Filter logs using selected user_id
+        // Apply user filter
         if ($request->filled('user_id')) {
             $query->where('user_id', $request->user_id);
         }
 
-        // Filter by date range
-        if ($request->filled('start_date')) {
-            $start_date = Carbon::parse($request->start_date)->startOfDay();
-            $query->where('created_at', '>=', $start_date);
-        }
-
-        if ($request->filled('end_date')) {
-            $end_date = Carbon::parse($request->end_date)->endOfDay();
-            $query->where('created_at', '<=', $end_date);
+        // Apply date filter
+        if ($request->filled('selected_date')) {
+            $selectedDate = Carbon::parse($request->selected_date);
+            $query->whereDate('created_at', $selectedDate);
+        } else {
+            // Default to today if no date selected
+            $query->whereDate('created_at', Carbon::today());
         }
 
         // Get users for filter dropdown
@@ -61,9 +54,49 @@ class LogController extends Controller
                     ->orderBy('email')
                     ->get();
 
+        // Get paginated logs for table
         $logs = $query->paginate(50);
 
-        return view('logs.logs-over-all', compact('logs', 'users'));
+        // Create chart data - group by hour for the selected date
+        $chartQuery = SystemLog::selectRaw('HOUR(created_at) as hour, COUNT(*) as count');
+        
+        // Apply user filter to chart data
+        if ($request->filled('user_id')) {
+            $chartQuery->where('user_id', $request->user_id);
+        }
+
+        // Use the selected date for the chart, default to today
+        $chartDate = $request->filled('selected_date') 
+            ? Carbon::parse($request->selected_date)->toDateString()
+            : now()->toDateString();
+        
+        $chartQuery->whereDate('created_at', $chartDate);
+
+        $logsData = $chartQuery->groupBy('hour')
+            ->orderBy('hour')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'hour' => (int)$item->hour,
+                    'count' => (int)$item->count
+                ];
+            });
+
+        // Fill in missing hours with zero counts
+        $fullData = collect(range(0, 23))->map(function ($hour) use ($logsData) {
+            $hourData = $logsData->firstWhere('hour', $hour);
+            return [
+                'hour' => $hour,
+                'count' => $hourData ? $hourData['count'] : 0
+            ];
+        })->values();
+
+        return view('logs.logs-over-all', [
+            'logs' => $logs,
+            'users' => $users,
+            'logsData' => $fullData,
+            'selectedDate' => $chartDate
+        ]);
     }
 
     public function login()
