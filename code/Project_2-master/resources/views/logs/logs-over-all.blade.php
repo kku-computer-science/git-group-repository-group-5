@@ -35,7 +35,7 @@
                         class="mb-2 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div class="w-full md:w-1/2">
-                    <label for="per_page" class="text-gray-700 font-bold">Records per page:</label>
+                    <label for="per_page" class="text-gray-700 font-bold mb-3">Records per page:</label>
                     <select name="per_page" id="per_page" class="border rounded py-1 px-3" onchange="this.form.submit()">
                         <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>10</option>
                         <option value="25" {{ request('per_page') == 25 ? 'selected' : '' }}>25</option>
