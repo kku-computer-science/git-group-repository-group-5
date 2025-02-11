@@ -6,15 +6,10 @@ use App\Models\Expertise;
 use App\Models\SystemLog;
 use App\Models\User;
 use Illuminate\Http\Request;
-
 use Carbon\Carbon;
 use App\Models\Log;
 use Symfony\Component\HttpFoundation\StreamedResponse;
-
 use Illuminate\Support\Facades\Auth;
-
-
-
 
 
 class LogController extends Controller
