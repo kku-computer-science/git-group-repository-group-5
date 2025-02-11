@@ -47,6 +47,8 @@
 
 <!-- Chart Script -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const data = @json($logsData);
@@ -56,35 +58,109 @@
             data: {
                 labels: data.map(item => `${String(item.hour).padStart(2, '0')}:00`),
                 datasets: [{
-                    label: 'จำนวนการเข้าใช้งานระบบ',
+                    label: 'จำนวนการเข้าใช้งานระบบ (รายชั่วโมง ใส)',
                     data: data.map(item => item.count),
                     fill: true,
                     borderColor: 'rgb(75, 192, 192)',
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    tension: 0.1
+                    tension: 0.1,
+                    datalabels: {
+                        align: 'top',
+                        color: 'black',
+                        font: {
+                            weight: 'bold',
+                            size: 12
+                        },
+                        formatter: function(value) {
+                            return value;
+                        }
+                    }
                 }]
             },
+            // ตัวอย่างการเพิ่มชื่อแกนในกราฟ
             options: {
                 responsive: true,
                 plugins: {
                     legend: {
                         position: 'top',
+                        labels: {
+                            font: {
+                                size: 14
+                            }
+                        }
                     },
                     title: {
                         display: true,
-                        text: 'จำนวนการเข้าใช้งานระบบตามช่วงเวลา'
+                        text: 'จำนวนการเข้าใช้งานระบบตามช่วงเวลา',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    datalabels: {
+                        display: true,
+                        color: 'black',
+                        font: {
+                            weight: 'bold',
+                            size: 12
+                        }
                     }
                 },
                 scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'เวลา (ชั่วโมง)', // เพิ่มชื่อแกน x ที่นี่
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            padding: {
+                                top: 10
+                            }
+                        },
+                        grid: {
+                            display: true,
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
                     y: {
+                        title: {
+                            display: true,
+                            text: 'จำนวนครั้งที่เข้าใช้งาน', // เพิ่มชื่อแกน y ที่นี่
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            padding: {
+                                bottom: 10
+                            }
+                        },
                         beginAtZero: true,
                         ticks: {
-                            stepSize: 1
+                            stepSize: 1,
+                            font: {
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            display: true,
+                            color: 'rgba(0, 0, 0, 0.1)'
                         }
                     }
                 }
             }
+
         });
     });
 </script>
+
+
+
 @endsection
