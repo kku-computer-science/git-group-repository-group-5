@@ -7,7 +7,14 @@ use App\Models\SystemLog;
 use App\Models\User;
 use App\Models\SystemLog;
 use Illuminate\Http\Request;
+
 use Carbon\Carbon;
+
+use Illuminate\Support\Facades\Auth;
+
+
+
+
 
 class LogController extends Controller
 {
@@ -108,9 +115,9 @@ public function overall(Request $request)
         if (auth()->user()->hasRole('admin')) {
             $experts = Expertise::all();
             $logs = SystemLog::with('user')
-                ->whereIn('description', [
-                    'Accessed URL: http://127.0.0.1:8000/login',
-                    'Accessed URL: http://127.0.0.1:8000/logout'
+                ->whereIn('action', [
+                    'Login',
+                    'Logout'
                 ])
                 ->latest()
                 ->get();
@@ -124,8 +131,8 @@ public function overall(Request $request)
             $logs = SystemLog::with('user')
                 ->where('user_id', $id)
                 ->whereIn('description', [
-                    'Accessed URL: http://127.0.0.1:8000/login',
-                    'Accessed URL: http://127.0.0.1:8000/logout'
+                    'Login',
+                    'Logout'
                 ])
                 ->latest()
                 ->get();
