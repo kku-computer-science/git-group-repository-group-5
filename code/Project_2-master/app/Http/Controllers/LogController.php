@@ -7,6 +7,9 @@ use App\Models\Fund;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\SystemLog;
+
+
 
 class LogController extends Controller
 {
@@ -27,19 +30,17 @@ class LogController extends Controller
 
     return view('logs.index', compact('experts')); // ส่งข้อมูล $experts ไปยัง view
     }
-    
-    public function overall(){
-    $id = auth()->user()->id;
-    if (auth()->user()->hasRole('admin')) {
-        $experts = Expertise::all();
-    } else {
-        $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
-            $query->where('users.id', '=', $id);
-        })->paginate(10);
+
+    public function overall()
+    {
+        // ตัวอย่างการดึงข้อมูล logs
+        $logs = SystemLog::with('user')->latest()->paginate(50);
+
+        // ส่งตัวแปร $logs ไปยัง View 'logs.logs-over-all'
+        return view('logs.logs-over-all', compact('logs'));
     }
 
-    return view('logs.logs-over-all', compact('experts'));
-    }
+
 
     public function login()
     {
