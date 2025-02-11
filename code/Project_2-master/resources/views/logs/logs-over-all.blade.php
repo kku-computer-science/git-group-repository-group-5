@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container mx-auto px-4">
-    <h3 class="mt-3 text-xl font-semibold">Overall</h3>
+    <h3 class="mt-3 font-semibold">Overall</h3>
 
     <!-- Chart Section -->
     <div class="mb-5 bg-white p-4 rounded-lg shadow">
@@ -11,7 +11,7 @@
     </div>
 
     <!-- Table Section -->
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto fs-6">
         <table class="w-full">
             <thead style="background-color: black;" class="bg-black text-white">
                 <tr>
