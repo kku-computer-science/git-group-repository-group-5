@@ -56,12 +56,12 @@ class LogController extends Controller
                 ->latest()
                 ->get();
         } else {
-        
+
             $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
                 $query->where('users.id', $id);
             })->get();
 
-        
+
             $logs = SystemLog::with('user')
                 ->where('user_id', $id)
                 ->whereIn('description', [
