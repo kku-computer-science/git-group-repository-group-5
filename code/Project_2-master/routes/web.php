@@ -145,8 +145,9 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('tests', [TestController::class, 'index']); //call department
     Route::get('tests/{id}', [TestController::class, 'getCategory'])->name('tests'); //call program
 
-    Route::get('logs', [LogController::class, 'index'])->name('logs.index'); // กำหนดชื่อ route
+    
     Route::middleware(['auth', 'isAdmin'])->group(function () {
+        Route::get('logs', [LogController::class, 'index'])->name('logs.index'); // กำหนดชื่อ route
         Route::get('/logs/overall', [LogController::class, 'overall'])->name('logs.overall');
         Route::get('/logs/login', [LogController::class, 'login'])->name('logs.login');
         Route::get('/logs/error', [LogController::class, 'error'])->name('logs.error');
