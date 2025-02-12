@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container mx-auto px-4">
-    <h3 class="mt-3 font-semibold">Overall</h3>
+    <h3 class="mb-3 font-semibold">Over all</h3>
 
     <!-- Chart Section -->
     <div class="mb-5 bg-white p-4 rounded-lg shadow">
@@ -71,42 +71,42 @@
             <tr>
                 <th class="px-4 py-2 w-1/2">
                     <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'id', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
-                        No @if(request('sort') === 'id') {{ request('direction') === 'asc' ? '🔼' : '🔽' }} @endif
+                        No @if(request('sort') === 'id') @endif
                     </a>
                 </th>
 
                 <th class="px-4 py-2">
                     <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'user', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
                         User
-                        <span>{{ request('sort') === 'user' ? (request('direction') === 'asc' ? '🔼' : '🔽') : '🔼' }}</span>
+                        <span>{{ request('sort') === 'user' ? '' : '' }}</span>
+
                     </a>
                 </th>
 
                 <th class="px-4 py-2">
                     <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'action', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
                         Action
-                        <span>{{ request('sort') === 'action' ? (request('direction') === 'asc' ? '🔼' : '🔽') : '🔼' }}</span>
+                        <span>{{ request('sort') === 'action' ? '' : ''}}</span>
                     </a>
                 </th>
 
                 <th class="px-4 py-2">
                     <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'description', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
                         Description
-                        <span>{{ request('sort') === 'description' ? (request('direction') === 'asc' ? '🔼' : '🔽') : '🔼' }}</span>
+                        <span>{{ request('sort') === 'description' ? '' : '' }}</span>
                     </a>
                 </th>
 
                 <th class="px-4 py-2">
                     <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'ip_address', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
                         IP Address
-                        <span>{{ request('sort') === 'ip_address' ? (request('direction') === 'asc' ? '🔼' : '🔽') : '🔼' }}</span>
+                        <span>{{ request('sort') === 'ip_address' ? '' : ''}}</span>
                     </a>
                 </th>
 
                 <th class="px-4 py-2">
                     <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'created_at', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
-                        Created At
-                        <span>{{ request('sort') === 'created_at' ? (request('direction') === 'asc' ? '🔼' : '🔽') : '🔼' }}</span>
+                        Date <span>{{ request('sort') === 'created_at' ? '' : ''}}</span>
                     </a>
                 </th>
             </tr>
