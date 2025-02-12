@@ -35,54 +35,69 @@ class LogController extends Controller
 
     public function overall(Request $request)
     {
-        // รับค่าจำนวน record ที่ต้องการแสดง (ค่าเริ่มต้น 50)
+        // กำหนดคอลัมน์ที่สามารถเรียงลำดับได้
+        $allowedSortColumns = [
+            'id' => 'system_logs.id',
+            'user' => 'users.email',
+            'action' => 'system_logs.action',
+            'description' => 'system_logs.description',
+            'ip_address' => 'system_logs.ip_address',
+            'created_at' => 'system_logs.created_at'
+        ];
+
+        // รับค่าการเรียงจากผู้ใช้ และตรวจสอบทิศทางการเรียง
+        $sort = $request->input('sort', 'id'); // เริ่มต้นที่ 'id'
+        $direction = in_array(strtolower($request->input('direction')), ['asc', 'desc'])
+        ? strtolower($request->input('direction'))
+        : 'asc'; // ค่าเริ่มต้นเป็น 'asc'
+
+        // ค่าที่รับมาจากการกรอกจำนวนการแสดงข้อมูล (จำนวนบรรทัดต่อหน้า)
         $perPage = $request->input('per_page', 50);
 
-        // Base query with user relationship
-        $query = SystemLog::with('user')->latest();
+        // สร้างคำสั่ง query หลัก
+        $query = SystemLog::query()
+            ->leftJoin('users', 'system_logs.user_id', '=', 'users.id')
+            ->select('system_logs.*', 'users.email as user_email');
 
-        // Apply user filter
+        // การกรองข้อมูลตามผู้ใช้
         if ($request->filled('user_id')) {
-            $query->where('user_id', $request->user_id);
+            $query->where('system_logs.user_id', $request->user_id);
         }
 
-        // Apply date filter
-        if ($request->filled('selected_date')) {
-            $selectedDate = Carbon::parse($request->selected_date);
-            $query->whereDate('created_at', $selectedDate);
-        } else {
-            // Default to today if no date selected
-            $selectedDate = $request->query('selected_date', Carbon::today()->toDateString());
-            $query->whereDate('created_at', $selectedDate);
+        // การกรองข้อมูลตามวันที่
+        $selectedDate = $request->filled('selected_date')
+        ? Carbon::parse($request->selected_date)
+            : Carbon::today();
+
+        $query->whereDate('system_logs.created_at', $selectedDate);
+
+        // การจัดเรียงข้อมูลตามคอลัมน์ที่ผู้ใช้เลือก
+        if (isset($allowedSortColumns[$sort])) {
+            $query->orderBy($allowedSortColumns[$sort], $direction);
         }
 
-        // Get users for filter dropdown
+        // รับข้อมูลผู้ใช้สำหรับเลือกใน dropdown filter
         $users = User::whereIn('id', SystemLog::select('user_id')->distinct())
             ->select('id', 'email')
             ->orderBy('email')
             ->get();
 
-        // Get paginated logs for table (ใช้ perPage ที่กำหนด)
-        $logs = $query->paginate($perPage)->appends($request->except('page'));
+        // รับข้อมูล logs ที่แสดงเป็น pagination
+        $logs = $query->paginate($perPage)
+            ->appends($request->except('page'));
 
-        // Create chart data - group by hour for the selected date
-        $chartQuery = SystemLog::selectRaw('HOUR(created_at) as hour, COUNT(*) as count');
+        // สร้างข้อมูลสำหรับกราฟ (แบ่งตามชั่วโมง)
+        $chartQuery = SystemLog::selectRaw('HOUR(created_at) as hour, COUNT(*) as count')
+        ->whereDate('created_at', $selectedDate);
 
-        // Apply user filter to chart data
+        // การกรองข้อมูลตามผู้ใช้สำหรับกราฟ
         if ($request->filled('user_id')) {
             $chartQuery->where('user_id', $request->user_id);
         }
 
-        // Use the selected date for the chart, default to today
-        $chartDate = $request->filled('selected_date')
-            ? Carbon::parse($request->selected_date)->toDateString()
-            : now()->toDateString();
-
-        $chartQuery->whereDate('created_at', $chartDate);
-
         $logsData = $chartQuery->groupBy('hour')
-            ->orderBy('hour')
-            ->get()
+        ->orderBy('hour')
+        ->get()
             ->map(function ($item) {
                 return [
                     'hour' => (int)$item->hour,
@@ -90,7 +105,7 @@ class LogController extends Controller
                 ];
             });
 
-        // Fill in missing hours with zero counts
+        // เติมข้อมูลชั่วโมงที่ขาดหายด้วยค่า count เป็น 0
         $fullData = collect(range(0, 23))->map(function ($hour) use ($logsData) {
             $hourData = $logsData->firstWhere('hour', $hour);
             return [
@@ -99,14 +114,20 @@ class LogController extends Controller
             ];
         })->values();
 
+        // ส่งข้อมูลทั้งหมดไปยัง view
         return view('logs.logs-over-all', [
             'logs' => $logs,
             'users' => $users,
             'logsData' => $fullData,
             'selectedDate' => $selectedDate,
-            'perPage' => $perPage // ส่งค่า perPage ไปยัง view
+            'perPage' => $perPage,
+            'sort' => $sort,
+            'direction' => $direction
         ]);
     }
+
+
+
 
     public function login(Request $request)
     {

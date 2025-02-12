@@ -66,31 +66,67 @@
 
 <!-- Table Section -->
 <div class="overflow-x-auto fs-6">
-    <table class="w-full">
+    <table class="w-full ">
         <thead style="background-color: black;" class="bg-black text-white">
             <tr>
-                <th class=" px-4 py-2">No</th>
-                <th class=" px-4 py-2">User</th>
-                <th class=" px-4 py-2">Action</th>
-                <th class=" px-4 py-2">Description</th>
-                <th class=" px-4 py-2">IP Address</th>
-                <th class=" px-4 py-2">Created At</th>
+                <th class="px-4 py-2 w-1/2">
+                    <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'id', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
+                        No @if(request('sort') === 'id') {{ request('direction') === 'asc' ? '🔼' : '🔽' }} @endif
+                    </a>
+                </th>
+
+                <th class="px-4 py-2">
+                    <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'user', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
+                        User
+                        <span>{{ request('sort') === 'user' ? (request('direction') === 'asc' ? '🔼' : '🔽') : '🔼' }}</span>
+                    </a>
+                </th>
+
+                <th class="px-4 py-2">
+                    <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'action', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
+                        Action
+                        <span>{{ request('sort') === 'action' ? (request('direction') === 'asc' ? '🔼' : '🔽') : '🔼' }}</span>
+                    </a>
+                </th>
+
+                <th class="px-4 py-2">
+                    <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'description', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
+                        Description
+                        <span>{{ request('sort') === 'description' ? (request('direction') === 'asc' ? '🔼' : '🔽') : '🔼' }}</span>
+                    </a>
+                </th>
+
+                <th class="px-4 py-2">
+                    <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'ip_address', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
+                        IP Address
+                        <span>{{ request('sort') === 'ip_address' ? (request('direction') === 'asc' ? '🔼' : '🔽') : '🔼' }}</span>
+                    </a>
+                </th>
+
+                <th class="px-4 py-2">
+                    <a style="color:white; text-decoration:none;" href="{{ route('logs.overall', ['sort' => 'created_at', 'direction' => request('direction') === 'asc' ? 'desc' : 'asc'] + request()->query()) }}" class="hover:underline">
+                        Created At
+                        <span>{{ request('sort') === 'created_at' ? (request('direction') === 'asc' ? '🔼' : '🔽') : '🔼' }}</span>
+                    </a>
+                </th>
             </tr>
         </thead>
+
         <tbody>
             @foreach($logs as $index => $log)
             <tr style="background-color:rgb(235, 235, 235);" class="hover:bg-gray-100">
-                <td style="border:1px solid black;" class=" px-4 py-2">{{ $logs->firstItem() + $index }}</td>
-                <td style="border:1px solid black;" class=" px-4 py-2">{{ $log->user->email ?? 'N/A' }}</td>
-                <td style="border:1px solid black;" class=" px-4 py-2">{{ $log->action }}</td>
-                <td style="border:1px solid black;" class=" px-4 py-2">{{ $log->description }}</td>
-                <td style="border:1px solid black;" class=" px-4 py-2">{{ $log->ip_address }}</td>
-                <td style="border:1px solid black;" class=" px-4 py-2">{{ $log->created_at }}</td>
+                <td style="border:1px solid black;" class="px-4 py-2">{{ $logs->firstItem() + $index }}</td>
+                <td style="border:1px solid black;" class="px-4 py-2">{{ $log->user->email ?? 'N/A' }}</td>
+                <td style="border:1px solid black;" class="px-4 py-2">{{ $log->action }}</td>
+                <td style="border:1px solid black;" class="px-4 py-2">{{ $log->description }}</td>
+                <td style="border:1px solid black;" class="px-4 py-2">{{ $log->ip_address }}</td>
+                <td style="border:1px solid black;" class="px-4 py-2">{{ $log->created_at }}</td>
             </tr>
             @endforeach
         </tbody>
-
     </table>
+
+
 </div>
 
 <div class="mt-4">
