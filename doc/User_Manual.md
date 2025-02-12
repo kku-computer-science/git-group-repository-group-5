@@ -18,7 +18,9 @@
 1. คลิกที่เมนู **"Logs System"** เพื่อไปยังหน้าที่แสดงข้อมูลบันทึกการทำงาน  
    - ในหน้า **Logs System** จะมีข้อมูลเกี่ยวกับกิจกรรมต่างๆ ที่เกิดขึ้นภายในระบบ  
    ![Dashboard Page](../img/dashboardjpg.jpg)  
-   ![Log System Page](../img/logsystem.jpg)  
+   ![Log System Page](../img/logsystem.jpg)
+   ![Log Login Page](../img/loglogin.jpg)  
+
 
 2. ใช้ **ฟังก์ชัน Filter** เพื่อค้นหาข้อมูลที่ต้องการ โดยสามารถระบุเงื่อนไขการค้นหา เช่น  
    - **วันที่และเวลา (Date & Time)**  
