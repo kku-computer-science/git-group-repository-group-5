@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Expertise;
-use App\Models\SystemLog;
 use App\Models\User;
 use App\Models\SystemLog;
 use Illuminate\Http\Request;
