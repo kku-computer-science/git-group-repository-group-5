@@ -125,9 +125,6 @@ class LogController extends Controller
             'direction' => $direction
         ]);
     }
-
-
-    
     public function login(Request $request)
     {
         $id = auth()->id();
