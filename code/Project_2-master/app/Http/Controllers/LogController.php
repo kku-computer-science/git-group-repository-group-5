@@ -150,7 +150,7 @@ class LogController extends Controller
         } else {
             $selectedDate = Carbon::today();
             $query->whereDate('created_at', $selectedDate);
-        } 
+        }
 
         $sortColumn = $request->input('sort_column', 'created_at');
         $sortDirection = $request->input('sort_direction', 'desc');
