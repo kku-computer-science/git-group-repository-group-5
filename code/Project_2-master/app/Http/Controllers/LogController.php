@@ -52,7 +52,8 @@ class LogController extends Controller
             $query->whereDate('created_at', $selectedDate);
         } else {
             // Default to today if no date selected
-            $query->whereDate('created_at', Carbon::today());
+            $selectedDate = $request->query('selected_date', Carbon::today()->toDateString());
+            $query->whereDate('created_at', $selectedDate);
         }
 
         // Get users for filter dropdown
@@ -62,7 +63,7 @@ class LogController extends Controller
             ->get();
 
         // Get paginated logs for table (ใช้ perPage ที่กำหนด)
-        $logs = $query->paginate($perPage);
+        $logs = $query->paginate($perPage)->appends($request->except('page'));
 
         // Create chart data - group by hour for the selected date
         $chartQuery = SystemLog::selectRaw('HOUR(created_at) as hour, COUNT(*) as count');
@@ -102,7 +103,7 @@ class LogController extends Controller
             'logs' => $logs,
             'users' => $users,
             'logsData' => $fullData,
-            'selectedDate' => $chartDate,
+            'selectedDate' => $selectedDate,
             'perPage' => $perPage // ส่งค่า perPage ไปยัง view
         ]);
     }
@@ -128,7 +129,8 @@ class LogController extends Controller
             $selectedDate = Carbon::parse($request->selected_date);
             $query->whereDate('created_at', $selectedDate);
         } else {
-            $query->whereDate('created_at', Carbon::today());
+            $selectedDate = Carbon::today();
+            $query->whereDate('created_at', $selectedDate);
         }
 
         // Get users list for dropdown
@@ -141,12 +143,12 @@ class LogController extends Controller
 
         // กำหนดจำนวนเรคคอร์ดต่อหน้า
         $perPage = $request->input('per_page', 50);
-        $logs = $query->paginate($perPage);
+        $logs = $query->paginate($perPage)->appends($request->query());
 
         return view('logs.logs-login', [
             'logs' => $logs,
             'users' => $users,
-            'selectedDate' => $request->input('selected_date', Carbon::today()->toDateString()),
+            'selectedDate' => $selectedDate->toDateString(),
         ]);
     }
 
