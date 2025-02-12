@@ -6,7 +6,7 @@
     <h2 class="mb-4">User Login Logs</h2>
 
     <div class="mb-6">
-        <form action="{{ route('logs.overall') }}" method="GET" class="space-y-4">
+        <form action="{{ route('logs.login') }}" method="GET" class="space-y-4">
             <div class="flex flex-wrap gap-4">
                 <div class="w-full md:w-1/3">
                     <label for="user_id" class="block text-gray-700 font-bold mb-2">User :</label>
@@ -44,16 +44,8 @@
                 <button type="submit" style="text-decoration: none;" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">
                     Filter
                 </button>
-                <a href="{{ route('logs.overall') }}" style="text-decoration: none;" class="bg-gray-500 hover:bg-gray-700 text-black font-bold py-2 px-4 rounded">
+                <a href="{{ route('logs.login') }}" style="text-decoration: none;" class="bg-gray-500 hover:bg-gray-700 text-black font-bold py-2 px-4 rounded">
                     Reset
-                </a>
-                <a href="{{ route('logs.export', ['format' => 'csv'] + request()->query()) }}" style="text-decoration: none;"
-                    class="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded">
-                    Export CSV
-                </a>
-                <a href="{{ route('logs.export', ['format' => 'json'] + request()->query()) }}" style="text-decoration: none;"
-                    class="bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-2 px-4 rounded">
-                    Export JSON
                 </a>
             </div>
         </form>
@@ -64,14 +56,39 @@
         <table class="w-full">
             <thead style="background-color: black;" class="bg-black text-white">
                 <tr>
-                    <th class=" px-4 py-2">No</th>
-                    <th class=" px-4 py-2">User</th>
-                    <th class=" px-4 py-2">Action</th>
-                    <th class=" px-4 py-2">Description</th>
-                    <th class=" px-4 py-2">IP Address</th>
-                    <th class=" px-4 py-2">Date</th>
+                    <th class=" px-4 py-2">
+                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'id', 'sort_direction' => (request('sort_column') == 'id' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                            No
+                        </a>
+                    </th>
+                    <th class=" px-4 py-2">
+                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'user_id', 'sort_direction' => (request('sort_column') == 'user_id' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                            User
+                        </a>
+                    </th>
+                    <th class=" px-4 py-2">
+                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'action', 'sort_direction' => (request('sort_column') == 'action' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                            Action
+                        </a>
+                    </th>
+                    <th class=" px-4 py-2">
+                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'description', 'sort_direction' => (request('sort_column') == 'description' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                            Description
+                        </a>
+                    </th>
+                    <th class=" px-4 py-2">
+                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'ip_address', 'sort_direction' => (request('sort_column') == 'ip_address' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                            IP Address
+                        </a>
+                    </th>
+                    <th class=" px-4 py-2">
+                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'created_at', 'sort_direction' => (request('sort_column') == 'created_at' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                            Date
+                        </a>
+                    </th>
                 </tr>
             </thead>
+
             <tbody>
                 @foreach($logs as $index => $log)
                 <tr style="background-color:rgb(235, 235, 235);" class="hover:bg-gray-100">
