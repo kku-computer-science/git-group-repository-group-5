@@ -125,16 +125,11 @@ class LogController extends Controller
             'direction' => $direction
         ]);
     }
-
-
-
-
     public function login(Request $request)
     {
         $id = auth()->id();
         $query = SystemLog::with('user')
-            ->whereIn('action', ['Login', 'Logout'])
-            ->latest();
+            ->whereIn('action', ['Login', 'Logout']);
 
         // Apply user filter
         if (auth()->user()->hasRole('admin')) {
@@ -152,17 +147,20 @@ class LogController extends Controller
         } else {
             $selectedDate = Carbon::today();
             $query->whereDate('created_at', $selectedDate);
-        }
+        } 
 
-        // Get users list for dropdown
+        $sortColumn = $request->input('sort_column', 'created_at');
+        $sortDirection = $request->input('sort_direction', 'desc');
+        $query->orderBy($sortColumn, $sortDirection);
+
         $users = auth()->user()->hasRole('admin')
             ? User::whereIn('id', SystemLog::select('user_id')->distinct())
-            ->select('id', 'email')
-            ->orderBy('email')
-            ->get()
+                ->select('id', 'email')
+                ->orderBy('email')
+                ->get()
             : collect();
 
-        // กำหนดจำนวนเรคคอร์ดต่อหน้า
+
         $perPage = $request->input('per_page', 50);
         $logs = $query->paginate($perPage)->appends($request->query());
 
@@ -170,8 +168,11 @@ class LogController extends Controller
             'logs' => $logs,
             'users' => $users,
             'selectedDate' => $selectedDate->toDateString(),
+            'sortColumn' => $sortColumn,
+            'sortDirection' => $sortDirection,
         ]);
     }
+
 
     public function error()
     {
