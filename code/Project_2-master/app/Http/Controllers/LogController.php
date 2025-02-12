@@ -147,10 +147,10 @@ class LogController extends Controller
         } else {
             $selectedDate = Carbon::today();
             $query->whereDate('created_at', $selectedDate);
-        }
+        } 
 
-        $sortColumn = $request->input('sort_column', 'created_at'); 
-        $sortDirection = $request->input('sort_direction', 'desc'); 
+        $sortColumn = $request->input('sort_column', 'created_at');
+        $sortDirection = $request->input('sort_direction', 'desc');
         $query->orderBy($sortColumn, $sortDirection);
 
         $users = auth()->user()->hasRole('admin')
@@ -168,8 +168,8 @@ class LogController extends Controller
             'logs' => $logs,
             'users' => $users,
             'selectedDate' => $selectedDate->toDateString(),
-            'sortColumn' => $sortColumn,  
-            'sortDirection' => $sortDirection,  
+            'sortColumn' => $sortColumn,
+            'sortDirection' => $sortDirection,
         ]);
     }
 
