@@ -161,15 +161,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                     </li>
                     @endcan
-                    @can('expertises-list')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logs.error')}}">
-                            <i class="menu-icon mdi mdi-file-excel"></i>
-                            <span class="menu-title">Log Error</span>
-
-                        </a>
-                    </li>
-                    @endcan
                 </ul>
             </nav>
 
