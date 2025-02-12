@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="mb-4">User Login Logs</h2>
+    <h3 class="mb-4">User Login Logs</h3>
 
     <div class="mb-6">
         <form action="{{ route('logs.login') }}" method="GET" class="space-y-4">
@@ -57,32 +57,32 @@
             <thead style="background-color: black;" class="bg-black text-white">
                 <tr>
                     <th class=" px-4 py-2">
-                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'id', 'sort_direction' => (request('sort_column') == 'id' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                        <a style="color:white; text-decoration:none;" href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'id', 'sort_direction' => (request('sort_column') == 'id' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
                             No
                         </a>
                     </th>
                     <th class=" px-4 py-2">
-                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'user_id', 'sort_direction' => (request('sort_column') == 'user_id' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                        <a style="color:white; text-decoration:none;" href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'user_id', 'sort_direction' => (request('sort_column') == 'user_id' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
                             User
                         </a>
                     </th>
                     <th class=" px-4 py-2">
-                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'action', 'sort_direction' => (request('sort_column') == 'action' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                        <a style="color:white; text-decoration:none;" href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'action', 'sort_direction' => (request('sort_column') == 'action' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
                             Action
                         </a>
                     </th>
                     <th class=" px-4 py-2">
-                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'description', 'sort_direction' => (request('sort_column') == 'description' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                        <a style="color:white; text-decoration:none;" href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'description', 'sort_direction' => (request('sort_column') == 'description' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
                             Description
                         </a>
                     </th>
                     <th class=" px-4 py-2">
-                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'ip_address', 'sort_direction' => (request('sort_column') == 'ip_address' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                        <a style="color:white; text-decoration:none;" href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'ip_address', 'sort_direction' => (request('sort_column') == 'ip_address' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
                             IP Address
                         </a>
                     </th>
                     <th class=" px-4 py-2">
-                        <a href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'created_at', 'sort_direction' => (request('sort_column') == 'created_at' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
+                        <a style="color:white; text-decoration:none;" href="{{ route('logs.login', array_merge(request()->query(), ['sort_column' => 'created_at', 'sort_direction' => (request('sort_column') == 'created_at' && request('sort_direction') == 'asc') ? 'desc' : 'asc'])) }}" class="text-white">
                             Date
                         </a>
                     </th>

@@ -41,14 +41,7 @@ class ActivityLog
             return 'Login';
         } elseif ($request->is('logout')) {
             return 'Logout';
-        } elseif ($request->is('update-profile-info')) {
-            return 'Update Profile';
-        } elseif ($request->is('change-profile-picture')) {
-            return 'User Change Picture';
-        } elseif ($request->is('change-password')) {
-            return 'User Change Password';
-        }
-        else {
+        } else {
             return 'User Activity'; // ค่า default
         }
     }
