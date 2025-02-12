@@ -15,19 +15,53 @@ class LogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $id = auth()->user()->id;
-        if (auth()->user()->hasRole('admin')) {
-            $experts = Expertise::all();
-        } else {
-            $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
-                $query->where('users.id', '=', $id);
-            })->paginate(10);
-        }
+    // old code
+    // public function index()
+    // {
+    //     $id = auth()->user()->id;
+    //     if (auth()->user()->hasRole('admin')) {
+    //         $experts = Expertise::all();
+    //     } else {
+    //         $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
+    //             $query->where('users.id', '=', $id);
+    //         })->paginate(10);
+    //     }
 
-        return view('logs.index', compact('experts'));
+    //     return view('logs.index', compact('experts'));
+    // }
+
+    public function index(Request $request)
+{
+    $id = auth()->user()->id;
+
+    // ดึงค่าการกรองจาก Request
+    $user_id = $request->input('user_id');
+    $selected_date = $request->input('selected_date');
+
+    $query = Expertise::query();
+
+    // เฉพาะ admin สามารถเห็นทุกข้อมูล
+    if (!auth()->user()->hasRole('admin')) {
+        $query->whereHas('user', function ($q) use ($id) {
+            $q->where('users.id', $id);
+        });
     }
+
+    // กรองตาม user_id
+    if (!empty($user_id)) {
+        $query->where('user_id', $user_id);
+    }
+
+    // กรองตามวันที่
+    if (!empty($selected_date)) {
+        $query->whereDate('created_at', $selected_date);
+    }
+
+    $experts = $query->paginate(10)->appends($request->query()); // คงค่ากรองไว้เมื่อเปลี่ยนหน้า
+
+    return view('logs.index', compact('experts'));
+}
+
 
     public function overall(Request $request)
     {
@@ -55,7 +89,7 @@ class LogController extends Controller
                     ->get();
 
         // Get paginated logs for table
-        $logs = $query->paginate(50);
+        $logs = $query->paginate(25);
 
         // Create chart data - group by hour for the selected date
         $chartQuery = SystemLog::selectRaw('HOUR(created_at) as hour, COUNT(*) as count');
