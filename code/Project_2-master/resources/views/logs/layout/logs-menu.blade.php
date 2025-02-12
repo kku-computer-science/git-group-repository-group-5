@@ -51,6 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     -->
         <nav class=" navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+                
                 <div class="me-3">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button"
                         data-bs-toggle="minimize">
@@ -117,7 +118,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 FAQ</a>
                             <a class="dropdown-item"><i
                                     class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a> -->  --}}
+                                    <h2 class="ps-3">Logs System</h2>
                                     <li class="nav-item d-none d-sm-inline-block ms-auto">
+                                        
                                         <a class="nav-link text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }} <i class="mdi mdi-logout"></i>
@@ -157,15 +160,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a class="nav-link" href="{{ route('logs.login')}}">
                             <i class="menu-icon mdi mdi-file-account"></i>
                             <span class="menu-title">Log Login</span>
-
-                        </a>
-                    </li>
-                    @endcan
-                    @can('expertises-list')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logs.error')}}">
-                            <i class="menu-icon mdi mdi-file-excel"></i>
-                            <span class="menu-title">Log Error</span>
 
                         </a>
                     </li>
