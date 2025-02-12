@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="w-full md:w-1/3">
-                    <label for="per_page" class="block text-gray-700 font-bold mb-2">Records per page:</label>
+                    <label for="per_page" class="block text-gray-700 font-bold mb-3">Records per page:</label>
                     <select name="per_page" id="per_page" onchange="this.form.submit()"
                         class="mb-2 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
                         @foreach ([10, 20, 50, 100] as $size)
