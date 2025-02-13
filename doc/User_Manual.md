@@ -2,7 +2,7 @@
 
 ## 1. การเข้าสู่ระบบ (Login)
 
-[https://csgroup568.cpkkuhost.com/]([https://example.com](https://csgroup568.cpkkuhost.com/))
+ลิ้งค์งานของโปรเจคกลุ่ม : [https://csgroup568.cpkkuhost.com/]([https://example.com](https://csgroup568.cpkkuhost.com/))
 
 1. คลิกที่เมนู **"LOGIN"**  
 ![Index Page](../img/index.jpg)
