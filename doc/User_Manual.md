@@ -1,6 +1,9 @@
 # คู่มือการใช้งานระบบ (User Manual)
 
 ## 1. การเข้าสู่ระบบ (Login)
+
+[https://csgroup568.cpkkuhost.com/]([https://example.com](https://csgroup568.cpkkuhost.com/))
+
 1. คลิกที่เมนู **"LOGIN"**  
 ![Index Page](../img/index.jpg)
 
