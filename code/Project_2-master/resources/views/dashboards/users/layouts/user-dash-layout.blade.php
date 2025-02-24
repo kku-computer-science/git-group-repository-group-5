@@ -272,14 +272,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                     </li>
                     @endcan
-                    @role('admin')
+                    <!-- @role('admin')
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="{{ route('logs.overall') }}">
                             <i class="menu-icon mdi mdi-monitor-multiple"></i>
                             <span class="menu-title">Logs System</span>
                         </a>
                     </li>
-                    @endrole
+                    @endrole -->
 
                 </ul>
             </nav>
