@@ -19,6 +19,7 @@
         "phpoffice/phpword": "^0.18.3",
         "renanbr/bibtex-parser": "^2.1",
         "spatie/laravel-permission": "^5.4",
+        "stichoza/google-translate-php": "^5.2",
         "symfony/process": "^5.4",
         "yajra/laravel-datatables-oracle": "^9.19"
     },

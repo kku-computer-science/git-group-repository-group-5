@@ -11,6 +11,8 @@ use RenanBr\BibTexParser\Listener;
 use RenanBr\BibTexParser\Parser;
 use RenanBr\BibTexParser\Processor;
 
+use Stichoza\GoogleTranslate\GoogleTranslate;
+
 class HomeController extends Controller
 {
 
