@@ -49,7 +49,7 @@
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
-    
+
 
 </head>
 
@@ -65,7 +65,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item {{ request()->is('/') ? 'active' : ''}} ">
-                        <a class="nav-link" href="/">{{ trans('message.Home') }}</a>
+                        <a class="nav-link" href="/">{{ translateText('Home page') }}</a>
                     </li>
                     <li
                         class="nav-item dropdown {{ Request::routeIs('researchers') ? 'active' : '' }} {{ request()->is('detail*') ? 'active' : ''}} ">
