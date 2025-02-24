@@ -44,6 +44,8 @@ use App\Http\Controllers\LogController;
 use App\Models\SystemLog;
 use Illuminate\Support\Facades\Request;
 
+use Stichoza\GoogleTranslate\GoogleTranslate;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,6 +81,8 @@ Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 //Route::get('/researchers',[ResearcherController::class,'index'])->name('researchers');
 Route::get('researchers/{id}', [ResearcherController::class, 'request'])->name('researchers');
 Route::get('researchers/{id}/search', [ResearcherController::class, 'search'])->name('searchresearchers');
@@ -93,7 +97,9 @@ Route::get('excel', [PDFController::class, 'generateInvoiceExcel'])->name('excel
 
 Route::get('detail/{id}', [ProfileController::class, 'request'])->name('detail');
 Route::get('index', [LocalizationController::class, 'index']);
+
 Route::get('lang/{lang}', ['as' => 'langswitch', 'uses' => 'App\Http\Controllers\LocalizationController@switchLang']);
+
 Route::get('/export', [ExportPaperController::class, 'exportUsers'])->name('export-papers');
 Route::get('bib/{id}', [BibtexController::class, 'getbib'])->name('bibtex');
 
