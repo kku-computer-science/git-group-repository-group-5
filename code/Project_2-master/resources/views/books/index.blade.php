@@ -14,59 +14,60 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">Book</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('books.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> {{ translateText('ADD ') }}</a>
-            <!-- <div class="table-responsive"> -->
-            <table id="example1" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>{{ translateText('No. ') }}</th>
-                        <th>{{ translateText('name ') }}</th>
-                        <th>{{ translateText('Year ') }}</th>
-                        <th>{{ translateText('Publication source ') }}</th>
-                        <th>{{ translateText('page ') }}</th>
-                        <th width="280px">{{ translateText('Action ') }}</th>
-                    </tr>
-                    <thead>
-                    <tbody>
-                        @foreach ($books as $i=>$paper)
-                        <tr>
-                            <td>{{ $i+1 }}</td>
-                            <td>{{ Str::limit($paper->ac_name,50) }}</td>
-                            <td>{{ date('Y', strtotime($paper->ac_year))+543 }}</td>
-                            <td>{{ translateText(Str::limit($paper->ac_sourcetitle, 50), 'th') }}</td>
+            <h4 class="card-title">{{ translateText('Book') }}
+                <Book< /h4>
+                    <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('books.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> {{ translateText('ADD ') }}</a>
+                    <!-- <div class="table-responsive"> -->
+                    <table id="example1" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>{{ translateText('No. ') }}</th>
+                                <th>{{ translateText('name ') }}</th>
+                                <th>{{ translateText('Year ') }}</th>
+                                <th>{{ translateText('Publication source ') }}</th>
+                                <th>{{ translateText('page ') }}</th>
+                                <th width="280px">{{ translateText('Action ') }}</th>
+                            </tr>
+                            <thead>
+                            <tbody>
+                                @foreach ($books as $i=>$paper)
+                                <tr>
+                                    <td>{{ $i+1 }}</td>
+                                    <td>{{ Str::limit($paper->ac_name,50) }}</td>
+                                    <td>{{ date('Y', strtotime($paper->ac_year))+543 }}</td>
+                                    <td>{{ translateText(Str::limit($paper->ac_sourcetitle, 50), 'th') }}</td>
 
-                            <td>{{ $paper->ac_page}}</td>
-                            <td>
-                                <form action="{{ route('books.destroy',$paper->id) }}" method="POST">
+                                    <td>{{ $paper->ac_page}}</td>
+                                    <td>
+                                        <form action="{{ route('books.destroy',$paper->id) }}" method="POST">
 
-                                    <!-- <a class="btn btn-info" href="{{ route('books.show',$paper->id) }}">Show</a> -->
-                                    <li class="list-inline-item">
-                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('books.show',$paper->id) }}"><i class="mdi mdi-eye"></i></a>
-                                    </li>
-                                    <!-- <a class="btn btn-primary" href="{{ route('books.edit',$paper->id) }}">Edit</a> -->
-                                    @if(Auth::user()->can('update',$paper))
-                                    <li class="list-inline-item">
-                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('books.edit',$paper->id) }}"><i class="mdi mdi-pencil"></i></a>
-                                    </li>
-                                    @endif
+                                            <!-- <a class="btn btn-info" href="{{ route('books.show',$paper->id) }}">Show</a> -->
+                                            <li class="list-inline-item">
+                                                <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('books.show',$paper->id) }}"><i class="mdi mdi-eye"></i></a>
+                                            </li>
+                                            <!-- <a class="btn btn-primary" href="{{ route('books.edit',$paper->id) }}">Edit</a> -->
+                                            @if(Auth::user()->can('update',$paper))
+                                            <li class="list-inline-item">
+                                                <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('books.edit',$paper->id) }}"><i class="mdi mdi-pencil"></i></a>
+                                            </li>
+                                            @endif
 
-                                    @if(Auth::user()->can('delete',$paper))
-                                    @csrf
-                                    @method('DELETE')
-                                    <li class="list-inline-item">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
-                                    </li>
-                                    @endif
-                                    <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                <tbody>
-            </table>
-            <!-- </div> -->
-            <br>
+                                            @if(Auth::user()->can('delete',$paper))
+                                            @csrf
+                                            @method('DELETE')
+                                            <li class="list-inline-item">
+                                                <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                            </li>
+                                            @endif
+                                            <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                        <tbody>
+                    </table>
+                    <!-- </div> -->
+                    <br>
 
         </div>
     </div>
