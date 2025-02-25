@@ -1,5 +1,6 @@
 <?php
 return [
+
     'ขอนแก่น: โรงพิมพ์คลังนานาวิทยา' => 'ขอนแก่น: โรงพิมพ์คลังนานาวิทยา',
     'Addcourse' => '添加课程',
     'ID' => '编号',
@@ -56,4 +57,6 @@ return [
     'type' => '类型',
     'Registration' => '注册号',
     'Date' => '注册日期',
+    'ขอนแก่น: โรงพิมพ์คลังนานาวิทยา' => 'Khon Kaen: Klang Nana Witthaya Printing House',
+
 ];

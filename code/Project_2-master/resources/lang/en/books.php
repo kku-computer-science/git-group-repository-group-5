@@ -1,5 +1,6 @@
 <?php
 return [
+
     'Addcourse' => 'Add course',
     'ID' => 'ID',
     'Code' => 'Code',
@@ -53,5 +54,6 @@ return [
     'type' => 'type',
     'Registration' => 'Registration Number',
     'Date' => 'Date of Registration',
+    'ขอนแก่น: โรงพิมพ์คลังนานาวิทยา' => 'Khon Kaen: Klang Nana Witthaya Printing House',
 
 ];
