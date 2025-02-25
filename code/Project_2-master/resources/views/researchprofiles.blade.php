@@ -212,7 +212,16 @@
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                            {{$paper->paper_type_th}}
+                            @elseif(app()->getLocale() == 'zh')
+                            {{$paper->paper_type_cn}}
+                            @else
+                            {{$paper->paper_type}}
+                            @endif
+                        </td>
+
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
@@ -275,7 +284,16 @@
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                            {{$paper->paper_type_th}}
+                            @elseif(app()->getLocale() == 'zh')
+                            {{$paper->paper_type_cn}}
+                            @else
+                            {{$paper->paper_type}}
+                            @endif
+                        </td>
+
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
@@ -334,7 +352,16 @@
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                            {{$paper->paper_type_th}}
+                            @elseif(app()->getLocale() == 'zh')
+                            {{$paper->paper_type_cn}}
+                            @else
+                            {{$paper->paper_type}}
+                            @endif
+                        </td>
+
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
@@ -393,7 +420,16 @@
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                            {{$paper->paper_type_th}}
+                            @elseif(app()->getLocale() == 'zh')
+                            {{$paper->paper_type_cn}}
+                            @else
+                            {{$paper->paper_type}}
+                            @endif
+                        </td>
+
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
