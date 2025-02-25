@@ -56,4 +56,6 @@ return [
     'type' => '类型',
     'Registration' => '注册号',
     'Date' => '注册日期',
+    'Supervisor' => '实验室主管',
+    'Student' => '学生',
 ];

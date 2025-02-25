@@ -53,5 +53,7 @@ return [
     'type' => 'type',
     'Registration' => 'Registration Number',
     'Date' => 'Date of Registration',
+    'Supervisor' => 'Laboratory Supervisor',
+    'Student' => 'Student',
 
 ];
