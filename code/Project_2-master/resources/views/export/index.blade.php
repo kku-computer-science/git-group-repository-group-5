@@ -99,64 +99,64 @@ $(document).ready(function() {
     </div>
     @endif
     <div class="card" style="padding: 16px;">
-        <div class="card-body">
-            <h4 class="card-title">Users</h4>
-            <!-- <p class="card-description">สามารถ Export ข้อมูลของอาจารย์แต่ละท่าน</p> -->
-            <!-- <div class="search-box">
-                <div class="input-group">
-                    <input type="text" id="search" class="form-control" placeholder="Search by Name">
-                    <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
-                </div>
-            </div> -->
-
-            <div class="table-responsive mt-5">
-                <table id="example1" class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>หลักสูตร</th>
-                            <th>Email</th>
-                            <th>Roles</th>
-                            <th width="280px">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i=1 ?>
-                        @foreach ($data as $key => $user)
-                        <tr>
-                            <td>{{ $i++ }}</td>
-                            <td>{{ $user->fname_en }} {{ $user->lname_en }} </td>
-                            <td>{{ $user->program->program_name_en }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>
-                                @if(!empty($user->getRoleNames()))
-                                @foreach($user->getRoleNames() as $val)
-                                <label class="badge badge-dark">{{ $val }}</label>
-                                @endforeach
-                                @endif
-                            </td>
-                            <td>
-                                <a class="btn btn-danger btn-sm" type="button" data-toggle="tooltip"
-                                    data-placement="top" title="PDF" href="{{ route('pdf', ['id' => $user->id]) }}"><i
-                                        class="mdi mdi-file-pdf"></i></a>
-
-                                <a class="btn btn-success btn-sm" type="button" data-toggle="tooltip"
-                                    data-placement="top" title="EXCEL" href="{{ route('excel', ['id' => $user->id]) }}"><i
-                                        class="mdi mdi-file-excel"></i></a>
-
-                                <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip"
-                                    data-placement="top" title="WORD" href="{{ route('docx', ['id' => $user->id]) }}"><i
-                                        class="mdi mdi-file-word"></i></a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-
+    <div class="card-body">
+        <h4 class="card-title">{{ translateText('Users') }}</h4>
+        <!-- <p class="card-description">สามารถ Export ข้อมูลของอาจารย์แต่ละท่าน</p> -->
+        <!-- <div class="search-box">
+            <div class="input-group">
+                <input type="text" id="search" class="form-control" placeholder="{{ translateText('Search by Name') }}">
+                <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
             </div>
+        </div> -->
+
+        <div class="table-responsive mt-5">
+            <table id="example1" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{{ translateText('Name') }}</th>
+                        <th>{{ translateText('หลักสูตร') }}</th>
+                        <th>{{ translateText('Email') }}</th>
+                        <th>{{ translateText('Roles') }}</th>
+                        <th width="280px">{{ translateText('Action') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $i=1 ?>
+                    @foreach ($data as $key => $user)
+                    <tr>
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $user->fname_en }} {{ $user->lname_en }} </td>
+                        <td>{{ $user->program->program_name_en }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>
+                            @if(!empty($user->getRoleNames()))
+                            @foreach($user->getRoleNames() as $val)
+                            <label class="badge badge-dark">{{ $val }}</label>
+                            @endforeach
+                            @endif
+                        </td>
+                        <td>
+                            <a class="btn btn-danger btn-sm" type="button" data-toggle="tooltip"
+                                data-placement="top" title="{{ translateText('PDF') }}" href="{{ route('pdf', ['id' => $user->id]) }}"><i
+                                    class="mdi mdi-file-pdf"></i></a>
+
+                            <a class="btn btn-success btn-sm" type="button" data-toggle="tooltip"
+                                data-placement="top" title="{{ translateText('EXCEL') }}" href="{{ route('excel', ['id' => $user->id]) }}"><i
+                                    class="mdi mdi-file-excel"></i></a>
+
+                            <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip"
+                                data-placement="top" title="{{ translateText('WORD') }}" href="{{ route('docx', ['id' => $user->id]) }}"><i
+                                    class="mdi mdi-file-word"></i></a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>

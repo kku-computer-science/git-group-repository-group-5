@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
-    <title>Laravel File Upload</title>
+    <title>{{ translateText('Laravel File Upload') }}</title>
     <style>
         .container {
             max-width: 500px;
@@ -23,7 +23,7 @@
 
     <div class="container mt-5">
         <form action="{{route('fileUpload')}}" method="post" enctype="multipart/form-data">
-          <h3 class="text-center mb-5">Upload File in Laravel</h3>
+          <h3 class="text-center mb-5">{{ translateText('Upload File in Laravel') }}</h3>
             @csrf
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -43,11 +43,11 @@
 
             <div class="custom-file">
                 <input type="file" name="file" class="custom-file-input" id="chooseFile">
-                <label class="custom-file-label" for="chooseFile">Select file</label>
+                <label class="custom-file-label" for="chooseFile">{{ translateText('Select file') }}</label>
             </div>
 
             <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
-                Upload Files
+                {{ translateText('Upload Files') }}
             </button>
         </form>
         

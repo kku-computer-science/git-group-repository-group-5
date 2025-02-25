@@ -33,7 +33,7 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">ความเชี่ยวชาญของอาจารย์</h4>
+            <h4 class="card-title" style="text-align: center;">{{ translateText('ความเชี่ยวชาญของอาจารย์') }}</h4>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
@@ -96,14 +96,14 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Name:</strong>
-                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="Expert_name" onchange="validate()">
+                                <strong>{{ translateText('Name:') }}</strong>
+                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="{{ translateText('Expert_name') }}" onchange="validate()">
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary " disabled>Submit</button>
-                            <a href="{{ route('experts.index') }}" class="btn btn-danger">Cancel</a>
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>{{ translateText('Submit') }}</button>
+                            <a href="{{ route('experts.index') }}" class="btn btn-danger">{{ translateText('Cancel') }}</a>
                         </div>
                     </div>
                 </form>
@@ -111,6 +111,7 @@
         </div>
     </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>

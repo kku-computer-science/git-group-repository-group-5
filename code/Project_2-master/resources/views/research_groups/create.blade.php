@@ -4,7 +4,7 @@
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{ translateText('Whoops!') }}</strong> {{ translateText('There were some problems with your input.') }}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -14,60 +14,60 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">สร้างกลุ่มวิจัย</h4>
-            <p class="card-description">กรอกข้อมูลแก้ไขรายละเอียดกลุ่มวิจัย</p>
+            <h4 class="card-title">{{ translateText('สร้างกลุ่มวิจัย') }}</h4>
+            <p class="card-description">{{ translateText('กรอกข้อมูลแก้ไขรายละเอียดกลุ่มวิจัย') }}</p>
             <form action="{{ route('researchGroups.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>ชื่อกลุ่มวิจัย (ภาษาไทย)</b></p>
+                    <p class="col-sm-3 "><b>{{ translateText('ชื่อกลุ่มวิจัย (ภาษาไทย)') }}</b></p>
                     <div class="col-sm-8">
                         <input name="group_name_th" value="{{ old('group_name_th') }}" class="form-control"
-                            placeholder="ชื่อกลุ่มวิจัย (ภาษาไทย)">
+                            placeholder="{{ translateText('ชื่อกลุ่มวิจัย (ภาษาไทย)') }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>ชื่อกลุ่มวิจัย (English)</b></p>
+                    <p class="col-sm-3 "><b>{{ translateText('ชื่อกลุ่มวิจัย (English)') }}</b></p>
                     <div class="col-sm-8">
                         <input name="group_name_en" value="{{ old('group_name_en') }}" class="form-control"
-                            placeholder="ชื่อกลุ่มวิจัย (English)">
+                            placeholder="{{ translateText('ชื่อกลุ่มวิจัย (English)') }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>คำอธิบายกลุ่มวิจัย (ภาษาไทย)</b></p>
+                    <p class="col-sm-3"><b>{{ translateText('คำอธิบายกลุ่มวิจัย (ภาษาไทย)') }}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_desc_th" value="{{ old('group_desc_th') }}" class="form-control"
-                            style="height:90px"></textarea>
+                            style="height:90px" placeholder="{{ translateText('คำอธิบายกลุ่มวิจัย (ภาษาไทย)') }}"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>คำอธิบายกลุ่มวิจัย (English)</b></p>
+                    <p class="col-sm-3"><b>{{ translateText('คำอธิบายกลุ่มวิจัย (English)') }}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_desc_en" value="{{ old('group_desc_en') }}" class="form-control"
-                            style="height:90px"></textarea>
+                            style="height:90px" placeholder="{{ translateText('คำอธิบายกลุ่มวิจัย (English)') }}"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>รายละเอียดกลุ่มวิจัย (ภาษาไทย)</b></p>
+                    <p class="col-sm-3"><b>{{ translateText('รายละเอียดกลุ่มวิจัย (ภาษาไทย)') }}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_detail_en" value="{{ old('group_detail_th') }}" class="form-control"
-                            style="height:90px"></textarea>
+                            style="height:90px" placeholder="{{ translateText('รายละเอียดกลุ่มวิจัย (ภาษาไทย)') }}"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>รายละเอียดกลุ่มวิจัย (English)</b></p>
+                    <p class="col-sm-3"><b>{{ translateText('รายละเอียดกลุ่มวิจัย (English)') }}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_detail_en" value="{{ old('group_detail_en') }}" class="form-control"
-                            style="height:90px"></textarea>
+                            style="height:90px" placeholder="{{ translateText('รายละเอียดกลุ่มวิจัย (English)') }}"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>image</b></p>
+                    <p class="col-sm-3"><b>{{ translateText('image') }}</b></p>
                     <div class="col-sm-8">
                         <input type="file" name="group_image" class="form-control" value="{{ old('group_image') }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>หัวหน้ากลุ่มวิจัย</b></p>
+                    <p class="col-sm-3"><b>{{ translateText('หัวหน้ากลุ่มวิจัย') }}</b></p>
                     <div class="col-sm-8">
                         <select id='head0' name="head">
                             @foreach($users as $user)
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 pt-4"><b>สมาชิกกลุ่มวิจัย</b></p>
+                    <p class="col-sm-3 pt-4"><b>{{ translateText('สมาชิกกลุ่มวิจัย') }}</b></p>
                     <div class="col-sm-8">
                         <table class="table" id="dynamicAddRemove">
                             <tr>
@@ -89,9 +89,9 @@
                         </table>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary upload mt-5">Submit</button>
-                <a class="btn btn-light mt-5" href="{{ route('researchGroups.index')}}"> Back</a>
-                </form>
+                <button type="submit" class="btn btn-primary upload mt-5">{{ translateText('Submit') }}</button>
+                <a class="btn btn-light mt-5" href="{{ route('researchGroups.index')}}">{{ translateText('Back') }}</a>
+            </form>
         </div>
     </div>
 </div>
@@ -136,7 +136,7 @@ $(document).ready(function() {
 
         ++i;
         $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-            '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="fas fa-minus"></i></button></td></tr>'
+            '][userid]"  style="width: 200px;"><option value="">{{ translateText("Select User") }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="fas fa-minus"></i></button></td></tr>'
             );
         $("#selUser" + i).select2()
     });
@@ -146,4 +146,5 @@ $(document).ready(function() {
 
 });
 </script>
+
 @stop
