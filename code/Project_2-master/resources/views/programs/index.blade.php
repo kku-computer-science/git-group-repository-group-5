@@ -25,47 +25,46 @@
 <div class="container">
     @if ($message = Session::get('success'))
     <div class="alert alert-success">
-        <p>{{ $message }}</p>
+        <p>{{ translateText($message) }}</p>
     </div>
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">หลักสูตร</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD </a>
+            <h4 class="card-title" style="text-align: center;">{{ translateText('หลักสูตร') }}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal">
+                <i class="mdi mdi-plus btn-icon-prepend"></i> {{ translateText('ADD') }}
+            </a>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>id</th>
-                        <th>Name (ไทย)</th>
-                        <!-- <th>Name (Eng)</th> -->
-                        <th>Degree</th>
-                        <th>Action</th>
+                        <th>{{ translateText('id') }}</th>
+                        <th>{{ translateText('Name (ไทย)') }}</th>
+                        <!-- <th>{{ translateText('Name (Eng)') }}</th> -->
+                        <th>{{ translateText('Degree') }}</th>
+                        <th>{{ translateText('Action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($programs as $i => $program)
                     <tr id="program_id_{{ $program->id }}">
-                        <td>{{ $i+1 }}</td>
-                        <td>{{ $program->program_name_th }}</td>
-                        <!-- <td>{{ $program->program_name_en }}</td> -->
-                        <td>{{ $program->degree->degree_name_en}}</td>
+                        <td>{{ translateText($i+1) }}</td>
+                        <td>{{ translateText($program->program_name_th) }}</td>
+                        <!-- <td>{{ translateText($program->program_name_en) }}</td> -->
+                        <td>{{ translateText($program->degree->degree_name_en) }}</td>
                         <td>
                             <form action="{{ route('programs.destroy',$program->id) }}" method="POST">
-                                <!-- <a class="btn btn-info" id="show-program" data-toggle="modal" data-id="{{ $program->id }}">Show</a> -->
-
-                                <!-- <a class="btn btn-outline-primary btn-sm" id="show-program" type="button" data-toggle="modal" data-placement="top" title="view" data-id="{{ $program->id }}"><i class="mdi mdi-eye"></i></a>
-                                     -->
-                                <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-program" data-toggle="modal" data-id="{{ $program->id }}">Edit </a> -->
                                 <li class="list-inline-item">
-                                    <a class="btn btn-outline-success btn-sm" id="edit-program" type="button" data-toggle="modal" data-id="{{ $program->id }}" data-placement="top" title="Edit" href="javascript:void(0)"><i class="mdi mdi-pencil"></i></a>
+                                    <a class="btn btn-outline-success btn-sm" id="edit-program" type="button" data-toggle="modal" data-id="{{ $program->id }}" data-placement="top" title="{{ translateText('Edit') }}" href="javascript:void(0)">
+                                        <i class="mdi mdi-pencil"></i>
+                                    </a>
                                 </li>
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 <li class="list-inline-item">
-                                    <button class="btn btn-outline-danger btn-sm " id="delete-program" type="submit" data-id="{{ $program->id }}" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                    <button class="btn btn-outline-danger btn-sm" id="delete-program" type="submit" data-id="{{ $program->id }}" data-toggle="tooltip" data-placement="top" title="{{ translateText('Delete') }}">
+                                        <i class="mdi mdi-delete"></i>
+                                    </button>
                                 </li>
                             </form>
-                            <!-- <a id="delete-program" data-id="{{ $program->id }}" class="btn btn-danger delete-user">Delete</a> -->
-
                         </td>
                     </tr>
                     @endforeach
@@ -74,6 +73,7 @@
         </div>
     </div>
 </div>
+
 
 
 <!-- Add and Edit program modal -->
@@ -90,44 +90,42 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>ระดับการศึกษา:</strong>
+                                <strong>{{ translateText('ระดับการศึกษา:') }}</strong>
                                 <div class="col-sm-8">
                                     <select id="degree" class="custom-select my-select" name="degree">
                                         @foreach($degree as $d)
-                                        <option value="{{$d->id}}">{{$d->degree_name_th}}</option>
+                                        <option value="{{$d->id}}">{{ translateText($d->degree_name_th) }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <strong>สาขาวิชา:</strong>
+                                <strong>{{ translateText('สาขาวิชา:') }}</strong>
                                 <div class="col-sm-8">
                                     <select id="department" class="custom-select my-select" name="department">
                                         @foreach($department as $d)
-                                        <option value="{{$d->id}}">{{$d->department_name_th}}</option>
+                                        <option value="{{$d->id}}">{{ translateText($d->department_name_th) }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <strong>Name TH:</strong>
-                                <input type="text" name="program_name_th" id="program_name_th" class="form-control" placeholder="program name th" onchange="validate()">
+                                <strong>{{ translateText('Name TH:') }}</strong>
+                                <input type="text" name="program_name_th" id="program_name_th" class="form-control" placeholder="{{ translateText('program name th') }}" onchange="validate()">
                             </div>
                             <div class="form-group">
-                                <strong>Name EH:</strong>
-                                <input type="text" name="program_name_en" id="program_name_en" class="form-control" placeholder="program_name_en" onchange="validate()">
+                                <strong>{{ translateText('Name EN:') }}</strong>
+                                <input type="text" name="program_name_en" id="program_name_en" class="form-control" placeholder="{{ translateText('program name en') }}" onchange="validate()">
                             </div>
-                            <!-- <div class="form-group">
-                                <strong>ระดับการศึกษา:</strong>
-                                <input type="text" name="degree_id" id="degree_id" class="form-control" placeholder="degree_id" onchange="validate()">
-                            </div> -->
-
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Submit</button>
-                            <a href="{{ route('programs.index') }}" class="btn btn-danger">Cancel</a>
-                            <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>
+                                {{ translateText('Submit') }}
+                            </button>
+                            <a href="{{ route('programs.index') }}" class="btn btn-danger">
+                                {{ translateText('Cancel') }}
+                            </a>
                         </div>
                     </div>
                 </form>
@@ -135,6 +133,7 @@
         </div>
     </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>

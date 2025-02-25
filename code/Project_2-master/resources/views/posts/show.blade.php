@@ -16,24 +16,25 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Post
+            <div class="card-header">{{ translateText('Post') }}
                 @can('role-create')
                     <span class="float-right">
-                        <a class="btn btn-primary" href="{{ route('posts.index') }}">Back</a>
+                        <a class="btn btn-primary" href="{{ route('posts.index') }}">{{ translateText('Back') }}</a>
                     </span>
                 @endcan
             </div>
             <div class="card-body">
                 <div class="lead">
-                    <strong>Title:</strong>
+                    <strong>{{ translateText('Title:') }}</strong>
                     {{ $post->title }}
                 </div>
                 <div class="lead">
-                    <strong>Body:</strong>
+                    <strong>{{ translateText('Body:') }}</strong>
                     {{ $post->body }}
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

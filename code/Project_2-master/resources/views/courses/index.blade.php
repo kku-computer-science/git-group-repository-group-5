@@ -11,8 +11,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">
-            <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-course" data-toggle="modal">Add
-                course</a>
+            <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-course" data-toggle="modal">{{ trans('books.Addcourse') }}</a>
         </div>
     </div>
 </div>
@@ -24,10 +23,10 @@
 @endif
 <table class="table table-bordered">
     <tr>
-        <th>ID</th>
-        <th>Code</th>
-        <th>Name</th>
-        <th width="280px">Action</th>
+        <th>{{ trans('books.ID') }}</th>
+        <th>{{ trans('books.Code') }}</th>
+        <th>{{ trans('books.Name') }}</th>
+        <th width="280px">{{ trans('books.Action') }}</th>
     </tr>
 
     @foreach ($courses as $course)
@@ -37,10 +36,10 @@
         <td>{{ $course->course_name }}</td>
         <td>
             <form action="{{ route('courses.destroy',$course->id) }}" method="POST">
-                <a class="btn btn-info" id="show-course" data-toggle="modal" data-id="{{ $course->id }}">Show</a>
-                <a href="javascript:void(0)" class="btn btn-success" id="edit-course" data-toggle="modal" data-id="{{ $course->id }}">Edit </a>
+                <a class="btn btn-info" id="show-course" data-toggle="modal" data-id="{{ $course->id }}">{{ trans('books.Show') }}</a>
+                <a href="javascript:void(0)" class="btn btn-success" id="edit-course" data-toggle="modal" data-id="{{ $course->id }}">{{ trans('books.Edit') }} </a>
                 <meta name="csrf-token" content="{{ csrf_token() }}">
-                <a id="delete-course" data-id="{{ $course->id }}" class="btn btn-danger delete-user">Delete</a>
+                <a id="delete-course" data-id="{{ $course->id }}" class="btn btn-danger delete-user">{{ trans('books.Delete') }}</a>
         </td>
         </form>
         </td>
@@ -63,12 +62,12 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Code:</strong>
+                                <strong>{{ trans('books.Code') }}:</strong>
                                 <input type="text" name="course_code" id="course_code" class="form-control"
                                     placeholder="course_code" onchange="validate()">
                             </div>
                             <div class="form-group">
-                                <strong>Name:</strong>
+                                <strong>{{ trans('books.Name') }}:</strong>
                                 <input type="text" name="course_name" id="course_name" class="form-control"
                                     placeholder="course_name" onchange="validate()">
                             </div>
@@ -76,8 +75,8 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary"
-                                disabled>Submit</button>
-                            <a href="{{ route('courses.index') }}" class="btn btn-danger">Cancel</a>
+                                disabled>{{ trans('books.Submit') }}</button>
+                            <a href="{{ route('courses.index') }}" class="btn btn-danger">{{ trans('books.Cancel') }}</a>
                             <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
                         </div>
                     </div>
@@ -90,64 +89,64 @@
 @stop
 @section('javascript')
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
 
-    /* When click New course button */
-    $('#new-course').click(function() {
-        $('#btn-save').val("create-course");
-        $('#course').trigger("reset");
-        $('#courseCrudModal').html("Add New course");
-        $('#crud-modal').modal('show');
-    });
-
-    /* Edit course */
-    $('body').on('click', '#edit-course', function() {
-        var course_id = $(this).data('id');
-        $.get('courses/' + course_id + '/edit', function(data) {
-            $('#courseCrudModal').html("Edit course");
-            $('#btn-update').val("Update");
-            $('#btn-save').prop('disabled', false);
+        /* When click New course button */
+        $('#new-course').click(function() {
+            $('#btn-save').val("create-course");
+            $('#course').trigger("reset");
+            $('#courseCrudModal').html("Add New course");
             $('#crud-modal').modal('show');
-            $('#course_id').val(data.id);
-            $('#course_code').val(data.course_code);
-            $('#course_name').val(data.course_name);
-        })
-    });
+        });
+
+        /* Edit course */
+        $('body').on('click', '#edit-course', function() {
+            var course_id = $(this).data('id');
+            $.get('courses/' + course_id + '/edit', function(data) {
+                $('#courseCrudModal').html("Edit course");
+                $('#btn-update').val("Update");
+                $('#btn-save').prop('disabled', false);
+                $('#crud-modal').modal('show');
+                $('#course_id').val(data.id);
+                $('#course_code').val(data.course_code);
+                $('#course_name').val(data.course_name);
+            })
+        });
 
 
-    /* Delete course */
-    $('body').on('click', '#delete-course', function() {
-        var course_id = $(this).data("id");
-        var token = $("meta[name='csrf-token']").attr("content");
-        confirm("Are You sure want to delete !");
+        /* Delete course */
+        $('body').on('click', '#delete-course', function() {
+            var course_id = $(this).data("id");
+            var token = $("meta[name='csrf-token']").attr("content");
+            confirm("Are You sure want to delete !");
 
-        $.ajax({
-            type: "DELETE",
-            url: "courses/" + course_id,
-            data: {
-                "id": course_id,
-                "_token": token,
-            },
-            success: function(data) {
-                $('#msg').html('course entry deleted successfully');
-                $("#course_id_" + course_id).remove();
-            },
-            error: function(data) {
-                console.log('Error:', data);
-            }
+            $.ajax({
+                type: "DELETE",
+                url: "courses/" + course_id,
+                data: {
+                    "id": course_id,
+                    "_token": token,
+                },
+                success: function(data) {
+                    $('#msg').html('course entry deleted successfully');
+                    $("#course_id_" + course_id).remove();
+                },
+                error: function(data) {
+                    console.log('Error:', data);
+                }
+            });
         });
     });
-});
 </script>
 
 @stop
 <script>
-error = false
+    error = false
 
-function validate() {
-    if (document.courseForm.course_code.value != '' && document.courseForm.course_name.value !='')
-        document.courseForm.btnsave.disabled = false
-    else
-        document.courseForm.btnsave.disabled = true
-}
+    function validate() {
+        if (document.courseForm.course_code.value != '' && document.courseForm.course_name.value != '')
+            document.courseForm.btnsave.disabled = false
+        else
+            document.courseForm.btnsave.disabled = true
+    }
 </script>
