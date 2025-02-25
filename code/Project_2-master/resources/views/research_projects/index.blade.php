@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
-@section('title','Project')
+@section('title', translateText('Project'))
 
 @section('content')
 
@@ -15,18 +15,18 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">โครงการวิจัย</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchProjects.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
+            <h4 class="card-title">{{ translateText('Research Project') }}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchProjects.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> {{ translateText('ADD') }}</a>
             <!-- <div class="table-responsive"> -->
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Year</th>
-                            <th>Project name</th>
-                            <th>Head</th>
-                            <th>Member</th>
-                            <th width="auto">Action</th>
+                            <th>{{ translateText('No.') }}</th>
+                            <th>{{ translateText('Year') }}</th>
+                            <th>{{ translateText('Project name') }}</th>
+                            <th>{{ trans('message.Head') }}</th>
+                            <th>{{ translateText('Member') }}</th>
+                            <th width="auto">{{ translateText('Action') }}</th>
                         </tr>
                         <thead>
                         <tbody>
@@ -39,24 +39,22 @@
                                 <td>
                                     @foreach($researchProject->user as $user)
                                     @if ( $user->pivot->role == 1)
-                                    {{ $user->fname_en}}
+                                    {{ $user->fname_en }}
                                     @endif
-
                                     @endforeach
                                 </td>
                                 <td>
                                     @foreach($researchProject->user as $user)
                                     @if ( $user->pivot->role == 2)
-                                    {{ $user->fname_en}}
+                                    {{ $user->fname_en }}
                                     @endif
-
                                     @endforeach
                                 </td>
                                 <td>
-                                    <form action="{{ route('researchProjects.destroy',$researchProject->id) }}"method="POST">
+                                    <form action="{{ route('researchProjects.destroy',$researchProject->id) }}" method="POST">
                                     <li class="list-inline-item">
                                     <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip"
-                                            data-placement="top" title="view"
+                                            data-placement="top" title="{{ translateText('view') }}"
                                             href="{{ route('researchProjects.show',$researchProject->id) }}"><i
                                                 class="mdi mdi-eye"></i></a>
                                     </li>
@@ -64,23 +62,23 @@
                                 <a class="btn btn-primary"
                                     href="{{ route('researchProjects.edit',$researchProject->id) }}">Edit</a>
                                 @endif -->
-                               
-                                        @if(Auth::user()->can('update',$researchProject)) 
+
+                                        @if(Auth::user()->can('update',$researchProject))
                                         <li class="list-inline-item">
                                         <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip"
-                                            data-placement="top" title="Edit"
+                                            data-placement="top" title="{{ translateText('Edit') }}"
                                             href="{{ route('researchProjects.edit',$researchProject->id) }}"><i
                                                 class="mdi mdi-pencil"></i></a>
-                                             </li>
+                                        </li>
                                         @endif
-                               
+
                                         @if(Auth::user()->can('delete',$researchProject))
                                         @csrf
                                         @method('DELETE')
 
                                         <li class="list-inline-item">
                                             <button class="btn btn-outline-danger btn-sm show_confirm" type="submit"
-                                                data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                                data-toggle="tooltip" data-placement="top" title="{{ translateText('Delete') }}"><i
                                                     class="mdi mdi-delete"></i></button>
                                         </li>
                                         @endif
@@ -89,14 +87,14 @@
                             </tr>
                             @endforeach
                     <tbody>
-                        
+
                 </table>
             <!-- </div> -->
             <br>
-            
+
         </div>
     </div>
-    
+
 
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -116,15 +114,18 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `{{ translateText('Are you sure?') }}`,
+                text: "{{ translateText('If you delete this, it will be gone forever.') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: "{{ translateText('Cancel') }}",
+                    confirm: "{{ translateText('OK') }}"
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ translateText('Delete Successfully') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
@@ -134,4 +135,5 @@
             });
     });
 </script>
+
 @stop

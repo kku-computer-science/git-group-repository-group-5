@@ -71,24 +71,24 @@
                         class="nav-item dropdown {{ Request::routeIs('researchers') ? 'active' : '' }} {{ request()->is('detail*') ? 'active' : ''}} ">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            {{ trans('message.Researchers') }}
+                            {{ translateText('Researchers') }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($dn as $department)
                             <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id])}}">
-                                    {{$department->program_name_en}}</a>
+                                {{ translateText($department->program_name_en) }}</a>
                             </li>
                             @endforeach
                         </ul>
                     </li>
                     <li class="nav-item {{ request()->is('researchproject') ? 'active' : ''}} ">
-                        <a class="nav-link" href="/researchproject">{{ trans('message.ResearchProj') }}</a>
+                        <a class="nav-link" href="/researchproject">{{ translateText('ResearchProj') }}</a>
                     </li>
                     <li class="nav-item {{ request()->is('researchgroup') ? 'active' : ''}}  ">
-                        <a class="nav-link" href="/researchgroup">{{ trans('message.ResearchGroup') }}</a>
+                        <a class="nav-link" href="/researchgroup">{{ translateText('ResearchGroup') }}</a>
                     </li>
                     <li class="nav-item {{ request()->is('reports') ? 'active' : ''}}">
-                        <a class="nav-link" href="/reports">{{ trans('message.Report') }}</a>
+                        <a class="nav-link" href="/reports">{{ translateText('Report') }}</a>
                     </li>
 
 
@@ -119,7 +119,7 @@
                 </span>
                 @else
                 <span class="nav-item">
-                    <a class="btn-solid-sm" href="/login" target="_blank">Login</a>
+                    <a class="btn-solid-sm" href="/login" target="_blank">{{ translateText('Login') }}</a>
                 </span>
                 @endauth
                 @endif

@@ -10,5 +10,6 @@ return [
 'publications' => 'Publications (In the Last 5 Years)',
 'education'=>'Education',
 'publications2' => 'Publications',
-'Head' => 'Head',
+'Head' => '团队领导',
+'วว/ดด/ปปปป' => '年/月/日',
 ];
