@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์</title>
+    <title>{{ trans('message.TitleHomePage') }}</title>
     <base href="{{ \URL::to('/') }}">
     <link href="img/Newlogo.png" rel="shortcut icon" type="image/x-icon" />
 
@@ -82,10 +82,10 @@
                         </ul>
                     </li>
                     <li class="nav-item {{ request()->is('researchproject') ? 'active' : ''}} ">
-                        <a class="nav-link" href="/researchproject">{{ translateText('ResearchProj') }}</a>
+                        <a class="nav-link" href="/researchproject">{{ translateText('Research Project') }}</a>
                     </li>
                     <li class="nav-item {{ request()->is('researchgroup') ? 'active' : ''}}  ">
-                        <a class="nav-link" href="/researchgroup">{{ translateText('ResearchGroup') }}</a>
+                        <a class="nav-link" href="/researchgroup">{{ translateText('Research Group') }}</a>
                     </li>
                     <li class="nav-item {{ request()->is('reports') ? 'active' : ''}}">
                         <a class="nav-link" href="/reports">{{ translateText('Report') }}</a>

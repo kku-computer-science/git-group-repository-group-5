@@ -84,7 +84,7 @@
         // กำหนดภาษาของ Datepicker ตามค่า locale ของแอป
         var currentLang = "{{ app()->getLocale() }}";
         // ถ้าเป็นภาษาจีน ใช้ 'zh-CN' แต่ถ้าไม่ใช่ให้ใช้ภาษาอื่น (ในตัวอย่างนี้ใช้ค่า currentLang)
-        var dpLang = currentLang === 'zh-CN' ? 'zh-CN' : currentLang;
+        var dpLang = currentLang === 'zh' ? 'zh' : currentLang;
         $('#datepicker').datepicker({
             format: 'yyyy-mm-dd',
             autoclose: true,

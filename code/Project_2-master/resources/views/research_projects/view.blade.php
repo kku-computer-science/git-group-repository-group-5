@@ -45,14 +45,18 @@
             <td>
                 @foreach($researchProject->user as $user)
                 @if ( $user->pivot->role == 1)
-                    {{ $user->name }}
+                    @if(app()->getLocale()=='th')
+                    {{ $user->fname_th }}
+                    @else
+                    {{ $user->fname_en }}
+                    @endif
                 @endif
                 @endforeach
             </td>
             <td>
                 @foreach($researchProject->user as $user)
                 @if ( $user->pivot->role == 2)
-                    {{ $user->name }}
+                    {{ $user->fname }}
                 @endif
                 @endforeach
             </td>
