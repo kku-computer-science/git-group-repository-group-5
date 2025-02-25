@@ -22,7 +22,7 @@
                     <tr>
                         <th>{{ translateText('No. ') }}</th>
                         <th>{{ translateText('name ') }}</th>
-                        <th>{{ translateText('Year(B.E.) ') }}</th>
+                        <th>{{ translateText('Year ') }}</th>
                         <th>{{ translateText('Publication source ') }}</th>
                         <th>{{ translateText('page ') }}</th>
                         <th width="280px">{{ translateText('Action ') }}</th>
@@ -34,7 +34,8 @@
                             <td>{{ $i+1 }}</td>
                             <td>{{ Str::limit($paper->ac_name,50) }}</td>
                             <td>{{ date('Y', strtotime($paper->ac_year))+543 }}</td>
-                            <td>{{ translateText(Str::limit($paper->ac_sourcetitle,50)) }}</td>
+                            <td>{{ translateText(Str::limit($paper->ac_sourcetitle, 50), 'th') }}</td>
+
                             <td>{{ $paper->ac_page}}</td>
                             <td>
                                 <form action="{{ route('books.destroy',$paper->id) }}" method="POST">

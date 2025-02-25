@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-
+                <!-- สามารถเพิ่มปุ่มหรือข้อมูลเพิ่มเติมได้ที่นี่ -->
             </div>
         </div>
     </div>
@@ -26,7 +26,6 @@
         </ul>
     </div>
     @endif
-    <!-- <a class="btn btn-primary" href="{{ route('books.index') }}"> Back </a> -->
 
     <div class="col-md-8 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
@@ -36,7 +35,6 @@
                 <form class="forms-sample" action="{{ translateText('store') }}" method="POST">
                     @csrf
 
-
                     <div class="form-group row">
                         <label for="exampleInputac_name" class="col-sm-3 col-form-label">{{ translateText('Book name') }}</label>
                         <div class="col-sm-9">
@@ -45,15 +43,18 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="exampleInputac_sourcetitle" class="col-sm-3 col-form-label">{{ translateText('xx') }}</label>
+                        <label for="exampleInputac_sourcetitle" class="col-sm-3 col-form-label">{{ translateText('Place of publication') }}</label>
                         <div class="col-sm-9">
                             <input type="text" name="ac_sourcetitle" class="form-control" placeholder="{{ translateText('Place of publication') }}">
                         </div>
                     </div>
+
+                    <!-- เปลี่ยน input type="date" เป็น input type="text" สำหรับ Datepicker -->
                     <div class="form-group row">
                         <label for="exampleInputac_year" class="col-sm-3 col-form-label">{{ translateText('Year (AD)') }}</label>
                         <div class="col-sm-9">
-                            <input type="date" name="ac_year" class="form-control" placeholder="{{ translateText('Year (AD)') }}">
+                            <input type="text" id="datepicker" name="ac_year" class="form-control"
+                                placeholder="{{ translateText('Year (AD)', 'en') }}">
                         </div>
                     </div>
 
@@ -64,7 +65,6 @@
                         </div>
                     </div>
 
-
                     <button type="submit" name="submit" id="submit" class="btn btn-primary me-2">{{ translateText('Submit') }}</button>
                     <a class="btn btn-light" href="{{ route('books.index')}}">{{ translateText('Cancel') }}</a>
                 </form>
@@ -72,30 +72,48 @@
         </div>
     </div>
 </div>
+
+<!-- เพิ่ม Bootstrap Datepicker CSS และ JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<!-- โหลด locale สำหรับ Bootstrap Datepicker ภาษา zh-CN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // กำหนดภาษาของ Datepicker ตามค่า locale ของแอป
+        var currentLang = "{{ app()->getLocale() }}";
+        // ถ้าเป็นภาษาจีน ใช้ 'zh-CN' แต่ถ้าไม่ใช่ให้ใช้ภาษาอื่น (ในตัวอย่างนี้ใช้ค่า currentLang)
+        var dpLang = currentLang === 'zh-CN' ? 'zh-CN' : currentLang;
+        $('#datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+            language: dpLang
+        });
+    });
+</script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         var postURL = "<?php echo url('addmore'); ?>";
         var i = 1;
-
 
         $('#add').click(function() {
             i++;
             $('#dynamic_field').append('<tr id="row' + i + '" class="dynamic-added"><td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
         });
 
-
         $(document).on('click', '.btn_remove', function() {
             var button_id = $(this).attr("id");
-            $('#row' + button_id + '').remove();
+            $('#row' + button_id).remove();
         });
-
 
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
 
         $('#submit').click(function() {
             $.ajax({
@@ -119,7 +137,6 @@
             });
         });
 
-
         function printErrorMsg(msg) {
             $(".print-error-msg").find("ul").html('');
             $(".print-error-msg").css('display', 'block');
@@ -131,43 +148,3 @@
     });
 </script>
 @endsection
-<!-- <form action="{{ route('books.store') }}" method="POST">
-        @csrf
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="paper_name" class="form-control" placeholder="paper_name">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Year:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_year" placeholder="paper_year"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>paper_type:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_type" placeholder="paper_type"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>paper_level:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_level" placeholder="paper_level"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>paper_details:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_details" placeholder="paper_details"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-
-    </form>
-</div> -->

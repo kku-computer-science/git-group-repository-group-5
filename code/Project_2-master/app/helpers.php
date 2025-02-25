@@ -22,26 +22,14 @@ if (!function_exists('makeAvatar')) {
 
 /**
  * TRANSLATE TEXT FUNCTION
- * ฟังก์ชันนี้จะใช้สำหรับแปลข้อความต้นฉบับ (ภาษาอังกฤษ)
- * ให้เป็นภาษาที่เลือกโดยใช้ stichoza/google-translate-php
+ * ฟังก์ชันแปลข้อความ
+ *
+ * @param string $text ข้อความที่ต้องการแปล
+ * @param string $sourceLang ภาษาต้นทางของข้อความ (default: 'en')
+ * @return string ข้อความที่แปลแล้ว หรือข้อความเดิมหากเกิดข้อผิดพลาด
  */
-// if (!function_exists('translateText')) {
-//   function translateText($text)
-//   {
-//     // ดึง locale ปัจจุบันของแอปพลิเคชัน
-//     $locale = app()->getLocale();
-//     // หาก locale ไม่ใช่ 'en' (ภาษาอังกฤษ) ให้แปลข้อความจากอังกฤษไปเป็น target locale
-//     if ($locale !== 'en') {
-//       $tr = new \Stichoza\GoogleTranslate\GoogleTranslate($locale);
-//       return $tr->translate($text);
-//     }
-//     // หากเป็นภาษาอังกฤษ ให้คืนค่าข้อความต้นฉบับ
-//     return $text;
-//   }
-// }
-
 if (!function_exists('translateText')) {
-  function translateText($text, $shouldTranslate = true)
+  function translateText($text, $sourceLang = 'en')
   {
     // ตรวจสอบค่า null หรือค่าว่าง
     if ($text === null || trim($text) === '') {
@@ -51,20 +39,21 @@ if (!function_exists('translateText')) {
     // แปลงค่าให้เป็น string อย่างชัดเจน
     $text = (string)$text;
 
-    // ดึง locale ปัจจุบันของแอปพลิเคชัน
-    $locale = app()->getLocale();
+    // ดึง target language จาก locale ปัจจุบันของแอปพลิเคชัน
+    $targetLang = app()->getLocale();
 
-    // หาก locale ไม่ใช่ 'en' ให้แปลข้อความ
-    if ($locale !== 'en') {
-      try {
-        $tr = new \Stichoza\GoogleTranslate\GoogleTranslate($locale);
-        return $tr->translate($text);
-      } catch (\Exception $e) {
-        \Log::error('Translation error: ' . $e->getMessage());
-        return $text;
-      }
+    // ถ้า target language เท่ากับภาษาต้นทาง ไม่ต้องแปล
+    if ($targetLang === $sourceLang) {
+      return $text;
     }
 
-    return $text;
+    try {
+      // สร้าง instance โดยระบุ target language และภาษาต้นทาง
+      $tr = new \Stichoza\GoogleTranslate\GoogleTranslate($targetLang, $sourceLang);
+      return $tr->translate($text);
+    } catch (\Exception $e) {
+      \Log::error('Translation error: ' . $e->getMessage());
+      return $text;
+    }
   }
 }

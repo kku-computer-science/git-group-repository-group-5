@@ -24,7 +24,7 @@
             </div>
 
             <div class="pull-right mt-5">
-                <a class="btn btn-primary btn-sm" href="{{ route('books.index') }}"> Back</a>
+                <a class="btn btn-primary btn-sm" href="{{ route('books.index') }}">{{ translateText('Back') }} </a>
             </div>
         </div>
 
