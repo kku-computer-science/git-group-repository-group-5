@@ -71,4 +71,6 @@ return [
     "EnterYourName" => "ชื่อ",
     "EnterYourLastName" => "นามสกุล",
     "SelectUser" => "เลือกผู้ประพันธ์",
+    "Whoops" => "ขออภัย",
+    "ThereWas" => "มีบางอย่างผิดพลาดในข้อมูลของคุณ"
 ];

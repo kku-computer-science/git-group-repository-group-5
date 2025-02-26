@@ -71,4 +71,6 @@ return [
     "EnterYourName" => "Enter your name",
     "EnterYourLastName" => "Enter your last name",
     "SelectUser" => "Select User",
+    "Whoops" => "Whoops",
+    "ThereWas" => "There were some problems with your input."
 ];                      
