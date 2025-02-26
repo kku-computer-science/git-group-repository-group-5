@@ -12,7 +12,7 @@
     <div class="justify-content-center">
         @if (count($errors) > 0)
             <div class="alert alert-danger">
-                <strong>{{ translateText('Opps!') }}</strong> {{ translateText('Something went wrong, please check below errors.') }}<br><br>
+                <strong>{{ trans('department.opps') }}</strong> {{ trans('department.error_message') }}<br><br>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -21,27 +21,28 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">{{ translateText('Create department') }}
+            <div class="card-header">{{ trans('department.create_department') }}
                 <span class="float-right">
-                    <a class="btn btn-primary" href="{{ route('departments.index') }}">{{ translateText('departments') }}</a>
+                    <a class="btn btn-primary" href="{{ route('departments.index') }}">{{ trans('department.departments') }}</a>
                 </span>
             </div>
             <div class="card-body">
-                {!! Form::open(array('route' => 'departments.store', 'method'=>'department')) !!}
+                {!! Form::open(['route' => 'departments.store', 'method' => 'post']) !!}
                     <div class="form-group">
-                        <strong>{{ translateText('department_name_TH') }}:</strong>
-                        {!! Form::text('department_name_th', null, array('placeholder' => translateText('Department Name TH'),'class' => 'form-control')) !!}
+                        <strong>{{ trans('department.department_name_th') }}:</strong>
+                        {!! Form::text('department_name_th', null, ['placeholder' => trans('department.department_name_th_placeholder'),'class' => 'form-control']) !!}
                     </div>
                     <div class="form-group">
-                        <strong>{{ translateText('department_name_EN') }}:</strong>
-                        {!! Form::text('department_name_en', null, array('placeholder' => translateText('Department Name EN'),'class' => 'form-control')) !!}
+                        <strong>{{ trans('department.department_name_en') }}:</strong>
+                        {!! Form::text('department_name_en', null, ['placeholder' => trans('department.department_name_th_placeholder'),'class' => 'form-control']) !!}
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">{{ translateText('Submit') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ trans('department.submit') }}</button>
                 {!! Form::close() !!}
             </div>
         </div>
     </div>
 </div>
+
 
 @endsection

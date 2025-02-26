@@ -16,10 +16,10 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">{{ translateText('Posts') }}
+            <div class="card-header">{{ trans('post.Posts') }}
                 @can('post-create')
                     <span class="float-right">
-                        <a class="btn btn-primary" href="{{ route('posts.create') }}">{{ translateText('New post') }}</a>
+                        <a class="btn btn-primary" href="{{ route('posts.create') }}">{{ trans('post.New post') }}</a>
                     </span>
                 @endcan
             </div>
@@ -28,8 +28,8 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>{{ translateText('Name') }}</th>
-                            <th width="280px">{{ translateText('Action') }}</th>
+                            <th>{{ trans('post.Name') }}</th>
+                            <th width="280px">{{ trans('post.Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,13 +38,13 @@
                                 <td>{{ $post->id }}</td>
                                 <td>{{ $post->title }}</td>
                                 <td>
-                                    <a class="btn btn-success" href="{{ route('posts.show',$post->id) }}">{{ translateText('Show') }}</a>
+                                    <a class="btn btn-success" href="{{ route('posts.show',$post->id) }}">{{ trans('post.Show') }}</a>
                                     @can('post-edit')
-                                        <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">{{ translateText('Edit') }}</a>
+                                        <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">{{ trans('post.Edit') }}</a>
                                     @endcan
                                     @can('post-delete')
                                         {!! Form::open(['method' => 'DELETE','route' => ['posts.destroy', $post->id],'style'=>'display:inline']) !!}
-                                        {!! Form::submit(translateText('Delete'), ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::submit(trans('post.Delete'), ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}
                                     @endcan
                                 </td>
@@ -57,5 +57,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection

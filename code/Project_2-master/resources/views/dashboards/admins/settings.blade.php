@@ -2,7 +2,5 @@
 @section('title','Settings')
 
 @section('content')
-
-here------
-
+    {{ trans('dashboard.here') }}
 @endsection

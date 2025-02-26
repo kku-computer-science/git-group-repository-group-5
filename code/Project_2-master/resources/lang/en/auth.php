@@ -13,9 +13,19 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    //'throttle' => 'Too many login attempts. Please try again in :minutes minutes.',
 
+    'account_login' => 'Account Login',
+    'username' => 'Username',
+    'password' => 'Password',
+    'password_required' => 'Password is required',
+    'remember_me' => 'Remember Me',
+    'login' => 'Login',
+    'forgot_password' => '*** If you forget your password, please contact administrator.',
+    'use_kku_mail' => 'For Username, use KKU-Mail to log in.',
+    'first_time_login' => 'For students who are logging in for the first time, please log in with student ID.',
+    'loginx' => 'Login',
+    'email_addressx' => 'E-Mail Address',
+    'passwordx' => 'Password',
+    'remember_mex' => 'Remember Me',
+    'forgot_passwordx' => 'Forgot Your Password?',
 ];
