@@ -46,9 +46,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body>
+
     <div class="container-scroller sidebar-dark">
         <!-- navbar ข้างบน -->
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+
+    <div class=" container-scroller sidebar-dark">
+        <!-- navbar ข้างบน
+    -->
+        <nav class=" navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
                 <div class="me-3">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
@@ -79,9 +86,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </form>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
+
                         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById ('logout-form').submit();">
                             {{ trans('dashboard.logout') }} <i class="mdi mdi-logout"></i>
                         </a>
+
+                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById ('logout-form').submit();"> {{ __('Logout') }} <i class="mdi mdi-logout"></i></a>
+
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -207,18 +219,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                     </li>
                     @endcan
-                    @role('admin')
+                    <!-- @role('admin')
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="{{ route('logs.overall') }}">
                             <i class="menu-icon mdi mdi-monitor-multiple"></i>
                             <span class="menu-title">{{ trans('dashboard.logs_system') }}</span>
                         </a>
                     </li>
-                    @endrole
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+                    @endrole
+
                 </ul>
             </nav>
 
@@ -239,4 +249,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('plugins/ijaboCropTool/ijaboCropTool.min.js') }}"></script>
 </body>
 
+
+
 </html>
+
