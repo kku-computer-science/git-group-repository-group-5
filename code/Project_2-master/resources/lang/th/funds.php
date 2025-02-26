@@ -1,5 +1,7 @@
 <?php
 return [
+    'FundDetail' => 'รายละเอียดทุน',
+    'EditFund' => 'แก้ไขรายละเอียดทุน',
 'FundType' => 'ประเภททุน',
 'FundName' => 'ชื่อทุน',
 'FundYear' => 'ปี',

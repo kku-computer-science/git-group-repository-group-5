@@ -14,33 +14,39 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">ผลงานวิชาการอื่นๆ (สิทธิบัตร, อนุสิทธิบัตร,ลิขสิทธิ์)</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('patents.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD </a>
+            <h4 class="card-title">{{ __('patents.title') }}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('patents.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> {{trans('patents.Add')}} </a>
             <!-- <div class="table-responsive"> -->
                 <table id ="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>ชื่อเรื่อง</th>
-                            <th>ประเภท</th>
-                            <th>วันที่จดทะเบียน</th>
-                            <th>เลขทะเบียน</th>
-                            <th>ผู้จัดทำ</th>
-                            <th width="280px">Action</th>
+                        <th>{{ __('patents.no') }}</th>
+                        <th>{{ __('patents.name') }}</th>
+                        <th>{{ __('patents.type') }}</th>
+                        <th>{{ __('patents.registration_date') }}</th>
+                        <th>{{ __('patents.ref_number') }}</th>
+                        <th>{{ __('patents.creator') }}</th>
+                            <th width="280px">{{__('patents.action')}}</th>
                         </tr>
                         <thead>
                         <tbody>
                             @foreach ($patents as $i=>$paper)
                             <tr>
-                                <td>{{ $i+1 }}</td>
-                                <td>{{ Str::limit($paper->ac_name,50) }}</td>
-                                <td>{{ $paper->ac_type}}</td>
-                                <td>{{ $paper->ac_year}}</td>
-                                <td>{{ $paper->ac_refnumber,50 }}</td>
-                                <td>@foreach($paper->user as $a)
-                                    {{ $a->fname_th }} {{ $a->lname_th }}
-                                    @if (!$loop->last),@endif
-                                    @endforeach
+                            <td>{{ $i + 1 }}</td>
+                            <td>{{ Str::limit($paper->ac_name,50) }}</td>
+                            <td>{{ __('patents.ac_type.' . ($paper->ac_type ?? '')) }}</td>
+                            <td>{{ $paper->ac_year }}</td>
+                            <td>{{ Str::limit($paper->ac_refnumber,50) }}</td>
+                            <td>
+                                @foreach($paper->user as $a)
+                                    @if(app()->getLocale() == 'th')
+                                        {{ $a->fname_th }} {{ $a->lname_th }}
+                                    @else
+                                        {{ $a->fname_en }} {{ $a->lname_en }}
+                                    @endif
+                                    @if(!$loop->last),@endif
+                                @endforeach
+
 
                                 </td>
                                 <td>
@@ -89,18 +95,17 @@
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
-        var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `{{ __('patents.confirm_title') }}`,
+                text: "{{ __('patents.confirm_text') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ __('patents.delete_success') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

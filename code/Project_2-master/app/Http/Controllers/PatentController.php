@@ -15,6 +15,11 @@ class PatentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
+
+
+
     public function index()
     {
         $id = auth()->user()->id;

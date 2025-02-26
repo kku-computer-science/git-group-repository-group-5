@@ -25,7 +25,7 @@
     <div class="col-md-8 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">{{ translateText('Edit Fund') }}</h4>
+                <h4 class="card-title">{{ trans('funds.EditFund') }}</h4>
                 <p class="card-description">{{ trans('funds.EditFundDetail') }}</p>
                 <form class="forms-sample" action="{{ route('funds.update',$fund->id) }}" method="POST">
                     @csrf

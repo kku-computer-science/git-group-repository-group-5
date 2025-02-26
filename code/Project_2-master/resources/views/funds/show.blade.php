@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card col-md-8" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">Fund Detail</h4>
+            <h4 class="card-title">{{ trans('funds.FundDetail') }}</h4>
             
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ trans('funds.FundName') }}</b></p>
