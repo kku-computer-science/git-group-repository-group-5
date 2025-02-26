@@ -26,7 +26,7 @@
         <div class="card" style="padding: 16px;">
             <div class="card-body">
                 <h4 class="card-title">{{ trans('funds.EditFund') }}</h4>
-                <p class="card-description">{{ trans(key: 'funds.EditFundDetail') }}</p>
+                <p class="card-description">{{ trans('funds.EditFundDetail') }}</p>
                 <form class="forms-sample" action="{{ route('funds.update',$fund->id) }}" method="POST">
                     @csrf
                     @method('PUT')
