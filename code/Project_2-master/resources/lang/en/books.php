@@ -74,6 +74,9 @@ return [
     'Apply' => 'Apply',
     'Proceed' => 'Proceed',
     'CloseP' => 'Close Project',
+    'Login' => 'Login',
+    'ADetail' => 'ActionBook Detail',
+
 
 
 ];
