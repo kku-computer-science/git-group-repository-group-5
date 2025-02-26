@@ -25,10 +25,6 @@ return [
     'Publication' => 'Publication',
     'No.' => 'No',
     'ResearchName' => 'Research Name',
-    // 'Journal' => 'Journal',
-    // 'Conference' => 'Conference',
-    // 'Book' => 'Book',
-    // 'BookSeries' => 'Book Series',
     'types' => [
         'Journal' => 'Journal',
         'Conference' => 'Conference',
@@ -54,7 +50,6 @@ return [
     "Editresearchpublication" => "Edit research publication",
     "Submit" => "Submit",
     "Cancel" => "Cancel",
-
     "PublicationName" => [
         "InternationalJournal" => "International Journal",
         "InternationalBook" => "International Book",
@@ -65,19 +60,15 @@ return [
         "NationalMagazine" => "National Magazine",
         "BookChapter" => "Book Chapter",
     ],
-
     "PleaseSelectType" => "Please select publication",
     "PleaseSelectSubType" => "Please select subtype",
     "PleaseSelectDocumentType" => "Please select document type",
     "PleaseSelectSourceTitle" => "Please select source title",
-
     "AddPublicationResearch" => "Add publication research",
     "FillResearchDetail"=> "Fill research detail",
     "Add" => "Add",
     "CallPaper"=>"Call Paper",
-
     "EnterYourName" => "Enter your name",
     "EnterYourLastName" => "Enter your last name",
     "SelectUser" => "Select User",
-
 ];                      

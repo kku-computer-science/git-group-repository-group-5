@@ -196,7 +196,7 @@
         $('#new-expertise').click(function() {
             $('#btn-save').val("create-expertise");
             $('#expertise').trigger("reset");
-            $('#expertiseCrudModal').html("Add New Expertise");
+            $('#expertiseCrudModal').html("{{ trans('expertise.add_new') }}");
             $('#crud-modal').modal('show');
         });
 
@@ -204,14 +204,13 @@
         $('body').on('click', '#edit-expertise', function() {
             var expert_id = $(this).data('id');
             $.get('experts/' + expert_id + '/edit', function(data) {
-                $('#expertiseCrudModal').html("Edit Expertise");
-                $('#btn-update').val("Update");
+                $('#expertiseCrudModal').html("{{ trans('expertise.edit') }}");
+                $('#btn-update').val("{{ trans('expertise.update') }}");
                 $('#btn-save').prop('disabled', false);
                 $('#crud-modal').modal('show');
                 $('#exp_id').val(data.id);
                 $('#expert_name').val(data.expert_name);
-
-            })
+            });
         });
 
 
@@ -221,10 +220,10 @@
 
             var token = $("meta[name='csrf-token']").attr("content");
             e.preventDefault();
-            //confirm("Are You sure want to delete !");
+
             swal({
-                title: `{{ trans('research_g.title') }}`,
-                text: "{{ trans('research_g.text') }}",
+                title: "{{ trans('expertise.delete_confirm_title') }}",
+                text: "{{ trans('expertise.delete_confirm_text') }}",
                 type: "warning",
                 buttons: {
                     cancel: "{{ trans('research_g.cancel') }}",
@@ -233,7 +232,7 @@
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('research_g.DeleteSuccessfully') }}", {
+                    swal("{{ trans('expertise.delete_success') }}", {
                         icon: "success",
                         buttons: {
                             confirm: "{{ trans('research_g.ok') }}"
@@ -248,7 +247,7 @@
                                 "_token": token,
                             },
                             success: function(data) {
-                                $('#msg').html('program entry deleted successfully');
+                                $('#msg').html("{{ trans('expertise.delete_success_message') }}");
                                 $("#expert_id_" + expert_id).remove();
                             },
                             error: function(data) {
@@ -266,16 +265,14 @@
 </script>
 
 <script>
-    error = false
+    error = false;
 
     function validate() {
         if (document.expForm.expert_name.value != '')
-            document.expForm.btnsave.disabled = false
+            document.expForm.btnsave.disabled = false;
         else
-            document.expForm.btnsave.disabled = true
+            document.expForm.btnsave.disabled = true;
     }
 </script>
-
-
 
 @stop

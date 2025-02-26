@@ -1,75 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-26T22:55:26.944511" rpa="false" schemaversion="5">
-<suite id="s1" name="UAT-Project-001" source="D:\git-group-repository-group-5\test\code\UAT-Project-001.robot">
-<test id="s1-t1" name="Show Login Page" line="13">
+<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-02-26T23:11:53.747926" rpa="false" schemaversion="5">
+<suite id="s1" name="UAT-Project-002" source="D:\year_3\Term2\Soft en\Project!!\git-group-repository-group-5\test\code\UAT-Project-002.robot">
+<test id="s1-t1" name="Invalid Login Test" line="33">
+<kw name="Open Browser To App">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-26T22:55:27.300662" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
-<arg>${LOGIN URL}</arg>
+<msg time="2025-02-26T23:11:54.013140" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000'.</msg>
+<arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-26T22:55:27.300392" elapsed="2.009680"/>
+<status status="PASS" start="2025-02-26T23:11:54.013140" elapsed="3.522576"/>
 </kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>${DELAY}</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-02-26T22:55:29.310827" elapsed="0.000404"/>
+<status status="PASS" start="2025-02-26T23:11:54.011937" elapsed="3.524773"/>
 </kw>
-<status status="PASS" start="2025-02-26T22:55:27.299366" elapsed="2.012704"/>
-</test>
-<test id="s1-t2" name="Input username and password" line="17">
+<kw name="Go To Login Page">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-02-26T23:11:57.537711" level="INFO">Opening url 'http://127.0.0.1:8000/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-02-26T23:11:57.536710" elapsed="0.571325"/>
+</kw>
+<status status="PASS" start="2025-02-26T23:11:57.536710" elapsed="0.571325"/>
+</kw>
+<kw name="Enter Invalid Credentials">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-26T22:55:29.316288" level="INFO">Typing text 'admin@gmail.com' into text field 'id=username'.</msg>
+<msg time="2025-02-26T23:11:58.109035" level="INFO">Typing text 'admin@gmail.com' into text field 'id=username'.</msg>
 <arg>id=username</arg>
-<arg>${VALID USER}</arg>
+<arg>${INVALID_ADMIN}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-26T22:55:29.314880" elapsed="0.188513"/>
+<status status="PASS" start="2025-02-26T23:11:58.109035" elapsed="0.067848"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-26T22:55:29.504569" level="INFO">Typing text '12345678' into text field 'id=password'.</msg>
+<msg time="2025-02-26T23:11:58.177883" level="INFO">Typing text '123456789' into text field 'id=password'.</msg>
 <arg>id=password</arg>
-<arg>${VALID PASSWORD}</arg>
+<arg>123456789</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-26T22:55:29.504077" elapsed="0.183396"/>
+<status status="PASS" start="2025-02-26T23:11:58.177883" elapsed="0.069213"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-26T22:55:29.688414" level="INFO">Clicking element 'xpath=//button[text()='Log In']'.</msg>
-<msg time="2025-02-26T22:55:29.851926" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-02-26T22:55:29.852218" level="FAIL">Element with locator 'xpath=//button[text()='Log In']' not found.</msg>
-<arg>xpath=//button[text()='Log In']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-02-26T22:55:29.688099" elapsed="0.166973">Element with locator 'xpath=//button[text()='Log In']' not found.</status>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[@type='submit']</arg>
+<arg>${WAIT_TIME}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-26T23:11:58.247096" elapsed="0.076378"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-02-26T22:55:29.855806" elapsed="0.000067"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-26T23:11:58.323474" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T23:11:58.323474" elapsed="0.533955"/>
 </kw>
-<status status="FAIL" start="2025-02-26T22:55:29.313735" elapsed="0.542550">Element with locator 'xpath=//button[text()='Log In']' not found.</status>
-</test>
-<test id="s1-t3" name="Verify Login Success" line="23">
+<status status="PASS" start="2025-02-26T23:11:58.109035" elapsed="0.748394"/>
+</kw>
+<kw name="Verify Login Error">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@class, 'alert-danger')]</arg>
+<arg>${WAIT_TIME}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-26T23:11:58.858430" elapsed="0.041169"/>
+</kw>
 <kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-02-26T22:55:30.095493" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-02-26T22:55:30.095826" level="FAIL">Page should have contained text 'Research Information Management System' but did not.</msg>
-<arg>Research Information Management System</arg>
+<msg time="2025-02-26T23:11:58.908032" level="INFO">Current page contains text 'Login Failed: Your user ID or password is incorrect'.</msg>
+<arg>${ERROR_MESSAGE}</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<status status="FAIL" start="2025-02-26T22:55:29.859106" elapsed="0.237526">Page should have contained text 'Research Information Management System' but did not.</status>
+<status status="PASS" start="2025-02-26T23:11:58.899599" elapsed="0.009434"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2025-02-26T22:55:30.097062" elapsed="0.000063"/>
+<status status="PASS" start="2025-02-26T23:11:58.858430" elapsed="0.050603"/>
 </kw>
-<status status="FAIL" start="2025-02-26T22:55:29.858218" elapsed="0.239403">Page should have contained text 'Research Information Management System' but did not.</status>
+<kw name="Close Browser" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-02-26T23:11:58.909033" elapsed="2.125705"/>
+</kw>
+<arg>'${BROWSER}' == 'Chrome'</arg>
+<arg>Close All Browsers</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T23:11:58.909033" elapsed="2.125705"/>
+</kw>
+<status status="PASS" start="2025-02-26T23:11:58.909033" elapsed="2.125705"/>
+</kw>
+<status status="PASS" start="2025-02-26T23:11:54.011937" elapsed="7.022801"/>
 </test>
-<status status="FAIL" start="2025-02-26T22:55:26.945898" elapsed="3.152994"/>
+<status status="PASS" start="2025-02-26T23:11:53.748932" elapsed="7.286807"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="2" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="2" skip="0" id="s1" name="UAT-Project-001">UAT-Project-001</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="UAT-Project-002">UAT-Project-002</stat>
 </suite>
 </statistics>
 <errors>

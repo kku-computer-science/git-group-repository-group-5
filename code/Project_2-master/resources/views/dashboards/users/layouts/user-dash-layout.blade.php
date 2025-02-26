@@ -47,7 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <body>
     <div class=" container-scroller sidebar-dark">
-        <!-- navbar ข้างบน
+        <!-- navbar ข้างบน 
     -->
         <nav class=" navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
@@ -63,13 +63,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="navbar-menu-wrapper d-flex align-items-top">
                 <ul class="navbar-nav">
                     <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-                        <h1 class="welcome-text">Research Information Management System <span
-                                class="text-black fw-bold"></span></h1>
+                    <h1 class="welcome-text">{{ trans('dashboard.welcome_text') }} <span class="text-black fw-bold"></span></h1>
                         <h3 class="welcome-sub-text"> </h3>
                     </li>
+                    
                 </ul>
+                
                 <ul class="navbar-nav ms-auto">
-
                     <li class="nav-item d-none d-lg-block">
                         <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
                             <span class="input-group-addon input-group-prepend border-right">
@@ -83,6 +83,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <i class="icon-search"></i>
                             <input type="search" class="form-control" placeholder="Search Here" title="Search here">
                         </form>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span
+                                class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span>
+                            {{ Config::get('languages')[App::getLocale()]['display'] }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            @foreach (Config::get('languages') as $lang => $language)
+                            @if ($lang != App::getLocale())
+                            <a class="dropdown-item" href="{{ route('langswitch', $lang) }}"><span
+                                    class="flag-icon flag-icon-{{$language['flag-icon']}}"></span>
+                                {{$language['display']}}</a>
+                            @endif
+                            @endforeach
+                        </div>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
@@ -119,8 +136,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a class="dropdown-item"><i
                                     class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a> -->
                     <li class="nav-item d-none d-sm-inline-block">
-                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById ('logout-form').submit();"> {{ __('Logout') }} <i class="mdi mdi-logout"></i></a>
+                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                        document.getElementById ('logout-form').submit();"> {{ trans('dashboard.logout') }} <i class="mdi mdi-logout"></i></a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -145,15 +162,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a class="nav-link {{ (request()->is('dashboard*')) ? 'active' : '' }}"
                             href="{{ route('dashboard')}}">
                             <i class="menu-icon mdi mdi-grid-large"></i>
-                            <span class="menu-title">Dashboard</span>
-                        </a>
+                            <span class="menu-title">{{ trans('dashboard.dashboard') }}</span>                        </a>
                     </li>
-                    <li class="nav-item nav-category">Profile</li>
+                    <li class="nav-item nav-category">{{ trans('dashboard.profile') }}</li>
                     <li class="nav-item">
                         <a class="nav-link {{ (request()->is('admin/profile*')) ? 'active' : '' }}"
                             href="{{ route('profile')}}">
                             <i class="menu-icon mdi mdi-account-circle-outline"></i>
-                            <span class="menu-title">User Profile</span>
+                            <span class="menu-title">{{ trans('dashboard.user_profile') }}</span>
 
                         </a>
                     </li>
@@ -165,12 +181,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         </a>
                     </li> -->
-                    <li class="nav-item nav-category">Option</li>
+                    <li class="nav-item nav-category">{{ trans('dashboard.option') }}</li>
                     @can('funds-list')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('funds.index')}}">
                             <i class="menu-icon mdi mdi-file-document-box-outline"></i>
-                            <span class="menu-title">Manage Fund</span>
+                            <span class="menu-title">{{ trans('dashboard.manage_fund') }}</span>
 
                         </a>
                     </li>
@@ -179,7 +195,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('researchProjects.index')}}">
                             <i class="menu-icon mdi mdi-book-outline"></i>
-                            <span class="menu-title">Research Project</span>
+                            <span class="menu-title">{{ trans('dashboard.research_project') }}</span>
 
                         </a>
                     </li>
@@ -188,7 +204,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('researchGroups.index')}}">
                             <i class="menu-icon mdi mdi-view-dashboard-outline"></i>
-                            <span class="menu-title">Research Group</span>
+                            <span class="menu-title">{{ trans('dashboard.research_group') }}</span>
 
                         </a>
                     </li>
@@ -197,14 +213,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#ManagePublications" aria-expanded="false" aria-controls="ManagePublications">
                             <i class="menu-icon mdi mdi-book-open-page-variant"></i>
-                            <span class="menu-title">Manage Publications</span>
+                            <span class="menu-title">{{ trans('dashboard.manage_publications') }}</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="ManagePublications">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{ route('papers.index')}}">Published research</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/books">Book</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/patents">ผลงานวิชาการอื่นๆ</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ route('papers.index')}}">{{ trans('dashboard.published_research') }}</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/books">{{ trans('dashboard.book') }}</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/patents">{{ trans('dashboard.patents') }}</a></li>
                             </ul>
                         </div>
                     </li>
@@ -213,17 +229,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('exportfile')}}">
                             <i class="menu-icon mdi mdi-file-export"></i>
-                            <span class="menu-title">Export</span>
+                            <span class="menu-title">{{ trans('dashboard.export') }}</span>
                         </a>
                     </li>
                     @endcan
                     @can('user-list')
-                    <li class="nav-item nav-category">Admin</li>
+                    <li class="nav-item nav-category">{{ trans('dashboard.admin') }}</li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('users.index')}}">
                             <i class="menu-icon mdi mdi-account-multiple-outline"></i>
-                            <span class="menu-title">Users</span>
-
+                            <span class="menu-title">{{ trans('dashboard.users') }}</span>
                         </a>
                     </li>
                     @endcan
@@ -231,8 +246,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('roles.index')}}">
                             <i class="menu-icon mdi mdi-chart-gantt"></i>
-                            <span class="menu-title">Roles</span>
-
+                            <span class="menu-title">{{ trans('dashboard.roles') }}</span>
                         </a>
                     </li>
                     @endcan
@@ -240,8 +254,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('permissions.index')}}">
                             <i class="menu-icon mdi mdi-checkbox-marked-circle-outline"></i>
-                            <span class="menu-title">Permission</span>
-
+                            <span class="menu-title">{{ trans('dashboard.permission') }}</span>
                         </a>
                     </li>
                     @endcan
@@ -249,8 +262,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('departments.index')}}">
                             <i class="menu-icon mdi mdi-animation-outline"></i>
-                            <span class="menu-title">Departments</span>
-
+                            <span class="menu-title">{{ trans('dashboard.departments') }}</span>
                         </a>
                     </li>
                     @endcan
@@ -259,8 +271,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('programs.index')}}">
                             <i class="menu-icon mdi mdi-format-list-bulleted"></i>
-                            <span class="menu-title">Manage Programs</span>
-
+                            <span class="menu-title">{{ trans('dashboard.manage_programs') }}</span>
                         </a>
                     </li>
                     @endcan
@@ -268,8 +279,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('experts.index')}}">
                             <i class="menu-icon mdi mdi-buffer"></i>
-                            <span class="menu-title">Manage Expertise</span>
-
+                            <span class="menu-title">{{ trans('dashboard.manage_expertise') }}</span>
                         </a>
                     </li>
                     @endcan

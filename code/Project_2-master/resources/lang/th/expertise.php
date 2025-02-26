@@ -14,7 +14,14 @@ return [
     'Delete Successfully' => 'ลบสำเร็จ',
     'program entry deleted successfully' => 'โปรแกรมถูกลบออกสำเร็จ',
     'ID' => 'หมายเลขประจำตัว',
-
+    'Edit Expertise' => 'แก้ไขความเชี่ยวชาญ',
     'Name' => 'ชื่อ',
+    'add_new' => 'เพิ่มความเชี่ยวชาญใหม่',
+    'edit' => 'แก้ไขความเชี่ยวชาญ',
+    'update' => 'อัปเดต',
+    'delete_confirm_title' => 'คุณแน่ใจหรือไม่?',
+    'delete_confirm_text' => 'หากลบข้อมูลนี้จะไม่สามารถกู้คืนได้',
+    'delete_success' => 'ลบข้อมูลเรียบร้อย',
+    'delete_success_message' => 'ข้อมูลถูกลบสำเร็จ',
 
 ];

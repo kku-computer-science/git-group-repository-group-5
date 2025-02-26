@@ -175,7 +175,16 @@ return [
     'update_success' => 'Your account is updated!',
     'update_error' => 'Unable to update info',
     'update_password' => 'Update Password!',
-    'update_profile_picture' => 'Your profile picture has been updated!'
+    'update_profile_picture' => 'Your profile picture has been updated!',
+
+        'add_new_expertise' => 'Add New Expertise',
+        'edit_expertise' => 'Edit Expertise',
+        'confirm_delete' => 'Are you sure?',
+        'delete_warning' => 'You will not be able to recover this imaginary file!',
+        'delete_success' => 'Delete Successfully',
+        'delete_error' => 'Error deleting! Please try again',
+
+    
 ];
 
 
