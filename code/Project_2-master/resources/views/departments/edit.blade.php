@@ -12,7 +12,7 @@
     <div class="justify-content-center">
         @if (count($errors) > 0)
             <div class="alert alert-danger">
-                <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
+                <strong>{{ translateText('Opps!') }}</strong> {{ translateText('Something went wrong, please check below errors.') }}<br><br>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -21,22 +21,22 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Create department
+            <div class="card-header">{{ translateText('Create department') }}
                 <span class="float-right">
-                    <a class="btn btn-primary" href="{{ route('departments.index') }}">departments</a>
+                    <a class="btn btn-primary" href="{{ route('departments.index') }}">{{ translateText('departments') }}</a>
                 </span>
             </div>
             <div class="card-body">
                 {!! Form::model($department, ['route' => ['departments.update', $department->id], 'method'=>'PATCH']) !!}
                     <div class="form-group">
-                        <strong>Department Name TH:</strong>
-                        {!! Form::text('department_name_th', null, array('placeholder' => 'Department Name TH','class' => 'form-control')) !!}
+                        <strong>{{ translateText('Department Name TH') }}:</strong>
+                        {!! Form::text('department_name_th', null, array('placeholder' => translateText('Department Name TH'),'class' => 'form-control')) !!}
                     </div>
                     <div class="form-group">
-                        <strong>Department Name EN:</strong>
-                        {!! Form::text('department_name_en', null, array('placeholder' => 'Department Name EN','class' => 'form-control')) !!}
+                        <strong>{{ translateText('Department Name EN') }}:</strong>
+                        {!! Form::text('department_name_en', null, array('placeholder' => translateText('Department Name EN'),'class' => 'form-control')) !!}
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">{{ translateText('Submit') }}</button>
                 {!! Form::close() !!}
             </div>
         </div>

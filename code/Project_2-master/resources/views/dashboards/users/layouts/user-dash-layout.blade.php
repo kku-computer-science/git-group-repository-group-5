@@ -41,8 +41,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -210,7 +210,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @endcan
                     @can('export')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('exportfile')}}" >
+                        <a class="nav-link" href="{{route('exportfile')}}">
                             <i class="menu-icon mdi mdi-file-export"></i>
                             <span class="menu-title">Export</span>
                         </a>
@@ -272,15 +272,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                     </li>
                     @endcan
-                    @can('expertises-list')
+                    <!-- @role('admin')
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="{{ route('logs.index')}}">
+                        <a class="nav-link" target="_blank" href="{{ route('logs.overall') }}">
                             <i class="menu-icon mdi mdi-monitor-multiple"></i>
                             <span class="menu-title">Logs System</span>
-
                         </a>
                     </li>
-                    @endcan
+                    @endrole -->
+
                 </ul>
             </nav>
 

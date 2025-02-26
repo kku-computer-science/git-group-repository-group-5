@@ -39,11 +39,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
 
-
 use App\Http\Controllers\LogController;
 
 use App\Models\SystemLog;
 use Illuminate\Support\Facades\Request;
+
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,8 @@ Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 //Route::get('/researchers',[ResearcherController::class,'index'])->name('researchers');
 Route::get('researchers/{id}', [ResearcherController::class, 'request'])->name('researchers');
 Route::get('researchers/{id}/search', [ResearcherController::class, 'search'])->name('searchresearchers');
@@ -94,7 +97,9 @@ Route::get('excel', [PDFController::class, 'generateInvoiceExcel'])->name('excel
 
 Route::get('detail/{id}', [ProfileController::class, 'request'])->name('detail');
 Route::get('index', [LocalizationController::class, 'index']);
+
 Route::get('lang/{lang}', ['as' => 'langswitch', 'uses' => 'App\Http\Controllers\LocalizationController@switchLang']);
+
 Route::get('/export', [ExportPaperController::class, 'exportUsers'])->name('export-papers');
 Route::get('bib/{id}', [BibtexController::class, 'getbib'])->name('bibtex');
 
@@ -146,13 +151,15 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('tests', [TestController::class, 'index']); //call department
     Route::get('tests/{id}', [TestController::class, 'getCategory'])->name('tests'); //call program
 
-    Route::get('logs', [LogController::class, 'index'])->name('logs.index'); // กำหนดชื่อ route
-    Route::get('/logs/overall', [LogController::class, 'overall'])->name('logs.overall');
-    Route::get('/logs/login', [LogController::class, 'login'])->name('logs.login');
-    Route::get('/logs/error', [LogController::class, 'error'])->name('logs.error');
-});
+    
+    Route::middleware(['auth', 'isAdmin'])->group(function () {
+        Route::get('logs', [LogController::class, 'index'])->name('logs.index'); // กำหนดชื่อ route
+        Route::get('/logs/overall', [LogController::class, 'overall'])->name('logs.overall');
+        Route::get('/logs/login', [LogController::class, 'login'])->name('logs.login');
+        Route::get('/logs/error', [LogController::class, 'error'])->name('logs.error');
+    });
 
-    Route::get('logs/graphData', [LogController::class, 'graphData'])->name('logs.graphData');
+});
 
 
 Route::get('/test-log', function () {
@@ -186,3 +193,7 @@ Route::get('files/{file}', [FileUpload::class, 'download'])->name('download');*/
 //Route::post('programs', [DropdownController::class, 'getPrograms']);
 //Route::get('tests', [TestController::class, 'index'])->name('tests.index');
 //Route::get('users/create/{id}',[UserController::class, 'getCategory']);
+
+
+// add export
+Route::get('/logs/export', [LogController::class, 'export'])->name('logs.export');

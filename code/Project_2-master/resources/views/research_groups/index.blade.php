@@ -12,18 +12,18 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">กลุ่มวิจัย</h4>
+            <h4 class="card-title">{{ translateText('กลุ่มวิจัย') }}</h4>
             <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchGroups.create') }}"><i
-                    class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
+                    class="mdi mdi-plus btn-icon-prepend"></i> {{ translateText('ADD') }}</a>
             <!-- <div class="table-responsive"> -->
                 <table id ="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Group name (ไทย)</th>
-                            <th>Head</th>
-                            <th>Member</th>
-                            <th width="280px">Action</th>
+                            <th>{{ translateText('No.') }}</th>
+                            <th>{{ translateText('Group name (ไทย)') }}</th>
+                            <th>{{ translateText('Head') }}</th>
+                            <th>{{ translateText('Member') }}</th>
+                            <th width="280px">{{ translateText('Action') }}</th>
                         </tr>
                     </thead>
                     
@@ -55,13 +55,13 @@
                                 <form action="{{ route('researchGroups.destroy',$researchGroup->id) }}" method="POST">
 
                                     <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip"
-                                        data-placement="top" title="view"
+                                        data-placement="top" title="{{ translateText('view') }}"
                                         href="{{ route('researchGroups.show',$researchGroup->id) }}"><i
                                             class="mdi mdi-eye"></i></a>
 
                                     @if(Auth::user()->can('update',$researchGroup))
                                     <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip"
-                                        data-placement="top" title="Edit"
+                                        data-placement="top" title="{{ translateText('Edit') }}"
                                         href="{{ route('researchGroups.edit',$researchGroup->id) }}"><i
                                             class="mdi mdi-pencil"></i></a>
                                     @endif
@@ -70,7 +70,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip"
-                                        data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        data-placement="top" title="{{ translateText('Delete') }}"><i class="mdi mdi-delete"></i></button>
                                     @endif
                                 </form>
                             </td>
@@ -82,9 +82,8 @@
             <!-- </div> -->
         </div>
     </div>
-    
-
 </div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
 <script src = "https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer ></script>
@@ -102,15 +101,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `{{ translateText('Are you sure?') }}`,
+                text: "{{ translateText('If you delete this, it will be gone forever.') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ translateText('Delete Successfully') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

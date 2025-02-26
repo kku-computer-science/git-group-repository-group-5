@@ -43,31 +43,35 @@
         </ul>
     </div>
     @endif
+
+    @php
+    $locale = app()->getLocale(); 
+    @endphp
     <!-- <a class="btn btn-primary" href="{{ route('papers.index') }}"> Back </a> -->
 
     <div class="col-md-10 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">เพิ่มวารผลงานตีพิมพ์</h4>
-                <p class="card-description">กรอกข้อมูลรายละเอียดงานวิจัย</p>
+                <h4 class="card-title">{{ trans('papers.AddPublicationResearch')}}</h4>
+                <p class="card-description">{{trans('papers.FillResearchDetail')}}</p>
                 <form class="forms-sample" action="{{ route('papers.store') }}" method="POST">
                     @csrf
                     <div class="form-group row">
-                        <label for="exampleInputpaper_name" class="col-sm-3 col-form-label"><b>แหล่งเผยแพร่งานวิจัย</b></label>
+                        <label for="exampleInputpaper_name" class="col-sm-3 col-form-label"><b>{{trans('papers.PublicationSource')}}</b></label>
                         <div class="col-sm-9">
-                            <select class="selectpicker" multiple data-live-search="true" name="cat[]">
-                                @foreach( $source as $s)
-                                <option value='{{ $s->id }}'>{{ $s->source_name }}</option>
-                                @endforeach
-                            </select>
+                        <select class="selectpicker" multiple data-live-search="true" name="cat[]" title="{{trans('papers.PleaseSelectSourceTitle')}}" data-width="50%" data-size="5">
+                            @foreach( $source as $s)
+                            <option value='{{ $s->id }}'>{{ $s->source_name }}</option>
+                            @endforeach
+                        </select>
 
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="exampleInputpaper_name" class="col-sm-3 col-form-label"><b>ชื่องานวิจัย</b></label>
+                        <label for="exampleInputpaper_name" class="col-sm-3 col-form-label"><b>{{trans('papers.ResearchName')}}</b></label>
                         <div class="col-sm-9">
-                            <input type="text" name="paper_name" class="form-control" placeholder="ชื่อเรื่อง">
+                            <input type="text" name="paper_name" class="form-control" placeholder="{{trans('papers.ResearchName')}}">
                         </div>
                     </div>
                     
@@ -79,119 +83,114 @@
                     </div> -->
 
                     <div class="form-group row">
-                        <label for="exampleInputabstract" class="col-sm-3 col-form-label"><b>abstract</b></label>
+                        <label for="exampleInputabstract" class="col-sm-3 col-form-label"><b>{{trans('papers.Abstract')}}</b></label>
                         <div class="col-sm-9">
-                            <textarea type="text" name="abstract" class="form-control form-control-lg" style="height:150px" placeholder="abstract"></textarea>
+                            <textarea type="text" name="abstract" class="form-control form-control-lg" style="height:150px" placeholder="{{trans('papers.Abstract')}}"></textarea>
                             <!-- <input type=" text" name="abstract" class="form-control" placeholder="abstract"> -->
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="exampleInputkeyword" class="col-sm-3 col-form-label"><b>Keyword</b></label>
+                        <label for="exampleInputkeyword" class="col-sm-3 col-form-label"><b>{{trans('papers.Keyword')}}</b></label>
                         <!-- <div class="col-sm-9">
                             <p>แต่ละคําต้องคั่นด้วยเครื่องหมายเซมิโคลอน (;) แล้วเว้นวรรคหนึ่งครั้ง</p>
                         </div> -->
                         <div class="col-sm-9">
-                            <input type="text" name="keyword" class="form-control" placeholder="keyword">
-                            <p class="text-danger">***แต่ละคําต้องคั่นด้วยเครื่องหมายเซมิโคลอน (;) แล้วเว้นวรรคหนึ่งครั้ง</p>
+                            <input type="text" name="keyword" class="form-control" placeholder="{{trans('papers.Keyword')}}">
+                            <p class="text-danger">{{trans('papers.RedWordWarning')}}</p>
                         </div>
 
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_type" class="col-sm-3 col-form-label"><b>ประเภทของเอกสาร
-                                (Type)</b></label>
+                        <label for="exampleInputpaper_type" class="col-sm-3 col-form-label"><b>{{trans('papers.DocumentType')}}</b></label>
                         <div class="col-sm-9">
                             <select id='paper_type' class="custom-select my-select" style='width: 200px;' name="paper_type">
-                                <option value="" disabled selected> โปรดระบุประเภท </option>
-                                <option value="Journal">Journal</option>
-                                <option value="Conference Proceeding">Conference Proceeding</option>
-                                <option value="Book Series">Book Series</option>
-                                <option value="Book">Book</option>
+                                <option value="" disabled selected> {{trans('papers.PleaseSelectDocumentType')}} </option>
+                                <option value="Journal">{{ trans('papers.types.Journal') }}</option>
+                                <option value="Conference Proceeding">{{ trans('papers.types.ConferenceProceeding') }}</option>
+                                <option value="Book Series">{{ trans('papers.types.BookSeries') }}</option>
+                                <option value="Book">{{ trans('papers.types.Book') }}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_subtype" class="col-sm-3 col-form-label"><b>ประเภทของเอกสาร
-                                (Subtype)</b></label>
+                        <label for="exampleInputpaper_subtype" class="col-sm-3 col-form-label"><b>{{trans('papers.SubType')}}</b></label>
                         <div class="col-sm-9">
                             <select id='paper_subtype' class="custom-select my-select" style='width: 200px;' name="paper_subtype">
-                                <option value="" disabled selected> โปรดระบุประเภทย่อย </option>
-                                <option value="Article">Article</option>
-                                <option value="Conference Paper">Conference Paper</option>
-                                <option value="Editorial">Editorial</option>
-                                <option value="Book Chapter">Book Chapter</option>
-                                <option value="Erratum">Erratum</option>
-                                <option value="Review">Review</option>
+                            <option value="" disabled selected>{{trans('papers.PleaseSelectSubType')}}</option>
+                                <option value="Article">{{ trans('papers.subtypes.Article') }}</option>
+                                <option value="Conference Paper">{{ trans('papers.subtypes.ConferencePaper') }}</option>
+                                <option value="Editorial">{{ trans('papers.subtypes.Editorial') }}</option>
+                                <option value="Review">{{ trans('papers.subtypes.Review') }}</option>
+                                <option value="Erratum">{{ trans('papers.subtypes.Erratum') }}</option>
+                                <option value="Book Chapter">{{ trans('papers.subtypes.BookChapter') }}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpublicatione" class="col-sm-3 col-form-label"><b>Publication
+                        <label for="exampleInputpublicatione" class="col-sm-3 col-form-label"><b>{{trans('papers.Publication')}}
                                 </b></label>
                         <div class="col-sm-9">
-                            <select id='publication' class="custom-select my-select" style='width: 200px;' name="publication">
-                                <option value="" disabled selected> โปรดระบุประเภท </option>
-                                <option value="International Journal">International Journal</option>
-                                <option value="International Book">International Book</option>
-                                <option value="International Conference">International Conference</option>
-                                <option value="National Conference">National Conference</option>
-                                <option value="National Journal"> National Journal</option>
-                                <option value="National Book"> National Book</option>
-                                <option value="National Magazine">National Magazine</option>
-                                <option value="Book Chapter"> Book Chapter</option>
-                            </select>
+                        <select id='publication' class="custom-select my-select" style='width: 200px;' name="publication">
+                            <option value="" disabled selected> {{ trans('papers.PleaseSelectType') }} </option>
+                            <option value="InternationalJournal">{{ trans('papers.PublicationName.InternationalJournal') }}</option>
+                            <option value="InternationalBook">{{ trans('papers.PublicationName.InternationalBook') }}</option>
+                            <option value="InternationalConference">{{ trans('papers.PublicationName.InternationalConference') }}</option>
+                            <option value="NationalConference">{{ trans('papers.PublicationName.NationalConference') }}</option>
+                            <option value="NationalJournal">{{ trans('papers.PublicationName.NationalJournal') }}</option>
+                            <option value="NationalBook">{{ trans('papers.PublicationName.NationalBook') }}</option>
+                            <option value="NationalMagazine">{{ trans('papers.PublicationName.NationalMagazine') }}</option>
+                            <option value="BookChapter">{{ trans('papers.PublicationName.BookChapter') }}</option>
+                        </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_sourcetitle" class="col-sm-3 col-form-label"><b>ชื่อวารสาร</b></label>
+                        <label for="exampleInputpaper_sourcetitle" class="col-sm-3 col-form-label"><b>{{trans('papers.SourceTitle')}}</b></label>
                         <div class="col-sm-9">
-                            <input type="text" name="paper_sourcetitle" class="form-control" placeholder="sourcetitle">
+                            <input type="text" name="paper_sourcetitle" class="form-control" placeholder="{{trans('papers.SourceTitle')}}">
                         </div>
                     </div>
             
                     <div class="form-group row">
-                        <label for="exampleInputpaper_yearpub" class="col-sm-3 col-form-label"><b>ปีที่ตีพิมพ์</b></label>
+                        <label for="exampleInputpaper_yearpub" class="col-sm-3 col-form-label"><b>{{trans('papers.PaperYearPublish')}}</b></label>
                         <div class="col-sm-4">
-                            <input type="text" name="paper_yearpub" class="form-control" placeholder="ปีที่ตีพิมพ์">
+                            <input type="text" name="paper_yearpub" class="form-control" placeholder="{{trans('papers.PaperYearPublish')}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_volume" class="col-sm-3 col-form-label"><b>วารสารพิมพ์เป็นปีที่
-                                (Volume)</b></label>
+                        <label for="exampleInputpaper_volume" class="col-sm-3 col-form-label"><b>{{trans('papers.Volume')}}</b></label>
                         <div class="col-sm-4">
-                            <input type="text" name="paper_volume" class="form-control" placeholder="Volume">
+                            <input type="text" name="paper_volume" class="form-control" placeholder="{{trans('papers.Volume')}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_issue" class="col-sm-3 col-form-label"><b>ฉบับที่ (Issue
-                                number)</b></label>
+                        <label for="exampleInputpaper_issue" class="col-sm-3 col-form-label"><b>{{trans('papers.Issue')}}</b></label>
                         <div class="col-sm-4">
-                            <input type="text" name="paper_issue" class="form-control" placeholder="Issue">
+                            <input type="text" name="paper_issue" class="form-control" placeholder="{{trans('papers.Issue')}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_citation" class="col-sm-3 col-form-label"><b>การอ้างอิง
-                                (Citation)</b></label>
+                        <label for="exampleInputpaper_citation" class="col-sm-3 col-form-label"><b>{{trans('papers.Citation')}}</b></label>
                         <div class="col-sm-4">
-                            <input type="text" name="paper_citation" class="form-control" placeholder="จำนวนการอ้างอิง">
+                            <input type="text" name="paper_citation" class="form-control" placeholder="{{trans('papers.Citation')}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_page" class="col-sm-3 col-form-label"><b>หน้า (Page)</b></label>
+                        <label for="exampleInputpaper_page" class="col-sm-3 col-form-label"><b>{{trans('papers.PaperPage')}}</b></label>
                         <div class="col-sm-4">
                             <input type="text" name="paper_page" class="form-control" placeholder="01-99">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_doi" class="col-sm-3 col-form-label"><b>Doi</b></label>
+                        <label for="exampleInputpaper_doi" class="col-sm-3 col-form-label"><b>DOI</b></label>
                         <div class="col-sm-9">
-                            <input type="text" name="paper_doi" class="form-control" placeholder="doi">
+                            <input type="text" name="paper_doi" class="form-control" placeholder="DOI">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_funder" class="col-sm-3 col-form-label"><b>ทุนสนับสนุน</b></label>
+                        <label for="exampleInputpaper_funder" class="col-sm-3 col-form-label"><b>{{ trans('papers.SupportFund')}}</b></label>
                         <div class="col-sm-9">
-                            <input type="int" name="paper_funder" class="form-control" placeholder="Funder">
+                            <input type="int" name="paper_funder" class="form-control" placeholder="{{ trans('papers.SupportFund')}}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -201,20 +200,31 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_doi" class="col-sm-3 "><b>Author Name (บุลคลภายในสาขา)</b></label>
+                    <label for="exampleInputpaper_doi" class="col-sm-3"><b>{{ trans('papers.AuthorNameInDepartment') }}</b></label>
                         <div class="col-sm-9">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dynamicAddRemove">
                                     <tr>
-                                        <td><select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
-                                                <option value=''>Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}
-                                                </option>@endforeach
+                                        <td>
+                                            <select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
+                                                <option value=''>{{__("papers.SelectUser")}}</option>
+                                                @foreach($users as $user)
+                                                    <option value="{{ $user->id }}">
+                                                        @if(app()->getLocale() == 'th')
+                                                            {{ $user->fname_th }} {{ $user->lname_th }}
+                                                        @elseif(app()->getLocale() == 'en')
+                                                            {{ $user->fname_en }} {{ $user->lname_en }}
+                                                        @elseif(app()->getLocale() == 'zh')
+                                                            {{ $user->fname_en }} {{ $user->lname_en }}
+                                                        @endif
+                                                    </option>
+                                                @endforeach
                                             </select>
                                         </td>
                                         <td><select id='pos' class="custom-select my-select" style='width: 200px;' name="pos[]">
-                                                <option value="1">First Author</option>
-                                                <option value="2">Co-Author</option>
-                                                <option value="3">Corresponding Author</option>
+                                                <option value="1">{{trans('papers.FirstAuthor')}}</option>
+                                                <option value="2">{{trans('papers.CoAuthor')}}</option>
+                                                <option value="3">{{trans('papers.CorrespondingAuthor')}}</option>
                                             </select>
                                         </td>
                                         <td><button type="button" name="add" id="add-btn2" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button>
@@ -226,18 +236,17 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_doi" class="col-sm-3 col-form-label"><b>Author Name
-                                (บุลคลภายนอก)</b></label>
+                        <label for="exampleInputpaper_doi" class="col-sm-3 col-form-label"><b>{{trans('papers.AuthorNameOutDepartment')}}</b></label>
                         <div class="col-sm-9">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dynamic_field">
                                     <tr>
-                                        <td><input type="text" name="fname[]" placeholder="ชื่อ (First name)" class="form-control name_list" /></td>
-                                        <td><input type="text" name="lname[]" placeholder="นามสกุล (Last name)" class="form-control name_list" /></td>
+                                        <td><input type="text" name="fname[]" placeholder={{trans('papers.FirstName')}} class="form-control name_list" /></td>
+                                        <td><input type="text" name="lname[]" placeholder={{trans('papers.LastName')}} class="form-control name_list" /></td>
                                         <td><select id='pos2' class="custom-select my-select" style='width: 200px;' name="pos2[]">
-                                                <option value="1">First Author</option>
-                                                <option value="2">Co-Author</option>
-                                                <option value="3">Corresponding Author</option>
+                                                <option value="1">{{__("papers.FirstAuthor")}}</option>
+                                                <option value="2">{{__("papers.CoAuthor")}}</option>
+                                                <option value="3">{{__("papers.CorrespondingAuthor")}}</option>
                                             </select>
                                         </td>
                                         <td><button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button>
@@ -248,8 +257,8 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" name="submit" id="submit" class="btn btn-primary me-2">Submit</button>
-                    <a class="btn btn-light" href="{{ route('papers.index')}}">Cancel</a>
+                    <button type="submit" name="submit" id="submit" class="btn btn-primary me-2">{{__("papers.Submit")}}</button>
+                    <a class="btn btn-light" href="{{ route('papers.index')}}">{{__("papers.Cancel")}}</a>
                 </form>
             </div>
         </div>
@@ -266,7 +275,14 @@
 
             ++i;
             $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr">X</i></button></td></tr>'
+                '][userid]"  style="width: 200px;"><option value="">{{__("papers.SelectUser")}}</option>@foreach($users as $user)<option value="{{ $user->id }}">
+                        @if($locale == 'th')
+                            {{ $user->fname_th }} {{ $user->lname_th }}
+                        @elseif($locale == 'en' || $locale == 'zh')
+                            {{ $user->fname_en }} {{ $user->lname_en }}
+                        @else
+                            {{ $user->fname_en }} {{ $user->lname_en }}
+                        @endif</option>@endforeach</select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">{{__("papers.FirstAuthor")}}</option><option value="2">{{__("papers.CoAuthor")}}</option><option value="3">{{__("papers.CorrespondingAuthor")}}</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr">X</i></button></td></tr>'
             );
             $("#selUser" + i).select2()
         });
@@ -285,7 +301,7 @@
         $('#add').click(function() {
             i++;
             $('#dynamic_field').append('<tr id="row' + i +
-                '" class="dynamic-added"><td><input type="text" name="fname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="text" name="lname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><select id="pos2" class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" name="remove" id="' +
+                '" class="dynamic-added"><td><input type="text" name="fname[]" placeholder="@lang('papers.EnterYourName')" class="form-control name_list" /></td><td><input type="text" name="lname[]" placeholder="@lang('papers.EnterYourLastName')" class="form-control name_list" /></td><td><select id="pos2" class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">{{__("papers.FirstAuthor")}}</option><option value="2">{{__("papers.CoAuthor")}}</option><option value="3">{{__("papers.CorrespondingAuthor")}}</option></select></td><td><button type="button" name="remove" id="' +
                 i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
         });
 
@@ -338,43 +354,3 @@
     });
 </script>
 @endsection
-<!-- <form action="{{ route('papers.store') }}" method="POST">
-        @csrf
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="paper_name" class="form-control" placeholder="paper_name">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Year:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_year" placeholder="paper_year"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>paper_type:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_type" placeholder="paper_type"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>paper_level:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_level" placeholder="paper_level"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>paper_details:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_details" placeholder="paper_details"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-
-    </form>
-</div> -->

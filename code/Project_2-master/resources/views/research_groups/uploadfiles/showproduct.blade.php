@@ -3,28 +3,24 @@
 @section('content')
 <div class="container">
 
-	<table border="1px">
+    <table border="1px">
 
-	<tr>
-		<th>Name</th>
-		<th>Description</th>
-		<th>Download</th>
-	</tr>
+    <tr>
+        <th>{{ translateText('Name') }}</th>
+        <th>{{ translateText('Description') }}</th>
+        <th>{{ translateText('Download') }}</th>
+    </tr>
 
-	@foreach($data as $data)
-	<tr>
-		<td>{{$data->name}}</td>
-		<td>{{$data->description}}</td>
-		<td><a href="{{url('/download',$data->file)}}">Download</a></td>
+    @foreach($data as $data)
+    <tr>
+        <td>{{$data->name}}</td>
+        <td>{{$data->description}}</td>
+        <td><a href="{{url('/download',$data->file)}}">{{ translateText('Download') }}</a></td>
+    </tr>
 
+    @endforeach
 
-	</tr>
-	
-
-
-
-	@endforeach
-
-	</table>
+    </table>
 </div>
+
 	@endsection

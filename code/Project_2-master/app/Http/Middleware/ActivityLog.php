@@ -26,12 +26,23 @@ class ActivityLog
             // บันทึกลง database (ตาราง system_logs)
             SystemLog::create([
                 'user_id' => Auth::id(),
-                'action' => 'User Activity',
+                'action' => $this->getAction($request),
                 'description' => 'Accessed URL: ' . $request->fullUrl(),
                 'ip_address' => $request->ip()
             ]);
         }
 
         return $next($request);
+    }
+
+    private function getAction(Request $request)
+    {
+        if ($request->is('login')) {
+            return 'Login';
+        } elseif ($request->is('logout')) {
+            return 'Logout';
+        } else {
+            return 'User Activity'; // ค่า default
+        }
     }
 }
