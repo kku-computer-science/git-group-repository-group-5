@@ -46,28 +46,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body>
-
-    <div class="container-scroller sidebar-dark">
-        <!-- navbar ข้างบน -->
-        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
-
     <div class=" container-scroller sidebar-dark">
-        <!-- navbar ข้างบน
+        <!-- navbar ข้างบน 
     -->
         <nav class=" navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
-
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
                 <div class="me-3">
-                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button"
+                        data-bs-toggle="minimize">
                         <span class="icon-menu"></span>
                     </button>
                 </div>
             </div>
+            <!-- {{ Auth::user()->fname }} {{ Auth::user()->lname }} -->
+            <!-- Left navbar links -->
             <div class="navbar-menu-wrapper d-flex align-items-top">
                 <ul class="navbar-nav">
                     <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-                        <h1 class="welcome-text">{{ trans('dashboard.welcome_text') }} <span class="text-black fw-bold"></span></h1>
-                        <h3 class="welcome-sub-text">{{ trans('dashboard.welcome_subtext') }}</h3>
+                    <h1 class="welcome-text">{{ trans('dashboard.welcome_text') }} <span class="text-black fw-bold"></span></h1>
+                        <h3 class="welcome-sub-text"> </h3>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
@@ -82,51 +79,96 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <form class="search-form" action="#">
                             <i class="icon-search"></i>
-                            <input type="search" class="form-control" placeholder="{{ trans('dashboard.search_here') }}" title="{{ trans('dashboard.search_here') }}">
+                            <input type="search" class="form-control" placeholder="Search Here" title="Search here">
                         </form>
                     </li>
-                    <li class="nav-item d-none d-sm-inline-block">
-
-                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById ('logout-form').submit();">
-                            {{ trans('dashboard.logout') }} <i class="mdi mdi-logout"></i>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="icon-bell"></i>
+                            <span class="count"></span>
                         </a>
-
-                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById ('logout-form').submit();"> {{ __('Logout') }} <i class="mdi mdi-logout"></i></a>
-
+                    </li> -->
+                    <!-- <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+                        <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="img-xs rounded-circle" src="{{ Auth::user()->picture }}"
+                                alt="User profile picture">
+                        </a>
+                    </li> -->
+                    <!-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                            <div class="dropdown-header text-center">
+                                <img class="img-md rounded-circle" src="{{ Auth::user()->picture }}"
+                                    alt="Profile image">
+                                <p class="mb-1 mt-3 font-weight-semibold">{{ Auth::user()->name }}</p>
+                                <p class="fw-light text-muted mb-0"></p>
+                            </div>
+                            <a class="dropdown-item"><i
+                                    class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My
+                                Profile <span class="badge badge-pill badge-danger">1</span></a>
+                            <a class="dropdown-item"><i
+                                    class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i>
+                                Messages</a>
+                            <a class="dropdown-item"><i
+                                    class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i>
+                                Activity</a>
+                            <a class="dropdown-item"><i
+                                    class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i>
+                                FAQ</a>
+                            <a class="dropdown-item"><i
+                                    class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a> -->
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                        document.getElementById ('logout-form').submit();"> {{ trans('dashboard.logout') }} <i class="mdi mdi-logout"></i></a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
                     </li>
-                </ul>
             </div>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                data-bs-toggle="offcanvas">
                 <span class="mdi mdi-menu"></span>
             </button>
+
         </nav>
         <!-- navbar ข้างบน -->
         <div class="container-fluid page-body-wrapper">
+            <!-- Main Sidebar Container -->
+            <!-- <div class="theme-setting-wrapper">
+                <div id="settings-trigger"><i class="mdi mdi-home"></i></div>
+            </div> -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link {{ (request()->is('dashboard*')) ? 'active' : '' }}" href="{{ route('dashboard')}}">
+                        <a class="nav-link {{ (request()->is('dashboard*')) ? 'active' : '' }}"
+                            href="{{ route('dashboard')}}">
                             <i class="menu-icon mdi mdi-grid-large"></i>
-                            <span class="menu-title">{{ trans('dashboard.dashboard') }}</span>
-                        </a>
+                            <span class="menu-title">{{ trans('dashboard.dashboard') }}</span>                        </a>
                     </li>
                     <li class="nav-item nav-category">{{ trans('dashboard.profile') }}</li>
                     <li class="nav-item">
-                        <a class="nav-link {{ (request()->is('admin/profile*')) ? 'active' : '' }}" href="{{ route('profile')}}">
+                        <a class="nav-link {{ (request()->is('admin/profile*')) ? 'active' : '' }}"
+                            href="{{ route('profile')}}">
                             <i class="menu-icon mdi mdi-account-circle-outline"></i>
                             <span class="menu-title">{{ trans('dashboard.user_profile') }}</span>
+
                         </a>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link {{ (request()->is('admin/settings*')) ? 'active' : '' }}"
+                            href="{{ route('settings')}}">
+                            <i class="menu-icon mdi mdi mdi-settings-outline"></i>
+                            <span class="menu-title">Settings</span>
+
+                        </a>
+                    </li> -->
                     <li class="nav-item nav-category">{{ trans('dashboard.option') }}</li>
                     @can('funds-list')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('funds.index')}}">
                             <i class="menu-icon mdi mdi-file-document-box-outline"></i>
                             <span class="menu-title">{{ trans('dashboard.manage_fund') }}</span>
+
                         </a>
                     </li>
                     @endcan
@@ -135,6 +177,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a class="nav-link" href="{{ route('researchProjects.index')}}">
                             <i class="menu-icon mdi mdi-book-outline"></i>
                             <span class="menu-title">{{ trans('dashboard.research_project') }}</span>
+
                         </a>
                     </li>
                     @endcan
@@ -143,6 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a class="nav-link" href="{{ route('researchGroups.index')}}">
                             <i class="menu-icon mdi mdi-view-dashboard-outline"></i>
                             <span class="menu-title">{{ trans('dashboard.research_group') }}</span>
+
                         </a>
                     </li>
                     @endcan
@@ -203,6 +247,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                     </li>
                     @endcan
+
                     @can('programs-list')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('programs.index')}}">
@@ -223,15 +268,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="{{ route('logs.overall') }}">
                             <i class="menu-icon mdi mdi-monitor-multiple"></i>
-                            <span class="menu-title">{{ trans('dashboard.logs_system') }}</span>
+                            <span class="menu-title">Logs System</span>
                         </a>
                     </li>
-
-                    @endrole
+                    @endrole -->
 
                 </ul>
             </nav>
 
+            <!-- Content Wrapper. Contains page content -->
             <div class="main-panel">
                 <div class="content-wrapper">
                     @yield('content')
@@ -241,15 +286,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                 </footer>
             </div>
+
         </div>
     </div>
-    <!-- scripts -->
+    <!-- plugins:js -->
     <script src="{{asset('vendors/js/vendor.bundle.base.js')}}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{{asset('vendors/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{asset('vendors/progressbar.js/progressbar.min.js')}}"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{asset('js/off-canvas.js')}}"></script>
+    <script src="{{asset('js/hoverable-collapse.js')}}"></script>
+    <script src="{{asset('js/template.js')}}"></script>
+    <script src="{{asset('js/settings.js')}}"></script>
+    <script src="{{asset('js/todolist.js')}}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
     <script src="{{asset('js/dashboard.js')}}"></script>
+    <script src="{{asset('js/Chart.roundedBarCharts.js')}}"></script>
+    <!-- End custom js for this page-->
+
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('plugins/ijaboCropTool/ijaboCropTool.min.js') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
+    @yield('javascript')
+
+
 </body>
 
 
-
 </html>
-
