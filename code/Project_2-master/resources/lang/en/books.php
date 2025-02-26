@@ -57,8 +57,8 @@ return [
 
     'Supervisor' => 'Laboratory Supervisor',
     'Student' => 'Student',
-
-    'ขอนแก่น: โรงพิมพ์คลังนานาวิทยา' => 'Khon Kaen: Klang Nana Witthaya Printing House',
+    'Login' => 'Login',
+    'ADetail' => 'ActionBook Detail',
 
 
 ];
