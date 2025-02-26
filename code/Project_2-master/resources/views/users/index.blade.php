@@ -154,7 +154,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                
+
             </div>
         </div>
     </div>
@@ -165,63 +165,65 @@
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 <script>
-$(document).ready(function() {
-    var lang = '{{ app()->getLocale() }}'; // Get current language
+    $(document).ready(function() {
+        // ดึง locale จาก Blade
+        let locale = "{{ app()->getLocale() }}";
 
-    var languageSettings = {
-        "th": { // Thai Language settings
-            "sProcessing": "กำลังประมวลผล...",
-            "sLengthMenu": "แสดง _MENU_ รายการ",
-            "sZeroRecords": "ไม่พบข้อมูล",
-            "sInfo": "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
-            "sInfoEmpty": "แสดง 0 ถึง 0 จาก 0 รายการ",
-            "sInfoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
-            "sSearch": "ค้นหา:",
-            "oPaginate": {
-                "sFirst": "แรก",
-                "sPrevious": "ก่อนหน้า",
-                "sNext": "ถัดไป",
-                "sLast": "สุดท้าย"
-            }
-        },
-        "en": { // English Language settings
-            "sProcessing": "Processing...",
-            "sLengthMenu": "Show _MENU_ entries",
-            "sZeroRecords": "No matching records found",
-            "sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
-            "sInfoEmpty": "Showing 0 to 0 of 0 entries",
-            "sInfoFiltered": "(filtered from _MAX_ total entries)",
-            "sSearch": "Search:",
-            "oPaginate": {
-                "sFirst": "First",
-                "sPrevious": "Previous",
-                "sNext": "Next",
-                "sLast": "Last"
-            }
-        },
-        "zn": { // Chinese (Simplified) Language settings
-            "sProcessing": "处理中...",
-            "sLengthMenu": "显示 _MENU_ 条目",
-            "sZeroRecords": "没有匹配的记录",
-            "sInfo": "显示 _START_ 到 _END_ ，共 _TOTAL_ 条",
-            "sInfoEmpty": "显示 0 到 0 ，共 0 条",
-            "sInfoFiltered": "(从 _MAX_ 条记录中筛选)",
-            "sSearch": "搜索：",
-            "oPaginate": {
-                "sFirst": "首页",
-                "sPrevious": "上一页",
-                "sNext": "下一页",
-                "sLast": "最后一页"
-            }
+        let languageSettings = {};
+
+        if (locale === 'en') {
+            languageSettings = {
+                lengthMenu: "Show _MENU_ entries",
+                zeroRecords: "No matching records found",
+                info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                infoEmpty: "No records available",
+                infoFiltered: "(filtered from _MAX_ total records)",
+                search: "Search:",
+                paginate: {
+                    first: "First",
+                    last: "Last",
+                    next: "Next",
+                    previous: "Previous"
+                }
+            };
+        } else if (locale === 'zh') {
+            languageSettings = {
+                lengthMenu: "显示 _MENU_ 条目",
+                zeroRecords: "未找到匹配的记录",
+                info: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                infoEmpty: "没有可用记录",
+                infoFiltered: "(从 _MAX_ 条记录中过滤)",
+                search: "搜索:",
+                paginate: {
+                    first: "首页",
+                    last: "末页",
+                    next: "下页",
+                    previous: "上页"
+                }
+            };
+        } else {
+            // สมมติว่าถ้าเป็น 'th' หรือภาษาอื่น ใช้ภาษาไทย
+            languageSettings = {
+                lengthMenu: "แสดง _MENU_ รายการ",
+                zeroRecords: "ไม่พบข้อมูลที่ตรงกัน",
+                info: "แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ",
+                infoEmpty: "ไม่มีข้อมูล",
+                infoFiltered: "(กรองจากทั้งหมด _MAX_ รายการ)",
+                search: "ค้นหา:",
+                paginate: {
+                    first: "หน้าแรก",
+                    last: "หน้าสุดท้าย",
+                    next: "ถัดไป",
+                    previous: "ก่อนหน้า"
+                }
+            };
         }
-    };
 
-    var table1 = $('#example1').DataTable({
-        responsive: true,
-        language: languageSettings[lang] // Set language dynamically
+        var table1 = $('#example1').DataTable({
+            responsive: true,
+            language: languageSettings
+        });
     });
-});
-
 </script>
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
