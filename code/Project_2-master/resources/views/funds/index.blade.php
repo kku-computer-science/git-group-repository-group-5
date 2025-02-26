@@ -9,57 +9,61 @@
 <div class="container">
     @if ($message = Session::get('success'))
     <div class="alert alert-success">
-        <p>{{ $message }}</p>
+        <p>{{ translateText($message) }}</p>
     </div>
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">ทุนวิจัย</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('funds.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
+            <h4 class="card-title">{{ trans('funds.ResearchFund') }}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('funds.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> {{ translateText('ADD') }}</a>
             <div class="table-responsive">
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Fund name</th>
-                            <th>Fund Type</th>
-                            <th>Fund Level</th>
-                            <!-- <th>Create by</th> -->
-                            <th>Action</th>
+                            <th>{{ trans('funds.No.') }}</th>
+                            <th>{{ trans('funds.FundName') }}</th>
+                            <th>{{ trans('funds.FundType') }}</th>
+                            <th>{{ trans('funds.FunddingLevel') }}</th>
+                            <th>{{ trans('funds.Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($funds as $i=>$fund)
                         <tr>
-
-                            <td>{{ $i+1 }}</td>
+                            <td>{{ translateText($i+1) }}</td>
                             <td>{{ Str::limit($fund->fund_name,80) }}</td>
-                            <td>{{ $fund->fund_type }}</td>
-                            <td>{{ $fund->fund_level }}</td>
-                            <!-- <td>{{ $fund->user->fname_en }} {{ $fund->user->lname_en }}</td> -->
+                            <td>
+                                {{ $fund->fund_type == 'ทุนภายใน' ? trans('funds.InternalCapital') : trans('funds.ExternalCapital') }}
+                            </td>
+
+                            <td>
+                                @if($fund->fund_level == 'สูง')
+                                    {{ trans('funds.High') }}
+                                @elseif($fund->fund_level == 'ต่ำ')
+                                    {{ trans('funds.Low') }}
+                                @else
+                                    {{ trans('funds.Unknown') }}
+                                @endif
+                            </td>
 
                             <td>
                                 @csrf
                                 <form action="{{ route('funds.destroy',$fund->id) }}" method="POST">
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('funds.show',$fund->id) }}"><i class="mdi mdi-eye"></i></a>
+                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ translateText('view') }}" href="{{ route('funds.show',$fund->id) }}"><i class="mdi mdi-eye"></i></a>
                                     </li>
                                     @if(Auth::user()->can('update',$fund))
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('funds.edit',Crypt::encrypt($fund->id)) }}"><i class="mdi mdi-pencil"></i></a>
+                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ translateText('Edit') }}" href="{{ route('funds.edit',Crypt::encrypt($fund->id)) }}"><i class="mdi mdi-pencil"></i></a>
                                     </li>
                                     @endif
-
                                     @if(Auth::user()->can('delete',$fund))
                                     @csrf
                                     @method('DELETE')
-
                                     <li class="list-inline-item">
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" title="{{ translateText('Delete') }}"><i class="mdi mdi-delete"></i></button>
                                     </li>
-
-
                                     @endcan
                                 </form>
                             </td>
@@ -70,7 +74,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
@@ -89,15 +92,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `{{ trans('funds.AreUSure') }}`,
+                text: "{{ trans('funds.DeleteThis') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ translateText('Delete Successfully') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
