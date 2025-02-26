@@ -57,11 +57,20 @@
                         <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
                         <!-- <h6 class="card-text1">College of Computing</h6>
                     <h6 class="card-text1">Khon Kaen University</h6> -->
-                        <h6 class="card-text1">E-mail: {{$res->email}}</h6>
-                        <h6 class="card-title">{{ trans('message.education') }}</h6>
+                        <h6 class="card-text1">{{ trans('books.Email') }}: {{$res->email}}</h6>
+                        <h6 class="card-title">{{ trans('books.education') }}</h6>
+
                         @foreach( $res->education as $edu)
-                        <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
+                        <h6 class="card-text2 col-sm-10">
+                            {{$edu->year}}
+                            @if(app()->getLocale() == 'th')
+                            {{$edu->qua_name}} {{$edu->uname}}
+                            @else
+                            {{$edu->qua_name_en}} {{$edu->uname_en}}
+                            @endif
+                        </h6>
                         @endforeach
+
                         <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             {{ trans('message.expertise') }}
@@ -76,7 +85,7 @@
             </div>
 
             <div class="col-md-4">
-                <h6 class="title-pub">{{ trans('message.publications2') }}</h6>
+                <h6 class="title-pub">{{ trans('books.publications2') }}</h6>
                 <div class="col-xs-12 text-center bt">
                     <div class="clearfix"></div>
                     <div class="row text-center">
@@ -131,7 +140,7 @@
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary</button>
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">{{ trans('books.summary') }}</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="scopus-tab" data-bs-toggle="tab" data-bs-target="#scopus" type="button" role="tab" aria-controls="scopus" aria-selected="false">SCOPUS</button>
@@ -143,10 +152,10 @@
             <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
+            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">{{ trans('books.book') }}</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
+            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">{{ trans('books.work') }}</button>
         </li>
     </ul>
     <br>
@@ -154,7 +163,7 @@
 
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="tab-content" style="padding-bottom: 20px;">
-                <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">Export To Excel</a>
+                <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">{{ trans('books.Export') }}</a>
             </div>
             <table id="example1" class="table table-striped" style="width:100%">
                 <thead>
@@ -162,16 +171,16 @@
                         <th><a href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">#Export</a></td>
                     </tr> -->
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th>Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th>Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
+                        <th>{{ trans('books.no') }}</th>
+                        <th>{{ trans('books.Year') }}</th>
+                        <th>{{ trans('books.Paper') }}</th>
+                        <th>{{ trans('books.Author') }}</th>
+                        <th>{{ trans('books.Document') }}</th>
+                        <th>{{ trans('books.Page') }}</th>
+                        <th>{{ trans('books.Journals') }}</th>
+                        <th>{{ trans('books.Ciations') }}</th>
                         <th>Doi</th>
-                        <th>Source</th>
+                        <th>{{ trans('books.Source') }}</th>
                     </tr>
                 </thead>
 
@@ -189,9 +198,17 @@
                             </span>
                             @endforeach
                             @foreach ($paper->teacher as $author)
-                            <span >
+                            <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                    <teacher teacher>
+                                        @if(app()->getLocale() == 'th')
+                                        {{$author->fname_th}} {{$author->lname_th}}
+                                        @else
+                                        {{$author->fname_en}} {{$author->lname_en}}
+                                        @endif
+                                    </teacher>
+
+                                </a>
                             </span>
                             @endforeach
                         </td>
@@ -220,14 +237,14 @@
             <table id="example2" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
+                        <th>{{ trans('books.no') }}</th>
+                        <th>{{ trans('books.Year') }}</th>
+                        <th style="width:90%;">{{ trans('books.Paper') }}</th>
+                        <th>{{ trans('books.Author') }}</th>
+                        <th>{{ trans('books.Document') }}</th>
+                        <th style="width:100%;">{{ trans('books.Page') }}</th>
+                        <th>{{ trans('books.Journals') }}</th>
+                        <th>{{ trans('books.Ciations') }}</th>
                         <th>Doi</th>
                     </tr>
                 </thead>
@@ -247,7 +264,14 @@
                             @foreach ($paper->teacher as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                    <teacher teacher>
+                                        @if(app()->getLocale() == 'th')
+                                        {{$author->fname_th}} {{$author->lname_th}}
+                                        @else
+                                        {{$author->fname_en}} {{$author->lname_en}}
+                                        @endif
+                                    </teacher>
+                                </a>
                             </span>
                             @endforeach
                         </td>
@@ -271,14 +295,14 @@
             <table id="example3" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
+                        <th>{{ trans('books.no') }}</th>
+                        <th>{{ trans('books.Year') }}</th>
+                        <th style="width:90%;">{{ trans('books.Paper') }}</th>
+                        <th>{{ trans('books.Author') }}</th>
+                        <th>{{ trans('books.Document') }}</th>
+                        <th style="width:100%;">{{ trans('books.Page') }}</th>
+                        <th>{{ trans('books.Journals') }}</th>
+                        <th>{{ trans('books.Ciations') }}</th>
                         <th>Doi</th>
                     </tr>
                 </thead>
@@ -299,7 +323,14 @@
                             @foreach ($paper->teacher as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                    <teacher teacher>
+                                        @if(app()->getLocale() == 'th')
+                                        {{$author->fname_th}} {{$author->lname_th}}
+                                        @else
+                                        {{$author->fname_en}} {{$author->lname_en}}
+                                        @endif
+                                    </teacher>
+                                </a>
                             </span>
                             @endforeach
                         </td>
@@ -323,14 +354,14 @@
             <table id="example4" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
+                        <th>{{ trans('books.no') }}</th>
+                        <th>{{ trans('books.Year') }}</th>
+                        <th style="width:90%;">{{ trans('books.Paper') }}</th>
+                        <th>{{ trans('books.Author') }}</th>
+                        <th>{{ trans('books.Document') }}</th>
+                        <th style="width:100%;">{{ trans('books.Page') }}</th>
+                        <th>{{ trans('books.Journals') }}</th>
+                        <th>{{ trans('books.Ciations') }}</th>
                         <th>Doi</th>
                     </tr>
                 </thead>
@@ -351,7 +382,14 @@
                             @foreach ($paper->teacher as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                    <teacher teacher>
+                                        @if(app()->getLocale() == 'th')
+                                        {{$author->fname_th}} {{$author->lname_th}}
+                                        @else
+                                        {{$author->fname_en}} {{$author->lname_en}}
+                                        @endif
+                                    </teacher>
+                                </a>
                             </span>
                             @endforeach
                         </td>
@@ -371,12 +409,12 @@
             <table id="example5" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">สถานที่พิมพ์</th>
-                        <th scope="col">Page</th>
+                        <th scope="col">{{ trans('books.Number') }}</th>
+                        <th scope="col">{{ trans('books.Year') }}</th>
+                        <th scope="col">{{ trans('books.Name') }}</th>
+                        <th scope="col">{{ trans('books.Author') }}</th>
+                        <th scope="col">{{ trans('books.Place') }}</th>
+                        <th scope="col">{{ trans('books.Page') }}</th>
 
                     </tr>
                 </thead>
@@ -413,12 +451,12 @@
             <table id="example6" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">ประเภท</th>
-                        <th scope="col">หมายเลขทะเบียน</th>
-                        <th scope="col">วันที่จดทะเบียน</th>
+                        <th scope="col">{{ trans('books.Number') }}</th>
+                        <th scope="col">{{ trans('books.Name') }}</th>
+                        <th scope="col">{{ trans('books.Author') }}</th>
+                        <th scope="col">{{ trans('books.type') }}</th>
+                        <th scope="col">{{ trans('books.Registration') }}</th>
+                        <th scope="col">{{ trans('books.Date') }}</th>
 
                     </tr>
                 </thead>
@@ -438,7 +476,14 @@
                             @foreach ($paper->user as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                    <teacher teacher>
+                                        @if(app()->getLocale() == 'th')
+                                        {{$author->fname_th}} {{$author->lname_th}}
+                                        @else
+                                        {{$author->fname_en}} {{$author->lname_en}}
+                                        @endif
+                                    </teacher>
+                                </a>
 
                             </span>
                             @endforeach
@@ -663,7 +708,7 @@
         //$("#scopus").append('data-to="100"');
         document.getElementById("all").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                <p class="count-text ">SUMMARY</p>`
+                <p class="count-text ">{{ trans('books.summary') }}</p>`
 
         document.getElementById("scopus_sum").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>

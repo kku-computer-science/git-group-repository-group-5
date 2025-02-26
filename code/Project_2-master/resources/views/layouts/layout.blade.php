@@ -65,30 +65,39 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item {{ request()->is('/') ? 'active' : ''}} ">
-                        <a class="nav-link" href="/">{{ translateText('Home page') }}</a>
+                        <a class="nav-link" href="/">{{ trans('books.Home') }}</a>
                     </li>
                     <li
                         class="nav-item dropdown {{ Request::routeIs('researchers') ? 'active' : '' }} {{ request()->is('detail*') ? 'active' : ''}} ">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            {{ trans('message.Researchers') }}
+                            {{ trans('books.Researchers') }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($dn as $department)
                             <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id])}}">
-                                    {{$department->program_name_en}}</a>
+                                    <!-- {{$department->program_name_en}} -->
+                                    @if (app()->getLocale() == 'th')
+                                    {{ $department->program_name_th }}
+                                    @elseif (app()->getLocale() == 'zh')
+                                    {{$department->program_name_cn }}
+                                    @else
+                                    {{$department->program_name_en }}
+                                    @endif
+
+                                </a>
                             </li>
                             @endforeach
                         </ul>
                     </li>
                     <li class="nav-item {{ request()->is('researchproject') ? 'active' : ''}} ">
-                        <a class="nav-link" href="/researchproject">{{ trans('message.ResearchProj') }}</a>
+                        <a class="nav-link" href="/researchproject">{{ trans('books.ResearchProj') }}</a>
                     </li>
                     <li class="nav-item {{ request()->is('researchgroup') ? 'active' : ''}}  ">
-                        <a class="nav-link" href="/researchgroup">{{ trans('message.ResearchGroup') }}</a>
+                        <a class="nav-link" href="/researchgroup">{{ trans('books.ResearchGroup') }}</a>
                     </li>
                     <li class="nav-item {{ request()->is('reports') ? 'active' : ''}}">
-                        <a class="nav-link" href="/reports">{{ trans('message.Report') }}</a>
+                        <a class="nav-link" href="/reports">{{ trans('books.Report') }}</a>
                     </li>
 
 

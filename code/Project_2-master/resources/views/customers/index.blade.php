@@ -3,7 +3,7 @@
 <div class="row">
 	<div class="col-lg-12" style="text-align: center">
 		<div>
-			<h2>Laravel 8 CRUD using Bootstrap Modal</h2>
+			<h2>{{ trans('books.Laravel') }}</h2>
 		</div>
 		<br />
 	</div>
@@ -11,7 +11,7 @@
 <div class="row">
 	<div class="col-lg-12 margin-tb">
 		<div class="pull-right">
-			<a href="javascript:void(0)" class="btn btn-success mb-2" id="new-customer" data-toggle="modal">New Customer</a>
+			<a href="javascript:void(0)" class="btn btn-success mb-2" id="new-customer" data-toggle="modal">{{ trans('books.NewCustomer') }}</a>
 		</div>
 	</div>
 </div>
@@ -23,11 +23,11 @@
 @endif
 <table class="table table-bordered">
 	<tr>
-		<th>ID</th>
-		<th>Name</th>
-		<th>Email</th>
-		<th>Address</th>
-		<th width="280px">Action</th>
+		<th>{{ trans('books.ID') }}</th>
+		<th>{{ trans('books.Name') }}</th>
+		<th>{{ trans('books.Email') }}</th>
+		<th>{{ trans('books.Address') }}</th>
+		<th width="280px">{{ trans('books.Action') }}</th>
 	</tr>
 
 	@foreach ($customers as $customer)
@@ -38,10 +38,10 @@
 		<td>{{ $customer->address }}</td>
 		<td>
 			<form action="{{ route('customers.destroy',$customer->id) }}" method="POST">
-				<a class="btn btn-info" id="show-customer" data-toggle="modal" data-id="{{ $customer->id }}">Show</a>
-				<a href="javascript:void(0)" class="btn btn-success" id="edit-customer" data-toggle="modal" data-id="{{ $customer->id }}">Edit </a>
+				<a class="btn btn-info" id="show-customer" data-toggle="modal" data-id="{{ $customer->id }}">{{ trans('books.Show') }}</a>
+				<a href="javascript:void(0)" class="btn btn-success" id="edit-customer" data-toggle="modal" data-id="{{ $customer->id }}">{{ trans('books.Edit') }} </a>
 				<meta name="csrf-token" content="{{ csrf_token() }}">
-				<a id="delete-customer" data-id="{{ $customer->id }}" class="btn btn-danger delete-user">Delete</a>
+				<a id="delete-customer" data-id="{{ $customer->id }}" class="btn btn-danger delete-user">{{ trans('books.Delete') }}</a>
 		</td>
 		</form>
 		</td>
@@ -64,19 +64,19 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12">
 							<div class="form-group">
-								<strong>Name:</strong>
+								<strong>{{ trans('books.Name') }}:</strong>
 								<input type="text" name="name" id="name" class="form-control" placeholder="Name" onchange="validate()">
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-12">
 							<div class="form-group">
-								<strong>Email:</strong>
+								<strong>{{ trans('books.Email') }}:</strong>
 								<input type="text" name="email" id="email" class="form-control" placeholder="Email" onchange="validate()">
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-12">
 							<div class="form-group">
-								<strong>Address:</strong>
+								<strong>{{ trans('books.Address') }}:</strong>
 								<input type="text" name="address" id="address" class="form-control" placeholder="Address" onchange="validate()" onkeypress="validate()">
 							</div>
 						</div>
@@ -89,8 +89,8 @@
 						<div class="form-group">
 						</div> -->
 						<div class="col-xs-12 col-sm-12 col-md-12 text-center">
-							<button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Submit</button>
-							<a href="{{ route('customers.index') }}" class="btn btn-danger">Cancel</a>
+							<button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>{{ trans('books.Submit') }}</button>
+							<a href="{{ route('customers.index') }}" class="btn btn-danger">{{ trans('books.Cancel') }}</a>
 						</div>
 					</div>
 				</form>
@@ -125,7 +125,7 @@
 								<td>{{$customer->address}}</td>
 							</tr>
 							<tr>
-								<td colspan="2" style="text-align: right "><a href="{{ route('customers.index') }}" class="btn btn-danger">OK</a> </td>
+								<td colspan="2" style="text-align: right "><a href="{{ route('customers.index') }}" class="btn btn-danger">{{ trans('books.OK') }}</a> </td>
 							</tr>
 						</table>
 						@endif

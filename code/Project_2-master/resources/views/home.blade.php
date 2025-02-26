@@ -55,11 +55,11 @@
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+                <span class="visually-hidden">{{ trans('books.Previous') }}</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+                <span class="visually-hidden">{{ trans('books.Previous') }}</span>
             </button>
         </div>
     </div>
@@ -113,14 +113,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Reference (APA)</h5>
+                    <h5 class="modal-title">{{ trans('books.Reference') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="name">
                     <!-- <p>Modal body text goes here.</p> -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ trans('books.Close') }}</button>
                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                 </div>
             </div>
@@ -131,7 +131,7 @@
 
 
     <div class="container mixpaper pb-10 mt-3">
-        <h3>{{ trans('message.publications') }}</h3>
+        <h3>{{ trans('books.publications') }}</h3>
         @foreach($papers as $n => $pe)
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -140,7 +140,7 @@
                         @if (!$loop->last)
                         {{$n}}
                         @else
-                        Before {{$n}}
+                        {{ trans('books.Before') }} {{$n}}
                         @endif
 
                     </button>
@@ -161,7 +161,7 @@
                                     <!-- <a href="{{ route('bibtex',['id'=>$p['id']])}}">
                                         [อ้างอิง]
                                     </a> -->
-                                    <button style="padding: 0;"class="btn btn-link open_modal" value="{{$p['id']}}">[อ้างอิง]</button>
+                                    <button style="padding: 0;" class="btn btn-link open_modal" value="{{$p['id']}}">{{ trans('books.ref') }}</button>
                                 </p>
                             </div>
                         </div>
@@ -193,6 +193,20 @@
     });
 </script>
 <script>
+    var year = <?php echo $year; ?>;
+    let currentLocale = '{{ app()->getLocale() }}';
+
+    if (currentLocale === 'th') {
+        year = year.map(y => typeof y === "number" ? y + 543 : y); // Add 543 for Thai year
+
+
+
+    } else {
+        // For English or other languages, leave the year as is
+        year = year.map(y => typeof y === "number" ? y : y);
+    }
+
+
     var year = <?php echo $year; ?>;
     var paper_tci = <?php echo $paper_tci; ?>;
     var paper_scopus = <?php echo $paper_scopus; ?>;
@@ -260,7 +274,8 @@
                 },
                 scaleLabel: {
                     display: true,
-                    labelString: 'Number',
+                    labelString: currentLocale === 'th' ? 'จำนวนบทความ' : currentLocale === 'zh' ?
+                        '文章数量' : 'Number',
 
                 },
                 ticks: {
@@ -271,14 +286,18 @@
             xAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Year'
+                    labelString: currentLocale === 'th' ? 'ปี' : currentLocale === 'zh' ?
+                        '年' : 'Year'
                 }
             }]
         },
 
         title: {
+
             display: true,
-            text: 'Report the total number of articles ( 5 years : cumulative)',
+            text: currentLocale === 'th' ?
+                'รายงานจำนวนบทความทั้งหมด (สะสมตลอด 5 ปี)' : currentLocale === 'zh' ?
+                '报告总文章数 (5年累计)' : 'Report the total number of articles (5 years : cumulative)',
             fontSize: 20
         }
 
@@ -300,7 +319,7 @@
     let sumsco = paper_scopus;
     let sumwos = paper_wos;
     (function($) {
-        
+
         let sum = paper_wos + paper_tci + paper_scopus;
         //console.log(sum);
         //$("#scopus").append('data-to="100"');
@@ -426,7 +445,7 @@
         $.get('/bib/' + tour_id, function(data) {
             //success data
             console.log(data);
-            $( ".bibtex-biblio" ).remove();
+            $(".bibtex-biblio").remove();
             document.getElementById("name").innerHTML += `${data}`
             // $('#tour_id').val(data.id);
             // $('#name').val(data);
