@@ -65,4 +65,18 @@ return [
     'are_you_sure' => 'Are you sure?',
     'delete_warning' => 'If you delete this, it will be gone forever.',
     'delete_success' => 'Delete Successfully',
-];
+
+        'user_info' => 'User Information',
+        'user_detail' => 'User Details',
+        'name_th' => 'Name (Thai)',
+        'name_en' => 'Name (English)',
+        'email' => 'Email:',
+        'role' => 'Role',
+        'academic_ranks' => 'Academic Ranks',
+        'department' => 'Department',
+        'program' => 'Program',
+        'education_history' => 'Education History',
+        'password' => 'Password:',
+        'back' => 'Back',
+    ];
+
