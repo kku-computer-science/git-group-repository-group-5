@@ -1,0 +1,20 @@
+<?php
+return [
+    'success' => 'Success',
+    'programs' => 'Programs',
+    'ADD' => 'Add',
+    'id' => 'ID',
+    'Name (ไทย)' => 'Name (Thai)',
+    'Degree' => 'Degree',
+    'Action' => 'Action',
+    'Edit' => 'Edit',
+    'Delete' => 'Delete',
+    'degree_level' => 'Degree Level',
+    'department' => 'Department',
+    'Name_TH' => 'Name (Thai)',
+    'Name_EN' => 'Name (English)',
+    'program_name_th_placeholder' => 'Program Name (Thai)',
+    'program_name_en_placeholder' => 'Program Name (English)',
+    'Submit' => 'Submit',
+    'Cancel' => 'Cancel',
+];

@@ -6,16 +6,16 @@
     <table border="1px">
 
     <tr>
-        <th>{{ translateText('Name') }}</th>
-        <th>{{ translateText('Description') }}</th>
-        <th>{{ translateText('Download') }}</th>
+        <th>{{ trans('research_g.Name') }}</th>
+        <th>{{ trans('research_g.Description') }}</th>
+        <th>{{ trans('research_g.Download') }}</th>
     </tr>
 
     @foreach($data as $data)
     <tr>
         <td>{{$data->name}}</td>
         <td>{{$data->description}}</td>
-        <td><a href="{{url('/download',$data->file)}}">{{ translateText('Download') }}</a></td>
+        <td><a href="{{url('/download',$data->file)}}">{{ trans('research_g.Download') }}</a></td>
     </tr>
 
     @endforeach

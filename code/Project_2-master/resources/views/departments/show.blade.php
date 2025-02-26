@@ -16,24 +16,25 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">{{ translateText('Department') }}
+            <div class="card-header">{{ trans('department.department') }}
                 @can('role-create')
                     <span class="float-right">
-                        <a class="btn btn-primary" href="{{ route('departments.index') }}">{{ translateText('Back') }}</a>
+                        <a class="btn btn-primary" href="{{ route('departments.index') }}">{{ trans('department.back') }}</a>
                     </span>
                 @endcan
             </div>
             <div class="card-body">
                 <div class="lead">
-                    <strong>{{ translateText('Department Name TH:') }}</strong>
+                    <strong>{{ trans('department.department_name_th') }}:</strong>
                     {{ $department->department_name_th }}
                 </div>
                 <div class="lead">
-                    <strong>{{ translateText('Department Name EN:') }}</strong>
+                    <strong>{{ trans('department.department_name_en') }}:</strong>
                     {{ $department->department_name_en }}
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection
