@@ -14,5 +14,5 @@ return [
         'display' => '中文',
         'flag-icon' => 'cn'
     ],
-    
+
 ];

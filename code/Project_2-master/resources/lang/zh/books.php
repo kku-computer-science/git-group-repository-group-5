@@ -1,5 +1,6 @@
 <?php
 return [
+
     'ขอนแก่น: โรงพิมพ์คลังนานาวิทยา' => 'ขอนแก่น: โรงพิมพ์คลังนานาวิทยา',
     'Addcourse' => '添加课程',
     'ID' => '编号',
@@ -56,6 +57,27 @@ return [
     'type' => '类型',
     'Registration' => '注册号',
     'Date' => '注册日期',
+
     'Supervisor' => '实验室主管',
     'Student' => '学生',
+<<<<<<< HEAD
+    'Hproject' => '学术服务项目 / 研究项目',
+    'No' => '编号',
+    'Pname' => '项目名称',
+    'Detail' => '详细信息',
+    'PLeader' => '项目负责人',
+    'Status' => '状态',
+    'To' => '到 ',
+    'PDuration' => '项目期限',
+    'GrantType' => '研究资助类型',
+    'FundingAgency' => '资助机构',
+    'RAgency' => '负责机构',
+    'ABudget' => '分配的预算',
+    'Baht' => '泰铢',
+    'Apply' => '提交申请 ',
+    'Proceed' => '执行',
+    'CloseP' => '结束项目',
+
+=======
+>>>>>>> parent of d3cda16 (testing)
 ];
