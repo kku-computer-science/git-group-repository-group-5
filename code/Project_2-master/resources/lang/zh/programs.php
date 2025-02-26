@@ -23,4 +23,11 @@ return [
     'You will not be able to recover this imaginary file!' => '你将无法恢复此文件!',
     'Delete Successfully' => '删除成功',
     'program entry deleted successfully' => '程序条目删除成功',
+    'add_new' => '添加新程序',
+    'edit' => '编辑程序',
+    'update' => '更新',
+    'delete_confirm_title' => '你确定吗？',
+    'delete_confirm_text' => '删除后将无法恢复!',
+    'delete_success' => '删除成功',
+    'delete_success_message' => '数据已成功删除',
 ];

@@ -375,53 +375,53 @@
 	</div> -->
 
 	<div class="form">
-		<div class="form-toggle"></div>
-		<div class="form-panel one">
-			<div class="form-header">
-				<h1>{{ translateText('Account Login') }}</h1>
-			</div>
-			<div class="form-content">
-				<form method="POST" class="validate-form" autocomplete="off" action="{{ route('login') }}">
-					@csrf
-					@if($errors->any())
-					<div class="alert alert-danger alert-block ">
-						<button type="button" class="close" data-dismiss="alert"></button>
-						<strong><a>{{ translateText($errors->first()) }}</a></strong>
-					</div>
-					@endif
-					<div class="form-group validate-input">
-						<label for="email">{{ translateText('Username') }}</label>
-						<input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
-						@error('username')
-						<span class="invalid-feedback" role="alert">
-							<strong>{{ translateText($message) }}</strong>
-						</span>
-						@enderror
-					</div>
-					<div class="form-group validate-input" data-validate="{{ translateText('Password is required') }}">
-						<label for="password">{{ translateText('Password') }}</label>
-						<input id="password" class="input" type="password" name="password" required="required" />
-					</div>
-					<div class="form-group">
-						<label class="form-remember">
-							<input id="ckb1" name="remember" type="checkbox" />{{ translateText('Remember Me') }}
-						</label>
-					</div>
-					<div class="form-group">
-						<button type="submit">{{ translateText('Login') }}</button>
-					</div>
-					<div class="form-remember pb-3">
-							<p style="color: red; text-align: right;">{{ translateText('*** If you forget your password, please contact administrator.') }}</p>
-					</div>
-					<ul>
-						<li>{{ translateText('For Username, use KKU-Mail to log in.') }}</li>
-						<li>{{ translateText('For students who are logging in for the first time, please log in with student ID.') }}</li>
-					</ul>
-				</form>
-			</div>
-		</div>
+    <div class="form-toggle"></div>
+    <div class="form-panel one">
+        <div class="form-header">
+            <h1>{{ trans('auth.account_login') }}</h1>
+        </div>
+        <div class="form-content">
+            <form method="POST" class="validate-form" autocomplete="off" action="{{ route('login') }}">
+                @csrf
+                @if($errors->any())
+                <div class="alert alert-danger alert-block ">
+                    <button type="button" class="close" data-dismiss="alert"></button>
+                    <strong><a>{{ trans('auth.' . $errors->first()) }}</a></strong>
+                </div>
+                @endif
+                <div class="form-group validate-input">
+                    <label for="email">{{ trans('auth.username') }}</label>
+                    <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
+                    @error('username')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ trans('auth.' . $message) }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-group validate-input" data-validate="{{ trans('auth.password_required') }}">
+                    <label for="password">{{ trans('auth.password') }}</label>
+                    <input id="password" class="input" type="password" name="password" required="required" />
+                </div>
+                <div class="form-group">
+                    <label class="form-remember">
+                        <input id="ckb1" name="remember" type="checkbox" />{{ trans('auth.remember_me') }}
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button type="submit">{{ trans('auth.login') }}</button>
+                </div>
+                <div class="form-remember pb-3">
+                    <p style="color: red; text-align: right;">{{ trans('auth.forgot_password') }}</p>
+                </div>
+                <ul>
+                    <li>{{ trans('auth.use_kku_mail') }}</li>
+                    <li>{{ trans('auth.first_time_login') }}</li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
 
-	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

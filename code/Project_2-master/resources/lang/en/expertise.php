@@ -15,6 +15,15 @@ return [
     'Are you sure?' => 'Are you sure?',
     'You will not be able to recover this imaginary file!' => 'You will not be able to recover this imaginary file!',
     'Delete Successfully' => 'Delete Successfully',
-    'program entry deleted successfully' => 'Program entry deleted successfully'
+    'program entry deleted successfully' => 'Program entry deleted successfully',
+    'ID' => 'ID',
+    'Name' => 'Name',
+    'add_new' => 'Add New Expertise',
+    'edit' => 'Edit Expertise',
+    'update' => 'Update',
+    'delete_confirm_title' => 'Are you sure?',
+    'delete_confirm_text' => 'You will not be able to recover this!',
+    'delete_success' => 'Delete Successfully',
+    'delete_success_message' => 'Data deleted successfully',
 
 ];
