@@ -43,12 +43,27 @@
                 aria-label="Slide 3"></button> -->
             </div>
             <div class="carousel-inner">
+                @php
+                $locale = app()->getLocale();
+                $image1 = 'img/p1_en.jpg'; // ค่าเริ่มต้นเป็นอังกฤษ
+                $image2 = 'img/p2_en.jpg';
+
+                if ($locale === 'zh') {
+                $image1 = 'img/p1_cn.jpg';
+                $image2 = 'img/p2_cn.jpg';
+                } elseif ($locale === 'th') {
+                $image1 = 'img/p1_th.jpg';
+                $image2 = 'img/p2_th.jpg';
+                }
+                @endphp
+
                 <div class="carousel-item active">
-                    <img src="{{asset('img/Banner1.png')}}" class="d-block w-100" alt="...">
+                    <img src="{{ asset($image1) }}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('img/Banner2.png')}}" class="d-block w-100" alt="...">
+                    <img src="{{ asset($image2) }}" class="d-block w-100" alt="...">
                 </div>
+
                 <!-- <div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">
             </div> -->

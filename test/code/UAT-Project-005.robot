@@ -8,6 +8,7 @@ ${VALID USER}       admin@gmail.com
 ${VALID PASSWORD}    12345678
 ${LOGIN URL}        http://127.0.0.1:8000/login
 ${WELCOME URL}      http://127.0.0.1:8000/dashboard
+
 ${LOGS_SYSTEM_BUTTON}  xpath=//span[@class='menu-title' and text()='Logs System']
 ${USER_DROPDOWN}      xpath=//select[@name='user_id']
 
