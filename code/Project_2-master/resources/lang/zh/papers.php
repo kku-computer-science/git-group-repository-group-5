@@ -71,4 +71,6 @@ return [
     "EnterYourName" => "输入您的名字",
     "EnterYourLastName" => "输入您的姓氏",
     "SelectUser" => "选择用户",
+    "Whoops" => "哎呀",
+    "ThereWas" => "您的输入有一些问题。"
 ];
