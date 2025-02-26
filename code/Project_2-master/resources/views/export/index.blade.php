@@ -100,11 +100,11 @@ $(document).ready(function() {
     @endif
     <div class="card" style="padding: 16px;">
     <div class="card-body">
-        <h4 class="card-title">{{ translateText('Users') }}</h4>
+        <h4 class="card-title">{{ translateText('export.Export') }}</h4>
         <!-- <p class="card-description">สามารถ Export ข้อมูลของอาจารย์แต่ละท่าน</p> -->
         <!-- <div class="search-box">
             <div class="input-group">
-                <input type="text" id="search" class="form-control" placeholder="{{ translateText('Search by Name') }}">
+                <input type="text" id="search" class="form-control" placeholder="{{ translateText('export.Search_by_Name') }}">
                 <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
             </div>
         </div> -->
@@ -114,11 +114,11 @@ $(document).ready(function() {
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{ translateText('Name') }}</th>
-                        <th>{{ translateText('หลักสูตร') }}</th>
-                        <th>{{ translateText('Email') }}</th>
-                        <th>{{ translateText('Roles') }}</th>
-                        <th width="280px">{{ translateText('Action') }}</th>
+                        <th>{{ translateText('export.Name') }}</th>
+                        <th>{{ translateText('export.Program') }}</th>
+                        <th>{{ translateText('export.Email') }}</th>
+                        <th>{{ translateText('export.Roles') }}</th>
+                        <th width="280px">{{ translateText('export.Action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -138,15 +138,15 @@ $(document).ready(function() {
                         </td>
                         <td>
                             <a class="btn btn-danger btn-sm" type="button" data-toggle="tooltip"
-                                data-placement="top" title="{{ translateText('PDF') }}" href="{{ route('pdf', ['id' => $user->id]) }}"><i
+                                data-placement="top" title="{{ translateText('export.PDF') }}" href="{{ route('pdf', ['id' => $user->id]) }}"><i
                                     class="mdi mdi-file-pdf"></i></a>
 
                             <a class="btn btn-success btn-sm" type="button" data-toggle="tooltip"
-                                data-placement="top" title="{{ translateText('EXCEL') }}" href="{{ route('excel', ['id' => $user->id]) }}"><i
+                                data-placement="top" title="{{ translateText('export.EXCEL') }}" href="{{ route('excel', ['id' => $user->id]) }}"><i
                                     class="mdi mdi-file-excel"></i></a>
 
                             <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip"
-                                data-placement="top" title="{{ translateText('WORD') }}" href="{{ route('docx', ['id' => $user->id]) }}"><i
+                                data-placement="top" title="{{ translateText('export.WORD') }}" href="{{ route('docx', ['id' => $user->id]) }}"><i
                                     class="mdi mdi-file-word"></i></a>
                         </td>
                     </tr>
@@ -158,6 +158,7 @@ $(document).ready(function() {
 </div>
 
 </div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
 <script src = "https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer ></script>

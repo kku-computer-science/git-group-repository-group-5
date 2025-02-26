@@ -13,25 +13,26 @@
 
   <div class="card">
     <div class="card-body">
-        <h4 class="card-title">{{ translateText('Import Excel, CSV File') }}</h4>
+        <h4 class="card-title">{{ trans('users.import_file') }}</h4>
         <form id="import-csv-form" method="POST" action="{{ url('import') }}" accept-charset="utf-8" enctype="multipart/form-data">
           @csrf
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="file" name="file" placeholder="{{ translateText('Choose file') }}">
+                        <input type="file" name="file" placeholder="{{ trans('users.choose_file') }}">
                     </div>
                     @error('file')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>              
                  <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary mt-3" id="submit">{{ translateText('Submit') }}</button>
+                    <button type="submit" class="btn btn-primary mt-3" id="submit">{{ trans('users.submit') }}</button>
                 </div>
             </div>     
         </form>
     </div>
 </div>
+
 
 </div>
 @endsection

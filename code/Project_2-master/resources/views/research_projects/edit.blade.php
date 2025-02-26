@@ -14,10 +14,10 @@
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>{{ translateText('Whoops!') }}</strong>{{ translateText('There were some problems with your input.') }} <br><br>
+        <strong>{{ trans('re_project.Whoops') }}</strong>{{ trans('re_project.Thereweresomeproblemswithyourinput') }} <br><br>
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ translateText($error) }}</li>
+                <li>{{ trans('message.' . $error) }}</li>
             @endforeach
         </ul>
     </div>
@@ -25,19 +25,19 @@
 
     <div class="card col-md-12" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">{{ translateText('Edit research project information') }}</h4>
-            <p class="card-description">{{ translateText('Fill in the information to edit the research project details.') }}</p>
+            <h4 class="card-title">{{ trans('re_project.Editresearchprojectinformation') }}</h4>
+            <p class="card-description">{{ trans('re_project.Fillintheinformationtoedittheresearchprojectdetails') }}</p>
             <form action="{{ route('researchProjects.update',$researchProject->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>{{ translateText('Project Name') }}</b></p>
+                    <p class="col-sm-3 "><b>{{ trans('re_project.ProjectName') }}</b></p>
                     <div class="col-sm-8">
                         <textarea name="project_name" value="{{ $researchProject->project_name }}" class="form-control" style="height:90px">{{ $researchProject->project_name }}</textarea>
                     </div>
                 </div>
                 {{--  <div class="form-group row">
-                    <p class="col-sm-3 "><b>{{ translateText('Project start date') }}</b></p>
+                    <p class="col-sm-3 "><b>{{ trans('Project start date') }}</b></p>
                     <div class="col-sm-4">
                         <input type="date" name="project_start" value="{{ $researchProject->project_start }}" class="form-control">
                     </div>
@@ -51,7 +51,7 @@
                 </div>
 
                 {{--  <div class="form-group row">
-                    <p class="col-sm-3 "><b>{{ translateText('Project end date') }}</b></p>
+                    <p class="col-sm-3 "><b>{{ trans('Project end date') }}</b></p>
                     <div class="col-sm-4">
                         <input type="date" name="project_end" value="{{ $researchProject->project_end }}" class="form-control">
                     </div>
@@ -77,7 +77,7 @@
                 <div class="form-group row mt-2">
                     <p class="col-sm-3 "><b>{{ trans('message.Yearofsubmis') }}</b></p>
                     <div class="col-sm-8">
-                        <input type="year" name="project_year" class="form-control" placeholder="{{ translateText('Year') }}" value="{{$researchProject->project_year}}">
+                        <input type="year" name="project_year" class="form-control" placeholder="{{ trans('Year') }}" value="{{$researchProject->project_year}}">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -108,12 +108,12 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>{{ translateText('status') }}</b></p>
+                    <p class="col-sm-3 "><b>{{ trans('re_project.status') }}</b></p>
                     <div class="col-sm-8">
                         <select id='status' class="custom-select my-select" style='width: 200px;' name="status">
-                            <option value="1" {{ 1 == $researchProject->status ? 'selected' : '' }}>{{ trans('message.Apply') }}</option>
-                            <option value="2" {{ 2 == $researchProject->status ? 'selected' : '' }}>{{ trans('message.Proceed') }}</option>
-                            <option value="3" {{ 3 == $researchProject->status ? 'selected' : '' }}>{{ trans('message.ProjectClosed') }}</option>
+                            <option value="1" {{ 1 == $researchProject->status ? 'selected' : '' }}>{{ trans('re_project.ApplyFor') }}</option>
+                            <option value="2" {{ 2 == $researchProject->status ? 'selected' : '' }}>{{ trans('re_project.Proceed') }}</option>
+                            <option value="3" {{ 3 == $researchProject->status ? 'selected' : '' }}>{{ trans('re_project.CloseTheProject') }}</option>
                         </select>
                     </div>
                 </div>
@@ -168,7 +168,7 @@
                         </div>
                         </div>
                 <button type="submit" class="btn btn-primary mt-5">{{ trans('message.Submit') }}</button>
-                <a class="btn btn-light mt-5" href="{{ route('researchProjects.index') }}"> {{ translateText('Back') }}</a>
+                <a class="btn btn-light mt-5" href="{{ route('researchProjects.index') }}"> {{ trans('re_project.Back') }}</a>
             </form>
         </div>
     </div>
@@ -216,7 +216,7 @@
 
         $("#add-btn2").click(function() {
             ++i;
-            $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i + '][userid]" style="width: 200px;"><option value="">{{ translateText('Select User')}}</option>@foreach($users as $user)<option value="{{ $user->id }}">@if(app()->getLocale() == 'th'){{ $user->fname_th }} {{ $user->lname_th }}@else{{ $user->fname_en }} {{ $user->lname_en }}@endif</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>');
+            $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i + '][userid]" style="width: 200px;"><option value="">{{ trans('message.SelectUser')}}</option>@foreach($users as $user)<option value="{{ $user->id }}">@if(app()->getLocale() == 'th'){{ $user->fname_th }} {{ $user->lname_th }}@else{{ $user->fname_en }} {{ $user->lname_en }}@endif</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>');
             $("#selUser" + i).select2();
         });
 
@@ -238,7 +238,7 @@
             //console.log(patent);
             var obj = outsider[i];
             $("#dynamic_field").append('<tr id="row' + i +
-                '" class="dynamic-added"><td><p>{{ translateText('Position or title') }} :</p><input type="text" name="title_name[]" value="'+ obj.title_name +'" placeholder="{{ translateText('Position or title') }}" style="width: 200px;" class="form-control name_list" /><br><p>{{ translateText('Name') }} :</p><input type="text" name="fname[]" value="'+ obj.fname +'" placeholder="{{ translateText('Name') }}" style="width: 300px;" class="form-control name_list" /><br><p>{{ translateText('Surname') }} :</p><input type="text" name="lname[]" value="'+ obj.lname +'" placeholder="{{ translateText('Surname') }} " style="width: 300px;" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
+                '" class="dynamic-added"><td><p>{{ trans('message.title_name') }} :</p><input type="text" name="title_name[]" value="'+ obj.title_name +'" placeholder="{{ trans('message.title_name') }}" style="width: 200px;" class="form-control name_list" /><br><p>{{ trans('message.fname') }} :</p><input type="text" name="fname[]" value="'+ obj.fname +'" placeholder="{{ trans('message.fname') }}" style="width: 300px;" class="form-control name_list" /><br><p>{{ trans('message.lname') }} :</p><input type="text" name="lname[]" value="'+ obj.lname +'" placeholder="{{ trans('message.lname') }} " style="width: 300px;" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
                 i + '" class="btn btn-danger btn-sm btn_remove"><i class="mdi mdi-minus"></i></button></td></tr>');
             //document.getElementById("selUser" + i).value = obj.id;
             //console.log(obj.author_fname)
@@ -256,7 +256,7 @@
         $('#add').click(function() {
             i++;
             $('#dynamic_field').append('<tr id="row' + i +
-                '" class="dynamic-added"><td><p>{{ translateText('Position or title') }} :</p><input type="text" name="title_name[]" placeholder="{{ translateText('Position or title') }}" style="width: 200px;" class="form-control name_list" /><br><p>{{ translateText('Name') }} :</p><input type="text" name="fname[]" placeholder="{{ translateText('Name') }} " style="width: 300px;" class="form-control name_list" /><br><p>{{ translateText('Surname') }} :</p><input type="text" name="lname[]" placeholder="{{ translateText('Surname') }}" style="width: 300px;" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
+                '" class="dynamic-added"><td><p>{{ trans('message.title_name') }} :</p><input type="text" name="title_name[]" placeholder="{{ trans('message.title_name') }}" style="width: 200px;" class="form-control name_list" /><br><p>{{ trans('message.fname') }} :</p><input type="text" name="fname[]" placeholder="{{ trans('message.fname') }} " style="width: 300px;" class="form-control name_list" /><br><p>{{ trans('message.lname') }} :</p><input type="text" name="lname[]" placeholder="{{ trans('message.lname') }}" style="width: 300px;" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
                 i + '" class="btn btn-danger btn-sm btn_remove"><i class="mdi mdi-minus"></i></button></td></tr>');
         });
 

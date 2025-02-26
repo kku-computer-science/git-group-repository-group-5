@@ -41,4 +41,10 @@ return [
 'lname' => 'surname',
 'Submit' => 'Submit',
 'Cancel' => 'Cancel',
+'projectName' => 'Project Name',
+'Year' => 'year',
+'NoData' => 'No data available',
+'ResearchProjectsDetail' => 'Research Projects Detail',
+'Researchfundingsource' => 'Research funding source',
+'Amount' => 'Amount',
 ];

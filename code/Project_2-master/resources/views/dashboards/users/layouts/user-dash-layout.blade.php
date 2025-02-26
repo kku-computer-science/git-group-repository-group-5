@@ -69,6 +69,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
+
                     <li class="nav-item d-none d-lg-block">
                         <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
                             <span class="input-group-addon input-group-prepend border-right">

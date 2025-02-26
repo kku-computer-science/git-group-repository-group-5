@@ -71,11 +71,7 @@
 <script src = "https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer ></script>
 <script src = "https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer ></script>
 <script>
-    $(document).ready(function() {
-        var table1 = $('#example1').DataTable({
-            responsive: true,
-        });
-    });
+    ///
 </script>
 
 <script type="text/javascript">

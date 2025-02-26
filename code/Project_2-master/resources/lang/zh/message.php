@@ -42,4 +42,8 @@ return [
 'lname' => '姓氏',
 'Submit' => '提交',
 'Cancel' => '取消',
+'add' => '添加',
+'NoData' => '暂无数据',
+'ResearchProjectsDetail' => '研究项目详情',
+'Researchfundingsource' => '研究资金来源',
 ];

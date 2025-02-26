@@ -41,4 +41,9 @@ return [
 'lname' => 'นามสกุล',
 'Submit' => 'ส่ง',
 'Cancel' => 'ยกเลิก',
+'add' => 'เพิ่ม',
+'projectName' => 'ชื่อโครงการ',
+'NoData' => 'ไม่มีข้อมูลในตาราง',
+'ResearchProjectsDetail' => 'รายละเอียดโครงการวิจัย',
+'Researchfundingsource' => 'แหล่งเงินทุนวิจัย',
 ];

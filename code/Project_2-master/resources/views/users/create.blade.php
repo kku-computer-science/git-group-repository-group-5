@@ -5,7 +5,7 @@
     <div class="justify-content-center">
         @if (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>{{ translateText('Opps!') }}</strong> {{ translateText('Something went wrong, please check below errors.') }}<br><br>
+            <strong>{{ trans('users.opp') }}</strong> {{ trans('users.something_wrong') }}<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -16,47 +16,47 @@
         <div class="col-md-8 grid-margin stretch-card">
             <div class="card" style="padding: 16px;">
                 <div class="card-body">
-                    <h4 class="card-title mb-5">{{ translateText('เพิ่มผู้ใช้งาน') }}</h4>
-                    <p class="card-description">{{ translateText('กรอกข้อมูลแก้ไขรายละเอียดผู้ใช้งาน') }}</p>
+                    <h4 class="card-title mb-5">{{ trans('users.add_user') }}</h4>
+                    <p class="card-description">{{ trans('users.edit_user_details') }}</p>
                     {!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <p><b>{{ translateText('ชื่อ (ภาษาไทย)') }}</b></p>
-                            {!! Form::text('fname_th', null, array('placeholder' => translateText('ชื่อภาษาไทย'),'class' => 'form-control')) !!}
+                            <p><b>{{ trans('users.fname_th') }}</b></p>
+                            {!! Form::text('fname_th', null, array('placeholder' => trans('users.fname_th_placeholder'),'class' => 'form-control')) !!}
                         </div>
                         <div class="col-sm-6">
-                            <p><b>{{ translateText('นามสกุล (ภาษาไทย)') }}</b></p>
-                            {!! Form::text('lname_th', null, array('placeholder' => translateText('นามสกุลภาษาไทย'),'class' => 'form-control')) !!}
+                            <p><b>{{ trans('users.lname_th') }}</b></p>
+                            {!! Form::text('lname_th', null, array('placeholder' => trans('users.lname_th_placeholder'),'class' => 'form-control')) !!}
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <p><b>{{ translateText('ชื่อ (English)') }}</b></p>
-                            {!! Form::text('fname_en', null, array('placeholder' => translateText('ชื่อภาษาอังกฤษ'),'class' => 'form-control')) !!}
+                            <p><b>{{ trans('users.fname_en') }}</b></p>
+                            {!! Form::text('fname_en', null, array('placeholder' => trans('users.fname_en_placeholder'),'class' => 'form-control')) !!}
                         </div>
                         <div class="col-sm-6">
-                            <p><b>{{ translateText('นามสกุล (English)') }}</b></p>
-                            {!! Form::text('lname_en', null, array('placeholder' => translateText('นามสกุลภาษาอังกฤษ'),'class' => 'form-control')) !!}
+                            <p><b>{{ trans('users.lname_en') }}</b></p>
+                            {!! Form::text('lname_en', null, array('placeholder' => trans('users.lname_en_placeholder'),'class' => 'form-control')) !!}
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-8">
-                            <p><b>{{ translateText('Email') }}</b></p>
-                            {!! Form::text('email', null, array('placeholder' => translateText('Email'),'class' => 'form-control'))!!}
+                            <p><b>{{ trans('users.email') }}</b></p>
+                            {!! Form::text('email', null, array('placeholder' => trans('users.email_placeholder'),'class' => 'form-control'))!!}
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <p><b>{{ translateText('Password:') }}</b></p>
-                            {!! Form::password('password', array('placeholder' => translateText('Password'),'class' => 'form-control'))!!}
+                            <p><b>{{ trans('users.password') }}:</b></p>
+                            {!! Form::password('password', array('placeholder' => trans('users.password_placeholder'),'class' => 'form-control'))!!}
                         </div>
                         <div class="col-sm-6">
-                            <p><b>{{ translateText('Confirm Password:') }}</p></b>
-                            {!! Form::password('password_confirmation', array('placeholder' => translateText('Confirm Password'),'class' =>'form-control')) !!}
+                            <p><b>{{ trans('users.confirm_password') }}</p></b>
+                            {!! Form::password('password_confirmation', array('placeholder' => trans('users.confirm_password_placeholder'),'class' =>'form-control')) !!}
                         </div>
                     </div>
                     <div class="form-group col-sm-8">
-                        <p><b>{{ translateText('Role:') }}</b></p>
+                        <p><b>{{ trans('users.role') }}:</b></p>
                         <div class="col-sm-8">
                             {!! Form::select('roles[]', $roles,[],  array('class' => 'selectpicker','multiple')) !!}
                         </div>
@@ -64,31 +64,32 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">
-                                <h6 for="category">{{ translateText('Department') }} <span class="text-danger">*</span></h6>
+                                <h6 for="category">{{ trans('users.department') }} <span class="text-danger">*</span></h6>
                                 <select class="form-control" name="cat" id="cat" style="width: 100%;" required>
-                                    <option>{{ translateText('Select Category') }}</option>
+                                    <option>{{ trans('users.select_category') }}</option>
                                     @foreach ($departments as $cat)
                                     <option value="{{$cat->id}}">{{ $cat->department_name_en }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <h6 for="subcat">{{ translateText('Program') }} <span class="text-danger">*</span></h6>
+                                <h6 for="subcat">{{ trans('users.program') }} <span class="text-danger">*</span></h6>
                                 <select class="form-control select2" name="sub_cat" id="subcat" required>
-                                    <option value="">{{ translateText('Select Subcategory') }}</option>
+                                    <option value="">{{ trans('users.select_subcategory') }}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">{{ translateText('Submit') }}</button>
-                    <a class="btn btn-secondary" href="{{ route('users.index') }}">{{ translateText('Cancel') }}</a>
+                    <button type="submit" class="btn btn-primary">{{ trans('users.submit') }}</button>
+                    <a class="btn btn-secondary" href="{{ route('users.index') }}">{{ trans('users.cancel') }}</a>
                     {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

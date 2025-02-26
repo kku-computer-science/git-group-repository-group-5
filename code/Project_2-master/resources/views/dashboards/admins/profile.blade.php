@@ -16,7 +16,7 @@
 </style>
 @section('content')
 <div class="container profile">
-    <h2 class="mb-5">Account Settings</h2>
+    <h2 class="mb-5">{{ trans('dashboard.account_settings') }}</h2>
 
     <div class="bg-white shadow rounded-lg d-block d-sm-flex">
         <div class="profile-tab-nav border-right">
@@ -27,109 +27,102 @@
                     </div>
                     <h4 class="text-center p-2">{{ Auth::user()->fname }} {{ Auth::user()->lname }}</h4>
                     <input type="file" name="admin_image" id="admin_image" style="opacity: 0;height:1px;display:none">
-                    <a href="javascript:void(0)" class="btn btn-primary btn-block btn-sm" id="change_picture_btn"><b>Change picture</b></a>
+                    <a href="javascript:void(0)" class="btn btn-primary btn-block btn-sm" id="change_picture_btn"><b>{{ trans('dashboard.change_picture') }}</b></a>
                 </div>
-
             </div>
             <div class="nav flex-column nav-pills-1" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
                     <i class="mdi mdi-account-card-details"></i>
-                    <span class="menu-title"> Account </span>
+                    <span class="menu-title">{{ trans('dashboard.account') }}</span>
                 </a>
-                <a class="nav-link " id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+                <a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
                     <i class="mdi mdi-key-variant"></i>
-                    <span class="menu-title"> Password </span>
+                    <span class="menu-title">{{ trans('dashboard.password') }}</span>
                 </a>
                 <a class="nav-link" id="expertise-tab" data-toggle="pill" href="#expertise" role="tab" aria-controls="expertise" aria-selected="false">
                     <i class="mdi mdi-account-star"></i>
-                    <span class="menu-title"> Expertise </span>
+                    <span class="menu-title">{{ trans('dashboard.expertise') }}</span>
                 </a>
                 <a class="nav-link" id="education-tab" data-toggle="pill" href="#education" role="tab" aria-controls="education" aria-selected="false">
                     <i class="mdi mdi-school"></i>
-                    <span class="menu-title"> Education </span>
+                    <span class="menu-title">{{ trans('dashboard.education') }}</span>
                 </a>
             </div>
         </div>
         <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
-                <h3 class="mb-4">Account Settings</h3>
+                <h3 class="mb-4">{{ trans('dashboard.account_settings') }}</h3>
                 <form class="form-horizontal" method="POST" action="{{ route('adminUpdateInfo') }}" id="AdminInfoForm">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>ชื่อภาษาไทย</label>
+                                <label>{{ trans('dashboard.thai_first_name') }}</label>
                                 <input type="text" class="form-control" id="inputFName" placeholder="FName" value="{{ Auth::user()->fname_th }}" name="fname_th">
-
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>นามสกุลภาษาไทย</label>
+                                <label>{{ trans('dashboard.thai_last_name') }}</label>
                                 <input type="text" class="form-control" id="inputLName" placeholder="LName" value="{{ Auth::user()->lname_th }}" name="lname_th">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>ชื่อภาษาอังกฤษ</label>
+                                <label>{{ trans('dashboard.english_first_name') }}</label>
                                 <input type="text" class="form-control" id="inputFName" placeholder="FName" value="{{ Auth::user()->fname_en }}" name="fname_en">
-
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>นามสกุลภาษาอังกฤษ</label>
+                                <label>{{ trans('dashboard.english_last_name') }}</label>
                                 <input type="text" class="form-control" id="inputLName" placeholder="LName" value="{{ Auth::user()->lname_en }}" name="lname_en">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Email</label>
+                                <label>{{ trans('dashboard.email') }}</label>
                                 <input type="text" class="form-control" id="inputEmail" placeholder="Email" value="{{ Auth::user()->email }}" name="email">
                                 <span class="text-danger error-text email_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Position</label>
+                                <label>{{ trans('dashboard.position') }}</label>
                                 <input type="text" class="form-control" id="inputPosition" placeholder="Position" value="{{ Auth::user()->position_en }}" name="position_en">
                                 <span class="text-danger error-text position_error"></span>
                             </div>
                         </div>
                         <br>
-                        <!-- <h5 >สำหรับอ.ผู้ที่มีคุณวุฒิปริญญาเอก</h5> -->
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Academic Ranks</label>
+                                <label>{{ trans('dashboard.academic_ranks') }}</label>
                                 <select id="category" class="custom-select my-select" name="position_en">
-                                    <option value="Prof. Dr.">Professor</option>
-                                    <option value="Assoc. Prof. Dr.">Associate Professor</option>
-                                    <option value="Asst. Prof. Dr.">Assistant Professor</option>
-                                    <option value="Lecturer">Lecturer</option>
+                                    <option value="Prof. Dr.">{{ trans('dashboard.professor') }}</option>
+                                    <option value="Assoc. Prof. Dr.">{{ trans('dashboard.associate_professor') }}</option>
+                                    <option value="Asst. Prof. Dr.">{{ trans('dashboard.assistant_professor') }}</option>
+                                    <option value="Lecturer">{{ trans('dashboard.lecturer') }}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>ตำแหน่งทางวิชาการ</label>
+                                <label>{{ trans('dashboard.academic_ranks') }}</label>
                                 <select name="position_th" id="subcategory" class="custom-select my-select">
-                                    <optgroup id="Prof." label="Professor">
-                                        <option value="ศ.ดร.">ศาสตราจารย์</option>
-
+                                    <optgroup id="Prof." label="{{ trans('dashboard.professor') }}">
+                                        <option value="ศ.ดร.">{{ trans('dashboard.professor_th') }}</option>
                                     </optgroup>
-                                    <optgroup id="Assoc. Prof. Dr." label="Associate Professor">
-                                        <option value="รศ.ดร.">รองศาสตราจารย์</option>
-
+                                    <optgroup id="Assoc. Prof. Dr." label="{{ trans('dashboard.associate_professor') }}">
+                                        <option value="รศ.ดร.">{{ trans('dashboard.associate_professor_th') }}</option>
                                     </optgroup>
-                                    <optgroup id="Asst. Prof. Dr." label="Assistant Professor">
-                                        <option value="ผศ.ดร.">ผู้ช่วยศาสตราจารย์</option>
-
+                                    <optgroup id="Asst. Prof. Dr." label="{{ trans('dashboard.assistant_professor') }}">
+                                        <option value="ผศ.ดร.">{{ trans('dashboard.assistant_professor_th') }}</option>
                                     </optgroup>
-                                    <optgroup id="Lecturer" label="Lecturer">
-                                        <option value="อ.ดร.">อาจารย์</option>
+                                    <optgroup id="Lecturer" label="{{ trans('dashboard.lecturer') }}">
+                                        <option value="อ.ดร.">{{ trans('dashboard.lecturer_th') }}</option>
                                     </optgroup>
                                 </select>
                             </div>
@@ -137,23 +130,19 @@
                     </div>
 
                     <div>
-
-                        <button type="submit" class="btn btn-primary">Update</button>
-
+                        <button type="submit" class="btn btn-primary">{{ trans('dashboard.update') }}</button>
                     </div>
-
                 </form>
-
             </div>
 
             <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
                 <form class="form-horizontal" action="{{ route('adminChangePassword') }}" method="POST" id="changePasswordAdminForm">
-                    <h3 class="mb-4">Password Settings</h3>
+                    <h3 class="mb-4">{{ trans('dashboard.password_settings') }}</h3>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Old password</label>
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Enter current password" name="oldpassword">
+                                <label>{{ trans('dashboard.old_password') }}</label>
+                                <input type="password" class="form-control" id="inputPassword" placeholder="{{ trans('dashboard.enter_current_password') }}" name="oldpassword">
                                 <span class="text-danger error-text oldpassword_error"></span>
                             </div>
                         </div>
@@ -161,69 +150,30 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>New password</label>
-                                <input type="password" class="form-control" id="newpassword" placeholder="Enter new password" name="newpassword">
+                                <label>{{ trans('dashboard.new_password') }}</label>
+                                <input type="password" class="form-control" id="newpassword" placeholder="{{ trans('dashboard.enter_new_password') }}" name="newpassword">
                                 <span class="text-danger error-text newpassword_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Confirm new password</label>
-                                <input type="password" class="form-control" id="cnewpassword" placeholder="ReEnter new password" name="cnewpassword">
+                                <label>{{ trans('dashboard.confirm_new_password') }}</label>
+                                <input type="password" class="form-control" id="cnewpassword" placeholder="{{ trans('dashboard.reenter_new_password') }}" name="cnewpassword">
                                 <span class="text-danger error-text cnewpassword_error"></span>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-primary">Update</button>
-                        <!-- <button class="btn btn-light">Cancel</button> -->
+                        <button class="btn btn-primary">{{ trans('dashboard.update') }}</button>
                     </div>
-
                 </form>
-
             </div>
-            <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
-                <form class="form-horizontal" action="{{ route('adminChangePassword') }}" method="POST" id="changePasswordAdminForm">
-                    <h3 class="mb-4">Password Settings</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Old password</label>
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Enter current password" name="oldpassword">
-                                <span class="text-danger error-text oldpassword_error"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>New password</label>
-                                <input type="password" class="form-control" id="newpassword" placeholder="Enter new password" name="newpassword">
-                                <span class="text-danger error-text newpassword_error"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Confirm new password</label>
-                                <input type="password" class="form-control" id="cnewpassword" placeholder="ReEnter new password" name="cnewpassword">
-                                <span class="text-danger error-text cnewpassword_error"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="btn btn-primary">Update</button>
-                        <!-- <button class="btn btn-light">Cancel</button> -->
-                    </div>
 
-                </form>
-
-            </div>
             <div class="tab-pane fade" id="expertise" role="tabpanel" aria-labelledby="expertise-tab">
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-right">
-                            <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-expertise" data-toggle="modal">Add
-                                Expertise</a>
+                            <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-expertise" data-toggle="modal">{{ trans('dashboard.add_expertise') }}</a>
                         </div>
                     </div>
                 </div>
@@ -234,47 +184,34 @@
                 </div>
                 @endif
 
-
                 <table class="table table-bordered">
                     <tr>
-
-
-                        <th>Name</th>
-
-                        <th width="280px">Action</th>
+                        <th>{{ trans('dashboard.name') }}</th>
+                        <th width="280px">{{ trans('dashboard.action') }}</th>
                     </tr>
 
                     @foreach (Auth::user()->expertise as $expert)
                     <tr id="expert_id_{{ $expert->id }}">
-
-
                         <td>{{ $expert->expert_name }}</td>
-
                         <td>
                             <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
-                                <!-- <a class="btn btn-info" id="show-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Show</a> -->
                                 <li class="list-inline-item">
-                                    <button class="btn btn-success btn-sm rounded-0" href="javascript:void(0)" id="edit-expertise" type="button" data-toggle="modal" data-placement="top" data-id="{{ $expert->id }}" title="Edit"><i class="fa fa-edit"></i></button>
+                                    <button class="btn btn-success btn-sm rounded-0" href="javascript:void(0)" id="edit-expertise" type="button" data-toggle="modal" data-placement="top" data-id="{{ $expert->id }}" title="{{ trans('dashboard.edit') }}"><i class="fa fa-edit"></i></button>
                                 </li>
-                                <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Edit </a> -->
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 <li class="list-inline-item">
-                                    <button id="delete-expertise" data-id="{{ $expert->id }}" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                    <button id="delete-expertise" data-id="{{ $expert->id }}" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.delete') }}"><i class="fa fa-trash"></i></button>
                                 </li>
-                                <!-- <a id="delete-expertise" data-id="{{ $expert->id }}" class="btn btn-danger delete-user">Delete</a> -->
                             </form>
                         </td>
-
                     </tr>
                     @endforeach
-
                 </table>
             </div>
-
-            </form>
         </div>
     </div>
 </div>
+
 <div class="modal fade" id="crud-modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
