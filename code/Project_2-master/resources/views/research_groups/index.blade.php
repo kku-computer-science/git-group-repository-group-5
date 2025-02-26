@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 @section('content')
 <div class="container">
     @if ($message = Session::get('success'))
@@ -25,7 +27,7 @@
                             <th width="280px">{{ trans('research_g.action') }}</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
                         @foreach ($researchGroups as $i=>$researchGroup)
                         <tr>
@@ -41,7 +43,11 @@
                             <td>
                                 @foreach($researchGroup->user as $user)
                                 @if ( $user->pivot->role == 2)
-                                {{ $user->fname_th}}
+                                    @if (app()->getLocale() == 'th')
+                                    {{ $user->fname_th }}
+                                    @else
+                                    {{ $user->fname_en }}
+                                    @endif
                                 @if (!$loop->last),@endif
                                 @endif
                                 @endforeach
@@ -71,7 +77,7 @@
                         </tr>
                         @endforeach
                     </tbody>
-                    
+
                 </table>
             <!-- </div> -->
         </div>
@@ -81,9 +87,10 @@
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
-<script src = "https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer ></script>
-<script src = "https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer ></script>
+<script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
+<script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
+<script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
+
 <script>
    
     $(document).ready(function() {
@@ -174,3 +181,4 @@
 </script>
 
 @stop
+

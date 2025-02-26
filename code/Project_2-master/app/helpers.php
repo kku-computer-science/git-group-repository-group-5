@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * MAKE AVATAR FUNCTION
  */
@@ -22,20 +23,38 @@ if (!function_exists('makeAvatar')) {
 
 /**
  * TRANSLATE TEXT FUNCTION
- * ฟังก์ชันนี้จะใช้สำหรับแปลข้อความต้นฉบับ (ภาษาอังกฤษ)
- * ให้เป็นภาษาที่เลือกโดยใช้ stichoza/google-translate-php
+ * ฟังก์ชันแปลข้อความ
+ *
+ * @param string $text ข้อความที่ต้องการแปล
+ * @param string $sourceLang ภาษาต้นทางของข้อความ (default: 'en')
+ * @return string ข้อความที่แปลแล้ว หรือข้อความเดิมหากเกิดข้อผิดพลาด
  */
 if (!function_exists('translateText')) {
-  function translateText($text)
+  function translateText($text, $sourceLang = 'en')
   {
-    // ดึง locale ปัจจุบันของแอปพลิเคชัน
-    $locale = app()->getLocale();
-    // หาก locale ไม่ใช่ 'en' (ภาษาอังกฤษ) ให้แปลข้อความจากอังกฤษไปเป็น target locale
-    if ($locale !== 'en') {
-      $tr = new \Stichoza\GoogleTranslate\GoogleTranslate($locale);
-      return $tr->translate($text);
+    // ตรวจสอบค่า null หรือค่าว่าง
+    if ($text === null || trim($text) === '') {
+      return '';
     }
-    // หากเป็นภาษาอังกฤษ ให้คืนค่าข้อความต้นฉบับ
-    return $text;
+
+    // แปลงค่าให้เป็น string อย่างชัดเจน
+    $text = (string)$text;
+
+    // ดึง target language จาก locale ปัจจุบันของแอปพลิเคชัน
+    $targetLang = app()->getLocale();
+
+    // ถ้า target language เท่ากับภาษาต้นทาง ไม่ต้องแปล
+    if ($targetLang === $sourceLang) {
+      return $text;
+    }
+
+    try {
+      // สร้าง instance โดยระบุ target language และภาษาต้นทาง
+      $tr = new \Stichoza\GoogleTranslate\GoogleTranslate($targetLang, $sourceLang);
+      return $tr->translate($text);
+    } catch (\Exception $e) {
+      \Log::error('Translation error: ' . $e->getMessage());
+      return $text;
+    }
   }
 }
