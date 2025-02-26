@@ -61,5 +61,12 @@ return [
     'head' => 'Research group head',
     'members' => 'Research group members',
     'back' => 'Back',
+    'projectName' => 'Project Name',
+    'year' => 'Year',
+    'title' => 'Are you sure?',
+    'text' => 'If you delete this, it will be gone forever.',
+    'cancel' => 'Cancel',
+    'ok' => 'OK',
+    'DeleteSuccessfully' => 'Delete Successfully',
 ];
 

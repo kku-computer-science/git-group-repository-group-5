@@ -16,26 +16,26 @@
 
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">{{ translateText('Research Project') }}</h4>
+            <h4 class="card-title">{{ trans('message.ResearchProj') }}</h4>
             <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchProjects.create') }}">
-                <i class="mdi mdi-plus btn-icon-prepend"></i> {{ translateText('ADD') }}
+                <i class="mdi mdi-plus btn-icon-prepend"></i> {{ trans('research_g.add') }}
             </a>
 
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>{{ translateText('No.') }}</th>
-                        <th>{{ translateText('Year') }}</th>
-                        <th>{{ translateText('Project name') }}</th>
-                        <th>{{ trans('message.Head') }}</th>
-                        <th>{{ translateText('Member') }}</th>
-                        <th>{{ translateText('Action') }}</th>
+                        <th>{{ trans('research_g.no') }}</th>
+                        <th>{{ trans('research_g.year') }}</th>
+                        <th>{{ trans('research_g.projectName') }}</th>
+                        <th>{{ trans('research_g.research_group_head') }}</th>
+                        <th>{{ trans('research_g.member') }}</th>
+                        <th>{{ trans('research_g.action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
                     @if ($researchProjects->isEmpty())
                         <tr>
-                            <td colspan="6" class="text-center">{{ translateText('No data available') }}</td>
+                            <td colspan="6" class="text-center">{{ trans('message.NoData') }}</td>
                         </tr>
                     @else
                         @foreach ($researchProjects as $i => $researchProject)
@@ -69,7 +69,7 @@
                                     <form action="{{ route('researchProjects.destroy', $researchProject->id) }}" method="POST">
                                         <li class="list-inline-item">
                                             <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip"
-                                               data-placement="top" title="{{ translateText('view') }}"
+                                               data-placement="top" title="{{ trans('research_g.view') }}"
                                                href="{{ route('researchProjects.show', $researchProject->id) }}">
                                                 <i class="mdi mdi-eye"></i>
                                             </a>
@@ -78,7 +78,7 @@
                                         @if (Auth::user()->can('update', $researchProject))
                                             <li class="list-inline-item">
                                                 <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip"
-                                                   data-placement="top" title="{{ translateText('Edit') }}"
+                                                   data-placement="top" title="{{ trans('research_g.edit') }}"
                                                    href="{{ route('researchProjects.edit', $researchProject->id) }}">
                                                     <i class="mdi mdi-pencil"></i>
                                                 </a>
@@ -90,7 +90,7 @@
                                             @method('DELETE')
                                             <li class="list-inline-item">
                                                 <button class="btn btn-outline-danger btn-sm show_confirm" type="submit"
-                                                        data-toggle="tooltip" data-placement="top" title="{{ translateText('Delete') }}">
+                                                        data-toggle="tooltip" data-placement="top" title="{{ trans('research_g.delete') }}">
                                                     <i class="mdi mdi-delete"></i>
                                                 </button>
                                             </li>
@@ -172,8 +172,6 @@
             language: languageSettings
         });
     });
-
-
 </script>
 
 <script type="text/javascript">
@@ -182,21 +180,21 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `{{ translateText('Are you sure?') }}`,
-                text: "{{ translateText('If you delete this, it will be gone forever.') }}",
+                title: `{{ trans('research_g.title') }}`,
+                text: "{{ trans('research_g.text') }}",
                 icon: "warning",
                 buttons: {
-                    cancel: "{{ translateText('Cancel') }}",
-                    confirm: "{{ translateText('OK') }}"
+                    cancel: "{{ trans('research_g.cancel') }}",
+                    confirm: "{{ trans('research_g.ok') }}"
                 },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ translateText('Delete Successfully') }}", {
+                    swal("{{ trans('research_g.DeleteSuccessfully') }}", {
                         icon: "success",
                         buttons: {
-                            confirm: "{{ translateText('OK') }}"
+                            confirm: "{{ trans('research_g.ok') }}"
                         },
                     }).then(function() {
                         location.reload();

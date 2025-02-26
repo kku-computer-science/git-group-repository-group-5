@@ -16,10 +16,10 @@
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>{{ translateText('Whoops!') }}</strong>{{ translateText('There were some problems with your input.') }}<br><br>
+        <strong>{{ trans('re_project.Whoops') }}</strong>{{ trans('re_project.Thereweresomeproblemswithyourinput') }} <br><br>
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ translateText($error) }}</li>
+                <li>{{ trans('message.' . $error) }}</li>
             @endforeach
         </ul>
     </div>

@@ -92,7 +92,7 @@
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 
 <script>
-   
+
     $(document).ready(function() {
         // ดึง locale จาก Blade
         let locale = "{{ app()->getLocale() }}";
@@ -152,25 +152,30 @@
             language: languageSettings
         });
     });
-
-
 </script>
+
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `{{ trans('research_g.are_you_sure') }}`,
-                text: "{{ trans('research_g.delete_warning') }}",
+                title: `{{ translateText('Are you sure?') }}`,
+                text: "{{ translateText('If you delete this, it will be gone forever.') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: "{{ translateText('Cancel') }}",
+                    confirm: "{{ translateText('OK') }}"
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('research_g.delete_success') }}", {
+                    swal("{{ translateText('Delete Successfully') }}", {
                         icon: "success",
+                        buttons: {
+                            confirm: "{{ translateText('OK') }}"
+                        },
                     }).then(function() {
                         location.reload();
                         form.submit();
@@ -179,6 +184,5 @@
             });
     });
 </script>
-
 @stop
 

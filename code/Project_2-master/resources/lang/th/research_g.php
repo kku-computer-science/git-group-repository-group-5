@@ -3,7 +3,7 @@ return [
     'Product Name' => 'ชื่อผลิตภัณฑ์',
     'Product description' => 'คำอธิบายผลิตภัณฑ์',
     'Upload Product' => 'อัปโหลดผลิตภัณฑ์',
-   
+
         'Name' => 'ชื่อ',
         'Description' => 'คำอธิบาย',
         'Download' => 'ดาวน์โหลด',
@@ -42,10 +42,16 @@ return [
         'are_you_sure' => 'คุณแน่ใจไหม?',
         'delete_warning' => 'หากคุณลบข้อมูลนี้ มันจะหายไปตลอดกาล',
         'delete_success' => 'ลบสำเร็จ',
-  
+
         'details' => 'รายละเอียดกลุ่มวิจัย',
     'group_details' => 'ข้อมูลรายละเอียดกลุ่มวิจัย',
 
     'add_new_customer' => 'เพิ่มลูกค้าใหม่ EiEi',
-    
+    'projectName' => 'ชื่อโครงการ',
+    'year' => 'ปี',
+    'title' => 'คุณแน่ใจหรือไม่?',
+    'text' => 'หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก',
+    'cancel' => 'ยกเลิก',
+    'ok' => 'ตกลง',
+    'DeleteSuccessfully' => 'ลบสำเร็จแล้ว',
 ];

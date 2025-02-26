@@ -48,4 +48,11 @@ return [
     'group_details' => '研究小组详细信息',
 
     'add_new_customer' => '添加新客户 EiEi',
+    'projectName' => '项目名称',
+    'year' => '年份',
+    'title' => '你确定吗',
+    'text' => '如果删除，它将永远消失。',
+    'cancel' => '取消',
+    'ok' => '确定',
+    'DeleteSuccessfully' => '删除成功',
 ];
