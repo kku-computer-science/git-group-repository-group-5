@@ -24,7 +24,7 @@
 3. กด **"LOGIN"** เพื่อเข้าถึงระบบ  
 
 4. คลิกที่ **Dropdown** เพื่อเลือกภาษาที่ต้องการ  
-   ![Dashboard Step 1](../img_sprint2/6.jpg)  
-   ![Dashboard Step 2](../img_sprint2/7.jpg)  
+   ![Dashboard Step 1](../img_sprint2/5.jpg)  
+   ![Dashboard Step 2](../img_sprint2/6.jpg)  
 
 ---
