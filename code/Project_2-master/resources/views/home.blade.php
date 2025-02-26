@@ -138,11 +138,18 @@
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$n}}" aria-expanded="true" aria-controls="collapseOne">
                         @if (!$loop->last)
-                        {{$n}}
+                        @if(app()->getLocale() == 'th')
+                        {{ $n + 543 }}
                         @else
-                        {{ trans('books.Before') }} {{$n}}
+                        {{ $n }}
                         @endif
-
+                        @else
+                        @if(app()->getLocale() == 'th')
+                        {{ trans('books.Before') }} {{ $n + 543 }}
+                        @else
+                        {{ trans('books.Before') }} {{ $n }}
+                        @endif
+                        @endif
                     </button>
                 </h2>
                 <div id="collapse{{$n}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">

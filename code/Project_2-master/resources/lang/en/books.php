@@ -54,6 +54,11 @@ return [
     'type' => 'type',
     'Registration' => 'Registration Number',
     'Date' => 'Date of Registration',
+
+    'Supervisor' => 'Laboratory Supervisor',
+    'Student' => 'Student',
+
     'ขอนแก่น: โรงพิมพ์คลังนานาวิทยา' => 'Khon Kaen: Klang Nana Witthaya Printing House',
+
 
 ];
