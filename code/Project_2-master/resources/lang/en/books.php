@@ -58,7 +58,22 @@ return [
     'Supervisor' => 'Laboratory Supervisor',
     'Student' => 'Student',
 
-    'ขอนแก่น: โรงพิมพ์คลังนานาวิทยา' => 'Khon Kaen: Klang Nana Witthaya Printing House',
+    'Hproject' => 'Academic Services Project / Research Project',
+    'No' => 'Number',
+    'Pname' => 'Project Name',
+    'Detail' => 'Details',
+    'PLeader' => 'Project Leader',
+    'Status' => 'Status',
+    'To' => 'To',
+    'PDuration' => 'Project Duration',
+    'GrantType' => 'Research Grant Type',
+    'FundingAgency' => 'Funding Agency',
+    'RAgency' => 'Responsible Agency',
+    'ABudget' => 'Allocated Budget',
+    'Baht' => 'Baht',
+    'Apply' => 'Apply',
+    'Proceed' => 'Proceed',
+    'CloseP' => 'Close Project',
 
 
 ];
