@@ -96,7 +96,7 @@ return [
             'manage_publications' => 'จัดการผลงานวิจัย',
             'published_research' => 'ผลงานวิจัยที่เผยแพร่',
             'book' => 'หนังสือ',
-            'patents' => 'สิทธิบัตร',
+            'patents' => 'ผลงานวิชาการอื่นๆ',
             'export' => 'ส่งออก',
             'admin' => 'ผู้ดูแล',
             'users' => 'ผู้ใช้',

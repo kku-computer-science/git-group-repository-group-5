@@ -12,7 +12,7 @@
     <div class="justify-content-center">
         @if (count($errors) > 0)
             <div class="alert alert-danger">
-                <strong>{{ trans('Opps!') }}</strong> {{ trans('Something went wrong, please check below errors.') }}<br><br>
+                <strong>{{ trans('department.opps') }}</strong> {{ trans('department.error_message') }}<br><br>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -21,23 +21,23 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">{{ trans('Create department') }}
+            <div class="card-header">{{ trans('department.create_department') }}
                 <span class="float-right">
-                    <a class="btn btn-primary" href="{{ route('departments.index') }}">{{ trans('departments') }}</a>
+                    <a class="btn btn-primary" href="{{ route('departments.index') }}">{{ trans('department.departments') }}</a>
                 </span>
             </div>
             <div class="card-body">
                 {!! Form::open(['route' => 'departments.store', 'method' => 'post']) !!}
                     <div class="form-group">
-                        <strong>{{ trans('department_name_TH') }}:</strong>
-                        {!! Form::text('department_name_th', null, ['placeholder' => trans('Department Name TH'),'class' => 'form-control']) !!}
+                        <strong>{{ trans('department.department_name_th') }}:</strong>
+                        {!! Form::text('department_name_th', null, ['placeholder' => trans('department.department_name_th_placeholder'),'class' => 'form-control']) !!}
                     </div>
                     <div class="form-group">
-                        <strong>{{ trans('department_name_EN') }}:</strong>
-                        {!! Form::text('department_name_en', null, ['placeholder' => trans('Department Name EN'),'class' => 'form-control']) !!}
+                        <strong>{{ trans('department.department_name_en') }}:</strong>
+                        {!! Form::text('department_name_en', null, ['placeholder' => trans('department.department_name_th_placeholder'),'class' => 'form-control']) !!}
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">{{ trans('Submit') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ trans('department.submit') }}</button>
                 {!! Form::close() !!}
             </div>
         </div>

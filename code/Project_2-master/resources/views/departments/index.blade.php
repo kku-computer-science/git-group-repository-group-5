@@ -72,15 +72,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `{{ trans('department.are_you_sure') }}`,
-                text: "{{ trans('department.delete_forever') }}",
+                title: "{{ trans('roles.Are you sure?') }}",
+                text: "{{ trans('roles.If you delete this, it will be gone forever.') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('department.delete_success') }}", {
+                    swal("{{ trans('roles.Delete Successfully') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
