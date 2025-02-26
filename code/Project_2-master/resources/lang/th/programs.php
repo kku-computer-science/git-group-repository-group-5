@@ -1,0 +1,20 @@
+<?php
+return [
+    'success' => 'สำเร็จ',
+    'programs' => 'หลักสูตร',
+    'ADD' => 'เพิ่ม',
+    'id' => 'รหัส',
+    'Name (ไทย)' => 'ชื่อ (ไทย)',
+    'Degree' => 'ระดับ',
+    'Action' => 'การกระทำ',
+    'Edit' => 'แก้ไข',
+    'Delete' => 'ลบ',
+    'degree_level' => 'ระดับการศึกษา',
+    'department' => 'สาขาวิชา',
+    'Name_TH' => 'ชื่อภาษาไทย',
+    'Name_EN' => 'ชื่อภาษาอังกฤษ',
+    'program_name_th_placeholder' => 'ชื่อโปรแกรมภาษาไทย',
+    'program_name_en_placeholder' => 'ชื่อโปรแกรมภาษาอังกฤษ',
+    'Submit' => 'ส่ง',
+    'Cancel' => 'ยกเลิก',
+];
