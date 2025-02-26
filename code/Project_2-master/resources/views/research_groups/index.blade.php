@@ -36,7 +36,11 @@
                             <td>
                                 @foreach($researchGroup->user as $user)
                                 @if ( $user->pivot->role == 1)
-                                {{ $user->fname_th}}
+                                @if (app()->getLocale() == 'th')
+                                {{ $user->fname_th }}
+                                @else
+                                {{ $user->fname_en }}
+                                @endif
                                 @endif
                                 @endforeach
                             </td>
@@ -160,21 +164,21 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `{{ translateText('Are you sure?') }}`,
-                text: "{{ translateText('If you delete this, it will be gone forever.') }}",
+                title: `{{ trans('research_g.title') }}`,
+                text: "{{ trans('research_g.text') }}",
                 icon: "warning",
                 buttons: {
-                    cancel: "{{ translateText('Cancel') }}",
-                    confirm: "{{ translateText('OK') }}"
+                    cancel: "{{ trans('research_g.cancel') }}",
+                    confirm: "{{ trans('research_g.ok') }}"
                 },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ translateText('Delete Successfully') }}", {
+                    swal("{{ trans('research_g.DeleteSuccessfully') }}", {
                         icon: "success",
                         buttons: {
-                            confirm: "{{ translateText('OK') }}"
+                            confirm: "{{ trans('research_g.ok') }}"
                         },
                     }).then(function() {
                         location.reload();

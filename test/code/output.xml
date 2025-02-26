@@ -1,144 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-02-13T04:27:33.854104" rpa="false" schemaversion="5">
-<suite id="s1" name="UAT-Project-006" source="C:\Users\ACER\OneDrive\เอกสาร\GitHub\git-group-repository-group-5\test\code\UAT-Project-006.robot">
-<test id="s1-t1" name="Show Login Page" line="16">
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-26T22:55:26.944511" rpa="false" schemaversion="5">
+<suite id="s1" name="UAT-Project-001" source="D:\git-group-repository-group-5\test\code\UAT-Project-001.robot">
+<test id="s1-t1" name="Show Login Page" line="13">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-13T04:27:34.287311" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
+<msg time="2025-02-26T22:55:27.300662" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
 <arg>${LOGIN URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-13T04:27:34.287042" elapsed="3.145302"/>
+<status status="PASS" start="2025-02-26T22:55:27.300392" elapsed="2.009680"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>${DELAY}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-02-13T04:27:37.433586" elapsed="0.000636"/>
+<status status="PASS" start="2025-02-26T22:55:29.310827" elapsed="0.000404"/>
 </kw>
-<status status="PASS" start="2025-02-13T04:27:34.285567" elapsed="3.149331"/>
+<status status="PASS" start="2025-02-26T22:55:27.299366" elapsed="2.012704"/>
 </test>
-<test id="s1-t2" name="Input username and password" line="20">
+<test id="s1-t2" name="Input username and password" line="17">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-13T04:27:37.439073" level="INFO">Typing text 'admin@gmail.com' into text field 'id=username'.</msg>
+<msg time="2025-02-26T22:55:29.316288" level="INFO">Typing text 'admin@gmail.com' into text field 'id=username'.</msg>
 <arg>id=username</arg>
 <arg>${VALID USER}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-13T04:27:37.438262" elapsed="0.223234"/>
+<status status="PASS" start="2025-02-26T22:55:29.314880" elapsed="0.188513"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-13T04:27:37.662464" level="INFO">Typing text '12345678' into text field 'id=password'.</msg>
+<msg time="2025-02-26T22:55:29.504569" level="INFO">Typing text '12345678' into text field 'id=password'.</msg>
 <arg>id=password</arg>
 <arg>${VALID PASSWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-13T04:27:37.662069" elapsed="0.197894"/>
+<status status="PASS" start="2025-02-26T22:55:29.504077" elapsed="0.183396"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-13T04:27:37.860932" level="INFO">Clicking element 'xpath=//button[text()='Log In']'.</msg>
+<msg time="2025-02-26T22:55:29.688414" level="INFO">Clicking element 'xpath=//button[text()='Log In']'.</msg>
+<msg time="2025-02-26T22:55:29.851926" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-26T22:55:29.852218" level="FAIL">Element with locator 'xpath=//button[text()='Log In']' not found.</msg>
 <arg>xpath=//button[text()='Log In']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-13T04:27:37.860591" elapsed="2.089100"/>
+<status status="FAIL" start="2025-02-26T22:55:29.688099" elapsed="0.166973">Element with locator 'xpath=//button[text()='Log In']' not found.</status>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-13T04:27:42.950969" level="INFO">Slept 3 seconds.</msg>
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-13T04:27:39.950325" elapsed="3.000779"/>
+<status status="NOT RUN" start="2025-02-26T22:55:29.855806" elapsed="0.000067"/>
 </kw>
-<status status="PASS" start="2025-02-13T04:27:37.437314" elapsed="5.514472"/>
+<status status="FAIL" start="2025-02-26T22:55:29.313735" elapsed="0.542550">Element with locator 'xpath=//button[text()='Log In']' not found.</status>
 </test>
-<test id="s1-t3" name="Verify Login Success" line="26">
+<test id="s1-t3" name="Verify Login Success" line="23">
 <kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-02-13T04:27:42.996129" level="INFO">Current page contains text 'Research Information Management System'.</msg>
+<msg time="2025-02-26T22:55:30.095493" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-26T22:55:30.095826" level="FAIL">Page should have contained text 'Research Information Management System' but did not.</msg>
 <arg>Research Information Management System</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-02-13T04:27:42.953927" elapsed="0.042345"/>
+<status status="FAIL" start="2025-02-26T22:55:29.859106" elapsed="0.237526">Page should have contained text 'Research Information Management System' but did not.</status>
 </kw>
-<status status="PASS" start="2025-02-13T04:27:42.953164" elapsed="0.043574"/>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-26T22:55:30.097062" elapsed="0.000063"/>
+</kw>
+<status status="FAIL" start="2025-02-26T22:55:29.858218" elapsed="0.239403">Page should have contained text 'Research Information Management System' but did not.</status>
 </test>
-<test id="s1-t4" name="Logs System Button" line="29">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-02-13T04:27:43.021983" level="INFO">Current page contains element 'xpath=//span[@class='menu-title' and text()='Logs System']'.</msg>
-<arg>${LOGS_SYSTEM_BUTTON}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-02-13T04:27:42.997947" elapsed="0.024235"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOGS_SYSTEM_BUTTON}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-13T04:27:43.022728" elapsed="0.046390"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${LOGS_SYSTEM_BUTTON}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-02-13T04:27:43.069900" elapsed="0.319604"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-13T04:27:43.390731" level="INFO">Clicking element 'xpath=//span[@class='menu-title' and text()='Logs System']'.</msg>
-<arg>${LOGS_SYSTEM_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-13T04:27:43.390209" elapsed="0.135680"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Logs System</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-02-13T04:27:43.526728" elapsed="0.030893"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-13T04:27:46.559176" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-13T04:27:43.558216" elapsed="3.001131"/>
-</kw>
-<status status="PASS" start="2025-02-13T04:27:42.997503" elapsed="3.562245"/>
-</test>
-<test id="s1-t5" name="Filter System Logs by Date" line="37">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-02-13T04:27:56.919616" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-02-13T04:27:56.920063" level="FAIL">Element 'xpath=//input[@id='selected_date']' not visible after 10 seconds.</msg>
-<arg>${SELECTED_DATE}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-02-13T04:27:46.561585" elapsed="10.384100">Element 'xpath=//input[@id='selected_date']' not visible after 10 seconds.</status>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${SELECTED_DATE}</arg>
-<arg>2025-02-13</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-13T04:27:56.946066" elapsed="0.000056"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-02-13T04:27:56.946377" elapsed="0.000041"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>${FILTER_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-13T04:27:56.946592" elapsed="0.000032"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-02-13T04:27:56.946823" elapsed="0.000047"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>2025-02-13</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-02-13T04:27:56.947233" elapsed="0.000068"/>
-</kw>
-<status status="FAIL" start="2025-02-13T04:27:46.560844" elapsed="10.386954">Element 'xpath=//input[@id='selected_date']' not visible after 10 seconds.</status>
-</test>
-<status status="FAIL" start="2025-02-13T04:27:33.857194" elapsed="23.091797"/>
+<status status="FAIL" start="2025-02-26T22:55:26.945898" elapsed="3.152994"/>
 </suite>
 <statistics>
 <total>
-<stat pass="4" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="UAT-Project-006" id="s1" pass="4" fail="1" skip="0">UAT-Project-006</stat>
+<stat pass="1" fail="2" skip="0" id="s1" name="UAT-Project-001">UAT-Project-001</stat>
 </suite>
 </statistics>
 <errors>
