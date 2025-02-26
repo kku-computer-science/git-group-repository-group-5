@@ -140,65 +140,13 @@
 <script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
+
 <script>
     $(document).ready(function() {
-    var lang = '{{ app()->getLocale() }}'; // Get current language
-
-    var languageSettings = {
-        "th": { // Thai Language settings
-            "sProcessing": "กำลังประมวลผล...",
-            "sLengthMenu": "แสดง _MENU_ รายการ",
-            "sZeroRecords": "ไม่พบข้อมูล",
-            "sInfo": "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
-            "sInfoEmpty": "แสดง 0 ถึง 0 จาก 0 รายการ",
-            "sInfoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
-            "sSearch": "ค้นหา:",
-            "oPaginate": {
-                "sFirst": "แรก",
-                "sPrevious": "ก่อนหน้า",
-                "sNext": "ถัดไป",
-                "sLast": "สุดท้าย"
-            }
-        },
-        "en": { // English Language settings
-            "sProcessing": "Processing...",
-            "sLengthMenu": "Show _MENU_ entries",
-            "sZeroRecords": "No matching records found",
-            "sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
-            "sInfoEmpty": "Showing 0 to 0 of 0 entries",
-            "sInfoFiltered": "(filtered from _MAX_ total entries)",
-            "sSearch": "Search:",
-            "oPaginate": {
-                "sFirst": "First",
-                "sPrevious": "Previous",
-                "sNext": "Next",
-                "sLast": "Last"
-            }
-        },
-        "zn": { // Chinese (Simplified) Language settings
-            "sProcessing": "处理中...",
-            "sLengthMenu": "显示 _MENU_ 条目",
-            "sZeroRecords": "没有匹配的记录",
-            "sInfo": "显示 _START_ 到 _END_ ，共 _TOTAL_ 条",
-            "sInfoEmpty": "显示 0 到 0 ，共 0 条",
-            "sInfoFiltered": "(从 _MAX_ 条记录中筛选)",
-            "sSearch": "搜索：",
-            "oPaginate": {
-                "sFirst": "首页",
-                "sPrevious": "上一页",
-                "sNext": "下一页",
-                "sLast": "最后一页"
-            }
-        }
-    };
-
-    var table1 = $('#example1').DataTable({
-        responsive: true,
-        language: languageSettings[lang] // Set language dynamically
+        var table1 = $('#example1').DataTable({
+            responsive: true,
+        });
     });
-});
-
-
 </script>
 <script>
     $(document).ready(function() {
@@ -215,7 +163,7 @@
         $('body').on('click', '#edit-program', function() {
             var program_id = $(this).data('id');
             $.get('programs/' + program_id + '/edit', function(data) {
-                $('#programCrudModal').html("{{ trans('programs.Edit program') }}");
+                $('#programCrudModal').html("{{ trans('programs.Edit') }}");
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled', false);
                 $('#crud-modal').modal('show');
@@ -227,44 +175,48 @@
             })
         });
 
-        /* Delete program */
-        $('body').on('click', '.delete-program', function(e) {
-    e.preventDefault();
-    var program_id = $(this).data("id");
-    var token = $("meta[name='csrf-token']").attr("content");
 
-    Swal.fire({
-        title: "{{ trans('research_g.Are you sure?') }}",
-        text: "{{ trans('research_g.You will not be able to recover this imaginary file!') }}",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "{{ trans('research_g.Yes, delete it!') }}",
-        cancelButtonText: "{{ trans('research_g.Cancel') }}"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                type: "DELETE",
-                url: "/programs/" + program_id,
-                data: {
-                    "_token": token
-                },
-                success: function(response) {
-                    Swal.fire("{{ trans('research_g.Delete Successfully') }}", "", "success").then(() => {
-                        $("#program_id_" + program_id).remove();
+        /* Delete program */
+        $('body').on('click', '#delete-program', function(e) {
+            var program_id = $(this).data("id");
+
+            var token = $("meta[name='csrf-token']").attr("content");
+            e.preventDefault();
+            //confirm("Are You sure want to delete !");
+            swal({
+                title: "{{ trans('expertise.delete_confirm_title') }}",
+                text: "{{ trans('expertise.delete_confirm_text') }}",
+                type: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    swal("{{ trans('expertise.delete_success') }}", {
+                        icon: "success",
+                    }).then(function() {
+                        location.reload();
+                        $.ajax({
+                            type: "DELETE",
+                            url: "programs/" + program_id,
+                            data: {
+                                "id": program_id,
+                                "_token": token,
+                            },
+                            success: function(data) {
+                                $('#msg').html("{{ trans('expertise.delete_success_message') }}");
+                                $("#program_id_" + program_id).remove();
+                            },
+                            error: function(data) {
+                                console.log('Error:', data);
+                            }
+                        });
                     });
-                },
-                error: function(xhr) {
-                    console.error(xhr.responseText);
-                    Swal.fire("{{ trans('research_g.Error occurred') }}", "", "error");
+
                 }
             });
-        }
+        });
     });
-});
-
 </script>
-
-
 <script>
     error = false
 

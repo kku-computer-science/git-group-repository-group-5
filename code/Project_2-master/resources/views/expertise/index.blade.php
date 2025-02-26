@@ -119,121 +119,16 @@
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 <script src="https://cdn.datatables.net/rowgroup/1.2.0/js/dataTables.rowGroup.min.js" defer></script>
 <script>
-   
-    var lang = '{{ app()->getLocale() }}'; // Get current language
-
-    var languageSettings = {
-        "th": { // Thai Language settings
-            "sProcessing": "กำลังประมวลผล...",
-            "sLengthMenu": "แสดง _MENU_ รายการ",
-            "sZeroRecords": "ไม่พบข้อมูล",
-            "sInfo": "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
-            "sInfoEmpty": "แสดง 0 ถึง 0 จาก 0 รายการ",
-            "sInfoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
-            "sSearch": "ค้นหา:",
-            "oPaginate": {
-                "sFirst": "แรก",
-                "sPrevious": "ก่อนหน้า",
-                "sNext": "ถัดไป",
-                "sLast": "สุดท้าย"
+    $(document).ready(function() {
+        var table1 = $('#example1').DataTable({
+            order: [
+                [1, 'asc']
+            ],
+            rowGroup: {
+                dataSrc: 1
             }
-        },
-        "en": { // English Language settings
-            "sProcessing": "Processing...",
-            "sLengthMenu": "Show _MENU_ entries",
-            "sZeroRecords": "No matching records found",
-            "sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
-            "sInfoEmpty": "Showing 0 to 0 of 0 entries",
-            "sInfoFiltered": "(filtered from _MAX_ total entries)",
-            "sSearch": "Search:",
-            "oPaginate": {
-                "sFirst": "First",
-                "sPrevious": "Previous",
-                "sNext": "Next",
-                "sLast": "Last"
-            }
-        },
-        "zn": { // Chinese (Simplified) Language settings
-            "sProcessing": "处理中...",
-            "sLengthMenu": "显示 _MENU_ 条目",
-            "sZeroRecords": "没有匹配的记录",
-            "sInfo": "显示 _START_ 到 _END_ ，共 _TOTAL_ 条",
-            "sInfoEmpty": "显示 0 到 0 ，共 0 条",
-            "sInfoFiltered": "(从 _MAX_ 条记录中筛选)",
-            "sSearch": "搜索：",
-            "oPaginate": {
-                "sFirst": "首页",
-                "sPrevious": "上一页",
-                "sNext": "下一页",
-                "sLast": "最后一页"
-            }
-        }
-    };
-
-    var table1 = $('#example1').DataTable({
-        responsive: true,
-        language: languageSettings[lang] // Set language dynamically
+        });
     });
-});
-$(document).ready(function() {
-    var lang = '{{ app()->getLocale() }}'; // Get current language
-
-    var languageSettings = {
-        "th": { // Thai Language settings
-            "sProcessing": "กำลังประมวลผล...",
-            "sLengthMenu": "แสดง _MENU_ รายการ",
-            "sZeroRecords": "ไม่พบข้อมูล",
-            "sInfo": "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
-            "sInfoEmpty": "แสดง 0 ถึง 0 จาก 0 รายการ",
-            "sInfoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
-            "sSearch": "ค้นหา:",
-            "oPaginate": {
-                "sFirst": "แรก",
-                "sPrevious": "ก่อนหน้า",
-                "sNext": "ถัดไป",
-                "sLast": "สุดท้าย"
-            }
-        },
-        "en": { // English Language settings
-            "sProcessing": "Processing...",
-            "sLengthMenu": "Show _MENU_ entries",
-            "sZeroRecords": "No matching records found",
-            "sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
-            "sInfoEmpty": "Showing 0 to 0 of 0 entries",
-            "sInfoFiltered": "(filtered from _MAX_ total entries)",
-            "sSearch": "Search:",
-            "oPaginate": {
-                "sFirst": "First",
-                "sPrevious": "Previous",
-                "sNext": "Next",
-                "sLast": "Last"
-            }
-        },
-        "zn": { // Chinese (Simplified) Language settings
-            "sProcessing": "处理中...",
-            "sLengthMenu": "显示 _MENU_ 条目",
-            "sZeroRecords": "没有匹配的记录",
-            "sInfo": "显示 _START_ 到 _END_ ，共 _TOTAL_ 条",
-            "sInfoEmpty": "显示 0 到 0 ，共 0 条",
-            "sInfoFiltered": "(从 _MAX_ 条记录中筛选)",
-            "sSearch": "搜索：",
-            "oPaginate": {
-                "sFirst": "首页",
-                "sPrevious": "上一页",
-                "sNext": "下一页",
-                "sLast": "最后一页"
-            }
-        }
-    };
-
-    var table1 = $('#example1').DataTable({
-        responsive: true,
-        language: languageSettings[lang] // Set language dynamically
-    });
-});
-
-    
-
 </script>
 
 <script>
@@ -248,7 +143,7 @@ $(document).ready(function() {
         $('#new-expertise').click(function() {
             $('#btn-save').val("create-expertise");
             $('#expertise').trigger("reset");
-            $('#expertiseCrudModal').html("{{ trans('expertise.Add New Expertise') }}");
+            $('#expertiseCrudModal').html("{{ trans('expertise.add_new') }}");
             $('#crud-modal').modal('show');
         });
 
@@ -256,13 +151,13 @@ $(document).ready(function() {
         $('body').on('click', '#edit-expertise', function() {
             var expert_id = $(this).data('id');
             $.get('experts/' + expert_id + '/edit', function(data) {
-                $('#expertiseCrudModal').html("{{ trans('expertise.Edit Expertise') }}");
-                $('#btn-update').val("Update");
+                $('#expertiseCrudModal').html("{{ trans('expertise.edit') }}");
+                $('#btn-update').val("{{ trans('expertise.update') }}");
                 $('#btn-save').prop('disabled', false);
                 $('#crud-modal').modal('show');
                 $('#exp_id').val(data.id);
                 $('#expert_name').val(data.expert_name);
-            })
+            });
         });
 
         /* Delete expertise */
@@ -270,18 +165,19 @@ $(document).ready(function() {
             var expert_id = $(this).data("id");
             var token = $("meta[name='csrf-token']").attr("content");
             e.preventDefault();
-
+            
             swal({
-                title: "{{ trans('expertise.Are you sure?') }}",
-                text: "{{ trans('expertise.You will not be able to recover this imaginary file!') }}",
+                title: "{{ trans('expertise.delete_confirm_title') }}",
+                text: "{{ trans('expertise.delete_confirm_text') }}",
                 type: "warning",
                 buttons: true,
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('expertise.Delete Successfully') }}", {
+                    swal("{{ trans('expertise.delete_success') }}", {
                         icon: "success",
                     }).then(function() {
+                        location.reload();
                         $.ajax({
                             type: "DELETE",
                             url: "experts/" + expert_id,
@@ -290,7 +186,7 @@ $(document).ready(function() {
                                 "_token": token,
                             },
                             success: function(data) {
-                                $('#msg').html('{{ trans('expertise.program entry deleted successfully') }}');
+                                $('#msg').html("{{ trans('expertise.delete_success_message') }}");
                                 $("#expert_id_" + expert_id).remove();
                             },
                             error: function(data) {
@@ -304,16 +200,15 @@ $(document).ready(function() {
     });
 </script>
 
-
-
 <script>
-    error = false
+    error = false;
 
     function validate() {
         if (document.expForm.expert_name.value != '')
-            document.expForm.btnsave.disabled = false
+            document.expForm.btnsave.disabled = false;
         else
-            document.expForm.btnsave.disabled = true
+            document.expForm.btnsave.disabled = true;
     }
 </script>
+
 @stop

@@ -19,6 +19,12 @@ return [
     'ID' => '编号',
 
     'Name' => '名称',
-
+    'add_new' => '添加新专长',
+    'edit' => '编辑专长',
+    'update' => '更新',
+    'delete_confirm_title' => '你确定吗？',
+    'delete_confirm_text' => '删除后将无法恢复!',
+    'delete_success' => '删除成功',
+    'delete_success_message' => '数据已成功删除',
 ];
 
