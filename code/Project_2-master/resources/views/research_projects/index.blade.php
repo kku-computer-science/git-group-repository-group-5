@@ -195,6 +195,9 @@
                 if (willDelete) {
                     swal("{{ translateText('Delete Successfully') }}", {
                         icon: "success",
+                        buttons: {
+                            confirm: "{{ translateText('OK') }}"
+                        },
                     }).then(function() {
                         location.reload();
                         form.submit();

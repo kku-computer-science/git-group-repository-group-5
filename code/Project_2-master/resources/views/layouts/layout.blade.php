@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ trans('message.TitleHomePage') }}</title>
+    <title>ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์</title>
     <base href="{{ \URL::to('/') }}">
     <link href="img/Newlogo.png" rel="shortcut icon" type="image/x-icon" />
 
@@ -71,13 +71,11 @@
                         class="nav-item dropdown {{ Request::routeIs('researchers') ? 'active' : '' }} {{ request()->is('detail*') ? 'active' : ''}} ">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-
                             {{ trans('books.Researchers') }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($dn as $department)
                             <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id])}}">
-
                                     <!-- {{$department->program_name_en}} -->
                                     @if (app()->getLocale() == 'th')
                                     {{ $department->program_name_th }}
@@ -88,15 +86,11 @@
                                     @endif
 
                                 </a>
-
-                                {{ translateText($department->program_name_en) }}</a>
-
                             </li>
                             @endforeach
                         </ul>
                     </li>
                     <li class="nav-item {{ request()->is('researchproject') ? 'active' : ''}} ">
-
                         <a class="nav-link" href="/researchproject">{{ trans('books.ResearchProj') }}</a>
                     </li>
                     <li class="nav-item {{ request()->is('researchgroup') ? 'active' : ''}}  ">
@@ -104,15 +98,6 @@
                     </li>
                     <li class="nav-item {{ request()->is('reports') ? 'active' : ''}}">
                         <a class="nav-link" href="/reports">{{ trans('books.Report') }}</a>
-
-                        <a class="nav-link" href="/researchproject">{{ translateText('Research Project') }}</a>
-                    </li>
-                    <li class="nav-item {{ request()->is('researchgroup') ? 'active' : ''}}  ">
-                        <a class="nav-link" href="/researchgroup">{{ translateText('Research Group') }}</a>
-                    </li>
-                    <li class="nav-item {{ request()->is('reports') ? 'active' : ''}}">
-                        <a class="nav-link" href="/reports">{{ translateText('Report') }}</a>
-
                     </li>
 
 
@@ -143,7 +128,7 @@
                 </span>
                 @else
                 <span class="nav-item">
-                    <a class="btn-solid-sm" href="/login" target="_blank">{{ translateText('Login') }}</a>
+                    <a class="btn-solid-sm" href="/login" target="_blank">Login</a>
                 </span>
                 @endauth
                 @endif
