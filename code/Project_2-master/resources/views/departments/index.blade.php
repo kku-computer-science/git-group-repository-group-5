@@ -28,7 +28,7 @@
                         @foreach ($data as $key => $department)
                         <tr>
                             <td>{{ $department->id }}</td>
-                            <td>{{ trans($department->department_name_th) }}</td>
+                            <td>{{ trans('message.' . $department->department_name_en) }}</td>
                             <td>
                                 <form action="{{ route('departments.destroy', $department->id) }}" method="POST">
                                     <a class="btn btn-outline-primary btn-sm" type="button"
@@ -72,16 +72,22 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: "{{ trans('roles.Are you sure?') }}",
-                text: "{{ trans('roles.If you delete this, it will be gone forever.') }}",
+                title: `{{ trans('research_g.title') }}`,
+                text: "{{ trans('research_g.text') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: "{{ trans('research_g.cancel') }}",
+                    confirm: "{{ trans('research_g.ok') }}"
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('roles.Delete Successfully') }}", {
+                    swal("{{ trans('research_g.DeleteSuccessfully') }}", {
                         icon: "success",
+                        buttons: {
+                            confirm: "{{ trans('research_g.ok') }}"
+                        },
                     }).then(function() {
                         location.reload();
                         form.submit();
