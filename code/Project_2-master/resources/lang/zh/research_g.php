@@ -55,4 +55,5 @@ return [
     'cancel' => '取消',
     'ok' => '确定',
     'DeleteSuccessfully' => '删除成功',
+
 ];

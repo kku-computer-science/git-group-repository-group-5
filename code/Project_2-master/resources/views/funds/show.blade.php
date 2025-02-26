@@ -4,8 +4,8 @@
 <div class="container">
     <div class="card col-md-8" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">Fund Detail</h4>
-            
+            <h4 class="card-title">{{ trans('funds.FundDetails') }}</h4>
+
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ trans('funds.FundName') }}</b></p>
                 <p class="card-text col-sm-9">{{ $fund->fund_name }}</p>
@@ -47,7 +47,7 @@
 
             </div>
             <div class="pull-right mt-5">
-                <a class="btn btn-primary btn-sm" href="{{ route('funds.index') }}"> Back</a>
+                <a class="btn btn-primary btn-sm" href="{{ route('funds.index') }}">{{ trans('research_g.back') }}</a>
             </div>
         </div>
 

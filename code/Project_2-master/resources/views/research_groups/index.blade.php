@@ -8,9 +8,9 @@
 <div class="container">
     @if ($message = Session::get('success'))
     <div class="alert alert-success">
-        <p>{{ $message }}</p>
+        <p>{{ translateText($message) }}</p>
     </div>
-    @endif
+@endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
             <h4 class="card-title">{{ trans('research_g.research_groups') }}</h4>
