@@ -11,10 +11,10 @@
         </div>
         @endif
         <div class="card">
-            <div class="card-header">{{ translateText('Permissions') }}
+            <div class="card-header">{{ trans('permission.permissions') }}
                 @can('permission-create')
                 <span class="float-right">
-                    <a class="btn btn-primary" href="{{ route('permissions.create') }}">{{ translateText('New Permission') }}</a>
+                    <a class="btn btn-primary" href="{{ route('permissions.create') }}">{{ trans('permission.new_permission') }}</a>
                 </span>
                 @endcan
             </div>
@@ -23,8 +23,8 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>{{ translateText('Name') }}</th>
-                            <th width="280px">{{ translateText('Action') }}</th>
+                            <th>{{ trans('permission.name') }}</th>
+                            <th width="280px">{{ trans('permission.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,12 +35,12 @@
                             <td>
                                 <form action="{{ route('permissions.destroy',$permission->id) }}" method="POST">
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ translateText('view') }}" href="{{ route('permissions.show',$permission->id) }}"><i class="mdi mdi-eye"></i></a>
+                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('permission.view') }}" href="{{ route('permissions.show',$permission->id) }}"><i class="mdi mdi-eye"></i></a>
                                     </li>
 
                                     @can('permission-edit')
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ translateText('Edit') }}" href="{{ route('permissions.edit',$permission->id) }}"><i class="mdi mdi-pencil"></i></a>
+                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('permission.edit') }}" href="{{ route('permissions.edit',$permission->id) }}"><i class="mdi mdi-pencil"></i></a>
                                     </li>
                                     @endcan
                                     @can('permission-delete')
@@ -48,7 +48,7 @@
                                     @method('DELETE')
 
                                     <li class="list-inline-item">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="{{ translateText('Delete') }}"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="{{ trans('permission.delete') }}"><i class="mdi mdi-delete"></i></button>
                                     </li>
 
                                     @endcan
@@ -65,14 +65,10 @@
         </div>
     </div>
 </div>
-
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
 <script src = "https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer ></script>
 <script src = "https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer ></script>
-<script>
-    ///
-</script>
 
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
@@ -80,15 +76,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: translateText('Are you sure?'),
-                text: translateText('If you delete this, it will be gone forever.'),
+                title: "{{ trans('roles.Are you sure?') }}",
+                text: "{{ trans('roles.If you delete this, it will be gone forever.') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal(translateText('Delete Successfully'), {
+                    swal("{{ trans('roles.Delete Successfully') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

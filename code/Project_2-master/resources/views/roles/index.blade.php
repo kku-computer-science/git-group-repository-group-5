@@ -62,15 +62,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: "{{ trans('messages.Are you sure?') }}",
-                text: "{{ trans('messages.If you delete this, it will be gone forever.') }}",
+                title: "{{ trans('roles.Are you sure?') }}",
+                text: "{{ trans('roles.If you delete this, it will be gone forever.') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('messages.Delete Successfully') }}", {
+                    swal("{{ trans('roles.Delete Successfully') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
