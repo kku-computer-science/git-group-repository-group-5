@@ -94,7 +94,7 @@
                                 <div class="col-sm-8">
                                     <select id="degree" class="custom-select my-select" name="degree">
                                         @foreach($degree as $d)
-                                        <option value="{{$d->id}}">{{ ( $d->degree_name_th) }}</option>
+                                        <option value="{{$d->id}}">@if(app()->getLocale() == 'th'){{ ( $d->degree_name_th) }}@elseif(app()->getLocale() == 'en'){{ ( $d->degree_name_en) }}@else{{ ( $d->degree_name_cn) }}@endif</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -104,7 +104,7 @@
                                 <div class="col-sm-8">
                                     <select id="department" class="custom-select my-select" name="department">
                                         @foreach($department as $d)
-                                        <option value="{{$d->id}}">{{  ($d->department_name_th) }}</option>
+                                        <option value="{{$d->id}}">{{ trans('message.' . $d->department_name_en) }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -142,12 +142,71 @@
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 
 <script>
+    let locale = "{{ app()->getLocale() }}";
+
+    let languageSettings = {};
+
+    if (locale === 'en') {
+        languageSettings = {
+            lengthMenu: "Show _MENU_ entries",
+            zeroRecords: "No matching records found",
+            info: "Showing _START_ to _END_ of _TOTAL_ entries",
+            infoEmpty: "No records available",
+            infoFiltered: "(filtered from _MAX_ total records)",
+            search: "Search:",
+            paginate: {
+                first: "First",
+                last: "Last",
+                next: "Next",
+                previous: "Previous"
+            }
+        };
+    } else if (locale === 'zh') {
+        languageSettings = {
+            lengthMenu: "显示 _MENU_ 条目",
+            zeroRecords: "未找到匹配的记录",
+            info: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            infoEmpty: "没有可用记录",
+            infoFiltered: "(从 _MAX_ 条记录中过滤)",
+            search: "搜索:",
+            paginate: {
+                first: "首页",
+                last: "末页",
+                next: "下页",
+                previous: "上页"
+            }
+        };
+    } else {
+        languageSettings = {
+            lengthMenu: "แสดง _MENU_ รายการ",
+            zeroRecords: "ไม่พบข้อมูลที่ตรงกัน",
+            info: "แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ",
+            infoEmpty: "ไม่มีข้อมูล",
+            infoFiltered: "(กรองจากทั้งหมด _MAX_ รายการ)",
+            search: "ค้นหา:",
+            paginate: {
+                first: "หน้าแรก",
+                last: "หน้าสุดท้าย",
+                next: "ถัดไป",
+                previous: "ก่อนหน้า"
+            }
+        };
+    }
+
     $(document).ready(function() {
         var table1 = $('#example1').DataTable({
             responsive: true,
+            language: languageSettings,
+            order: [
+                [1, 'asc']
+            ],
+            rowGroup: {
+                dataSrc: 1
+            }
         });
     });
 </script>
+
 <script>
     $(document).ready(function() {
 
@@ -187,12 +246,18 @@
                 title: "{{ trans('expertise.delete_confirm_title') }}",
                 text: "{{ trans('expertise.delete_confirm_text') }}",
                 type: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: "{{ trans('research_g.cancel') }}",
+                    confirm: "{{ trans('research_g.ok') }}"
+                },
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
                     swal("{{ trans('expertise.delete_success') }}", {
                         icon: "success",
+                        buttons: {
+                            confirm: "{{ trans('research_g.ok') }}"
+                        },
                     }).then(function() {
                         location.reload();
                         $.ajax({

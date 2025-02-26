@@ -74,7 +74,11 @@
                         <select id='head0' name="head">
                             @foreach($users as $user)
                             <option value="{{ $user->id }}">
+                                @if(app()->getLocale() == 'th')
                                 {{ $user->fname_th }} {{ $user->lname_th }}
+                                @else{{ $user->fname_en }}
+                                {{ $user->lname_en }}
+                                @endif
                             </option>
                             @endforeach
                         </select>
@@ -106,8 +110,8 @@ $("body").on("click",".upload",function(e){
   });
 
 
-  var options = { 
-    complete: function(response) 
+  var options = {
+    complete: function(response)
     {
         if($.isEmptyObject(response.responseJSON.error)){
             // $("input[name='title']").val('');
@@ -138,7 +142,7 @@ $(document).ready(function() {
 
         ++i;
         $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-            '][userid]"  style="width: 200px;"><option value="">{{ trans("research_g.select_user") }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="fas fa-minus"></i></button></td></tr>'
+            '][userid]"  style="width: 200px;"><option value="">{{ trans("research_g.select_user") }}</option>@foreach($users as $user)<option value="{{ $user->id }}">@if(app()->getLocale() == 'th'){{ $user->fname_th }} {{ $user->lname_th }}@else{{ $user->fname_en }} {{ $user->lname_en }}@endif</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="fas fa-minus"></i></button></td></tr>'
             );
         $("#selUser" + i).select2()
     });

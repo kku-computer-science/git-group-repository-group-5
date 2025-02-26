@@ -61,7 +61,7 @@
                         {!! Form::select('roles[]', $roles, $userRole, array('class' => 'selectpicker','multiple data-live-search'=>"true")) !!}
                     </div>
                 </div>
-                
+
                 <div class="form-group row">
                     <p class="col-sm-3"><b>{{ trans('users.status') }}</b></p>
                     <div class="col-sm-8">
@@ -78,7 +78,7 @@
                             <option>{{ trans('users.select_category') }}</option>
                             @foreach ($departments as $cat)
                             <option value="{{$cat->id}}" {{$user->program->department_id == $cat->id  ? 'selected' : ''}}>
-                                {{ $cat->department_name_en }}
+                                {{ trans('message.' . $cat->department_name_en) }}
                             </option>
                             @endforeach
                         </select>
@@ -89,7 +89,14 @@
                             <option>{{ trans('users.select_subcategory') }}</option>
                             @foreach ($programs as $cat)
                             <option value="{{$cat->id}}" {{$user->program->id == $cat->id  ? 'selected' : ''}}>
+                                @if(app()->getLocale() == 'th')
+                                {{ $cat->program_name_th }}
+                                @elseif(app()->getLocale() == 'en')
                                 {{ $cat->program_name_en }}
+                                @else
+                                {{ $cat->program_name_cn }}
+                                @endif
+
                             </option>
                             @endforeach
                         </select>
