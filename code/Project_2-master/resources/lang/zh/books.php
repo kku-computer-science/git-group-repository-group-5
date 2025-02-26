@@ -60,7 +60,7 @@ return [
 
     'Supervisor' => '实验室主管',
     'Student' => '学生',
-<<<<<<< HEAD
+
     'Hproject' => '学术服务项目 / 研究项目',
     'No' => '编号',
     'Pname' => '项目名称',
@@ -78,6 +78,5 @@ return [
     'Proceed' => '执行',
     'CloseP' => '结束项目',
 
-=======
->>>>>>> parent of d3cda16 (testing)
+
 ];
