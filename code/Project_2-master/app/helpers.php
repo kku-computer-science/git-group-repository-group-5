@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * MAKE AVATAR FUNCTION
  */
