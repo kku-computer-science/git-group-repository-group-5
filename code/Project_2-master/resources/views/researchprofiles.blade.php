@@ -62,11 +62,10 @@
 
                         @foreach( $res->education as $edu)
                         <h6 class="card-text2 col-sm-10">
-                            {{$edu->year}}
                             @if(app()->getLocale() == 'th')
-                            {{$edu->qua_name}} {{$edu->uname}}
+                            {{ $edu->year }} {{ $edu->qua_name }} {{ $edu->uname }}
                             @else
-                            {{$edu->qua_name_en}} {{$edu->uname_en}}
+                            {{ $edu->year - 543 }} {{ $edu->qua_name_en }} {{ $edu->uname_en }}
                             @endif
                         </h6>
                         @endforeach
@@ -188,7 +187,14 @@
                     @foreach ($papers as $n => $paper)
                     <tr>
                         <td> {{$n+1}}</td>
-                        <td>{{ $paper->paper_yearpub }}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                            {{ $paper->paper_yearpub + 543 }}
+                            @else
+                            {{ $paper->paper_yearpub }}
+                            @endif
+                        </td>
+
                         <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
                         <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
                         <td>
