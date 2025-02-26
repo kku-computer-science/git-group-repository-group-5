@@ -185,7 +185,6 @@
 </script>
 
 
-
 <script>
     $(document).ready(function() {
         $.ajaxSetup({
@@ -224,15 +223,21 @@
             e.preventDefault();
             //confirm("Are You sure want to delete !");
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
+                title: `{{ trans('research_g.title') }}`,
+                text: "{{ trans('research_g.text') }}",
                 type: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: "{{ trans('research_g.cancel') }}",
+                    confirm: "{{ trans('research_g.ok') }}"
+                },
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ trans('research_g.DeleteSuccessfully') }}", {
                         icon: "success",
+                        buttons: {
+                            confirm: "{{ trans('research_g.ok') }}"
+                        },
                     }).then(function() {
                         location.reload();
                         $.ajax({
@@ -270,5 +275,7 @@
             document.expForm.btnsave.disabled = true
     }
 </script>
+
+
 
 @stop
