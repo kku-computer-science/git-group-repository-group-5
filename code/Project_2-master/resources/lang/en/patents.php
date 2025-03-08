@@ -59,6 +59,7 @@ return [
         'ลิขสิทธิ์'     => 'Copyright',
         'อนุสิทธิบัตร' => 'Utility Model',
         'สิทธิบัตร'     => 'Patent',
+        'หนังสือ'       => 'Book',
     ],
     'Add' => 'Add',
 ];
