@@ -1,0 +1,329 @@
+* Settings *
+Library           SeleniumLibrary
+
+* Variables *
+${SERVER}                    http://127.0.0.1:8000
+${USER_USERNAME}             pusadee@kku.ac.th
+${USER_PASSWORD}             123456789
+${LOGIN URL}                  ${SERVER}/login
+${USER URL}                  ${SERVER}/dashboard
+${CHROME_BROWSER_PATH}    /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+${CHROME_DRIVER_PATH}    /usr/local/bin/chromedriver
+@{LANGUAGES}
+...    en
+...    th
+...    zh
+
+@{EXPECTED_WORDS_USER_EN}
+...    Research Information Management System
+...    Welcome to the Research Information Management System of the Computer Science Department
+...    Hello
+...    Dashboard
+...    Profile
+...    User Profile
+...    Option
+...    Manage Fund
+...    Research Project
+...    Research Group
+...    Manage Publications
+...    Logout
+
+
+@{EXPECTED_WORDS_DASHBOARD_TH}
+...    ระบบจัดการข้อมูลการวิจัย
+...    ยินดีต้อนรับเข้าสู่ระบบจัดการข้อมูลวิจัยของสาขาวิชาวิทยาการคอมพิวเตอร์
+...    สวัสดี
+...    แดชบอร์ด
+...    โปรไฟล์
+...    โปรไฟล์ผู้ใช้
+...    ตัวเลือก
+...    จัดการทุน
+...    โครงการวิจัย
+...    กลุ่มวิจัย
+...    จัดการผลงานวิจัย
+...    ออกจากระบบ
+       
+        
+
+@{EXPECTED_WORDS_USER_CN}
+...    研究信息管理系统
+...    欢迎来到计算机科学系的研究信息管理系统
+...    你好
+...    仪表板
+...    个人资料
+...    用户资料
+...    选项
+...    管理资金
+...    研究项目
+...    研究小组
+...    管理出版物
+...    退出系统  
+
+
+
+* Keywords *
+Open Browser To Login Page
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    
+    # ปิด Headless Mode เพื่อให้ Chrome แสดง UI
+    # Call Method    ${chrome_options}    add_argument    --headless   (ลบบรรทัดนี้ออก)
+
+    Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+
+    # เปิด Chrome แบบเต็มจอ
+    Call Method    ${chrome_options}    add_argument    --start-maximized
+
+    # ปิด Extension, Popup และ Infobars เพื่อลดเวลาโหลด
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
+    Call Method    ${chrome_options}    add_argument    --disable-infobars
+
+    # ตั้งค่าตำแหน่ง Chrome และ Chrome Driver
+    ${chrome_options.binary_location}=    Set Variable    ${CHROME_BROWSER_PATH}
+    ${service}=    Evaluate    sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")
+
+    # เปิด Browser ด้วย Chrome แบบ UI Mode
+    Create Webdriver    Chrome    options=${chrome_options}    service=${service}
+    Go To    ${LOGIN URL}
+    Login Page Should Be Open
+    Maximize Browser Window
+
+
+
+Login Page Should Be Open
+    Location Should Be    ${LOGIN URL}
+
+User Login
+    Input Text      id=username    ${USER_USERNAME}
+    Input Text      id=password    ${USER_PASSWORD}
+    Click Button    xpath=//button[@type='submit']
+    Sleep    2s 
+    Location Should Be    ${USER URL} 
+
+Switch Language To
+    [Arguments]    ${lang_code}    ${expected_language}
+    
+    # ถ้าเป็นภาษาอังกฤษ ข้ามการเลือก dropdown และกลับเลย
+    IF    '${lang_code}' == 'en'
+        ${new_lang}=    Get Text    id=navbarDropdownMenuLink
+        Should Contain    ${new_lang}    ${expected_language}
+        RETURN
+    END
+
+    # รอให้ปุ่ม dropdown แสดงผล
+    Wait Until Element Is Visible    id=navbarDropdownMenuLink    10s
+    Mouse Over    id=navbarDropdownMenuLink
+    Click Element    id=navbarDropdownMenuLink
+
+    # ใช้ JavaScript เพื่อบังคับ dropdown แสดง (ถ้ามันไม่เปิดเอง)
+    Execute JavaScript    document.querySelector('#navbarDropdownMenuLink').click();
+
+    # รอ dropdown menu (ใช้ contains เพื่อให้เจาะจงมากขึ้น)
+    Wait Until Element Is Visible    xpath=//div[contains(@class, 'dropdown-menu')]    10s
+
+    # ตรวจสอบ dropdown menu มีตัวเลือกภาษา
+    ${dropdown_html}=    Get Element Attribute    xpath=//div[contains(@class, 'dropdown-menu')]    innerHTML
+    Log    Dropdown HTML: ${dropdown_html}
+
+    # คลิกเปลี่ยนภาษา
+    Click Element    xpath=//a[contains(@href, "/lang/${lang_code}")]
+    Sleep    5s
+    
+    # ตรวจสอบว่าภาษาเปลี่ยนแล้ว
+    ${new_lang}=    Get Text    id=navbarDropdownMenuLink
+    Should Contain    ${new_lang}    ${expected_language}
+
+
+
+* Test Cases *
+Dashboard Page Switch Language To TH
+    [Tags]    UAT001-OpenUserPage
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Sleep    2s
+    Switch Language To    th    ไทย
+    ${html_source}=    Get Source
+    FOR    ${word}    IN    @{EXPECTED_WORDS_DASHBOARD_TH}
+        Should Contain    ${html_source}    ${word}
+    END
+    Close Browser
+
+Profile Page Switch Language To TH
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/profile
+    Sleep    2s
+    Switch Language To    th    ไทย
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    บัญชีผู้ใช้
+    Should Contain    ${html_source}    รหัสผ่าน
+    Should Contain    ${html_source}    ความเชี่ยวชาญ
+    Should Contain    ${html_source}    การศึกษา
+    Close Browser
+
+Account Page Switch Language To TH
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/profile
+    Sleep    2s
+    Switch Language To    th    ไทย
+    Click Element    xpath=//span[contains(@class, 'menu-title') and text()='บัญชีผู้ใช้']
+    Sleep    2s
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    การตั้งค่าโปรไฟล์
+    Should Contain    ${html_source}    คำนำหน้า
+    Should Contain    ${html_source}    ชื่อ (ภาษาอังกฤษ)
+    Should Contain    ${html_source}    นามสกุล (ภาษาอังกฤษ)
+    Close Browser
+
+Password Page Switch Language To TH
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/profile
+    Sleep    2s
+    Switch Language To    th    ไทย
+    Click Element    xpath=//span[contains(@class, 'menu-title') and text()='รหัสผ่าน']
+    Sleep    2s
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    รหัสผ่านเก่า
+    Should Contain    ${html_source}    รหัสผ่านใหม่
+    Should Contain    ${html_source}    ยืนยันรหัสผ่านใหม่
+    Should Contain    ${html_source}    การตั้งค่ารหัสผ่าน
+    ${placeholder_value}=    Get Element Attribute    id=inputpassword    placeholder
+    Should Be Equal    ${placeholder_value}    กรอกรหัสผ่านปัจจุบัน
+    Close Browser
+
+Expertise Page Switch Language To TH
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/profile
+    Sleep    2s
+    Switch Language To    th    ไทย
+    Click Element    xpath=//span[contains(@class, 'menu-title') and text()='ความเชี่ยวชาญ']
+    Sleep    2s
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ความเชี่ยวชาญ
+    Wait Until Element Is Visible    xpath=//button[contains(@data-target, '#crud-modal') and contains(., 'เพิ่มความเชี่ยวชาญ')]    2s
+    ${button_text}=    Get Text    xpath=//button[contains(@data-target, '#crud-modal')]
+    Should Contain    ${button_text}    เพิ่มความเชี่ยวชาญ
+    Close Browser
+
+Education Page Switch Language To TH
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/profile
+    Sleep    2s
+    Switch Language To    th    ไทย
+    Click Element    xpath=//span[contains(@class, 'menu-title') and text()='การศึกษา']
+    Sleep    2s
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ประวัติการศึกษา
+    Should Contain    ${html_source}    ปริญญาตรี
+    Should Contain    ${html_source}    ชื่อมหาวิทยาลัย
+    Should Contain    ${html_source}    ชื่อวุฒิปริญญา
+    Should Contain    ${html_source}    ปี พ.ศ. ที่จบ
+    Should Contain    ${html_source}    ปริญญาโท
+    Should Contain    ${html_source}    ปริญญาเอก
+    ${placeholder_value}=    Get Element Attribute    id=inputpassword    placeholder
+    Should Be Equal    ${placeholder_value}    กรอกรหัสผ่านปัจจุบัน
+    Close Browser
+
+Manage Fund Page Switch Language To TH
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/funds
+    Sleep    2s
+    Switch Language To    th    ไทย
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ทุนวิจัย
+    Should Contain    ${html_source}    ชื่อทุน
+    Should Contain    ${html_source}    ประเภททุน
+    Should Contain    ${html_source}    ระดับทุน
+    Should Match Regexp   ${html_source}    .*Statistical Thai*.
+    Should Contain    ${html_source}    ทุนภายใน
+    Should Contain    ${html_source}    ไม่ระบุ
+    Close Browser
+
+Research Projects Page Switch Language To TH
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/researchProjects
+    Sleep    2s
+    Switch Language To    th    ไทย
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    โครงการวิจัย
+    Should Contain    ${html_source}    ปี
+    Should Contain    ${html_source}    ชื่อโครงการ
+    Should Contain    ${html_source}    หัวหน้ากลุ่มวิจัย
+    Should Contain    ${html_source}    สมาชิก
+    Should Contain    ${html_source}    การกระทำ
+    Should Contain    ${html_source}    ค้นหา
+    Close Browser
+
+Research Groups Page Switch Language To TH
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/researchGroups
+    Sleep    2s
+    Switch Language To    th    ไทย
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    กลุ่มวิจัย
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    ลำดับที่
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย
+    Should Contain    ${html_source}    หัวหน้ากลุ่มวิจัย
+    Should Contain    ${html_source}    สมาชิก
+    Should Contain    ${html_source}    การกระทำ
+    Should Contain    ${html_source}    ค้นหา
+    Close Browser
+
+Navigate To Research Publications
+    [Tags]    research
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/dashboard
+    Sleep    2s
+    Switch Language To    th    ไทย
+    Sleep    2s
+    # คลิกที่เมนู "จัดการผลงานวิจัย"
+    Click Element    xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]
+
+    # รอให้เมนูย่อย "ผลงานวิจัยที่เผยแพร่" ปรากฏ
+    Wait Until Element Is Visible    xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]    timeout=5s
+
+    # คลิกที่ "ผลงานวิจัยที่เผยแพร่"
+    Click Element    xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]
+
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    งานวิจัยที่ตีพิมพ์
+    Should Contain    ${html_source}    ชื่อเรื่อง
+    Should Contain    ${html_source}    ลำดับ
+    Should Contain    ${html_source}    ประเภท
+    Should Contain    ${html_source}    ปีที่ตีพิมพ์
+    Should Contain    ${html_source}    การกระทำ
+    Should Contain    ${html_source}    ค้นหา
+    
+    Click Element    xpath=//a[contains(@href, '/books') and contains(text(), 'หนังสือ')]
+    Sleep    5s
+
+    Should Contain    ${html_source}    หนังสือ
+    Should Contain    ${html_source}    แสดง
+    Get Text    xpath=//th[contains(text(), 'เลขที่')]
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    ปี
+    Get Text    xpath=//th[contains(text(), 'แหล่งข่าว')]
+    Should Contain    ${html_source}    หนังสือ
+    Close Browser
+
