@@ -5,7 +5,6 @@
         padding: 2px 0;
         border-radius: 5px;
 
-
     }
 
     .count-title {
@@ -53,7 +52,18 @@
                         @else
                         <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}</b>
                             @endif</h6>
-                        <h6 class="card-text1"><b>{{$res->academic_ranks_en}}</b></h6>
+                        <h6 class="card-text1">
+                            <b>
+                                @if(app()->getLocale() == 'th')
+                                {{$res->academic_ranks_th}}
+                                @elseif(app()->getLocale() == 'zh')
+                                {{$res->academic_ranks_cn}}
+                                @else
+                                {{$res->academic_ranks_en}}
+                                @endif
+                            </b>
+                        </h6>
+
                         <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
                         <!-- <h6 class="card-text1">College of Computing</h6>
                     <h6 class="card-text1">Khon Kaen University</h6> -->
@@ -200,9 +210,20 @@
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a>
+                                    @if (app()->getLocale() == 'th')
+                                    {{
+                    (isset($author->author_fname_th) && isset($author->author_lname_th) && $author->author_fname_th !== '' && $author->author_lname_th !== '')
+                    ? $author->author_fname_th . ' ' . $author->author_lname_th 
+                    : $author->author_fname . ' ' . $author->author_lname
+                }}
+                                    @else
+                                    {{ $author->author_fname . ' ' . $author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
+
                             @foreach ($paper->teacher as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
@@ -273,9 +294,20 @@
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a>
+                                    @if (app()->getLocale() == 'th')
+                                    {{
+                    (isset($author->author_fname_th) && isset($author->author_lname_th) && $author->author_fname_th !== '' && $author->author_lname_th !== '')
+                    ? $author->author_fname_th . ' ' . $author->author_lname_th 
+                    : $author->author_fname . ' ' . $author->author_lname
+                }}
+                                    @else
+                                    {{ $author->author_fname . ' ' . $author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
+
                             @foreach ($paper->teacher as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
@@ -341,9 +373,20 @@
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a>
+                                    @if (app()->getLocale() == 'th')
+                                    {{
+                    (isset($author->author_fname_th) && isset($author->author_lname_th) && $author->author_fname_th !== '' && $author->author_lname_th !== '')
+                    ? $author->author_fname_th . ' ' . $author->author_lname_th 
+                    : $author->author_fname . ' ' . $author->author_lname
+                }}
+                                    @else
+                                    {{ $author->author_fname . ' ' . $author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
+
                             @foreach ($paper->teacher as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
@@ -409,9 +452,20 @@
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a>
+                                    @if (app()->getLocale() == 'th')
+                                    {{
+                    (isset($author->author_fname_th) && isset($author->author_lname_th) && $author->author_fname_th !== '' && $author->author_lname_th !== '')
+                    ? $author->author_fname_th . ' ' . $author->author_lname_th 
+                    : $author->author_fname . ' ' . $author->author_lname
+                }}
+                                    @else
+                                    {{ $author->author_fname . ' ' . $author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
+
                             @foreach ($paper->teacher as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
@@ -470,13 +524,32 @@
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-
+                                <a>
+                                    @if (app()->getLocale() == 'th')
+                                    {{
+                    (isset($author->author_fname_th) && isset($author->author_lname_th) && $author->author_fname_th !== '' && $author->author_lname_th !== '')
+                    ? $author->author_fname_th . ' ' . $author->author_lname_th 
+                    : $author->author_fname . ' ' . $author->author_lname
+                }}
+                                    @else
+                                    {{ $author->author_fname . ' ' . $author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
-                            @foreach ($paper->user as $author)
+
+                            @foreach ($paper->teacher as $author)
                             <span>
-                                <a> {{$author -> fname_en}} {{$author -> lname_en}}</a>
+                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                                    <teacher teacher>
+                                        @if(app()->getLocale() == 'th')
+                                        {{$author->fname_th}} {{$author->lname_th}}
+                                        @else
+                                        {{$author->fname_en}} {{$author->lname_en}}
+                                        @endif
+                                    </teacher>
+
+                                </a>
                             </span>
                             @endforeach
                         </td>
