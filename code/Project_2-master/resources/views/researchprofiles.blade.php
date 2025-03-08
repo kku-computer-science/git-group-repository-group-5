@@ -603,7 +603,15 @@
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->ac_type}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                            {{$paper->ac_type}}
+                            @elseif(app()->getLocale() == 'zh')
+                            {{$paper->ac_type_cn}}
+                            @else
+                            {{$paper->ac_type}}
+                            @endif
+                        </td>
                         <td>{{$paper->ac_refnumber }}</td>
                         <td>{{$paper->ac_year}}</td>
 
@@ -937,6 +945,141 @@
         }
     });
 </script>
+<script>
+    $(document).ready(function() {
+        // กำหนดค่า locale จาก Blade หรือจากตัวเลือกของผู้ใช้
+        let locale = "{{ app()->getLocale() }}";
+        let languageSettings = {};
+
+        if (locale === 'en') {
+            languageSettings = {
+                lengthMenu: "Show _MENU_ entries",
+                zeroRecords: "No matching records found",
+                info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                infoEmpty: "No records available",
+                infoFiltered: "(filtered from _MAX_ total records)",
+                search: "Search:",
+                paginate: {
+                    first: "First",
+                    last: "Last",
+                    next: "Next",
+                    previous: "Previous"
+                }
+            };
+        } else if (locale === 'zh') {
+            languageSettings = {
+                lengthMenu: "显示 _MENU_ 条目",
+                zeroRecords: "未找到匹配的记录",
+                info: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                infoEmpty: "没有可用记录",
+                infoFiltered: "(从 _MAX_ 条记录中过滤)",
+                search: "搜索:",
+                paginate: {
+                    first: "首页",
+                    last: "末页",
+                    next: "下页",
+                    previous: "上页"
+                }
+            };
+        } else {
+            // ค่าเริ่มต้น: ภาษาไทย
+            languageSettings = {
+                lengthMenu: "แสดง _MENU_ รายการ",
+                zeroRecords: "ไม่พบข้อมูลที่ตรงกัน",
+                info: "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
+                infoEmpty: "ไม่มีข้อมูล",
+                infoFiltered: "(กรองจาก _MAX_ รายการ)",
+                search: "ค้นหา:",
+                paginate: {
+                    first: "หน้าแรก",
+                    last: "หน้าสุดท้าย",
+                    next: "ถัดไป",
+                    previous: "ก่อนหน้า"
+                }
+            };
+        }
+
+        // เริ่มต้น initialize ตารางที่อยู่ใน tab แรก (home)
+        $('#example1').DataTable({
+            responsive: true,
+            language: languageSettings,
+            destroy: true
+        });
+
+        // เมื่อผู้ใช้เปลี่ยน tab
+        $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function(event) {
+            // รับค่า data-bs-target เพื่อทราบว่ากดไปที่ tab ไหน
+            var target = $(event.target).attr('data-bs-target');
+
+            // กำหนดการ reinitialize ตาม target ของแต่ละ tab
+            if (target === '#home') {
+                if ($.fn.DataTable.isDataTable('#example1')) {
+                    $('#example1').DataTable().destroy();
+                }
+                $('#example1').DataTable({
+                    responsive: true,
+                    language: languageSettings,
+                    destroy: true
+                });
+            }
+            if (target === '#scopus') {
+                if ($.fn.DataTable.isDataTable('#example2')) {
+                    $('#example2').DataTable().destroy();
+                }
+                $('#example2').DataTable({
+                    responsive: true,
+                    language: languageSettings,
+                    destroy: true
+                });
+            }
+            if (target === '#wos') {
+                if ($.fn.DataTable.isDataTable('#example3')) {
+                    $('#example3').DataTable().destroy();
+                }
+                $('#example3').DataTable({
+                    responsive: true,
+                    language: languageSettings,
+                    destroy: true
+                });
+            }
+            if (target === '#tci') {
+                if ($.fn.DataTable.isDataTable('#example4')) {
+                    $('#example4').DataTable().destroy();
+                }
+                $('#example4').DataTable({
+                    responsive: true,
+                    language: languageSettings,
+                    destroy: true
+                });
+            }
+            if (target === '#book') {
+                if ($.fn.DataTable.isDataTable('#example5')) {
+                    $('#example5').DataTable().destroy();
+                }
+                $('#example5').DataTable({
+                    responsive: true,
+                    language: languageSettings,
+                    destroy: true
+                });
+            }
+            if (target === '#patent') {
+                if ($.fn.DataTable.isDataTable('#example6')) {
+                    $('#example6').DataTable().destroy();
+                }
+                $('#example6').DataTable({
+                    responsive: true,
+                    language: languageSettings,
+                    destroy: true
+                });
+            }
+        });
+    });
+</script>
+
+
+
+
+
 <!-- <script>
     // get the p element
     $(document).ready(function() {
