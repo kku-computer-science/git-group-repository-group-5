@@ -5,7 +5,6 @@
         padding: 2px 0;
         border-radius: 5px;
 
-
     }
 
     .count-title {
@@ -200,9 +199,22 @@
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a>
+                                    @if (app()->getLocale() == 'th')
+                                    {{
+                    (isset($author->author_fname_th) && isset($author->author_lname_th) && $author->author_fname_th !== '' && $author->author_lname_th !== '')
+                    ? $author->author_fname_th . ' ' . $author->author_lname_th 
+                    : $author->author_fname . ' ' . $author->author_lname
+                }}
+                                    @else
+                                    {{ $author->author_fname . ' ' . $author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
+
+
+
                             @foreach ($paper->teacher as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
