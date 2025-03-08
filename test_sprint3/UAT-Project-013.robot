@@ -325,5 +325,30 @@ Navigate To Research Publications
     Should Contain    ${html_source}    ปี
     Get Text    xpath=//th[contains(text(), 'แหล่งข่าว')]
     Should Contain    ${html_source}    หนังสือ
+
+    Click Element    xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]
+    Sleep    5s
+
+    Should Contain    ${html_source}    ผลงานวิชาการอื่นๆ
+    Should Contain    ${html_source}    แสดง
+    Wait Until Element Is Visible    xpath=//a[contains(@class, 'btn-primary') and contains(., 'เพิ่ม')]    2s
+    ${button_text}=    Get Text    xpath=//a[contains(@class, 'btn-primary')]
+    Should Contain    ${button_text}    เพิ่ม
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    ลำดับ
+    Should Contain    ${html_source}    ประเภท
+    ${text}=    Get Text    xpath=//th[contains(text(), 'วันที่ได้รับลิขสิทธิ์')]
+    Should Contain    ${text}    วันที่ได้รับลิขสิทธิ์
+    ${text}=    Get Text    xpath=//th[contains(text(), 'เลขทะเบียน')]
+    Should Contain    ${text}    เลขทะเบียน
+    ${text}=    Get Text    xpath=//th[contains(text(), 'ผู้จัดทำ')]
+    Should Contain    ${text}    ผู้จัดทำ
+    Should Contain    ${html_source}    การกระทำ
+    ${full_text}=    Execute JavaScript    return document.querySelector("td:nth-child(2)").textContent.trim();
+    Log    ${full_text}
+    Should Contain    ${full_text}    เอกสารประกอบการสอนการเขียนโปรแกรมเบื้องต้น
+    ${text}=    Get Text    xpath=//td[contains(text(), 'ลิขสิทธิ์')]
+    Should Contain    ${text}    ลิขสิทธิ์
+
     Close Browser
 
