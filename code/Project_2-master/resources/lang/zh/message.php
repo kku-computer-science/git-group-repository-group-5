@@ -2,7 +2,7 @@
 return [
 'Home' => 'Home',
 'Researchers' => 'Researchers',
-'ResearchProj' => 'Research Project',
+'ResearchProj' => '研究项目',
 'ResearchGroup' => 'Research Group',
 'Report' => 'Reports',
 'details' =>'More details',

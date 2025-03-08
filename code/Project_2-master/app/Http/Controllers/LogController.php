@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Expertise;
-use App\Models\SystemLog;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -19,21 +18,41 @@ class LogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $id = auth()->user()->id;
-        if (auth()->user()->hasRole('admin')) {
-            $experts = Expertise::all();
-        } else {
-            $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
-                $query->where('users.id', '=', $id);
-            })->paginate(10);
-        }
+    // old code
+    // public function index()
+    // {
+    //     $id = auth()->user()->id;
+    //     if (auth()->user()->hasRole('admin')) {
+    //         $experts = Expertise::all();
+    //     } else {
+    //         $experts = Expertise::with('user')->whereHas('user', function ($query) use ($id) {
+    //             $query->where('users.id', '=', $id);
+    //         })->paginate(10);
+    //     }
 
-        return view('logs.index', compact('experts'));
+    //     return view('logs.index', compact('experts'));
+    // }
+
+    public function index(Request $request)
+{
+    $id = auth()->user()->id;
+
+    // ดึงค่าการกรองจาก Request
+    $user_id = $request->input('user_id');
+    $selected_date = $request->input('selected_date');
+
+    $query = Expertise::query();
+
+    // เฉพาะ admin สามารถเห็นทุกข้อมูล
+    if (!auth()->user()->hasRole('admin')) {
+        $query->whereHas('user', function ($q) use ($id) {
+            $q->where('users.id', $id);
+        });
     }
+}
 
     public function overall(Request $request)
+
     {
         // กำหนดคอลัมน์ที่สามารถเรียงลำดับได้
         $allowedSortColumns = [
@@ -81,10 +100,15 @@ class LogController extends Controller
             ->select('id', 'email')
             ->orderBy('email')
             ->get();
+    }
+
+        // Get paginated logs for table
+        // $logs = $query->paginate(25);
 
         // รับข้อมูล logs ที่แสดงเป็น pagination
         $logs = $query->paginate($perPage)
             ->appends($request->except('page'));
+
 
         // สร้างข้อมูลสำหรับกราฟ (แบ่งตามชั่วโมง)
         $chartQuery = SystemLog::selectRaw('HOUR(created_at) as hour, COUNT(*) as count')
@@ -241,4 +265,4 @@ class LogController extends Controller
 
         return $response;
     }
-}
+

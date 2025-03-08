@@ -1,5 +1,7 @@
 <?php
 return [
+'FundDetail' => 'Fund Detail',
+'EditFund' => 'Edit Fund',
 'FundType' => 'Fund Type',
 'FundName' => 'Fund Name',
 'FundYear' => 'Fund Year',

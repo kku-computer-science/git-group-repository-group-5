@@ -50,7 +50,6 @@ return [
     "Editresearchpublication" => "编辑研究出版",
     "Submit" => "提交",
     "Cancel" => "取消",
-
     "PublicationName" => [
         "InternationalJournal" => "国际期刊",
         "InternationalBook" => "国际书籍",
@@ -61,18 +60,17 @@ return [
         "NationalMagazine" => "国内杂志",
         "BookChapter" => "书中章节",
     ],
-
     "PleaseSelectType" => "请选择出版类型",
     "PleaseSelectSubType" => "请选择子类型",
     "PleaseSelectDocumentType" => "请选择文档类型",
     "PleaseSelectSourceTitle" => "请选择来源标题",
-
     "AddPublicationResearch" => "添加出版研究",
     "FillResearchDetail"=> "填写研究详情",
     "Add" => "添加",
     "CallPaper"=>"召集论文",
-
     "EnterYourName" => "输入您的名字",
     "EnterYourLastName" => "输入您的姓氏",
     "SelectUser" => "选择用户",
+    "Whoops" => "哎呀",
+    "ThereWas" => "您的输入有一些问题。"
 ];

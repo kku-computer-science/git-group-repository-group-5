@@ -25,10 +25,6 @@ return [
     'Publication' => 'การตีพิมพ์',
     'No.' => 'ลำดับ',
     'ResearchName' => 'ชื่องานวิจัย',
-    // 'Journal' => 'วารสาร',
-    // 'Conference' => 'การประชุมวิชาการ',
-    // 'Book' => 'หนังสือ',
-    // 'BookSeries' => 'ชุดหนังสือ',
     'types' => [
         'Journal' => 'วารสาร',
         'Conference' => 'การประชุมวิชาการ',
@@ -44,7 +40,6 @@ return [
         'Erratum' => 'คำแก้ไข',
         'BookChapter' => 'บทในหนังสือ',
     ],
-
     "PublishedResearch" => "งานวิจัยที่ตีพิมพ์",
     "PublicationSource" => "แหล่งเผยแพร่งานวิจัย",
     "Citation" => "การอ้างอิง",
@@ -55,7 +50,6 @@ return [
     "Editresearchpublication" => "แก้ไขผลงานตีพิมพ์",
     "Submit" => "ยืนยัน",
     "Cancel" => "ยกเลิก",
-
     "PublicationName" => [
         "InternationalJournal" => "วารสารนานาชาติ",
         "InternationalBook" => "หนังสือนานาชาติ",
@@ -66,19 +60,17 @@ return [
         "NationalMagazine" => "นิตยสารในประเทศ",
         "BookChapter" => "บทในหนังสือ",
     ],
-
     "PleaseSelectType" => "โปรดเลือกประเภท",
     "PleaseSelectSubType" => "โปรดเลือกประเภทย่อย",
     "PleaseSelectDocumentType" => "โปรดเลือกประเภทเอกสาร",
     "PleaseSelectSourceTitle" => "โปรดเลือกแหล่งข้อมูล",
-
     "AddPublicationResearch" => "เพิ่มวารผลงานตีพิมพ์",
     "FillResearchDetail"=> "กรอกข้อมูลรายละเอียดงานวิจัย",
     "Add" => "เพิ่ม",
     "CallPaper"=>"เรียกงานวิจัยใหม่",
-
     "EnterYourName" => "ชื่อ",
     "EnterYourLastName" => "นามสกุล",
     "SelectUser" => "เลือกผู้ประพันธ์",
-
+    "Whoops" => "ขออภัย",
+    "ThereWas" => "มีบางอย่างผิดพลาดในข้อมูลของคุณ"
 ];
