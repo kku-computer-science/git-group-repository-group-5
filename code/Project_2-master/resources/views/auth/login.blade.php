@@ -329,17 +329,17 @@
 				<form method="POST" class="login100-form validate-form" autocomplete="off" action="{{ route('login') }}">
 					@csrf
 					<span class="login100-form-title p-b-55">
-						Login
+						{{ translateText('Login') }}
 					</span>
 					@if($errors->any())
 					<div class="alert alert-danger alert-block ">
 						<button type="button" class="close" data-dismiss="alert"></button>
-						<strong><a>{{$errors->first()}}</a></strong>
+						<strong><a>{{ translateText($errors->first()) }}</a></strong>
 					</div>
 					@endif
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input m-b-16" data-validate="{{ translateText('Valid email is required: ex@abc.xyz') }}">
 
-						<input id="email" class="input100" type="text" name="email" placeholder="Email">
+						<input id="email" class="input100" type="text" name="email" placeholder="{{ translateText('Email') }}">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<span class="lnr lnr-envelope"></span>
@@ -347,8 +347,8 @@
 
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
-						<input id="password" class="input100" type="password" name="password" placeholder="Password">
+					<div class="wrap-input100 validate-input m-b-16" data-validate="{{ translateText('Password is required') }}">
+						<input id="password" class="input100" type="password" name="password" placeholder="{{ translateText('Password') }}">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<span class="lnr lnr-lock"></span>
@@ -359,16 +359,15 @@
 					<div class="contact100-form-checkbox m-l-4">
 						<input  class="input-checkbox100" id="ckb1" type="checkbox" name="remember">
 						<label class="label-checkbox100" for="ckb1">
-							Remember me
+							{{ translateText('Remember me') }}
 						</label>
 					</div>
 
 					<div class="container-login100-form-btn p-t-30">
 						<button class="login100-form-btn">
-							Login
+							{{ translateText('Login') }}
 						</button>
 					</div>
-
 
 				</form>
 			</div>
@@ -376,55 +375,53 @@
 	</div> -->
 
 	<div class="form">
-		<div class="form-toggle"></div>
-		<div class="form-panel one">
-			<div class="form-header">
-				<h1>Account Login</h1>
-			</div>
-			<div class="form-content">
-				<form method="POST" class="validate-form" autocomplete="off" action="{{ route('login') }}">
-					@csrf
-					@if($errors->any())
-					<div class=" alert alert-danger alert-block ">
-						<button type=" button" class="close" data-dismiss="alert"></button>
-						<strong><a>{{$errors->first()}}</a></strong>
-					</div>
-					@endif
-					<!-- <div class="form-group validate-input" data-validate="Valid email is required: ex@abc.xyz"> -->
-					<div class="form-group validate-input">
-						<label for="email">Username</label>
-						<input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
-						@error('username')
-						<span class="invalid-feedback" role="alert">
-							<strong>{{ $message }}</strong>
-						</span>
-						@enderror
-					</div>
-					<div class="form-group validate-input" data-validate="Password is required">
-						<label for="password">Password</label>
-						<input id="password" class="input" type="password" name="password" required="required" />
-					</div>
-					<div class="form-group">
-						<label class="form-remember">
-							<input id="ckb1" name="remember" type="checkbox" />Remember Me
-						</label>
-					</div>
-					<div class="form-group">
-						<button type="submit">Log In</button>
-					</div>
-					<div class="form-remember pb-3">
-							<p style="color: red; text-align: right;"> *** หากลืมรหัสผ่าน ให้ติดต่อผู้ดูแลระบบ</p>
-					</div>
-					<ul>
-						<li>สำหรับ Username ใช้ KKU-Mail ในการเข้าสู่ระบบ</li>
-						<li>สำหรับนักศึกษาที่เข้าระบบเป็นครั้งแรกให้เข้าสู่ระด้วยรหัสนักศึกษา</li>
-					</ul>
-				</form>
-			</div>
-		</div>
+    <div class="form-toggle"></div>
+    <div class="form-panel one">
+        <div class="form-header">
+            <h1>{{ trans('auth.account_login') }}</h1>
+        </div>
+        <div class="form-content">
+            <form method="POST" class="validate-form" autocomplete="off" action="{{ route('login') }}">
+                @csrf
+                @if($errors->any())
+                <div class="alert alert-danger alert-block ">
+                    <button type="button" class="close" data-dismiss="alert"></button>
+                    <strong><a>{{ trans('auth.' . $errors->first()) }}</a></strong>
+                </div>
+                @endif
+                <div class="form-group validate-input">
+                    <label for="email">{{ trans('auth.username') }}</label>
+                    <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
+                    @error('username')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ trans('auth.' . $message) }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-group validate-input" data-validate="{{ trans('auth.password_required') }}">
+                    <label for="password">{{ trans('auth.password') }}</label>
+                    <input id="password" class="input" type="password" name="password" required="required" />
+                </div>
+                <div class="form-group">
+                    <label class="form-remember">
+                        <input id="ckb1" name="remember" type="checkbox" />{{ trans('auth.remember_me') }}
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button type="submit">{{ trans('auth.login') }}</button>
+                </div>
+                <div class="form-remember pb-3">
+                    <p style="color: red; text-align: right;">{{ trans('auth.forgot_password') }}</p>
+                </div>
+                <ul>
+                    <li>{{ trans('auth.use_kku_mail') }}</li>
+                    <li>{{ trans('auth.first_time_login') }}</li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
 
-
-	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

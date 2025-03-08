@@ -47,7 +47,7 @@
 
             </div>
             <div class="pull-right mt-5">
-                <a class="btn btn-primary btn-sm" href="{{ route('funds.index') }}"> Back</a>
+                <a class="btn btn-primary btn-sm" href="{{ route('funds.index') }}">{{ trans('research_g.back') }}</a>
             </div>
         </div>
 

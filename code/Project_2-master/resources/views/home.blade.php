@@ -43,12 +43,27 @@
                 aria-label="Slide 3"></button> -->
             </div>
             <div class="carousel-inner">
+                @php
+                $locale = app()->getLocale();
+                $image1 = 'img/p1_en.jpg'; // ค่าเริ่มต้นเป็นอังกฤษ
+                $image2 = 'img/p2_en.jpg';
+
+                if ($locale === 'zh') {
+                $image1 = 'img/p1_cn.jpg';
+                $image2 = 'img/p2_cn.jpg';
+                } elseif ($locale === 'th') {
+                $image1 = 'img/p1_th.jpg';
+                $image2 = 'img/p2_th.jpg';
+                }
+                @endphp
+
                 <div class="carousel-item active">
-                    <img src="{{asset('img/Banner1.png')}}" class="d-block w-100" alt="...">
+                    <img src="{{ asset($image1) }}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('img/Banner2.png')}}" class="d-block w-100" alt="...">
+                    <img src="{{ asset($image2) }}" class="d-block w-100" alt="...">
                 </div>
+
                 <!-- <div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">
             </div> -->
@@ -138,11 +153,18 @@
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$n}}" aria-expanded="true" aria-controls="collapseOne">
                         @if (!$loop->last)
-                        {{$n}}
+                        @if(app()->getLocale() == 'th')
+                        {{ $n + 543 }}
                         @else
-                        {{ trans('books.Before') }} {{$n}}
+                        {{ $n }}
                         @endif
-
+                        @else
+                        @if(app()->getLocale() == 'th')
+                        {{ trans('books.Before') }} {{ $n + 543 }}
+                        @else
+                        {{ trans('books.Before') }} {{ $n }}
+                        @endif
+                        @endif
                     </button>
                 </h2>
                 <div id="collapse{{$n}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">

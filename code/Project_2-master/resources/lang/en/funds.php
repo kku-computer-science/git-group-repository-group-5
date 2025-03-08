@@ -13,8 +13,6 @@ return [
 'Low' => 'Low',
 'Unknown' => 'Unknown',
 'ResearchFund' => 'Research Fund',
-'FundYear' => 'Fund Year',
-'FundDetails' => 'Fund Details',
 'FundLevel' => 'Fund Level',
 'SupportResource' => 'Support Resource',
 'FundAgency' => 'Fund Agency',
@@ -33,6 +31,7 @@ return [
 "Action" => "Action",
 "EditFundDetail" => "Edit fund research details",
 "AreUSure" => "Are you sure?",
-"DeleteThis"=> "If you delete this, it will be gone forever."
+"DeleteThis"=> "If you delete this, it will be gone forever.",
+'EditFund' => 'Edit Fund',
 ];
 

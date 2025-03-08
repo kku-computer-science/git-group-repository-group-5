@@ -1,0 +1,27 @@
+<?php 
+return [
+    'ความเชี่ยวชาญของอาจารย์' => 'ความเชี่ยวชาญของอาจารย์',
+    'Name:' => 'ชื่อ:',
+    'Expert_name' => 'ชื่อความเชี่ยวชาญ',
+    'Submit' => 'ส่ง',
+    'Cancel' => 'ยกเลิก',
+    'Teacher Name' => 'ชื่ออาจารย์',
+    'Action' => 'การกระทำ',
+    'Delete' => 'ลบ',
+    'Edit' => 'แก้ไข',
+    'Are you sure?' => 'คุณแน่ใจหรือไม่?',
+    'You will not be able to recover this imaginary file!' => 'คุณจะไม่สามารถกู้คืนไฟล์นี้ได้!',
+    'Delete Successfully' => 'ลบสำเร็จ',
+    'program entry deleted successfully' => 'โปรแกรมถูกลบออกสำเร็จ',
+    'ID' => 'หมายเลขประจำตัว',
+    'Edit Expertise' => 'แก้ไขความเชี่ยวชาญ',
+    'Name' => 'ชื่อ',
+    'add_new' => 'เพิ่มความเชี่ยวชาญใหม่',
+    'edit' => 'แก้ไขความเชี่ยวชาญ',
+    'update' => 'อัปเดต',
+    'delete_confirm_title' => 'คุณแน่ใจหรือไม่?',
+    'delete_confirm_text' => 'หากลบข้อมูลนี้จะไม่สามารถกู้คืนได้',
+    'delete_success' => 'ลบข้อมูลเรียบร้อย',
+    'delete_success_message' => 'ข้อมูลถูกลบสำเร็จ',
+
+];

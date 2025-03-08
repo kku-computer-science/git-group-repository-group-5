@@ -4,34 +4,34 @@
 <div class="container">
 <div class="card col-md-10" style="padding: 16px;">
     <div class="card-body">
-        <h4 class="card-title">{{ translateText('รายละเอียดกลุ่มวิจัย') }}</h4>
-        <p class="card-description">{{ translateText('ข้อมูลรายละเอียดกลุ่มวิจัย') }}</p>
+        <h4 class="card-title">{{ trans('research_g.details') }}</h4>
+        <p class="card-description">{{ trans('research_g.group_details') }}</p>
         <div class="row mt-2">
-            <p class="card-text col-sm-3"><b>{{ translateText('ชื่อกลุ่มวิจัย (ภาษาไทย)') }}</b></p>
+            <p class="card-text col-sm-3"><b>{{ trans('research_g.group_name_th') }}</b></p>
             <p class="card-text col-sm-9">{{ $researchGroup->group_name_th }}</p>
         </div>
         <div class="row mt-1">
-            <p class="card-text col-sm-3"><b>{{ translateText('ชื่อกลุ่มวิจัย (English)') }}</b></p>
+            <p class="card-text col-sm-3"><b>{{ trans('research_g.group_name_en') }}</b></p>
             <p class="card-text col-sm-9">{{ $researchGroup->group_name_en }}</p>
         </div>
         <div class="row mt-2">
-            <p class="card-text col-sm-3"><b>{{ translateText('คำอธิบายกลุ่มวิจัย (ภาษาไทย)') }}</b></p>
+            <p class="card-text col-sm-3"><b>{{ trans('research_g.group_desc_th') }}</b></p>
             <p class="card-text col-sm-9">{{ $researchGroup->group_desc_th }}</p>
         </div>
         <div class="row mt-2">
-            <p class="card-text col-sm-3"><b>{{ translateText('คำอธิบายกลุ่มวิจัย (English)') }}</b></p>
+            <p class="card-text col-sm-3"><b>{{ trans('research_g.group_desc_en') }}</b></p>
             <p class="card-text col-sm-9">{{ $researchGroup->group_desc_en }}</p>
         </div>
         <div class="row mt-2">
-            <p class="card-text col-sm-3"><b>{{ translateText('รายละเอียดกลุ่มวิจัย (ภาษาไทย)') }}</b></p>
+            <p class="card-text col-sm-3"><b>{{ trans('research_g.group_detail_th') }}</b></p>
             <p class="card-text col-sm-9">{{ $researchGroup->group_detail_th }}</p>
         </div>
         <div class="row mt-2">
-            <p class="card-text col-sm-3"><b>{{ translateText('รายละเอียดกลุ่มวิจัย (English)') }}</b></p>
+            <p class="card-text col-sm-3"><b>{{ trans('research_g.group_detail_en') }}</b></p>
             <p class="card-text col-sm-9">{{ $researchGroup->group_detail_en }}</p>
         </div>
         <div class="row mt-3">
-            <p class="card-text col-sm-3"><b>{{ translateText('หัวหน้ากลุ่มวิจัย') }}</b></p>
+            <p class="card-text col-sm-3"><b>{{ trans('research_g.head') }}</b></p>
             <p class="card-text col-sm-9">
                 @foreach($researchGroup->user as $user)
                     @if ( $user->pivot->role == 1)
@@ -41,7 +41,7 @@
             </p>
         </div>
         <div class="row mt-1">
-            <p class="card-text col-sm-3"><b>{{ translateText('สมาชิกกลุ่มวิจัย') }}</b></p>
+            <p class="card-text col-sm-3"><b>{{ trans('research_g.members') }}</b></p>
             <p class="card-text col-sm-9">
                 @foreach($researchGroup->user as $user)
                     @if ( $user->pivot->role == 2)
@@ -50,9 +50,10 @@
                 @endforeach
             </p>
         </div>
-        <a class="btn btn-primary mt-5" href="{{ route('researchGroups.index') }}">{{ translateText('Back') }}</a>
+        <a class="btn btn-primary mt-5" href="{{ route('researchGroups.index') }}">{{ trans('research_g.back') }}</a>
     </div>
 </div>
+
 
     
 @stop
@@ -64,18 +65,19 @@ $(document).ready(function() {
     $('#new-customer').click(function() {
         $('#btn-save').val("create-customer");
         $('#customer').trigger("reset");
-        $('#customerCrudModal').html(translateText('Add New Customer EiEi'));
+        $('#customerCrudModal').html(trans('research_g.add_new_customer'));
         $('#crud-modal').modal('show');
     });
     /* When click New customer button */
     $('#new-customer2').click(function() {
         $('#btn-save').val("create-customer");
         $('#customer').trigger("reset");
-        $('#customerCrudModal').html(translateText('Add New Customer EiEi'));
+        $('#customerCrudModal').html(trans('research_g.add_new_customer'));
         $('#crud-modal').modal('show');
     });
 });
 </script>
+
 
 
 @stop

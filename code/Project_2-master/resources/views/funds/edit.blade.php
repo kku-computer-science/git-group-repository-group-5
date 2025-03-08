@@ -14,10 +14,10 @@
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>{{ translateText('Whoops!') }}</strong> {{ translateText('There were some problems with your input.') }}<br><br>
+        <strong>{{ trans('re_project.Whoops') }}</strong>{{ trans('re_project.Thereweresomeproblemswithyourinput') }} <br><br>
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ translateText($error) }}</li>
+                <li>{{ trans('message.' . $error) }}</li>
             @endforeach
         </ul>
     </div>
@@ -56,17 +56,17 @@
                     <div class="form-group row">
                         <p class="col-sm-3 "><b>{{ trans('funds.FundName') }}</b></p>
                         <div class="col-sm-8">
-                            <input type="text" name="fund_name" value="{{ $fund->fund_name }}" class="form-control" placeholder="{{ translateText('fund_name') }}">
+                            <input type="text" name="fund_name" value="{{ $fund->fund_name }}" class="form-control" placeholder="{{ trans('funds.FundName') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <p class="col-sm-3 "><b>{{ trans('funds.FundAgency') }}</b></p>
                         <div class="col-sm-8">
-                            <input type="text" name="support_resource" value="{{ $fund->support_resource }}" class="form-control" placeholder="{{ translateText('Support Resource') }}">
+                            <input type="text" name="support_resource" value="{{ $fund->support_resource }}" class="form-control" placeholder="{{ $fund->support_resource }}">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mt-5">{{ translateText('Submit') }}</button>
-                    <a class="btn btn-light mt-5" href="{{ route('funds.index')}}">{{ translateText('Cancel') }}</a>
+                    <a class="btn btn-light mt-5" href="{{ route('funds.index')}}">{{ trans('research_g.cancel') }}</a>
                 </form>
             </div>
         </div>

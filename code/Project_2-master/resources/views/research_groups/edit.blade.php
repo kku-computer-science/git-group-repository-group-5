@@ -3,78 +3,82 @@
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>{{ translateText('Whoops!') }}</strong> {{ translateText('There were some problems with your input.') }}<br><br>
+        <strong>{{ trans('re_project.Whoops') }}</strong>{{ trans('re_project.Thereweresomeproblemswithyourinput') }} <br><br>
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+                <li>{{ trans('message.' . $error) }}</li>
             @endforeach
         </ul>
     </div>
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">{{ translateText('แก้ไขข้อมูลกลุ่มวิจัย') }}</h4>
-            <p class="card-description">{{ translateText('กรอกข้อมูลแก้ไขรายละเอียดกลุ่มวิจัย') }}</p>
-            <form action="{{ route('researchGroups.update',$researchGroup->id) }}" method="POST" enctype="multipart/form-data" >
+            <h4 class="card-title">{{ trans('research_g.edit_research_group') }}</h4>
+            <p class="card-description">{{ trans('research_g.fill_edit_research_group') }}</p>
+            <form action="{{ route('researchGroups.update', $researchGroup->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>{{ translateText('ชื่อกลุ่มวิจัย (ภาษาไทย)') }}</b></p>
+                    <p class="col-sm-3 "><b>{{ trans('research_g.group_name_th') }}</b></p>
                     <div class="col-sm-8">
                         <input name="group_name_th" value="{{ $researchGroup->group_name_th }}" class="form-control"
-                            placeholder="{{ translateText('ชื่อกลุ่มวิจัย (ภาษาไทย)') }}">
+                            placeholder="{{ trans('research_g.group_name_th') }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>{{ translateText('ชื่อกลุ่มวิจัย (English)') }}</b></p>
+                    <p class="col-sm-3 "><b>{{ trans('research_g.group_name_en') }}</b></p>
                     <div class="col-sm-8">
                         <input name="group_name_en" value="{{ $researchGroup->group_name_en }}" class="form-control"
-                            placeholder="{{ translateText('ชื่อกลุ่มวิจัย (English)') }}">
+                            placeholder="{{ trans('research_g.group_name_en') }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>{{ translateText('คำอธิบายกลุ่มวิจัย (ภาษาไทย)') }}</b></p>
+                    <p class="col-sm-3"><b>{{ trans('research_g.group_desc_th') }}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_desc_th" value="{{ $researchGroup->group_desc_th }}" class="form-control"
                             style="height:90px">{{ $researchGroup->group_desc_th }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>{{ translateText('คำอธิบายกลุ่มวิจัย (English)') }}</b></p>
+                    <p class="col-sm-3"><b>{{ trans('research_g.group_desc_en') }}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_desc_en" value="{{ $researchGroup->group_desc_en }}" class="form-control"
                             style="height:90px">{{ $researchGroup->group_desc_en }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>{{ translateText('รายละเอียดกลุ่มวิจัย (ภาษาไทย)') }}</b></p>
+                    <p class="col-sm-3"><b>{{ trans('research_g.group_detail_th') }}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_detail_th" value="{{ $researchGroup->group_detail_th }}" class="form-control"
                             style="height:90px">{{ $researchGroup->group_detail_th }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>{{ translateText('รายละเอียดกลุ่มวิจัย (English)') }}</b></p>
+                    <p class="col-sm-3"><b>{{ trans('research_g.group_detail_en') }}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_detail_en" value="{{ $researchGroup->group_detail_en }}" class="form-control"
                             style="height:90px">{{ $researchGroup->group_detail_en }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>{{ translateText('image') }}</b></p>
+                    <p class="col-sm-3"><b>{{ trans('research_g.image') }}</b></p>
                     <div class="col-sm-8">
-                        <input type="file" name="group_image" class="form-control" >
+                        <input type="file" name="group_image" class="form-control">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>{{ translateText('หัวหน้ากลุ่มวิจัย') }}</b></p>
+                    <p class="col-sm-3"><b>{{ trans('research_g.research_group_head') }}</b></p>
                     <div class="col-sm-8">
                         <select id='head0' name="head">
                             @foreach($researchGroup->user as $u)
                             @if($u->pivot->role == 1)
                             @foreach($users as $user)
                             <option value="{{ $user->id }}" @if($u->id == $user->id) selected @endif>
+                                @if(app()->getLocale() == 'th')
                                 {{ $user->fname_th }} {{ $user->lname_th }}
+                                @else{{ $user->fname_en }}
+                                {{ $user->lname_en }}
+                                @endif
                             </option>
                             @endforeach
                             @endif
@@ -83,7 +87,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 pt-4"><b>{{ translateText('สมาชิกกลุ่มวิจัย') }}</b></p>
+                    <p class="col-sm-3 pt-4"><b>{{ trans('research_g.research_group_members') }}</b></p>
                     <div class="col-sm-8">
                         <table class="table" id="dynamicAddRemove">
                             <tr>
@@ -93,13 +97,13 @@
                         </table>
                     </div>
                 </div>
-                
-                <button type="submit" class="btn btn-primary mt-5">{{ translateText('Submit') }}</button>
-                <a class="btn btn-light mt-5" href="{{ route('researchGroups.index') }}">{{ translateText('Back') }}</a>
+                <button type="submit" class="btn btn-primary mt-5">{{ trans('research_g.submit') }}</button>
+                <a class="btn btn-light mt-5" href="{{ route('researchGroups.index') }}">{{ trans('research_g.back') }}</a>
             </form>
         </div>
     </div>
 </div>
+
 
 @stop
 @section('javascript')
@@ -117,7 +121,7 @@ $(document).ready(function() {
 
         if (obj.pivot.role === 2) {
             $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;">@foreach($users as $user)<option value="{{ $user->id }}" >{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
+                '][userid]"  style="width: 200px;">@foreach($users as $user)<option value="{{ $user->id }}" >@if(app()->getLocale() == 'th'){{ $user->fname_th }} {{ $user->lname_th }}@else{{ $user->fname_en }} {{ $user->lname_en }}@endif</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
             );
             document.getElementById("selUser" + i).value = obj.id;
             $("#selUser" + i).select2()
@@ -128,7 +132,7 @@ $(document).ready(function() {
     $("#add-btn2").click(function() {
         ++i;
         $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-            '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
+            '][userid]"  style="width: 200px;"><option value="">{{ trans('message.SelectUser') }}</option>@foreach($users as $user)<option value="{{ $user->id }}">@if(app()->getLocale() == 'th'){{ $user->fname_th }} {{ $user->lname_th }}@else{{ $user->fname_en }} {{ $user->lname_en }}@endif</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
         );
         $("#selUser" + i).select2()
 
