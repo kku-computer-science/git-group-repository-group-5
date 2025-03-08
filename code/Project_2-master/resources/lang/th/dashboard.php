@@ -115,7 +115,7 @@ return [
             'education' => 'การศึกษา',
             'user_profile_picture' => 'รูปโปรไฟล์ผู้ใช้',
             'profile_settings' => 'การตั้งค่าโปรไฟล์',
-            'name_title' => 'คำนำหน้า',
+            'name_title' => 'คำนำหน้า (ภาษาอังกฤษ)',
             'first_name_en' => 'ชื่อ (ภาษาอังกฤษ)',
             'last_name_en' => 'นามสกุล (ภาษาอังกฤษ)',
             'first_name_th' => 'ชื่อ (ภาษาไทย)',

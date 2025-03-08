@@ -115,7 +115,7 @@ return [
             'education' => '教育',
             'user_profile_picture' => '用户头像',
             'profile_settings' => '个人资料设置',
-            'name_title' => '称谓',
+            'name_title' => '称谓 (英语)',
             'first_name_en' => '名字 (英文)',
             'last_name_en' => '姓氏 (英文)',
             'first_name_th' => '名字 (泰文)',

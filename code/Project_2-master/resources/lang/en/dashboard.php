@@ -116,7 +116,7 @@ return [
     'education' => 'Education',
     'user_profile_picture' => 'User profile picture',
     'profile_settings' => 'Profile Settings',
-    'name_title' => 'Name title',
+    'name_title' => 'Name title (English)',
     'first_name_en' => 'First name (English)',
     'last_name_en' => 'Last name (English)',
     'first_name_th' => 'First name (Thai)',
