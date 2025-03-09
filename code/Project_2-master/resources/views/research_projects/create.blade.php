@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label for="exampleInputstatus" class="col-sm-2 ">{{ trans('message.status') }}</label>
+                        <label for="exampleInputstatus" class="col-sm-2 ">{{ trans('re_project.status') }}</label>
                         <div class="col-sm-3">
                             <select id='status' class="custom-select my-select" name="status">
                                 <option value="" disabled selected>{{ trans('message.specifystatusProject') }}</option>
