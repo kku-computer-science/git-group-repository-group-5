@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 <div class="container card-3 ">
-    <p>{{ trans('ResearchG') }}</p>
+    <p>{{ trans('books.ResearchG') }}</p>
     @foreach ($resg as $rg)
     <div class="card mb-4">
         <div class="row g-0">
@@ -13,20 +13,19 @@
                     <h2 class="card-text-2">
                         @foreach ($rg->user as $r)
                         @if($r->hasRole('teacher'))
-                        @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
+                        @if(app()->getLocale() == 'en' || app()->getLocale() == 'zh')
+                        @if($r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
                         {{ $r->{'fname_en'} }} {{ $r->{'lname_en'} }}, Ph.D.
-                        <br>
-                        @elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer')
+                        @elseif($r->academic_ranks_en == 'Lecturer')
                         {{ $r->{'fname_en'} }} {{ $r->{'lname_en'} }}
-                        <br>
-                        @elseif(app()->getLocale() == 'en' and $r->doctoral_degree == 'Ph.D.')
+                        @elseif($r->doctoral_degree == 'Ph.D.')
                         {{ str_replace('Dr.', ' ', $r->{'position_en'}) }} {{ $r->{'fname_en'} }} {{ $r->{'lname_en'} }}, Ph.D.
-                        <br>
-                        @elseif(app()->getLocale() == 'zh')
+                        @else
                         {{ $r->{'fname_en'} }} {{ $r->{'lname_en'} }}
-                        @if($r->doctoral_degree == '博士')
-                        , 博士
                         @endif
+                        <br>
+                        @elseif(app()->getLocale() == 'th')
+                        {{ $r->{'position_th'} }} {{ $r->{'fname_th'} }} {{ $r->{'lname_th'} }}
                         <br>
                         @else
                         {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
@@ -35,6 +34,8 @@
                         @endif
                         @endforeach
                     </h2>
+
+
                 </div>
             </div>
             <div class="col-md-8">
