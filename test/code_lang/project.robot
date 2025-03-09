@@ -1,4 +1,4 @@
-*** Settings ***   
+*** Settings ***    
 Library          SeleniumLibrary
 Test Teardown    Close Browser
 
@@ -17,6 +17,9 @@ ${LANG_DROPDOWN_TOGGLE}    xpath=//a[@id="navbarDropdownMenuLink"]
 ${LANG_TO_THAI}       xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(text(), 'ไทย')]
 ${LANG_TO_ENGLISH}    xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(text(), 'English')]
 ${LANG_TO_CHINESE}    xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(text(), '中文')]
+
+# ตัวแปรสำหรับข้อความ Training Text ที่ต้องการตรวจสอบ
+${TRAINING_TEXT}    การจัดอบรมหลักสูตรประกาศนียบัตร (Non-Degree) โครงการพัฒนาทักษะกำลังคนของประเทศ (Reskill/Upskill/Newskill) เพื่อการมีงานทำและเตรียมความพร้อมรองรับการทำงานในอนาคตหลังวิกฤตการระบาดของไวรัสโคโรนา 2019 (COVID-19)
 
 # ตรวจสอบข้อความทั่วไปของหน้า Research Project (Expected texts อาจต้องปรับให้ตรงกับข้อมูลจริง)
 @{EXPECTED_RP_EN}    
@@ -46,11 +49,10 @@ ${LANG_TO_CHINESE}    xpath=//div[contains(@class, 'dropdown-menu')]//a[contains
 ...    Showing 
 ...    to 
 ...    of 
-...   entries
+...    entries
 ...    Previous
 ...    Next
-...    การจัดอบรมหลักสูตรประกาศนียบัตร (Non-Degree) โครงการพัฒนาทักษะกำลังคนของประเทศ (Reskill/Upskill/Newskill) เพื่อการมีงานทำและเตรียมความพร้อมรองรับการทำงานในอนาคตหลังวิกฤตการระบาดของไวรัสโคโรนา 2019 (COVID-19)
-
+...    ${TRAINING_TEXT}
 
 @{EXPECTED_RP_TH}    
 ...    โครงการบริการวิชาการ/ โครงการวิจัย
@@ -80,9 +82,7 @@ ${LANG_TO_CHINESE}    xpath=//div[contains(@class, 'dropdown-menu')]//a[contains
 ...    รายการ
 ...    ก่อนหน้า
 ...    ถัดไป
-...    การจัดอบรมหลักสูตรประกาศนียบัตร (Non-Degree) โครงการพัฒนาทักษะกำลังคนของประเทศ (Reskill/Upskill/Newskill) เพื่อการมีงานทำและเตรียมความพร้อมรองรับการทำงานในอนาคตหลังวิกฤตการระบาดของไวรัสโคโรนา 2019 (COVID-19)
-
-
+...    ${TRAINING_TEXT}
 
 @{EXPECTED_RP_CN}    
 ...    学术服务项目 / 研究项目
@@ -113,8 +113,7 @@ ${LANG_TO_CHINESE}    xpath=//div[contains(@class, 'dropdown-menu')]//a[contains
 ...    项
 ...    上页
 ...    下页
-...    การจัดอบรมหลักสูตรประกาศนียบัตร (Non-Degree) โครงการพัฒนาทักษะกำลังคนของประเทศ (Reskill/Upskill/Newskill) เพื่อการมีงานทำและเตรียมความพร้อมรองรับการทำงานในอนาคตหลังวิกฤตการระบาดของไวรัสโคโรนา 2019 (COVID-19)
-
+...    ${TRAINING_TEXT}
 
 *** Keywords ***
 Open Browser To Home Page
@@ -168,4 +167,13 @@ Navigate To Research Project Page And Switch To Thai
     Open Browser To Home Page
     Navigate To Research Project Page
     Switch Language And Verify    ${LANG_TO_THAI}    @{EXPECTED_RP_TH}
+    Close Browser
+
+Verify Training Text Exists In All Languages
+    Open Browser To Home Page
+    Navigate To Research Project Page
+    # ตรวจสอบข้อความ Training Text ในแต่ละภาษา
+    Switch Language And Verify    ${LANG_TO_THAI}    ${TRAINING_TEXT}
+    Switch Language And Verify    ${LANG_TO_ENGLISH}    ${TRAINING_TEXT}
+    Switch Language And Verify    ${LANG_TO_CHINESE}    ${TRAINING_TEXT}
     Close Browser
