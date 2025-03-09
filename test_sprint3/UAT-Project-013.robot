@@ -154,6 +154,7 @@ Dashboard Page Switch Language To TH
     Close Browser
 
 Profile Page Switch Language To TH
+    [tags]      Profile
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
@@ -165,15 +166,7 @@ Profile Page Switch Language To TH
     Should Contain    ${html_source}    รหัสผ่าน
     Should Contain    ${html_source}    ความเชี่ยวชาญ
     Should Contain    ${html_source}    การศึกษา
-    Close Browser
 
-Account Page Switch Language To TH
-    Open Browser To Login Page
-    Login Page Should Be Open
-    User Login
-    Go To    ${SERVER}/profile
-    Sleep    2s
-    Switch Language To    th    ไทย
     Click Element    xpath=//span[contains(@class, 'menu-title') and text()='บัญชีผู้ใช้']
     Sleep    2s
     ${html_source}=    Get Source
@@ -181,15 +174,7 @@ Account Page Switch Language To TH
     Should Contain    ${html_source}    คำนำหน้า
     Should Contain    ${html_source}    ชื่อ (ภาษาอังกฤษ)
     Should Contain    ${html_source}    นามสกุล (ภาษาอังกฤษ)
-    Close Browser
 
-Password Page Switch Language To TH
-    Open Browser To Login Page
-    Login Page Should Be Open
-    User Login
-    Go To    ${SERVER}/profile
-    Sleep    2s
-    Switch Language To    th    ไทย
     Click Element    xpath=//span[contains(@class, 'menu-title') and text()='รหัสผ่าน']
     Sleep    2s
     ${html_source}=    Get Source
@@ -199,15 +184,7 @@ Password Page Switch Language To TH
     Should Contain    ${html_source}    การตั้งค่ารหัสผ่าน
     ${placeholder_value}=    Get Element Attribute    id=inputpassword    placeholder
     Should Be Equal    ${placeholder_value}    กรอกรหัสผ่านปัจจุบัน
-    Close Browser
 
-Expertise Page Switch Language To TH
-    Open Browser To Login Page
-    Login Page Should Be Open
-    User Login
-    Go To    ${SERVER}/profile
-    Sleep    2s
-    Switch Language To    th    ไทย
     Click Element    xpath=//span[contains(@class, 'menu-title') and text()='ความเชี่ยวชาญ']
     Sleep    2s
     ${html_source}=    Get Source
@@ -215,15 +192,7 @@ Expertise Page Switch Language To TH
     Wait Until Element Is Visible    xpath=//button[contains(@data-target, '#crud-modal') and contains(., 'เพิ่มความเชี่ยวชาญ')]    2s
     ${button_text}=    Get Text    xpath=//button[contains(@data-target, '#crud-modal')]
     Should Contain    ${button_text}    เพิ่มความเชี่ยวชาญ
-    Close Browser
 
-Education Page Switch Language To TH
-    Open Browser To Login Page
-    Login Page Should Be Open
-    User Login
-    Go To    ${SERVER}/profile
-    Sleep    2s
-    Switch Language To    th    ไทย
     Click Element    xpath=//span[contains(@class, 'menu-title') and text()='การศึกษา']
     Sleep    2s
     ${html_source}=    Get Source
@@ -234,8 +203,6 @@ Education Page Switch Language To TH
     Should Contain    ${html_source}    ปี พ.ศ. ที่จบ
     Should Contain    ${html_source}    ปริญญาโท
     Should Contain    ${html_source}    ปริญญาเอก
-    ${placeholder_value}=    Get Element Attribute    id=inputpassword    placeholder
-    Should Be Equal    ${placeholder_value}    กรอกรหัสผ่านปัจจุบัน
     Close Browser
 
 Click View Button And Navigate
@@ -246,11 +213,22 @@ Click View Button And Navigate
     Go To    ${SERVER}/funds
     Sleep    2s
     Switch Language To    th    ไทย
-    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Sleep   2s
+
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ทุนวิจัย
+    Should Contain    ${html_source}    ชื่อทุน
+    Should Contain    ${html_source}    ประเภททุน
+    Should Contain    ${html_source}    ระดับทุน
+    Should Match Regexp   ${html_source}    .*Statistical Thai*.
+    Should Contain    ${html_source}    ทุนภายใน
+    Should Contain    ${html_source}    ไม่ระบุ
+
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=1s
     Click Element    ${VIEW_BUTTON_XPATH}
     Sleep    2s  # รอให้หน้าโหลด
 
-    # ตรวจสอบว่ามีข้อความภาษาไทยปรากฏในหน้าหรือไม่
+    # View
     ${html_source}=    Get Source
     Should Contain    ${html_source}    รายละเอียดทุน
     Should Contain    ${html_source}    ชื่อทุน
@@ -263,10 +241,10 @@ Click View Button And Navigate
     ${added_by}=    Get Text    xpath=//p[contains(@class, 'card-text col-sm-9') and contains(text(), 'พุธษดี ศิริแสงตระกูล')]
     Should Be Equal As Strings    ${added_by}    พุธษดี ศิริแสงตระกูล
 
+    # Edit
     Go To    ${SERVER}/funds
     Sleep    2s
     
-    # คลิกปุ่ม "แก้ไข"
     Wait Until Element Is Visible    ${EDIT_BUTTON_XPATH}    timeout=2s
     Click Element    ${EDIT_BUTTON_XPATH}
 
@@ -292,28 +270,11 @@ Click View Button And Navigate
     Should Contain    ${options}    กลาง
     Should Contain    ${options}    ต่ำ
 
-    Capture Page Screenshot
     Close Browser
 
-
-Manage Fund Page Switch Language To TH
-    Open Browser To Login Page
-    Login Page Should Be Open
-    User Login
-    Go To    ${SERVER}/funds
-    Sleep    2s
-    Switch Language To    th    ไทย
-    ${html_source}=    Get Source
-    Should Contain    ${html_source}    ทุนวิจัย
-    Should Contain    ${html_source}    ชื่อทุน
-    Should Contain    ${html_source}    ประเภททุน
-    Should Contain    ${html_source}    ระดับทุน
-    Should Match Regexp   ${html_source}    .*Statistical Thai*.
-    Should Contain    ${html_source}    ทุนภายใน
-    Should Contain    ${html_source}    ไม่ระบุ
-    Close Browser
 
 Research Projects Page Switch Language To TH
+    [Tags]      ResearchProjects
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
@@ -328,9 +289,66 @@ Research Projects Page Switch Language To TH
     Should Contain    ${html_source}    สมาชิก
     Should Contain    ${html_source}    การกระทำ
     Should Contain    ${html_source}    ค้นหา
+
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Click Element    ${VIEW_BUTTON_XPATH}
+    Sleep    2s  # รอให้หน้าโหลด
+
+    # View
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    รายละเอียดโครงการวิจัย
+    Should Contain    ${html_source}    ชื่อโครงการ
+    Should Contain    ${html_source}    วันที่เริ่มต้น
+    Should Contain    ${html_source}    วันที่สิ้นสุด
+    Should Contain    ${html_source}    แหล่งทุนวิจัย
+    Should Contain    ${html_source}    จำนวนเงิน
+    Should Contain    ${html_source}    รายละเอียดโครงการ
+    Should Contain    ${html_source}    สถานะโครงการ
+    Should Contain    ${html_source}    ปิดโครงการ
+    Should Contain    ${html_source}    ผู้จัดการโครงการ
+    Should Contain    ${html_source}    ผศ.ดร. พุธษดี ศิริแสงตระกูล
+    Should Contain    ${html_source}    สมาชิก
+
+    Go To    ${SERVER}/researchProjects
+    Sleep    2s
+    
+    # Edit
+    Wait Until Element Is Visible    ${EDIT_BUTTON_XPATH}    timeout=2s
+    Click Element    ${EDIT_BUTTON_XPATH}
+
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    แก้ไขข้อมูลโครงการวิจัย
+    Should Contain    ${html_source}    กรอกข้อมูลเพื่อแก้ไขรายละเอียดโครงการวิจัย
+    Should Contain    ${html_source}    ชื่อโครงการ
+    Should Contain    ${html_source}    วันที่เริ่มต้น
+    Should Contain    ${html_source}    วันที่สิ้นสุด
+    Should Contain    ${html_source}    เลือกทุน
+    Should Contain    ${html_source}    ปีที่ยื่น
+    Should Contain    ${html_source}    งบประมาณ
+    Should Contain    ${html_source}    หน่วยงานที่รับผิดชอบ
+    Should Contain    ${html_source}    รายละเอียดโครงการ
+    Should Contain    ${html_source}    สถานะ
+    Should Contain    ${html_source}    ผู้รับผิดชอบโครงการ
+    Should Contain    ${html_source}    ผู้รับผิดชอบโครงการ (ร่วม) ภายใน
+
+    ${DROPDOWN_XPATH}=    Set Variable    //select[@name="responsible_department"]
+    ${options}=    Get List Items    ${DROPDOWN_XPATH}
+
+    Should Contain    ${options}    สาขาวิชาวิทยาการคอมพิวเตอร์
+
+    ${DROPDOWN_XPATH}=    Set Variable    //select[@name="status"]
+    ${options}=    Get List Items    ${DROPDOWN_XPATH}
+
+    Should Contain    ${options}    ปิดโครงการ
+    Should Contain    ${options}    ดำเนินการ
+    Should Contain    ${options}    ยื่นขอ
+
+    Capture Page Screenshot
     Close Browser
 
+
 Research Groups Page Switch Language To TH
+    [tags]  researchGroups
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
@@ -346,10 +364,47 @@ Research Groups Page Switch Language To TH
     Should Contain    ${html_source}    สมาชิก
     Should Contain    ${html_source}    การกระทำ
     Should Contain    ${html_source}    ค้นหา
-    Close Browser
+    
+    # View
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Click Element    ${VIEW_BUTTON_XPATH}
+    Sleep    2s  # รอให้หน้าโหลด
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    คำอธิบายกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    คำอธิบายกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    รายละเอียดกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    รายละเอียดกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    หัวหน้ากลุ่มวิจัย
+    Should Contain    ${html_source}    สมาชิกกลุ่มวิจัย
+    Should Contain    ${html_source}    ผศ.ดร.พิพัธน์ เรืองแสง
+    Should Contain    ${html_source}    รศ.ดร.ชัยพล กีรติกสิกร
+    Should Contain    ${html_source}    ผศ.ดร.ณกร วัฒนกิจ
+
+
+    # Edit
+    Go To    ${SERVER}/researchGroups
+    Sleep    2s
+    Wait Until Element Is Visible    //a[contains(@class, 'btn-outline-success')]/i[contains(@class, 'mdi-pencil')]    timeout=2s
+    Click Element    //a[contains(@class, 'btn-outline-success')]/i[contains(@class, 'mdi-pencil')]
+
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    คำอธิบายกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    คำอธิบายกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    รายละเอียดกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    รายละเอียดกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    รูปภาพ
+    Should Contain    ${html_source}    หัวหน้ากลุ่มวิจัย
+    Should Contain    ${html_source}    สมาชิกกลุ่มวิจัย
+
+    Capture Page Screenshot
+    Close Browser    
 
 Navigate To Research Publications
-    [Tags]    research
+    [tags]    research
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
@@ -410,4 +465,4 @@ Navigate To Research Publications
     ${text}=    Get Text    xpath=//td[contains(text(), 'ลิขสิทธิ์')]
     Should Contain    ${text}    ลิขสิทธิ์
 
-    Close Browser
+    Close 
