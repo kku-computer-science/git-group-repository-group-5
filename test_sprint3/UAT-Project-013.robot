@@ -564,3 +564,7 @@ Navigate To Research Publications
     Should Contain    ${text}    ลิขสิทธิ์
 
     Close Browser
+
+*** comment ***
+${CHROME_BROWSER_PATH}    E:/Software Engineering/chromefortesting/chrome.exe
+${CHROME_DRIVER_PATH}    E:/Software Engineering/chromefortesting/chromedriver.exe
