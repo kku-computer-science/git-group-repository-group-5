@@ -6,7 +6,7 @@ Test Teardown    Close Browser
 *** Variables ***
 ${BROWSER}           chrome
 ${HOME_URL}          http://127.0.0.1:8000/
-${WAIT_TIME}        3s
+${WAIT_TIME}        5s
 
 # ตัวแปรของเมนูและ dropdown
 ${RESEARCHER_MENU}    xpath=//a[@id='navbarDropdown']
@@ -47,6 +47,15 @@ ${RESEARCHER_DETAIL}    xpath=//a[contains(@href, '/detail/') and (contains(., '
 ...    การศึกษา
 ...    2528 วท.บ. (คณิตศาสตร์) มหาวิทยาลัยขอนแก่น
 ...    งานตีพิมพ์
+...    แสดง
+...    รายการ
+...    ค้นหา
+...    แสดง 
+...    ถึง
+...    จาก
+...    ก่อนหน้า
+...    ถัดไป
+
 
 @{EXPECTED_PROFILE_EN}
 ...    No.
@@ -69,6 +78,14 @@ ${RESEARCHER_DETAIL}    xpath=//a[contains(@href, '/detail/') and (contains(., '
 ...    1985 B.Sc. (Mathematics) Khon Kaen University
 ...    Publications
 ...    summary
+...    Show
+...    entries
+...    Search
+...    Showing 
+...    to
+...    of
+...    Previous
+...    Next
 
 @{EXPECTED_PROFILE_CN}
 ...    编号
@@ -91,6 +108,18 @@ ${RESEARCHER_DETAIL}    xpath=//a[contains(@href, '/detail/') and (contains(., '
 ...    1985 B.Sc. (Mathematics) Khon Kaen University
 ...    出版物
 ...    总结
+...    显示 
+...    条目
+...    搜索
+...    显示第
+...    至 
+...    项结果
+...    共
+...    项
+...    上页
+...    下页
+
+
 
 *** Keywords ***
 Open Browser To Home Page
