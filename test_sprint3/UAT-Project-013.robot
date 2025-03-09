@@ -9,6 +9,9 @@ ${LOGIN URL}                  ${SERVER}/login
 ${USER URL}                  ${SERVER}/dashboard
 ${CHROME_BROWSER_PATH}    /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 ${CHROME_DRIVER_PATH}    /usr/local/bin/chromedriver
+${VIEW_BUTTON_XPATH}    //a[contains(@class, 'btn-outline-primary')]/i[contains(@class, 'mdi-eye')]
+${EDIT_BUTTON_XPATH}    //a[contains(@class, 'btn-outline-success') and @title='แก้ไข']
+
 @{LANGUAGES}
 ...    en
 ...    th
@@ -58,7 +61,6 @@ ${CHROME_DRIVER_PATH}    /usr/local/bin/chromedriver
 ...    研究小组
 ...    管理出版物
 ...    退出系统  
-
 
 
 * Keywords *
@@ -236,6 +238,64 @@ Education Page Switch Language To TH
     Should Be Equal    ${placeholder_value}    กรอกรหัสผ่านปัจจุบัน
     Close Browser
 
+Click View Button And Navigate
+    [Tags]    view
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/funds
+    Sleep    2s
+    Switch Language To    th    ไทย
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Click Element    ${VIEW_BUTTON_XPATH}
+    Sleep    2s  # รอให้หน้าโหลด
+
+    # ตรวจสอบว่ามีข้อความภาษาไทยปรากฏในหน้าหรือไม่
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    รายละเอียดทุน
+    Should Contain    ${html_source}    ชื่อทุน
+    Should Contain    ${html_source}    รายละเอียดทุน
+    Should Contain    ${html_source}    หน่วยงานที่ให้ทุน
+    Should Contain    ${html_source}    เพิ่มรายละเอียดโดย
+    Should Contain    ${html_source}    ย้อนกลับ
+    ${fund_type}=    Get Text    xpath=//p[contains(@class, 'card-text col-sm-9') and contains(text(), 'ทุนภายใน')]
+    Should Be Equal As Strings    ${fund_type}    ทุนภายใน
+    ${added_by}=    Get Text    xpath=//p[contains(@class, 'card-text col-sm-9') and contains(text(), 'พุธษดี ศิริแสงตระกูล')]
+    Should Be Equal As Strings    ${added_by}    พุธษดี ศิริแสงตระกูล
+
+    Go To    ${SERVER}/funds
+    Sleep    2s
+    
+    # คลิกปุ่ม "แก้ไข"
+    Wait Until Element Is Visible    ${EDIT_BUTTON_XPATH}    timeout=2s
+    Click Element    ${EDIT_BUTTON_XPATH}
+
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    แก้ไขกองทุน
+    Should Contain    ${html_source}    ประเภททุนวิจัย
+    Should Contain    ${html_source}    ระดับทุน
+    Should Contain    ${html_source}    ชื่อทุน
+    Should Contain    ${html_source}    หน่วยงานที่ให้ทุน
+    Sleep    2s  # รอให้หน้าโหลด
+
+    ${DROPDOWN_XPATH}=    Set Variable    //select[@id="fund_type"]
+    ${options}=    Get List Items    ${DROPDOWN_XPATH}
+
+    Should Contain    ${options}    ทุนภายใน
+    Should Contain    ${options}    ทุนภายนอก
+
+    ${DROPDOWN_XPATH}=    Set Variable    //select[@name="fund_level"]
+    ${options}=    Get List Items    ${DROPDOWN_XPATH}
+
+    Should Contain    ${options}    ไม่ระบุ
+    Should Contain    ${options}    สูง
+    Should Contain    ${options}    กลาง
+    Should Contain    ${options}    ต่ำ
+
+    Capture Page Screenshot
+    Close Browser
+
+
 Manage Fund Page Switch Language To TH
     Open Browser To Login Page
     Login Page Should Be Open
@@ -351,4 +411,3 @@ Navigate To Research Publications
     Should Contain    ${text}    ลิขสิทธิ์
 
     Close Browser
-
