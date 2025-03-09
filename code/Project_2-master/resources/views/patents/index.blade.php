@@ -34,7 +34,7 @@
                             <tr>
                             <td>{{ $i + 1 }}</td>
                             <td>{{ Str::limit($paper->ac_name,50) }}</td>
-                            <td>{{ __('patents.ac_type.' . ($paper->ac_type ?? '')) }}</td>
+                            <td>{{ trans('patents.ac_type.' . ($paper->ac_type ?? '')) }}</td>
                             <td>{{ $paper->ac_year }}</td>
                             <td>{{ Str::limit($paper->ac_refnumber,50) }}</td>
                             <td>
