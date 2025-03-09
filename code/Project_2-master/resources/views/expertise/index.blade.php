@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
+
+
 @section('content')
 <!-- <div class="row">
     <div class="col-lg-12" style="text-align: center">
@@ -31,58 +33,64 @@
         <p>{{ $message }}</p>
     </div>
     @endif
-    <div class="card" style="padding: 16px;">
-        <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">{{ trans('expertise.ความเชี่ยวชาญของอาจารย์') }}</h4>
-            <table id="example1" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>{{ trans('expertise.ID') }}</th>
-                        @if(Auth::user()->hasRole('admin'))
-                        <th>{{ trans('expertise.Teacher Name') }}</th>
+    <?php
+$experts = $experts->sortByDesc(fn($expert) => app()->getLocale() == 'th' ? $expert->user->lname_th : $expert->user->lname_en)->values();
+?>
+
+<div class="card" style="padding: 16px;">
+    <div class="card-body">
+        <h4 class="card-title" style="text-align: center;">{{ trans('expertise.ความเชี่ยวชาญของอาจารย์') }}</h4>
+        <table id="example1" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{ trans('expertise.ID') }}</th>
+                    @if(Auth::user()->hasRole('admin'))
+                    <th>{{ trans('expertise.Teacher Name') }}</th>
+                    @endif
+                    <th>{{ trans('expertise.Name') }}</th>
+                    <th>{{ trans('expertise.Action') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($experts as $i => $expert)
+                <tr id="expert_id_{{ $expert->id }}">
+                    <td>{{ $i+1 }}</td>
+                    @if(Auth::user()->hasRole('admin'))
+                    <td>
+                        @if (app()->getLocale() == 'th')
+                            {{ $expert->user->fname_th }} {{ $expert->user->lname_th }}
+                        @else
+                            {{ $expert->user->fname_en }} {{ $expert->user->lname_en }}
                         @endif
-                        <th>{{ trans('expertise.Name') }}</th>
-
-                        <th>{{ trans('expertise.Action') }}</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($experts as $i => $expert)
-                    <tr id="expert_id_{{ $expert->id }}">
-                        <td>{{ $i+1 }}</td>
-                        @if(Auth::user()->hasRole('admin'))
-                        <td>{{ $expert->user->fname_en }} {{ $expert->user->lname_en }}</td>
+                    </td>
+                    @endif
+                    <td>
+                        @if (app()->getLocale() == 'th')
+                            {{ $expert->expert_name_th }}
+                        @else
+                            {{ $expert->expert_name }}
                         @endif
-                        <td>{{ $expert->expert_name }}</td>
-
-                        <td>
-                            <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
-                                <!-- <a class="btn btn-info" id="show-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Show</a> -->
-                                <li class="list-inline-item">
-                                    <!-- <a class="btn btn-success btn-sm rounded-0" href="javascript:void(0)" id="edit-expertise" type="button" data-toggle="modal" data-placement="top" data-id="{{ $expert->id }}" title="Edit"><i class="fa fa-edit"></i></a> -->
-                                    <a class="btn btn-outline-success btn-sm" id="edit-expertise" type="button" data-toggle="modal" data-id="{{ $expert->id }}" data-placement="top" title="Edit" href="javascript:void(0)"><i class="mdi mdi-pencil"></i></a>
-
-                                </li>
-
-                                <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Edit </a> -->
-                                @csrf
-                                <meta name="csrf-token" content="{{ csrf_token() }}">
-                                <li class="list-inline-item">
-                                    <button class="btn btn-outline-danger btn-sm show_confirm" id="delete-expertise" type="submit" data-id="{{ $expert->id }}" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
-
-                                </li>
-                                <!-- <a id="delete-expertise" data-id="{{ $expert->id }}" class="btn btn-danger delete-user">Delete</a> -->
-
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                    </td>
+                    <td>
+                        <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
+                            <li class="list-inline-item">
+                                <a class="btn btn-outline-success btn-sm" id="edit-expertise" type="button" data-toggle="modal" data-id="{{ $expert->id }}" data-placement="top" title="Edit" href="javascript:void(0)"><i class="mdi mdi-pencil"></i></a>
+                            </li>
+                            @csrf
+                            <meta name="csrf-token" content="{{ csrf_token() }}">
+                            <li class="list-inline-item">
+                                <button class="btn btn-outline-danger btn-sm show_confirm" id="delete-expertise" type="submit" data-id="{{ $expert->id }}" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                            </li>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
+
+
 <!-- Add and Edit expertise modal -->
 <div class="modal fade" id="crud-modal" aria-hidden="true">
     <div class="modal-dialog">
