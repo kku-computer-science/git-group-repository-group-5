@@ -120,8 +120,24 @@
                         @foreach ($data as $key => $user)
                         <tr>
                             <td>{{ $key++ }}</td>
-                            <td>{{ $user->fname_en }} {{ $user->lname_en }} </td>
-                            <td>{{ Str::limit($user->program->program_name_en,20) }}</td>
+                            <td>
+                                @if(App::getLocale() == 'th')
+                                    {{ $user->fname_th }} {{ $user->lname_th }}
+                                @else
+                                    {{ $user->fname_en }} {{ $user->lname_en }}
+                                @endif
+                            </td>
+                            <!-- <td>{{ Str::limit($user->program->program_name_en,20) }}</td> -->
+                            <td>
+                                @if(App::getLocale() == 'th')
+                                    {{ $user->program->program_name_th ?? '-' }}
+                                @elseif(App::getLocale() == 'zh')
+                                    {{ $user->program->program_name_cn ?? '-' }}
+                                @elseif(App::getLocale() == 'en')
+                                    {{ $user->program->program_name_en ?? '-' }}
+                                @endif
+                            </td>
+
                             <td>{{ $user->email }}</td>
                             <td>
                                 @if(!empty($user->getRoleNames()))
