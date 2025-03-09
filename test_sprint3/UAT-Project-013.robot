@@ -205,8 +205,8 @@ Profile Page Switch Language To TH
     Should Contain    ${html_source}    ปริญญาเอก
     Close Browser
 
-Click View Button And Navigate
-    [Tags]    view
+Funds Page Switch Language To TH
+    [Tags]    Fund
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
@@ -224,11 +224,10 @@ Click View Button And Navigate
     Should Contain    ${html_source}    ทุนภายใน
     Should Contain    ${html_source}    ไม่ระบุ
 
+    # View
     Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=1s
     Click Element    ${VIEW_BUTTON_XPATH}
     Sleep    2s  # รอให้หน้าโหลด
-
-    # View
     ${html_source}=    Get Source
     Should Contain    ${html_source}    รายละเอียดทุน
     Should Contain    ${html_source}    ชื่อทุน
@@ -343,8 +342,8 @@ Research Projects Page Switch Language To TH
     Should Contain    ${options}    ดำเนินการ
     Should Contain    ${options}    ยื่นขอ
 
-    Capture Page Screenshot
     Close Browser
+
 
 
 Research Groups Page Switch Language To TH
@@ -400,6 +399,18 @@ Research Groups Page Switch Language To TH
     Should Contain    ${html_source}    หัวหน้ากลุ่มวิจัย
     Should Contain    ${html_source}    สมาชิกกลุ่มวิจัย
 
+    Execute JavaScript    window.scrollTo(0,500) 
+    Sleep    2s
+
+    Wait Until Element Is Visible    //span[@id="select2-head0-container"]    timeout=5s
+    Click Element    //span[@id="select2-head0-container"]
+    Element Should Contain    //span[@id="select2-head0-container"]    พุธษดี ศิริแสงตระกูล
+    Click Element    //span[@id="select2-head0-container"]
+
+    Wait Until Element Is Visible    //span[@id="select2-selUser1-container"]    timeout=5s
+    Click Element    //span[@id="select2-selUser1-container"]
+    Element Should Contain    //span[@id="select2-selUser1-container"]    พงษ์ศธร จันทรย้อย
+
     Capture Page Screenshot
     Close Browser    
 
@@ -414,11 +425,9 @@ Navigate To Research Publications
     Sleep    2s
     # คลิกที่เมนู "จัดการผลงานวิจัย"
     Click Element    xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]
-
-    # รอให้เมนูย่อย "ผลงานวิจัยที่เผยแพร่" ปรากฏ
     Wait Until Element Is Visible    xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]    timeout=5s
-
-    # คลิกที่ "ผลงานวิจัยที่เผยแพร่"
+    
+    # "ผลงานวิจัยที่เผยแพร่"
     Click Element    xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]
 
     ${html_source}=    Get Source
@@ -429,6 +438,90 @@ Navigate To Research Publications
     Should Contain    ${html_source}    ปีที่ตีพิมพ์
     Should Contain    ${html_source}    การกระทำ
     Should Contain    ${html_source}    ค้นหา
+     
+    # View
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Click Element    ${VIEW_BUTTON_XPATH}
+    Sleep    2s
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    รายละเอียดงานวารสาร
+    Should Contain    ${html_source}    ชื่อเรื่อง
+    Should Contain    ${html_source}    บทคัดย่อ
+    Should Contain    ${html_source}    คำสำคัญ
+    Should Contain    ${html_source}    ประเภท
+    Should Contain    ${html_source}    ประเภทเอกสาร
+    Should Contain    ${html_source}    การตีพิมพ์
+    Should Contain    ${html_source}    ผู้เขียน
+    Should Contain    ${html_source}    ชื่องานวารสาร
+    Should Contain    ${html_source}    ปีที่ตีพิมพ์
+    Should Contain    ${html_source}    เล่มที่
+    Should Contain    ${html_source}    ฉบับที่
+    Should Contain    ${html_source}    เลขหน้า
+
+    #Edit
+    Go To   ${SERVER}/papers
+    Sleep    2s
+    
+    Wait Until Element Is Visible    //a[contains(@class, 'btn-outline-success') and @title='Edit']    timeout=2s
+    Click Element    //a[contains(@class, 'btn-outline-success') and @title='Edit']
+
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    แก้ไขผลงานตีพิมพ์
+    Should Contain    ${html_source}    แหล่งเผยแพร่งานวิจัย
+    Should Contain    ${html_source}    ชื่องานวิจัย
+    Should Contain    ${html_source}    บทคัดย่อ
+    Should Contain    ${html_source}    คำสำคัญ
+    Should Contain    ${html_source}    ประเภท
+    Should Contain    ${html_source}    ประเภทเอกสาร
+    Should Contain    ${html_source}    การตีพิมพ์
+    Should Contain    ${html_source}    ปีที่ตีพิมพ์
+    Should Contain    ${html_source}    เล่มที่
+    Should Contain    ${html_source}    ฉบับที่
+    Should Contain    ${html_source}    เลขหน้า
+    Should Contain    ${html_source}    การอ้างอิง
+    Should Contain    ${html_source}    ทุนสนับสนุน
+    Should Contain    ${html_source}    บุคคลภายในสาขา
+    Should Contain    ${html_source}    บุคคลภายนอก
+
+    ${DROPDOWN_XPATH}=    Set Variable    //select[@id="paper_type"]
+    ${options}=    Get List Items    ${DROPDOWN_XPATH}
+
+    Should Contain    ${options}    วารสาร
+    Should Contain    ${options}    การประชุมวิชาการ
+    Should Contain    ${options}    ชุดหนังสือ
+    Should Contain    ${options}    หนังสือ
+
+
+    ${DROPDOWN_XPATH}=    Set Variable    //select[@name="paper_subtype"]
+    ${options}=    Get List Items    ${DROPDOWN_XPATH}
+
+    Should Contain    ${options}    บทความ
+    Should Contain    ${options}    บทความในการประชุมวิชาการ
+    Should Contain    ${options}    บรรณาธิการ
+    Should Contain    ${options}    บทในหนังสือ
+    Should Contain    ${options}    คำแก้ไข
+    Should Contain    ${options}    บทวิจารณ์
+
+    ${DROPDOWN_XPATH}=    Set Variable    //select[@name="publication"]
+    ${options}=    Get List Items    ${DROPDOWN_XPATH}
+
+    Should Contain    ${options}    วารสารนานาชาติ
+    Should Contain    ${options}    หนังสือนานาชาติ
+    Should Contain    ${options}    การประชุมวิชาการนานาชาติ
+    Should Contain    ${options}    การประชุมวิชาการในประเทศ
+    Should Contain    ${options}    วารสารในประเทศ
+    Should Contain    ${options}    หนังสือในประเทศ
+    Should Contain    ${options}    นิตยสารในประเทศ
+    Should Contain    ${options}    บทในหนังสือ
+
+    Wait Until Element Is Visible    //span[@id="select2-selUser0-container"]    timeout=5s
+    Click Element    //span[@id="select2-selUser0-container"]
+    Element Should Contain    //span[@id="select2-selUser0-container"]    พุธษดี ศิริแสงตระกูล
+    Click Element    //span[@id="select2-selUser0-container"]
+
+    # หนังสือ
+    Click Element    xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]
+    Wait Until Element Is Visible    xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]    timeout=2s
     
     Click Element    xpath=//a[contains(@href, '/books') and contains(text(), 'หนังสือ')]
     Sleep    5s
@@ -441,6 +534,11 @@ Navigate To Research Publications
     Get Text    xpath=//th[contains(text(), 'แหล่งข่าว')]
     Should Contain    ${html_source}    หนังสือ
 
+
+    # จัดการผลงานวิจัย
+    Click Element    xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]
+    Wait Until Element Is Visible    xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]    timeout=5s
+    
     Click Element    xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]
     Sleep    5s
 
@@ -465,4 +563,4 @@ Navigate To Research Publications
     ${text}=    Get Text    xpath=//td[contains(text(), 'ลิขสิทธิ์')]
     Should Contain    ${text}    ลิขสิทธิ์
 
-    Close 
+    Close Browser
