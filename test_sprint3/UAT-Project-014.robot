@@ -453,3 +453,44 @@ Research Groups Page By Thai
     Sleep    1s
 
 
+
+
+*** comment ***
+ยังไม่ทำพวก จัดการผลงานวิจัย
+
+
+
+
+
+User By Thai
+    Go To    ${SERVER}/users
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    แผนก
+    Should Contain    ${html_source}    อีเมล์
+    Should Contain    ${html_source}    บทบาท
+    Should Contain    ${html_source}    การกระทำ
+
+    #View
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Click Element    ${VIEW_BUTTON_XPATH}
+    Should Contain    ${html_source}    ชื่อ (ภาษาไทย)
+    Should Contain    ${html_source}    ชื่อ (English)
+    Should Contain    ${html_source}    อีเมล์
+    Should Contain    ${html_source}    บทบาท
+    Should Contain    ${html_source}    การกระทำ
+    Sleep    2s
+    Go To    ${SERVER}/users
+
+    #Edit
+    Go To    ${SERVER}/users/2/edit
+    Should Contain    ${html_source}    ชื่อ (ภาษาไทย)
+    Should Contain    ${html_source}    ชื่อ (English)
+    Should Contain    ${html_source}    อีเมล์
+    Should Contain    ${html_source}    บทบาท
+    Should Contain    ${html_source}    สถานะ
+    
+
+
+
+
+
