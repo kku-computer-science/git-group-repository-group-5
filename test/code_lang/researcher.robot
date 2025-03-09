@@ -110,6 +110,11 @@ Navigate To Researcher Page And Switch To Chinese
     Navigate To Researcher Page
     Switch Language And Verify    ${LANG_TO_CHINESE}    @{EXPECTED_CN}
     Close Browser
+Navigate To Researcher Page And Switch To Thai
+    Open Browser To Home Page
+    Navigate To Researcher Page
+    Switch Language And Verify    ${LANG_TO_THAI}    @{EXPECTED_TH}
+    Close Browser
 
 Navigate To Researcher Page And Switch To English
     Open Browser To Home Page
