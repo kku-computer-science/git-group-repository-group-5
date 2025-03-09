@@ -33,5 +33,7 @@ return [
 "AreUSure" => "Are you sure?",
 "DeleteThis"=> "If you delete this, it will be gone forever.",
 'EditFund' => 'Edit Fund',
+'Whoops' => 'Whoops!',
+'There_were_some_problems_with_your_input' => 'There were some problems with your input',
 ];
 
