@@ -31,5 +31,7 @@ return [
     "Action" => "操作",
     "EditFundDetail" => "编辑研究资金详情",
     "AreUSure" => "你确定吗？",
-    "DeleteThis"=> "如果您删除此项，它将永远消失"
+    "DeleteThis"=> "如果您删除此项，它将永远消失",
+    'Whoops' => '哎呀！',
+    'There_were_some_problems_with_your_input' => '输入信息有问题',
 ];
