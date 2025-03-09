@@ -360,3 +360,96 @@ Research Projects Page By Thai
 
     Sleep    2s
 
+
+Research Groups Page By Thai
+    [tags]  researchGroups
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/researchGroups
+    Switch Language To    th    ไทย
+    Sleep    2s
+    
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    กลุ่มวิจัย
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    ลำดับที่
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย
+    Should Contain    ${html_source}    หัวหน้ากลุ่มวิจัย
+    Should Contain    ${html_source}    สมาชิก
+    Should Contain    ${html_source}    การกระทำ
+    Should Contain    ${html_source}    ค้นหา
+
+    # View
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Click Element    ${VIEW_BUTTON_XPATH}
+    Sleep    2s  # รอให้หน้าโหลด
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    คำอธิบายกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    คำอธิบายกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    รายละเอียดกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    รายละเอียดกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    หัวหน้ากลุ่มวิจัย
+    Should Contain    ${html_source}    สมาชิกกลุ่มวิจัย
+    Should Contain    ${html_source}    ผศ.ดร.พิพัธน์ เรืองแสง
+    Should Contain    ${html_source}    รศ.ดร.ชัยพล กีรติกสิกร
+    Should Contain    ${html_source}    ผศ.ดร.ณกร วัฒนกิจ
+
+
+    # Edit
+    Go To    ${SERVER}/researchGroups
+    Sleep    2s
+    Wait Until Element Is Visible    //a[contains(@class, 'btn-outline-success')]/i[contains(@class, 'mdi-pencil')]    timeout=2s
+    Click Element    //a[contains(@class, 'btn-outline-success')]/i[contains(@class, 'mdi-pencil')]
+
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    คำอธิบายกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    คำอธิบายกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    รายละเอียดกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    รายละเอียดกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    รูปภาพ
+    Should Contain    ${html_source}    หัวหน้ากลุ่มวิจัย
+    Should Contain    ${html_source}    สมาชิกกลุ่มวิจัย
+
+    Execute JavaScript    window.scrollTo(0,500) 
+    Sleep    2s
+
+    Wait Until Element Is Visible    //span[@id="select2-head0-container"]    timeout=5s
+    Click Element    //span[@id="select2-head0-container"]
+    Element Should Contain    //span[@id="select2-head0-container"]    พิพัธน์ เรืองแสง
+    Click Element    //span[@id="select2-head0-container"]
+    Sleep    1s
+
+    Wait Until Element Is Visible    //span[@id="select2-selUser1-container"]    timeout=5s
+    Click Element    //span[@id="select2-selUser1-container"]
+    Element Should Contain    //span[@id="select2-selUser1-container"]    ชัยพล กีรติกสิกร
+    Sleep    1s
+
+    #Add
+    Go To    ${SERVER}/researchGroups
+    Wait Until Element Is Visible       ${ADD_BUTTON_XPATH}     timeout=2s
+    Click Element    ${ADD_BUTTON_XPATH}
+
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    สร้างกลุ่มวิจัย
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    ชื่อกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    คำอธิบายกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    คำอธิบายกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    รายละเอียดกลุ่มวิจัย (ภาษาไทย)
+    Should Contain    ${html_source}    รายละเอียดกลุ่มวิจัย (English)
+    Should Contain    ${html_source}    รูปภาพ
+    Should Contain    ${html_source}    หัวหน้ากลุ่มวิจัย
+    Should Contain    ${html_source}    สมาชิกกลุ่มวิจัย
+
+    Scroll Element Into View    //span[@id="select2-head0-container"]
+    Click Element    //span[@id="select2-head0-container"]
+    Element Should Contain    //span[@id="select2-head0-container"]    งามนิจ อาจอินทร์
+    Should Contain    ${html_source}    งามนิจ
+    Sleep    1s
+
+
