@@ -107,7 +107,7 @@
     var paper_scopus_cit = <?php echo $paper_scopus_cit; ?>;
     var paper_wos_cit = <?php echo $paper_wos_cit; ?>;
 
-    year.unshift("source");
+    year.unshift("{{ trans('books.source') }}");
     paper_tci.unshift("tci");
 
     //console.log(paper_scopus_cit);

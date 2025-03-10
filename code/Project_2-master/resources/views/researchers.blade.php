@@ -71,10 +71,21 @@
 
                             <p class="card-text-1">{{ trans('books.expertise') }}</p>
                             <div class="card-expertise">
+                                @if (app()->getLocale() == 'th')
+                                @foreach($r->expertise->sortBy('expert_name_th') as $exper)
+                                <p class="card-text"> {{$exper->expert_name_th}}</p>
+                                @endforeach
+                                @elseif (app()->getLocale() == 'zh')
+                                @foreach($r->expertise->sortBy('expert_name_cn') as $exper)
+                                <p class="card-text"> {{$exper->expert_name_cn}}</p>
+                                @endforeach
+                                @else
                                 @foreach($r->expertise->sortBy('expert_name') as $exper)
                                 <p class="card-text"> {{$exper->expert_name}}</p>
                                 @endforeach
+                                @endif
                             </div>
+
                         </div>
                     </div>
 

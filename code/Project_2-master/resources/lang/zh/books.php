@@ -79,4 +79,5 @@ return [
     'CloseP' => '结束项目',
     'Login' => '登录',
     'ADetail' => '行动书详情',
+    'source' => '来源',
 ];
