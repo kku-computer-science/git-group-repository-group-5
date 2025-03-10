@@ -135,7 +135,7 @@
 </div>
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert@2/dist/sweetalert.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
@@ -243,20 +243,20 @@
             e.preventDefault();
             //confirm("Are You sure want to delete !");
             swal({
-                title: "{{ trans('expertise.delete_confirm_title') }}",
-                text: "{{ trans('expertise.delete_confirm_text') }}",
-                type: "warning",
+                title: "{{ trans('roles.Are you sure?') }}",
+                text: "{{ trans('roles.If you delete this, it will be gone forever.') }}",
+                icon: "warning",
                 buttons: {
-                    cancel: "{{ trans('research_g.cancel') }}",
-                    confirm: "{{ trans('research_g.ok') }}"
+                    cancel: "{{ trans('roles.cancel') }}",
+                    confirm: "{{ trans('roles.ok') }}"
                 },
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('expertise.delete_success') }}", {
+                    swal("{{ trans('roles.Delete Successfully') }}", {
                         icon: "success",
                         buttons: {
-                            confirm: "{{ trans('research_g.ok') }}"
+                            confirm: "{{ trans('roles.ok') }}"
                         },
                     }).then(function() {
                         location.reload();

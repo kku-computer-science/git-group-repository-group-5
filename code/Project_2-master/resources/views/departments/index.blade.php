@@ -32,25 +32,25 @@
                             <td>
                                 <form action="{{ route('departments.destroy', $department->id) }}" method="POST">
                                     <a class="btn btn-outline-primary btn-sm" type="button"
-                                       data-toggle="tooltip" data-placement="top"
-                                       title="{{ trans('department.view') }}"
-                                       href="{{ route('departments.show', $department->id) }}">
-                                       <i class="mdi mdi-eye"></i>
+                                        data-toggle="tooltip" data-placement="top"
+                                        title="{{ trans('department.view') }}"
+                                        href="{{ route('departments.show', $department->id) }}">
+                                        <i class="mdi mdi-eye"></i>
                                     </a>
 
                                     @can('departments-edit')
                                     <a class="btn btn-outline-primary btn-sm" type="button"
-                                       data-toggle="tooltip" data-placement="top"
-                                       title="{{ trans('department.edit') }}"
-                                       href="{{ route('departments.edit', $department->id) }}">
-                                       <i class="mdi mdi-pencil"></i>
+                                        data-toggle="tooltip" data-placement="top"
+                                        title="{{ trans('department.edit') }}"
+                                        href="{{ route('departments.edit', $department->id) }}">
+                                        <i class="mdi mdi-pencil"></i>
                                     </a>
                                     @endcan
 
                                     @can('departments-delete')
                                     @csrf
                                     <button type="button" class="btn btn-outline-danger btn-sm show_confirm"
-                                            data-toggle="tooltip" data-placement="top" title="{{ trans('department.delete') }}">
+                                        data-toggle="tooltip" data-placement="top" title="{{ trans('department.delete') }}">
                                         <i class="mdi mdi-delete"></i>
                                     </button>
                                     @endcan
@@ -66,27 +66,29 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert@2/dist/sweetalert.min.js"></script>
+
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `{{ trans('research_g.title') }}`,
-                text: "{{ trans('research_g.text') }}",
+                title: "{{ trans('roles.Are you sure?') }}",
+                text: "{{ trans('roles.If you delete this, it will be gone forever.') }}",
                 icon: "warning",
                 buttons: {
-                    cancel: "{{ trans('research_g.cancel') }}",
-                    confirm: "{{ trans('research_g.ok') }}"
+                    cancel: "{{ trans('roles.cancel') }}",
+                    confirm: "{{ trans('roles.ok') }}"
                 },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('research_g.DeleteSuccessfully') }}", {
+                    swal("{{ trans('roles.Delete Successfully') }}", {
                         icon: "success",
                         buttons: {
-                            confirm: "{{ trans('research_g.ok') }}"
+                            confirm: "{{ trans('roles.ok') }}"
                         },
                     }).then(function() {
                         location.reload();
