@@ -4,7 +4,7 @@ return [
     'programs' => 'Programs',
     'ADD' => 'Add',
     'id' => 'ID',
-    'Name (ไทย)' => 'Name (Thai)',
+    'Name' => 'Name',
     'Degree' => 'Degree',
     'Action' => 'Action',
     'Edit' => 'Edit',

@@ -4,6 +4,7 @@ return [
     'department' => 'แผนก',
     'departments' => 'แผนกทั้งหมด',
     'create_department' => 'สร้างแผนก',
+    'edit_department' => 'แก้ไขแผนก',
     'department_name_th' => 'ชื่อแผนก (ภาษาไทย)',
     'department_name_en' => 'ชื่อแผนก (ภาษาอังกฤษ)',
     'department_name_th_placeholder' => 'ชื่อแผนกภาษาไทย',
@@ -20,8 +21,8 @@ return [
     'are_you_sure' => 'คุณแน่ใจหรือไม่?',
     'delete_forever' => 'หากคุณลบข้อมูลนี้ ข้อมูลจะหายไปตลอดกาล',
     'delete_success' => 'ลบข้อมูลเรียบร้อยแล้ว',
-  
+
     'back' => 'กลับ',
- 
+
 
 ];

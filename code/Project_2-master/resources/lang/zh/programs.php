@@ -4,7 +4,7 @@ return [
     'programs' => '课程',
     'ADD' => '添加',
     'id' => '编号',
-    'Name (ไทย)' => '泰语名称',
+    'Name' => '专业',
     'Degree' => '学位',
     'Action' => '操作',
     'Edit' => '编辑',

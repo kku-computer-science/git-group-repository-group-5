@@ -12,6 +12,7 @@ return [
     'opps' => 'Oops!',
     'error_message' => 'Something went wrong, please check below errors.',
     'create_department' => 'Create Department',
+    'edit_department' => 'Edit Department',
     'departments' => 'All Departments',
     'department_name_th' => 'Department Name (Thai)',
     'department_name_en' => 'Department Name (English)',
