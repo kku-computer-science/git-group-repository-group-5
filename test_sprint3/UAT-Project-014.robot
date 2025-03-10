@@ -455,15 +455,15 @@ Research Groups Page By Thai
 
 
 
-*** comment ***
-ยังไม่ทำพวก จัดการผลงานวิจัย
-
-
-
-
 
 User By Thai
+    [tags]  userByTHAI
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
     Go To    ${SERVER}/users
+    Switch Language To    th    ไทย
+    ${html_source}=    Get Source
     Should Contain    ${html_source}    ชื่อ
     Should Contain    ${html_source}    แผนก
     Should Contain    ${html_source}    อีเมล์
@@ -473,8 +473,9 @@ User By Thai
     #View
     Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
     Click Element    ${VIEW_BUTTON_XPATH}
-    Should Contain    ${html_source}    ชื่อ (ภาษาไทย)
-    Should Contain    ${html_source}    ชื่อ (English)
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    ภาษาไทย
+    Should Contain    ${html_source}    English
     Should Contain    ${html_source}    อีเมล์
     Should Contain    ${html_source}    บทบาท
     Should Contain    ${html_source}    การกระทำ
@@ -483,12 +484,19 @@ User By Thai
 
     #Edit
     Go To    ${SERVER}/users/2/edit
-    Should Contain    ${html_source}    ชื่อ (ภาษาไทย)
-    Should Contain    ${html_source}    ชื่อ (English)
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    ภาษาไทย
+    Should Contain    ${html_source}    English
     Should Contain    ${html_source}    อีเมล์
     Should Contain    ${html_source}    บทบาท
-    Should Contain    ${html_source}    สถานะ
-    
+    Should Contain    ${html_source}    แผนก
+    Should Contain    ${html_source}    โปรแกรม
+    Execute JavaScript    window.scrollTo(0,1500)
+    Sleep    1s
+    Element Text Should Be    xpath=//button[contains(@class, "btn btn-primary mt-5")]    ส่งข้อมูล
+    Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']    10 seconds
+    Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']
+    Sleep    1s
 
 
 
