@@ -657,7 +657,16 @@ Navigate To Research Publications
     Get Text    xpath=//th[contains(text(), 'แหล่งข่าว')]
     Should Contain    ${html_source}    หนังสือ
 
+    Click Element   ${ADD_BUTTON_XPATH}
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    เพิ่มหนังสือ
+    Should Contain    ${html_source}    กรอกรายละเอียดหนังสือ
+    Should Contain    ${html_source}    สถานที่เผยแพร่
+    Should Contain    ${html_source}    ปี (โฆษณา)
+    Should Contain    ${html_source}    จำนวนหน้า
+
     # View
+    Go To   ${SERVER}/books
     Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
     Click Element    ${VIEW_BUTTON_XPATH}
     Sleep    2s  # รอให้หน้าโหลด
