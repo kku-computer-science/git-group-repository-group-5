@@ -481,6 +481,7 @@ User By Thai
     Should Contain    ${html_source}    การกระทำ
     Sleep    2s
     Go To    ${SERVER}/users
+    Sleep    1s
 
     #Edit
     Go To    ${SERVER}/users/2/edit
@@ -497,7 +498,37 @@ User By Thai
     Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']    10 seconds
     Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']
     Sleep    1s
+    Execute JavaScript    window.scrollTo(0,1500)
+    Click Element    xpath=//*[@id="cat"]
+    Sleep    1s
+    Click Element    xpath=//*[@id="subcat"]
 
+    Go To    ${SERVER}/users
+
+    #New User
+    Go To    ${SERVER}/users/create
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    ภาษาไทย
+    Should Contain    ${html_source}    นามสกุล
+    Should Contain    ${html_source}    English
+    Should Contain    ${html_source}    อีเมล์
+    Should Contain    ${html_source}    รหัสผ่าน:
+    Should Contain    ${html_source}    ยืนยันรหัสผ่าน
+    Should Contain    ${html_source}    บทบาท:
+    Should Contain    ${html_source}    แผนก
+    Should Contain    ${html_source}    โปรแกรม
+    Sleep    1s
+    Execute JavaScript    window.scrollTo(0,1500)
+    Click Element    xpath=//*[@id="cat"]
+    Sleep    1s
+    Click Element    xpath=//*[@id="subcat"]
+    Go To    ${SERVER}/users
+
+    #importfiles
+    Go To    ${SERVER}/importfiles
+    ${html_source}=    Get Source
+    Page Should Contain    นำเข้าข้อมูลไฟล์
 
 
 
