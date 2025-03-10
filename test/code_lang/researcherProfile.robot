@@ -1,4 +1,4 @@
-*** Settings *** 
+*** Settings ***  
 Documentation    UAT: Home -> Researcher -> ResearcherProfile
 Library          SeleniumLibrary
 Test Teardown    Close Browser
@@ -55,7 +55,6 @@ ${RESEARCHER_DETAIL}    xpath=//a[contains(@href, '/detail/') and (contains(., '
 ...    จาก
 ...    ก่อนหน้า
 ...    ถัดไป
-
 
 @{EXPECTED_PROFILE_EN}
 ...    No.
@@ -119,7 +118,10 @@ ${RESEARCHER_DETAIL}    xpath=//a[contains(@href, '/detail/') and (contains(., '
 ...    上页
 ...    下页
 
-
+# ตัวแปรใหม่สำหรับเก็บหัวข้อวิจัย
+@{RESEARCH_TOPICS}
+...    Enhanced Local Receptive Fields based Extreme Learning Machine using Dominant Patterns Selection
+...    An Incremental Kernel Extreme Learning Machine for Multi-Label Learning with Emerging New Labels
 
 *** Keywords ***
 Open Browser To Home Page
@@ -184,4 +186,18 @@ Test Researcher Profile In Chinese
     Navigate To Researcher Profile
     Switch Language    ${LANG_TO_CHINESE}
     Verify Page Contains Multiple Texts    @{EXPECTED_PROFILE_CN}
+    Close Browser
+
+# --- 4) ตรวจสอบว่าหัวข้อวิจัยปรากฏในทุกภาษา ---
+Test Research Topics Appear In All Languages
+    Open Browser To Home Page
+    Navigate To Researcher Profile
+    # ตรวจสอบในหน้าเริ่มต้น (ภาษาอังกฤษ)
+    Verify Page Contains Multiple Texts    @{RESEARCH_TOPICS}
+    # เปลี่ยนเป็นภาษาไทยแล้วตรวจสอบ
+    Switch Language    ${LANG_TO_THAI}
+    Verify Page Contains Multiple Texts    @{RESEARCH_TOPICS}
+    # เปลี่ยนเป็นภาษาจีนแล้วตรวจสอบ
+    Switch Language    ${LANG_TO_CHINESE}
+    Verify Page Contains Multiple Texts    @{RESEARCH_TOPICS}
     Close Browser
