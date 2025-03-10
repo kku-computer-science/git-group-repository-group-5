@@ -78,5 +78,16 @@ return [
         'education_history' => 'Education History',
         'password' => 'Password:',
         'back' => 'Back',
+
+        
+    'role_admin'       => 'Admin',
+    'role_headproject' => 'Head Project',
+    'role_staff'       => 'Staff',
+    'role_student'     => 'Student',
+    'role_teacher'     => 'Teacher',
+
+    'nothing_selected' => 'Nothing selected',
+
+    
     ];
 
