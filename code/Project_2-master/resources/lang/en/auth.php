@@ -28,4 +28,5 @@ return [
     'passwordx' => 'Password',
     'remember_mex' => 'Remember Me',
     'forgot_passwordx' => 'Forgot Your Password?',
+    'alert_error' => 'Login Failed: Your user ID or password is incorrect'
 ];

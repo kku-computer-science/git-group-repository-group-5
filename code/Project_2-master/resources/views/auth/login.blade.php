@@ -334,7 +334,7 @@
 					@if($errors->any())
 					<div class="alert alert-danger alert-block ">
 						<button type="button" class="close" data-dismiss="alert"></button>
-						<strong><a>{{ translateText($errors->first()) }}</a></strong>
+						<strong><a>{{ trans('auth.alert_error') }}</a></strong>
 					</div>
 					@endif
 					<div class="wrap-input100 validate-input m-b-16" data-validate="{{ translateText('Valid email is required: ex@abc.xyz') }}">
@@ -386,7 +386,7 @@
                 @if($errors->any())
                 <div class="alert alert-danger alert-block ">
                     <button type="button" class="close" data-dismiss="alert"></button>
-                    <strong><a>{{ trans('auth.' . $errors->first()) }}</a></strong>
+                    <strong><a>{{ translateText($errors->first()) }}</a></strong>
                 </div>
                 @endif
                 <div class="form-group validate-input">
