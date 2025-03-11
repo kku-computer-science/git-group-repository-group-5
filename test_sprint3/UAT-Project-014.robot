@@ -13,6 +13,7 @@ ${CHROME_DRIVER_PATH}    E:/Software Engineering/chromefortesting/chromedriver.e
 ${VIEW_BUTTON_XPATH}    //a[contains(@class, 'btn-outline-primary')]/i[contains(@class, 'mdi-eye')]
 ${EDIT_BUTTON_XPATH}    //a[contains(@class, 'btn-outline-success') and @title='แก้ไข']
 ${ADD_BUTTON_XPATH}     //a[contains(@class, 'btn-primary') and contains(@class, 'btn-menu') and .//i[contains(@class, 'mdi-plus')]]
+${DELETE_BUTTON_XPATH}    //button[contains(@class, 'btn-outline-danger') and contains(@class, 'btn-sm') and contains(@class, 'show_confirm')]/i[contains(@class, 'mdi-delete')]
 
 @{LANGUAGES}
 ...    en
@@ -531,5 +532,53 @@ Menu User By Thai
     Page Should Contain    นำเข้าข้อมูลไฟล์
 
 
+Roles By Thai
+    [tags]  RoleByThai
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/roles
+    Switch Language To    th    ไทย
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    การดำเนินการ
 
+    #View
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Click Element    ${VIEW_BUTTON_XPATH}
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    สิทธิ์
+    Sleep    2s
+    Go To    ${SERVER}/roles
 
+    #Edit
+    Go To    ${SERVER}/roles/5/edit
+    Page Should Contain    แก้ไขบทบาท
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    สิทธิ์
+    Sleep    1s
+    Execute JavaScript    window.scrollTo(0,1500)
+    Sleep    1s
+    Page Should Contain Element    //button[@class="btn btn-primary mt-5" and text()="ส่งข้อมูล"]
+    Page Should Contain    กลับ
+    Go To    ${SERVER}/roles
+
+    #Delete
+    Wait Until Element Is Visible   ${DELETE_BUTTON_XPATH}     timeout=10s
+    Click Element    ${DELETE_BUTTON_XPATH}
+    Sleep    1s
+    Page Should Contain    คุณแน่ใจไหม?
+    Page Should Contain    หากคุณลบข้อมูลนี้ มันจะหายไปตลอดกาล
+    Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Page Should Contain Element    //button[contains(@class, 'swal-button--confirm') and contains(@class, 'swal-button--danger') and text()='ตกลง']
+    Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+
+    #Add
+    Wait Until Element Is Visible   ${ADD_BUTTON_XPATH}     timeout=10s
+    Click Element    ${ADD_BUTTON_XPATH}
+    Page Should Contain    สร้างบทบาท
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    สิทธิ์
+    Execute JavaScript    window.scrollTo(0,1500)
+    Sleep    1s
+    Page Should Contain Element    //button[@class="btn btn-primary" and text()="ส่งข้อมูล"]
