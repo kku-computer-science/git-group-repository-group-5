@@ -12,6 +12,7 @@ return [
     'opps' => '哎呀！',
     'error_message' => '发生了一些错误，请检查以下错误。',
     'create_department' => '创建部门',
+    'edit_department' => '修改部门',
     'departments' => '所有部门',
     'department_name_th' => '部门名称（泰语）',
     'department_name_en' => '部门名称（英语）',

@@ -38,7 +38,7 @@
                 <thead>
                     <tr>
                         <th>{{ trans('programs.id') }}</th>
-                        <th>{{ trans('programs.Name (ไทย)') }}</th>
+                        <th>{{ trans('programs.Name') }}</th>
                         <th>{{ trans('programs.Degree') }}</th>
                         <th>{{ trans('programs.Action') }}</th>
                     </tr>
@@ -47,9 +47,25 @@
                     @foreach ($programs as $i => $program)
                     <tr id="program_id_{{ $program->id }}">
                         <td>{{ $i+1 }}</td>
-                        <td>{{($program->program_name_th) }}</td>
+                        <td>
+                            @if (app()->getLocale() == 'th')
+                            {{($program->program_name_th) }}
+                            @elseif (app()->getLocale() == 'en')
+                            {{($program->program_name_en) }}
+                            @else
+                            {{($program->program_name_cn) }}
+                            @endif
+                        </td>
                         <!-- <td>{{ translateText($program->program_name_en) }}</td> -->
-                        <td>{{ ($program->degree->degree_name_en) }}</td>
+                        <td>
+                            @if (app()->getLocale() == 'th')
+                            {{ ($program->degree->degree_name_th) }}
+                            @elseif (app()->getLocale() == 'en')
+                            {{ ($program->degree->degree_name_en) }}
+                            @else
+                            {{ ($program->degree->degree_name_cn) }}
+                            @endif
+                        </td>
                         <td>
                             <form action="{{ route('programs.destroy',$program->id) }}" method="POST">
                                 <li class="list-inline-item">

@@ -26,7 +26,7 @@ return [
 'SelectDept' => 'เลือกสาขาวิชา',
 'Projectdetails'=> 'รายละเอียดโครงการ',
 'Note' => 'บันทึก',
-'status' => 'status',
+'status' => 'สถานะ',
 'specifystatusProject' => 'โปรดระบุสถานะดำเนินงาน',
 'Apply' => 'ยื่นขอ',
 'Proceed' => 'ดำเนินการ',

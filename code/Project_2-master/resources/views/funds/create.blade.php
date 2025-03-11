@@ -45,7 +45,7 @@
                         <div class="form-group row">
                             <label for="exampleInputfund_level" class="col-sm-2 ">{{ trans('funds.FunddingLevel') }}</label>
                             <div class="col-sm-4">
-                                <select name="fund_level" class="custom-select my-select">
+                                <select name="fund_level" id="fund_level" class="custom-select my-select">
                                 <option value="" disabled selected >{{ trans('funds.DefindFundLevel') }}</option>
                                     <option value="">{{ trans('funds.Unknown') }}</option>
                                     <option value="สูง">{{ trans('funds.High') }}</option>

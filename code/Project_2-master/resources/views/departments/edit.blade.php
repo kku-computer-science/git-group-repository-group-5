@@ -12,7 +12,7 @@
     <div class="justify-content-center">
         @if (count($errors) > 0)
             <div class="alert alert-danger">
-                <strong>{{ trans('department.opps') }}</strong> 
+                <strong>{{ trans('department.opps') }}</strong>
                 {{ trans('department.error_message') }}<br><br>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -22,7 +22,7 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">{{ trans('department.create_department') }}
+            <div class="card-header">{{ trans('department.edit_department') }}
                 <span class="float-right">
                     <a class="btn btn-primary" href="{{ route('departments.index') }}">
                         {{ trans('department.departments') }}

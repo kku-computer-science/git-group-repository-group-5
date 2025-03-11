@@ -64,7 +64,7 @@ return [
     "PleaseSelectSubType" => "โปรดเลือกประเภทย่อย",
     "PleaseSelectDocumentType" => "โปรดเลือกประเภทเอกสาร",
     "PleaseSelectSourceTitle" => "โปรดเลือกแหล่งข้อมูล",
-    "AddPublicationResearch" => "เพิ่มวารผลงานตีพิมพ์",
+    "AddPublicationResearch" => "เพิ่มผลงานตีพิมพ์",
     "FillResearchDetail"=> "กรอกข้อมูลรายละเอียดงานวิจัย",
     "Add" => "เพิ่ม",
     "CallPaper"=>"เรียกงานวิจัยใหม่",
