@@ -34,9 +34,9 @@
                     </div>
                     <div class="form-group">
                         <strong>{{ trans('department.department_name_en') }}:</strong>
-                        {!! Form::text('department_name_en', null, ['placeholder' => trans('department.department_name_th_placeholder'),'class' => 'form-control']) !!}
+                        {!! Form::text('department_name_en', null, ['placeholder' => trans('department.department_name_en_placeholder'),'class' => 'form-control']) !!}
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary">{{ trans('department.submit') }}</button>
                 {!! Form::close() !!}
             </div>
