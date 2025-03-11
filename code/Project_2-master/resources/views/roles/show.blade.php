@@ -9,7 +9,7 @@
         @endif
         <div class="card col-8" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">{{ trans('roles.roles') }}</h4>
+                <h4 class="card-title">{{ trans('roles.Roles') }}</h4>
                 <p class="card-description">{{ trans('roles.details') }}</p>
                 <div class="row">
                     <p class="card-text col-sm-3"><b>{{ trans('roles.name') }}</b></p>
@@ -20,7 +20,7 @@
                     @if(!empty($rolePermissions))
                     <p class="card-text col-sm-9" style="line-height: 1.85rem;">
                         @foreach($rolePermissions as $permission)
-                        <label class="badge badge-success">{{ $permission->name }}</label>  
+                        <label class="badge badge-success">{{ $permission->name }}</label>
                         @endforeach
                     </p>
                     @endif

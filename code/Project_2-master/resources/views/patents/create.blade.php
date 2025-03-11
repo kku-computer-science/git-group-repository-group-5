@@ -76,7 +76,7 @@
                         </div>
                     </div>
 
-                    <!-- บุคลลภายนอก -->
+                    <!-- บุคคลภายนอก -->
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{ __('patents.external_authors') }}</label>
                         <div class="col-sm-9">

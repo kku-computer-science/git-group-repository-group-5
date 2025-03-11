@@ -5,7 +5,7 @@
     <div class="card col-md-8" style="padding: 16px;">
         <div class="card-body">
             <h4 class="card-title">{{ trans('funds.FundDetail') }}</h4>
-            
+
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ trans('funds.FundName') }}</b></p>
                 <p class="card-text col-sm-9">{{ $fund->fund_name }}</p>
@@ -19,7 +19,7 @@
                 <p class="card-text col-sm-9">{{ $fund->fund_details }}</p>
             </div>
             <div class="row">
-                <p class="card-text col-sm-3"><b>{{ trans('funds.FundName') }}</b></p>
+                <p class="card-text col-sm-3"><b>{{ trans('funds.FundType') }}</b></p>
                 <p class="card-text col-sm-9">@if($fund->fund_type == 'ทุนภายใน')
                                                     {{ trans('funds.InternalCapital') }}
                                                 @else
