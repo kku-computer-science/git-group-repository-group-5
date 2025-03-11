@@ -28,7 +28,7 @@ return [
 
     // สำหรับ Dynamic Fields
     'internal_authors'  => 'อาจารย์ในสาขา',
-    'external_authors'  => 'บุคลภายนอก',
+    'external_authors'  => 'บุคคลภายนอก',
     'select_member'     => 'เลือกสมาชิก',
 
     // สำหรับตำแหน่งผู้เขียน
