@@ -50,6 +50,14 @@ return [
     'success_message' => '成功!',
     'error_message' => '发生错误',
 
+    'update_info_confirmation' => '你确定要更新信息吗？',
+    'update_info' => '更新我的信息！',
+    'update_success' => '你的账户已更新！',
+
+    'ok' => '好的',
+
+    
+
         'account_settings' => '账户设置',
         'change_picture' => '更改图片',
         'account' => '账户',

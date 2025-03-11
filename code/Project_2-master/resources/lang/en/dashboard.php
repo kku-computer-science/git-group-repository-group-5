@@ -169,8 +169,11 @@ return [
     'delete_confirmation' => 'Are you sure want to delete?',
     'delete_success' => 'Expertise entry deleted successfully',
     'delete_error' => 'Error occurred while deleting',
+
     'update_info_confirmation' => 'Are you sure you want to update info?',
     'update_info' => 'Update My Info!',
+    'ok' => 'ok',
+
     'cancel_update' => 'I am not sure!',
     'update_success' => 'Your account is updated!',
     'update_error' => 'Unable to update info',

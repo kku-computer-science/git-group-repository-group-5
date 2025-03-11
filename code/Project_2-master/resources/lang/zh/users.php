@@ -77,4 +77,14 @@ return [
     'education_history' => '教育历史',
     'password' => '密码：',
     'back' => '返回',
+    
+    //สำหรับ roles//
+    'role_admin'       => '管理员',
+    'role_headproject' => '项目负责人',
+    'role_staff'       => '工作人员',
+    'role_student'     => '学生',
+    'role_teacher'     => '老师',
+
+    'nothing_selected' => '尚未选择',
+
 ];

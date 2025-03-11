@@ -29,4 +29,6 @@ return [
     'name' => '名字',
     'permissions' => '权限',
     'back' => '返回',
+    'cancel' => '取消',
+    'ok' => '好的',
 ];

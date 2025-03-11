@@ -19,7 +19,7 @@
                 @endcan
             </div>
             <div class="card-body">
-                <table id ="example1" class="table table-hover">
+                <table id="example1" class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
@@ -60,15 +60,17 @@
                 </table>
             </div>
             <div class="justify-content-center">
-                
+
             </div>
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert@2/dist/sweetalert.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
-<script src = "https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer ></script>
-<script src = "https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer ></script>
+<script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
+<script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
+<script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
@@ -79,13 +81,19 @@
                 title: "{{ trans('roles.Are you sure?') }}",
                 text: "{{ trans('roles.If you delete this, it will be gone forever.') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: "{{ trans('roles.cancel') }}",
+                    confirm: "{{ trans('roles.ok') }}"
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
                     swal("{{ trans('roles.Delete Successfully') }}", {
                         icon: "success",
+                        buttons: {
+                            confirm: "{{ trans('roles.ok') }}"
+                        },
                     }).then(function() {
                         location.reload();
                         form.submit();

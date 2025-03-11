@@ -33,6 +33,10 @@ return [
     'change_picture' => 'เปลี่ยนรูปโปรไฟล์',
     'account' => 'บัญชี',
     'password' => 'รหัสผ่าน',
+
+    'update_info_confirmation' => 'คุณแน่ใจที่จะอัพเดตข้อมูล?',
+    'update_info' => 'อัพเดตข้อมูลของฉัน!',
+    
     'expertise' => 'ความเชี่ยวชาญ',
     'education' => 'การศึกษา',
     'update' => 'อัปเดต',
@@ -168,6 +172,11 @@ return [
     'delete_confirmation' => 'คุณแน่ใจที่จะลบ?',
     'delete_success' => 'ข้อมูลความเชี่ยวชาญถูกลบสำเร็จ',
     'delete_error' => 'เกิดข้อผิดพลาดในการลบข้อมูล',
+
+    'ok' => 'ตกลง',
+
+    'update_success_title' => 'อัพเดตข้อมูลของฉัน!',
+    'update_success_text'  => 'ข้อมูลของคุณถูกอัพเดตแล้ว!',
     
         'update_info_confirmation' => 'คุณแน่ใจที่จะอัพเดตข้อมูล?',
         'update_info' => 'อัพเดตข้อมูลของฉัน!',
