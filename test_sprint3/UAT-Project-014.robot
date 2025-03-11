@@ -582,3 +582,58 @@ Roles By Thai
     Execute JavaScript    window.scrollTo(0,1500)
     Sleep    1s
     Page Should Contain Element    //button[@class="btn btn-primary" and text()="ส่งข้อมูล"]
+
+Permission By Thai
+    [tags]  PermissionByThai
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/permissions
+    Switch Language To    th    ไทย
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    สิทธิ์
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    การกระทำ
+    Page Should Contain    สิทธิ์ใหม่
+
+    #View
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Click Element    ${VIEW_BUTTON_XPATH}
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    สิทธิ์
+    Sleep    1s
+    ${URL}    Set Variable    ${SERVER}/permissions
+    Click Element    xpath=//a[@class='btn btn-primary' and @href='${URL}']
+
+    #Edit
+    Click Element    ${EDIT_BUTTON_XPATH}
+    Page Should Contain    แก้ไขสิทธิ์
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    สิทธิ์
+    Sleep    1s
+    ${URL}    Set Variable    ${SERVER}/permissions
+    Click Element    xpath=//a[@class='btn btn-primary' and @href='${URL}']
+    Should Contain    ${html_source}    สิทธิ์
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    การกระทำ
+    Sleep    1s
+
+    #Delete
+    Wait Until Element Is Visible   ${DELETE_BUTTON_XPATH}     timeout=10s
+    Click Element    ${DELETE_BUTTON_XPATH}
+    Sleep    1s
+    Page Should Contain    คุณแน่ใจไหม?
+    Page Should Contain    หากคุณลบข้อมูลนี้ มันจะหายไปตลอดกาล
+    Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Page Should Contain Element    //button[contains(@class, 'swal-button--confirm') and contains(@class, 'swal-button--danger') and text()='ตกลง']
+    Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Sleep    1s
+
+    #Add
+    Click Element    xpath=//a[@class='btn btn-primary' and @href='${SERVER}/permissions/create']
+    Page Should Contain    สร้างสิทธิ์
+    Page Should Contain    ชื่อ
+    Page Should Contain    ส่ง
+    Sleep    1s
+    ${URL}    Set Variable    ${SERVER}/permissions
+    Click Element    xpath=//a[@class='btn btn-primary' and @href='${URL}']
