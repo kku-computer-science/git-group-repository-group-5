@@ -456,7 +456,7 @@ Research Groups Page By Thai
 
 
 
-User By Thai
+Menu User By Thai
     [tags]  userByTHAI
     Open Browser To Login Page
     Login Page Should Be Open
