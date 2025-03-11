@@ -55,6 +55,7 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert@2/dist/sweetalert.min.js"></script>
 
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
@@ -65,13 +66,19 @@
                 title: "{{ trans('roles.Are you sure?') }}",
                 text: "{{ trans('roles.If you delete this, it will be gone forever.') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: "{{ trans('roles.cancel') }}",
+                    confirm: "{{ trans('roles.ok') }}"
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
                     swal("{{ trans('roles.Delete Successfully') }}", {
                         icon: "success",
+                        buttons: {
+                            confirm: "{{ trans('roles.ok') }}"
+                        },
                     }).then(function() {
                         location.reload();
                         form.submit();

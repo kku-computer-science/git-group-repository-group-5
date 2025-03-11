@@ -20,6 +20,7 @@ return [
     'Name' => 'Name',
     'add_new' => 'Add New Expertise',
     'edit' => 'Edit Expertise',
+    
     'update' => 'Update',
     'delete_confirm_title' => 'Are you sure?',
     'delete_confirm_text' => 'You will not be able to recover this!',

@@ -33,6 +33,7 @@ return [
 "AreUSure" => "คุณแน่ใจหรือไม่?",
 "DeleteThis"=> "หากคุณลบสิ่งนี้มันจะหายไปตลอดกาล",
 'EditFund' => 'แก้ไขกองทุน',
-
+'Whoops' => 'โอ๊ะ!',
+'There_were_some_problems_with_your_input' => 'มีบางอย่างผิดพลาดกับข้อมูลที่กรอก',
 ];
 

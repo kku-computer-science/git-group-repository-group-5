@@ -27,4 +27,5 @@ return [
     'passwordx' => '密码',
     'remember_mex' => '记住我',
     'forgot_passwordx' => '忘记密码？',
+    'alert_error' => '登录失败：您的用户ID或密码不正确'
 ];

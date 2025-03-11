@@ -38,7 +38,7 @@
                 <thead>
                     <tr>
                         <th>{{ trans('programs.id') }}</th>
-                        <th>{{ trans('programs.Name (ไทย)') }}</th>
+                        <th>{{ trans('programs.Name') }}</th>
                         <th>{{ trans('programs.Degree') }}</th>
                         <th>{{ trans('programs.Action') }}</th>
                     </tr>
@@ -47,9 +47,25 @@
                     @foreach ($programs as $i => $program)
                     <tr id="program_id_{{ $program->id }}">
                         <td>{{ $i+1 }}</td>
-                        <td>{{($program->program_name_th) }}</td>
+                        <td>
+                            @if (app()->getLocale() == 'th')
+                            {{($program->program_name_th) }}
+                            @elseif (app()->getLocale() == 'en')
+                            {{($program->program_name_en) }}
+                            @else
+                            {{($program->program_name_cn) }}
+                            @endif
+                        </td>
                         <!-- <td>{{ translateText($program->program_name_en) }}</td> -->
-                        <td>{{ ($program->degree->degree_name_en) }}</td>
+                        <td>
+                            @if (app()->getLocale() == 'th')
+                            {{ ($program->degree->degree_name_th) }}
+                            @elseif (app()->getLocale() == 'en')
+                            {{ ($program->degree->degree_name_en) }}
+                            @else
+                            {{ ($program->degree->degree_name_cn) }}
+                            @endif
+                        </td>
                         <td>
                             <form action="{{ route('programs.destroy',$program->id) }}" method="POST">
                                 <li class="list-inline-item">
@@ -135,7 +151,7 @@
 </div>
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert@2/dist/sweetalert.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
@@ -243,20 +259,20 @@
             e.preventDefault();
             //confirm("Are You sure want to delete !");
             swal({
-                title: "{{ trans('expertise.delete_confirm_title') }}",
-                text: "{{ trans('expertise.delete_confirm_text') }}",
-                type: "warning",
+                title: "{{ trans('roles.Are you sure?') }}",
+                text: "{{ trans('roles.If you delete this, it will be gone forever.') }}",
+                icon: "warning",
                 buttons: {
-                    cancel: "{{ trans('research_g.cancel') }}",
-                    confirm: "{{ trans('research_g.ok') }}"
+                    cancel: "{{ trans('roles.cancel') }}",
+                    confirm: "{{ trans('roles.ok') }}"
                 },
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('expertise.delete_success') }}", {
+                    swal("{{ trans('roles.Delete Successfully') }}", {
                         icon: "success",
                         buttons: {
-                            confirm: "{{ trans('research_g.ok') }}"
+                            confirm: "{{ trans('roles.ok') }}"
                         },
                     }).then(function() {
                         location.reload();

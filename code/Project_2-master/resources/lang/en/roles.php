@@ -29,4 +29,8 @@ return [
     'name' => 'Name',
     'permissions' => 'Permissions',
     'back' => 'Back',
+    'cancel' => 'cancel',
+    'ok' => 'ok',
+
+
 ];

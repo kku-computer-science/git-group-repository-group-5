@@ -17,7 +17,6 @@
         box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     }
 
-
     .search-box {
         position: relative;
         float: right;
@@ -122,22 +121,20 @@
                             <td>{{ $key++ }}</td>
                             <td>
                                 @if(App::getLocale() == 'th')
-                                    {{ $user->fname_th }} {{ $user->lname_th }}
+                                {{ $user->fname_th }} {{ $user->lname_th }}
                                 @else
-                                    {{ $user->fname_en }} {{ $user->lname_en }}
+                                {{ $user->fname_en }} {{ $user->lname_en }}
                                 @endif
                             </td>
-                            <!-- <td>{{ Str::limit($user->program->program_name_en,20) }}</td> -->
                             <td>
                                 @if(App::getLocale() == 'th')
-                                    {{ $user->program->program_name_th ?? '-' }}
+                                {{ $user->program->program_name_th ?? '-' }}
                                 @elseif(App::getLocale() == 'zh')
-                                    {{ $user->program->program_name_cn ?? '-' }}
+                                {{ $user->program->program_name_cn ?? '-' }}
                                 @elseif(App::getLocale() == 'en')
-                                    {{ $user->program->program_name_en ?? '-' }}
+                                {{ $user->program->program_name_en ?? '-' }}
                                 @endif
                             </td>
-
                             <td>{{ $user->email }}</td>
                             <td>
                                 @if(!empty($user->getRoleNames()))
@@ -148,18 +145,17 @@
                             </td>
                             <td>
                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                <li class="list-inline-item">
-                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('users.view') }}" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-eye"></i></a>
-                                </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('users.view') }}" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-eye"></i></a>
+                                    </li>
                                     @can('user-edit')
                                     <li class="list-inline-item">
-                                    <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('users.edit') }}" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-pencil"></i></a>
+                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('users.edit') }}" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-pencil"></i></a>
                                     </li>
                                     @endcan
                                     @can('user-delete')
                                     @csrf
                                     @method('DELETE')
-
                                     <li class="list-inline-item">
                                         <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="{{ trans('users.delete') }}"><i class="mdi mdi-delete"></i></button>
                                     </li>
@@ -250,13 +246,19 @@
                 title: "{{ trans('roles.Are you sure?') }}",
                 text: "{{ trans('roles.If you delete this, it will be gone forever.') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: "{{ trans('roles.cancel') }}",
+                    confirm: "{{ trans('roles.ok') }}"
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
                     swal("{{ trans('roles.Delete Successfully') }}", {
                         icon: "success",
+                        buttons: {
+                            confirm: "{{ trans('roles.ok') }}"
+                        },
                     }).then(function() {
                         location.reload();
                         form.submit();
@@ -265,5 +267,4 @@
             });
     });
 </script>
-
 @endsection

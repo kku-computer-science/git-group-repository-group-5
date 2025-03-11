@@ -15,7 +15,7 @@
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>{{ translateText('Whoops!') }}</strong> {{ translateText('There were some problems with your input.') }}<br><br>
+        <strong>{{ trans('funds.Whoops') }}</strong> {{ trans('funds.There_were_some_problems_with_your_input') }}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ translateText($error) }}</li>
@@ -45,7 +45,7 @@
                         <div class="form-group row">
                             <label for="exampleInputfund_level" class="col-sm-2 ">{{ trans('funds.FunddingLevel') }}</label>
                             <div class="col-sm-4">
-                                <select name="fund_level" class="custom-select my-select">
+                                <select name="fund_level" id="fund_level" class="custom-select my-select">
                                 <option value="" disabled selected >{{ trans('funds.DefindFundLevel') }}</option>
                                     <option value="">{{ trans('funds.Unknown') }}</option>
                                     <option value="สูง">{{ trans('funds.High') }}</option>
@@ -61,7 +61,7 @@
                             <input type="text" name="fund_name" class="form-control" placeholder="{{ translateText('name') }}">
                         </div>
                     </div>
-                    
+
                     <div class="form-group row">
                         <label for="exampleInputsupport_resource" class="col-sm-2 ">{{ trans('funds.FundingAgency') }}</label>
                         <div class="col-sm-8">

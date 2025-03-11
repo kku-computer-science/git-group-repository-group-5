@@ -46,7 +46,7 @@ return [
     'Document' => 'Document Type',
     'Page' => 'Page',
     'Journals' => 'Journals/Transactions',
-    'Ciations' => 'Ciations',
+    'Ciations' => 'Citations',
     'Source' => 'Source',
     'Year' => 'Year',
     'Number' => 'Number',
@@ -60,6 +60,7 @@ return [
 
     'Hproject' => 'Academic Services Project / Research Project',
     'No' => 'Number',
+    'no' => 'No.',
     'Pname' => 'Project Name',
     'Detail' => 'Details',
     'PLeader' => 'Project Leader',
@@ -76,6 +77,7 @@ return [
     'CloseP' => 'Close Project',
     'Login' => 'Login',
     'ADetail' => 'ActionBook Detail',
+    'source' => 'source',
 
 
 

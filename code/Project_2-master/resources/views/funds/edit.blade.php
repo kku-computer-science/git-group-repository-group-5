@@ -44,7 +44,7 @@
                         <div class="form-group row">
                             <p class="col-sm-3"><b>{{ trans('funds.FunddingLevel') }}</b></p>
                             <div class="col-sm-4">
-                                <select name="fund_level" class="custom-select my-select">
+                                <select name="fund_level" id="fund_level" class="custom-select my-select">
                                     <option value=""{{ $fund->fund_level == '' ? 'selected' : '' }}>{{ trans('funds.Unknown') }}</option>
                                     <option value="สูง" {{ $fund->fund_level == 'สูง' ? 'selected' : '' }}>{{ trans('funds.High') }}</option>
                                     <option value="กลาง" {{ $fund->fund_level == 'กลาง' ? 'selected' : '' }}>{{ trans('funds.Mid') }}</option>
