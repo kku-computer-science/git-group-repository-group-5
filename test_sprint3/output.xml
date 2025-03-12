@@ -1,151 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-03-12T15:25:43.986058" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-03-12T17:43:50.314936" rpa="false" schemaversion="5">
 <suite id="s1" name="UAT-Project-014" source="C:\Users\Lenovo\Documents\GitHub\git-group-repository-group-5\test_sprint3\UAT-Project-014.robot">
-<test id="s1-t1" name="Manage Publications" line="456">
+<test id="s1-t1" name="Research Groups Page By Thai" line="396">
 <kw name="Open Browser To Login Page">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T15:25:44.296506" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000026640C17CB0&gt;</msg>
+<msg time="2025-03-12T17:43:50.645595" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001398FDDBCB0&gt;</msg>
 <var>${chrome_options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T15:25:44.296266" elapsed="0.000285"/>
+<status status="PASS" start="2025-03-12T17:43:50.645266" elapsed="0.000367"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-03-12T15:25:44.296840" level="INFO">${chrome_options.binary_location} = E:/Software Engineering/chromefortesting/chrome.exe</msg>
+<msg time="2025-03-12T17:43:50.645963" level="INFO">${chrome_options.binary_location} = E:/Software Engineering/chromefortesting/chrome.exe</msg>
 <var>${chrome_options.binary_location}</var>
 <arg>${CHROME_BROWSER_PATH}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-03-12T15:25:44.296652" elapsed="0.000213"/>
+<status status="PASS" start="2025-03-12T17:43:50.645772" elapsed="0.000218"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-gpu</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T15:25:44.296941" elapsed="0.000080"/>
+<status status="PASS" start="2025-03-12T17:43:50.646096" elapsed="0.000110"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T15:25:44.297081" elapsed="0.000080"/>
+<status status="PASS" start="2025-03-12T17:43:50.646294" elapsed="0.000098"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T15:25:44.297216" elapsed="0.000070"/>
+<status status="PASS" start="2025-03-12T17:43:50.646472" elapsed="0.000088"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--start-maximized</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T15:25:44.297344" elapsed="0.000063"/>
+<status status="PASS" start="2025-03-12T17:43:50.646644" elapsed="0.000095"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-extensions</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T15:25:44.297458" elapsed="0.000060"/>
+<status status="PASS" start="2025-03-12T17:43:50.646810" elapsed="0.000092"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-popup-blocking</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T15:25:44.297579" elapsed="0.000064"/>
+<status status="PASS" start="2025-03-12T17:43:50.646976" elapsed="0.000090"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-infobars</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T15:25:44.297697" elapsed="0.000061"/>
+<status status="PASS" start="2025-03-12T17:43:50.647138" elapsed="0.000101"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T15:25:44.298318" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x0000026640C17A10&gt;</msg>
+<msg time="2025-03-12T17:43:50.647980" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x000001398FDDBA10&gt;</msg>
 <var>${service}</var>
 <arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T15:25:44.297814" elapsed="0.000525"/>
+<status status="PASS" start="2025-03-12T17:43:50.647316" elapsed="0.000695"/>
 </kw>
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:44.298551" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-03-12T17:43:50.648322" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
 <arg>Chrome</arg>
 <arg>options=${chrome_options}</arg>
 <arg>service=${service}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-03-12T15:25:44.298414" elapsed="1.198875"/>
+<status status="PASS" start="2025-03-12T17:43:50.648132" elapsed="1.257261"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:45.497590" level="INFO">Opening url 'http://127.0.0.1:8000/login'</msg>
+<msg time="2025-03-12T17:43:51.905801" level="INFO">Opening url 'http://127.0.0.1:8000/login'</msg>
 <arg>${LOGIN URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-03-12T15:25:45.497450" elapsed="0.334410"/>
+<status status="PASS" start="2025-03-12T17:43:51.905618" elapsed="0.412675"/>
 </kw>
 <kw name="Login Page Should Be Open">
 <kw name="Location Should Be" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:45.838604" level="INFO">Current location is 'http://127.0.0.1:8000/login'.</msg>
+<msg time="2025-03-12T17:43:52.327469" level="INFO">Current location is 'http://127.0.0.1:8000/login'.</msg>
 <arg>${LOGIN URL}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<status status="PASS" start="2025-03-12T15:25:45.832311" elapsed="0.006377"/>
+<status status="PASS" start="2025-03-12T17:43:52.318970" elapsed="0.009379"/>
 </kw>
-<status status="PASS" start="2025-03-12T15:25:45.832065" elapsed="0.006725"/>
+<status status="PASS" start="2025-03-12T17:43:52.318623" elapsed="0.009848"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T15:25:45.838917" elapsed="0.003110"/>
+<status status="PASS" start="2025-03-12T17:43:52.328598" elapsed="0.003266"/>
 </kw>
-<status status="PASS" start="2025-03-12T15:25:44.295804" elapsed="1.546318"/>
+<status status="PASS" start="2025-03-12T17:43:50.644517" elapsed="1.687462"/>
 </kw>
 <kw name="Login Page Should Be Open">
 <kw name="Location Should Be" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:45.845983" level="INFO">Current location is 'http://127.0.0.1:8000/login'.</msg>
+<msg time="2025-03-12T17:43:52.337973" level="INFO">Current location is 'http://127.0.0.1:8000/login'.</msg>
 <arg>${LOGIN URL}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<status status="PASS" start="2025-03-12T15:25:45.842591" elapsed="0.003474"/>
+<status status="PASS" start="2025-03-12T17:43:52.332738" elapsed="0.005363"/>
 </kw>
-<status status="PASS" start="2025-03-12T15:25:45.842404" elapsed="0.003742"/>
+<status status="PASS" start="2025-03-12T17:43:52.332390" elapsed="0.005850"/>
 </kw>
 <kw name="User Login">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:45.847161" level="INFO">Typing text 'admin@gmail.com' into text field 'id=username'.</msg>
+<msg time="2025-03-12T17:43:52.340485" level="INFO">Typing text 'admin@gmail.com' into text field 'id=username'.</msg>
 <arg>id=username</arg>
 <arg>${USER_USERNAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:25:45.846779" elapsed="0.078328"/>
+<status status="PASS" start="2025-03-12T17:43:52.339918" elapsed="0.120834"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:45.925488" level="INFO">Typing text '12345678' into text field 'id=password'.</msg>
+<msg time="2025-03-12T17:43:52.461173" level="INFO">Typing text '12345678' into text field 'id=password'.</msg>
 <arg>id=password</arg>
 <arg>${USER_PASSWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:25:45.925278" elapsed="0.099629"/>
+<status status="PASS" start="2025-03-12T17:43:52.460941" elapsed="0.138173"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:46.025215" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<msg time="2025-03-12T17:43:52.599781" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
 <arg>xpath=//button[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:25:46.025052" elapsed="0.055933"/>
+<status status="PASS" start="2025-03-12T17:43:52.599441" elapsed="1.992693"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T15:25:48.081852" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-03-12T17:43:56.593234" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T15:25:46.081149" elapsed="2.000914"/>
+<status status="PASS" start="2025-03-12T17:43:54.592343" elapsed="2.001047"/>
 </kw>
 <kw name="Location Should Be" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:48.094150" level="INFO">Current location is 'http://127.0.0.1:8000/dashboard'.</msg>
+<msg time="2025-03-12T17:43:56.599225" level="INFO">Current location is 'http://127.0.0.1:8000/dashboard'.</msg>
 <arg>${USER URL}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<status status="PASS" start="2025-03-12T15:25:48.082384" elapsed="0.011927"/>
+<status status="PASS" start="2025-03-12T17:43:56.593642" elapsed="0.005673"/>
 </kw>
-<status status="PASS" start="2025-03-12T15:25:45.846499" elapsed="2.247974"/>
+<status status="PASS" start="2025-03-12T17:43:52.339474" elapsed="4.259929"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-12T17:43:56.599991" level="INFO">Opening url 'http://127.0.0.1:8000/researchGroups'</msg>
+<arg>${SERVER}/researchGroups</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-12T17:43:56.599814" elapsed="1.104891"/>
 </kw>
 <kw name="Switch Language To">
 <if>
@@ -154,64 +160,64 @@
 <var>${new_lang}</var>
 <arg>id=navbarDropdownMenuLink</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-03-12T15:25:48.096039" elapsed="0.000054"/>
+<status status="NOT RUN" start="2025-03-12T17:43:57.706537" elapsed="0.000114"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${new_lang}</arg>
 <arg>${expected_language}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-03-12T15:25:48.096277" elapsed="0.000043"/>
+<status status="NOT RUN" start="2025-03-12T17:43:57.707880" elapsed="0.000086"/>
 </kw>
 <return>
-<status status="NOT RUN" start="2025-03-12T15:25:48.096700" elapsed="0.000072"/>
+<status status="NOT RUN" start="2025-03-12T17:43:57.708099" elapsed="0.000067"/>
 </return>
-<status status="NOT RUN" start="2025-03-12T15:25:48.095669" elapsed="0.001178"/>
+<status status="NOT RUN" start="2025-03-12T17:43:57.706191" elapsed="0.002056"/>
 </branch>
-<status status="PASS" start="2025-03-12T15:25:48.095622" elapsed="0.001293"/>
+<status status="PASS" start="2025-03-12T17:43:57.706145" elapsed="0.002176"/>
 </if>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>id=navbarDropdownMenuLink</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T15:25:48.097084" elapsed="0.035992"/>
+<status status="PASS" start="2025-03-12T17:43:57.708501" elapsed="0.026485"/>
 </kw>
 <kw name="Mouse Over" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:48.133431" level="INFO">Simulating Mouse Over on element 'id=navbarDropdownMenuLink'.</msg>
+<msg time="2025-03-12T17:43:57.736420" level="INFO">Simulating Mouse Over on element 'id=navbarDropdownMenuLink'.</msg>
 <arg>id=navbarDropdownMenuLink</arg>
 <doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:25:48.133237" elapsed="0.266792"/>
+<status status="PASS" start="2025-03-12T17:43:57.735711" elapsed="0.285384"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:48.400533" level="INFO">Clicking element 'id=navbarDropdownMenuLink'.</msg>
+<msg time="2025-03-12T17:43:58.021660" level="INFO">Clicking element 'id=navbarDropdownMenuLink'.</msg>
 <arg>id=navbarDropdownMenuLink</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:25:48.400257" elapsed="0.038901"/>
+<status status="PASS" start="2025-03-12T17:43:58.021362" elapsed="0.046782"/>
 </kw>
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:48.439597" level="INFO">Executing JavaScript:
+<msg time="2025-03-12T17:43:58.069116" level="INFO">Executing JavaScript:
 document.querySelector('#navbarDropdownMenuLink').click();
 Without any arguments.</msg>
 <arg>document.querySelector('#navbarDropdownMenuLink').click();</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T15:25:48.439316" elapsed="0.003590"/>
+<status status="PASS" start="2025-03-12T17:43:58.068406" elapsed="0.006488"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//div[contains(@class, 'dropdown-menu')]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T15:25:48.443061" elapsed="0.234687"/>
+<status status="PASS" start="2025-03-12T17:43:58.075158" elapsed="0.269825"/>
 </kw>
 <kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:48.687853" level="INFO">${dropdown_html} = 
+<msg time="2025-03-12T17:43:58.359002" level="INFO">${dropdown_html} = 
                                                                                                                                             &lt;a class="dropdown-item" href="http://127.0.0.1:8000/lang/t...</msg>
 <var>${dropdown_html}</var>
 <arg>xpath=//div[contains(@class, 'dropdown-menu')]</arg>
 <arg>innerHTML</arg>
 <doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:25:48.677910" elapsed="0.009979"/>
+<status status="PASS" start="2025-03-12T17:43:58.345395" elapsed="0.013744"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-03-12T15:25:48.688150" level="INFO">Dropdown HTML: 
+<msg time="2025-03-12T17:43:58.360059" level="INFO">Dropdown HTML: 
                                                                                                                                             &lt;a class="dropdown-item" href="http://127.0.0.1:8000/lang/th"&gt;&lt;span class="flag-icon flag-icon-th"&gt;&lt;/span&gt;
                                 ไทย&lt;/a&gt;
                                                                                                                 &lt;a class="dropdown-item" href="http://127.0.0.1:8000/lang/zh"&gt;&lt;span class="flag-icon flag-icon-cn"&gt;&lt;/span&gt;
@@ -219,2198 +225,469 @@ Without any arguments.</msg>
                                                                                 </msg>
 <arg>Dropdown HTML: ${dropdown_html}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-03-12T15:25:48.688023" elapsed="0.000177"/>
+<status status="PASS" start="2025-03-12T17:43:58.359590" elapsed="0.000679"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:48.688412" level="INFO">Clicking element 'xpath=//a[contains(@href, "/lang/th")]'.</msg>
+<msg time="2025-03-12T17:43:58.361232" level="INFO">Clicking element 'xpath=//a[contains(@href, "/lang/th")]'.</msg>
 <arg>xpath=//a[contains(@href, "/lang/${lang_code}")]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:25:48.688277" elapsed="0.516316"/>
+<status status="PASS" start="2025-03-12T17:43:58.360635" elapsed="1.386600"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T15:25:54.205558" level="INFO">Slept 5 seconds.</msg>
+<msg time="2025-03-12T17:44:04.748896" level="INFO">Slept 5 seconds.</msg>
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T15:25:49.204824" elapsed="5.001020"/>
+<status status="PASS" start="2025-03-12T17:43:59.747569" elapsed="5.001874"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:54.240868" level="INFO">${new_lang} = ไทย</msg>
+<msg time="2025-03-12T17:44:04.797534" level="INFO">${new_lang} = ไทย</msg>
 <var>${new_lang}</var>
 <arg>id=navbarDropdownMenuLink</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:25:54.206206" elapsed="0.034755"/>
+<status status="PASS" start="2025-03-12T17:44:04.750003" elapsed="0.047606"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${new_lang}</arg>
 <arg>${expected_language}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:25:54.241288" elapsed="0.000669"/>
+<status status="PASS" start="2025-03-12T17:44:04.797899" elapsed="0.000412"/>
 </kw>
 <arg>th</arg>
 <arg>ไทย</arg>
-<status status="PASS" start="2025-03-12T15:25:48.095182" elapsed="6.147005"/>
+<status status="PASS" start="2025-03-12T17:43:57.705512" elapsed="7.092954"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T15:25:56.243968" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-03-12T17:44:06.799458" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T15:25:54.243043" elapsed="2.001124"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:56.245207" level="INFO">Clicking element 'xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]'.</msg>
-<arg>xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:25:56.244825" elapsed="0.088993"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]</arg>
-<arg>timeout=5s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T15:25:56.334873" elapsed="0.245686"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:56.581222" level="INFO">Clicking element 'xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]'.</msg>
-<arg>xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:25:56.581014" elapsed="2.644800"/>
+<status status="PASS" start="2025-03-12T17:44:04.798903" elapsed="2.000777"/>
 </kw>
 <kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:59.264823" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
+<msg time="2025-03-12T17:44:06.807607" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
 <var>${html_source}</var>
 <doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T15:25:59.226283" elapsed="0.038768"/>
+<status status="PASS" start="2025-03-12T17:44:06.800274" elapsed="0.007377"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>งานวิจัยที่ตีพิมพ์</arg>
+<arg>กลุ่มวิจัย</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:25:59.266028" elapsed="0.000263"/>
+<status status="PASS" start="2025-03-12T17:44:06.808059" elapsed="0.000351"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ชื่อเรื่อง</arg>
+<arg>ชื่อ</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:25:59.266692" elapsed="0.000193"/>
+<status status="PASS" start="2025-03-12T17:44:06.808828" elapsed="0.000192"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ลำดับ</arg>
+<arg>ลำดับที่</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:25:59.267228" elapsed="0.000574"/>
+<status status="PASS" start="2025-03-12T17:44:06.809392" elapsed="0.000164"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ประเภท</arg>
+<arg>ชื่อกลุ่มวิจัย</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:25:59.268196" elapsed="0.000752"/>
+<status status="PASS" start="2025-03-12T17:44:06.809775" elapsed="0.000147"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ปีที่ตีพิมพ์</arg>
+<arg>หัวหน้ากลุ่มวิจัย</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:25:59.270879" elapsed="0.000338"/>
+<status status="PASS" start="2025-03-12T17:44:06.810170" elapsed="0.000236"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>สมาชิก</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:06.810715" elapsed="0.000252"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>การกระทำ</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:25:59.271714" elapsed="0.000330"/>
+<status status="PASS" start="2025-03-12T17:44:06.811176" elapsed="0.000204"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>ค้นหา</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:25:59.272530" elapsed="0.000308"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:25:59.273619" level="INFO">Clicking element '//a[contains(@class, 'btn-primary') and contains(@class, 'btn-menu') and .//i[contains(@class, 'mdi-plus')]]'.</msg>
-<arg>${ADD_BUTTON_XPATH}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:25:59.273281" elapsed="0.819925"/>
-</kw>
-<kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:00.106496" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
-<var>${html_source}</var>
-<doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.093926" elapsed="0.012675"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>เพิ่มผลงานตีพิมพ์</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.108626" elapsed="0.000503"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>กรอกข้อมูลรายละเอียดงานวิจัย</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.112205" elapsed="0.000515"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>แหล่งเผยแพร่งานวิจัย</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.113242" elapsed="0.000501"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ชื่องานวิจัย</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.116639" elapsed="0.000429"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>บทคัดย่อ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.118755" elapsed="0.000417"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>คำสำคัญ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.119709" elapsed="0.000340"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>id=paper_type</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.120514" elapsed="0.285173"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:00.407408" level="INFO">Clicking element 'id=paper_type'.</msg>
-<arg>id=paper_type</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.406963" elapsed="0.135797"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-03-12T15:26:00.543465" level="INFO">${DROPDOWN_XPATH} = //select[@class="custom-select my-select" and @name="paper_type"]</msg>
-<var>${DROPDOWN_XPATH}</var>
-<arg>//select[@class="custom-select my-select" and @name="paper_type"]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.543249" elapsed="0.000251"/>
-</kw>
-<kw name="Get List Items" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:00.668269" level="INFO">${options} = ['โปรดเลือกประเภทเอกสาร', 'วารสาร', 'รายงานการประชุมวิชาการ', 'ชุดหนังสือ', 'หนังสือ']</msg>
-<var>${options}</var>
-<arg>${DROPDOWN_XPATH}</arg>
-<doc>Returns all labels or values of selection list ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.544080" elapsed="0.124226"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>วารสาร</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.668595" elapsed="0.000173"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T15:26:01.169567" level="INFO">Slept 500 milliseconds.</msg>
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T15:26:00.668919" elapsed="0.500794"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>id=paper_subtype</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.170209" elapsed="0.295526"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:01.466594" level="INFO">Clicking element 'id=paper_subtype'.</msg>
-<arg>id=paper_subtype</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.466284" elapsed="0.090311"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-03-12T15:26:01.557152" level="INFO">${DROPDOWN_XPATH} = //select[@class="custom-select my-select" and @name="paper_subtype"]</msg>
-<var>${DROPDOWN_XPATH}</var>
-<arg>//select[@class="custom-select my-select" and @name="paper_subtype"]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.556988" elapsed="0.000186"/>
-</kw>
-<kw name="Get List Items" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:01.700776" level="INFO">${options} = ['โปรดเลือกประเภทย่อย', 'บทความ', 'บทความในการประชุมวิชาการ', 'บรรณาธิการ', 'บทวิจารณ์', 'คำแก้ไข', 'บทในหนังสือ']</msg>
-<var>${options}</var>
-<arg>${DROPDOWN_XPATH}</arg>
-<doc>Returns all labels or values of selection list ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.557401" elapsed="0.143411"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>โปรดเลือกประเภทย่อย</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.701074" elapsed="0.000138"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>บทความ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.701621" elapsed="0.000252"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>บทความในการประชุมวิชาการ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.702083" elapsed="0.000153"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>บรรณาธิการ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.702507" elapsed="0.000154"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>บทวิจารณ์</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.702989" elapsed="0.000310"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>คำแก้ไข</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.703676" elapsed="0.000295"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>บทในหนังสือ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.704370" elapsed="0.000308"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T15:26:02.206237" level="INFO">Slept 500 milliseconds.</msg>
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T15:26:01.705204" elapsed="0.501344"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>id=publication</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:02.207516" elapsed="0.333456"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:02.542043" level="INFO">Clicking element 'id=publication'.</msg>
-<arg>id=publication</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:02.541636" elapsed="0.098256"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-03-12T15:26:02.640396" level="INFO">${DROPDOWN_XPATH} = //select[@class="custom-select my-select" and @name="publication"]</msg>
-<var>${DROPDOWN_XPATH}</var>
-<arg>//select[@class="custom-select my-select" and @name="publication"]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-03-12T15:26:02.640186" elapsed="0.000237"/>
-</kw>
-<kw name="Get List Items" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:02.741791" level="INFO">${options} = ['โปรดเลือกประเภท', 'วารสารนานาชาติ', 'หนังสือนานาชาติ', 'การประชุมวิชาการนานาชาติ', 'การประชุมวิชาการในประเทศ', 'วารสารในประเทศ', 'หนังสือในประเทศ', 'นิตยสารในประเทศ', 'บทในหนังสือ']</msg>
-<var>${options}</var>
-<arg>${DROPDOWN_XPATH}</arg>
-<doc>Returns all labels or values of selection list ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:02.640606" elapsed="0.101236"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>หนังสือนานาชาติ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:02.742145" elapsed="0.000172"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//*[contains(text(),'ประเภทเอกสาร')]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:02.742565" elapsed="0.265742"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ประเภทเอกสาร</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:03.008719" elapsed="0.000192"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//*[contains(text(),'ประเภทย่อย')]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:03.009326" elapsed="0.286421"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ประเภทย่อย</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:03.297638" elapsed="0.000608"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//*[contains(text(),'การตีพิมพ์')]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:03.298854" elapsed="0.318323"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>การตีพิมพ์</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:03.617935" elapsed="0.000498"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//*[contains(text(),'การอ้างอิง')]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:03.619033" elapsed="0.342861"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>การอ้างอิง</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:03.962689" elapsed="0.000516"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//*[contains(text(),'เลขหน้า')]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:03.963873" elapsed="0.341048"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>เลขหน้า</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:04.305764" elapsed="0.000496"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//*[contains(text(),'ทุนสนับสนุน')]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:04.307442" elapsed="0.354381"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ทุนสนับสนุน</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:04.662750" elapsed="0.000520"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//*[contains(text(),'บุคคลภายในสาขา')]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:04.663850" elapsed="0.324112"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>บุคคลภายในสาขา</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:04.988886" elapsed="0.000388"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>id=selUser0</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:04.989639" elapsed="0.324168"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:05.314919" level="INFO">Clicking element 'id=selUser0'.</msg>
-<arg>id=selUser0</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:05.314555" elapsed="0.069291"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:05.385066" level="INFO">Clicking element 'id=pos'.</msg>
-<arg>id=pos</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:05.384515" elapsed="0.056504"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>id=submit</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:05.441625" elapsed="0.299492"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//*[contains(text(),'บุคคลภายนอก')]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:05.742447" elapsed="0.292219"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>บุคคลภายนอก</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:06.035436" elapsed="0.000502"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>id=pos2</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:06.036451" elapsed="0.322136"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:06.359497" level="INFO">Clicking element 'id=pos2'.</msg>
-<arg>id=pos2</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:06.359141" elapsed="0.096042"/>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:06.455840" level="INFO">Opening url 'http://127.0.0.1:8000/papers'</msg>
-<arg>${SERVER}/papers</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-03-12T15:26:06.455604" elapsed="2.043383"/>
+<status status="PASS" start="2025-03-12T17:44:06.811562" elapsed="0.000298"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${VIEW_BUTTON_XPATH}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T15:26:08.499442" elapsed="0.022052"/>
+<status status="PASS" start="2025-03-12T17:44:06.812079" elapsed="0.051241"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:08.523546" level="INFO">Clicking element '//a[contains(@class, 'btn-outline-primary')]/i[contains(@class, 'mdi-eye')]'.</msg>
+<msg time="2025-03-12T17:44:06.865049" level="INFO">Clicking element '//a[contains(@class, 'btn-outline-primary')]/i[contains(@class, 'mdi-eye')]'.</msg>
 <arg>${VIEW_BUTTON_XPATH}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:08.522043" elapsed="0.783367"/>
+<status status="PASS" start="2025-03-12T17:44:06.864327" elapsed="0.949766"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T15:26:11.306905" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-03-12T17:44:09.815795" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T15:26:09.305824" elapsed="2.001363"/>
+<status status="PASS" start="2025-03-12T17:44:07.814904" elapsed="2.001047"/>
 </kw>
 <kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:11.322310" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
+<msg time="2025-03-12T17:44:09.821676" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
 <var>${html_source}</var>
 <doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.308598" elapsed="0.013886"/>
+<status status="PASS" start="2025-03-12T17:44:09.816314" elapsed="0.005437"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>รายละเอียดงานวารสาร</arg>
+<arg>ชื่อกลุ่มวิจัย (ภาษาไทย)</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.323300" elapsed="0.000664"/>
+<status status="PASS" start="2025-03-12T17:44:09.822133" elapsed="0.000202"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ชื่อเรื่อง</arg>
+<arg>ชื่อกลุ่มวิจัย (English)</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.324591" elapsed="0.000569"/>
+<status status="PASS" start="2025-03-12T17:44:09.822579" elapsed="0.000154"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>บทคัดย่อ</arg>
+<arg>คำอธิบายกลุ่มวิจัย (ภาษาไทย)</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.326194" elapsed="0.000884"/>
+<status status="PASS" start="2025-03-12T17:44:09.822896" elapsed="0.000128"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>คำสำคัญ</arg>
+<arg>คำอธิบายกลุ่มวิจัย (English)</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.329263" elapsed="0.001644"/>
+<status status="PASS" start="2025-03-12T17:44:09.823190" elapsed="0.000134"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ประเภท</arg>
+<arg>รายละเอียดกลุ่มวิจัย (ภาษาไทย)</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.331620" elapsed="0.000711"/>
+<status status="PASS" start="2025-03-12T17:44:09.823459" elapsed="0.000114"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ประเภทเอกสาร</arg>
+<arg>รายละเอียดกลุ่มวิจัย (English)</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.333033" elapsed="0.001201"/>
+<status status="PASS" start="2025-03-12T17:44:09.823698" elapsed="0.000124"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>การตีพิมพ์</arg>
+<arg>หัวหน้ากลุ่มวิจัย</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.339387" elapsed="0.000730"/>
+<status status="PASS" start="2025-03-12T17:44:09.824160" elapsed="0.000234"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ผู้เขียน</arg>
+<arg>สมาชิกกลุ่มวิจัย</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.341242" elapsed="0.000493"/>
+<status status="PASS" start="2025-03-12T17:44:09.824631" elapsed="0.000234"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ชื่องานวารสาร</arg>
+<arg>ผศ.ดร.พิพัธน์ เรืองแสง</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.342819" elapsed="0.000426"/>
+<status status="PASS" start="2025-03-12T17:44:09.825122" elapsed="0.000384"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ปีที่ตีพิมพ์</arg>
+<arg>รศ.ดร.ชัยพล กีรติกสิกร</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.343858" elapsed="0.000913"/>
+<status status="PASS" start="2025-03-12T17:44:09.825733" elapsed="0.000125"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>เล่มที่</arg>
+<arg>ผศ.ดร.ณกร วัฒนกิจ</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.345486" elapsed="0.000329"/>
+<status status="PASS" start="2025-03-12T17:44:09.826000" elapsed="0.000108"/>
 </kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ฉบับที่</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.350383" elapsed="0.000558"/>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-12T17:44:09.826353" level="INFO">Opening url 'http://127.0.0.1:8000/researchGroups'</msg>
+<arg>${SERVER}/researchGroups</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-12T17:44:09.826243" elapsed="0.814664"/>
 </kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>เลขหน้า</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.351393" elapsed="0.000372"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//a[contains(text(),'กลับ')]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.352503" elapsed="0.310629"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:11.663835" level="INFO">Clicking element 'xpath=//a[contains(text(),'กลับ')]'.</msg>
-<arg>xpath=//a[contains(text(),'กลับ')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:11.663595" elapsed="3.199331"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:14.864553" level="INFO">Clicking element 'xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]'.</msg>
-<arg>xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:14.864087" elapsed="0.106244"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-12T17:44:12.642962" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-12T17:44:10.641767" elapsed="2.001397"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[contains(@href, '/books') and contains(text(), 'หนังสือ')]</arg>
+<arg>//a[contains(@class, 'btn-outline-success')]/i[contains(@class, 'mdi-pencil')]</arg>
 <arg>timeout=2s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T15:26:14.970864" elapsed="0.027455"/>
+<status status="PASS" start="2025-03-12T17:44:12.649302" elapsed="0.043595"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:14.999223" level="INFO">Clicking element 'xpath=//a[contains(@href, '/books') and contains(text(), 'หนังสือ')]'.</msg>
-<arg>xpath=//a[contains(@href, '/books') and contains(text(), 'หนังสือ')]</arg>
+<msg time="2025-03-12T17:44:12.694999" level="INFO">Clicking element '//a[contains(@class, 'btn-outline-success')]/i[contains(@class, 'mdi-pencil')]'.</msg>
+<arg>//a[contains(@class, 'btn-outline-success')]/i[contains(@class, 'mdi-pencil')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:14.998831" elapsed="3.000715"/>
+<status status="PASS" start="2025-03-12T17:44:12.694415" elapsed="1.111724"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-03-12T17:44:13.825185" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
+<var>${html_source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-03-12T17:44:13.806646" elapsed="0.019312"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ชื่อกลุ่มวิจัย (ภาษาไทย)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:13.826637" elapsed="0.000428"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ชื่อกลุ่มวิจัย (English)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:13.827448" elapsed="0.000302"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>คำอธิบายกลุ่มวิจัย (ภาษาไทย)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:13.828099" elapsed="0.000298"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>คำอธิบายกลุ่มวิจัย (English)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:13.828735" elapsed="0.000268"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>รายละเอียดกลุ่มวิจัย (ภาษาไทย)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:13.829518" elapsed="0.000390"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>รายละเอียดกลุ่มวิจัย (English)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:13.830329" elapsed="0.000325"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>รูปภาพ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:13.831234" elapsed="0.000343"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>หัวหน้ากลุ่มวิจัย</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:13.831938" elapsed="0.000278"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>สมาชิกกลุ่มวิจัย</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:13.832547" elapsed="0.000281"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-12T17:44:13.833770" level="INFO">Executing JavaScript:
+window.scrollTo(0,500)
+Without any arguments.</msg>
+<arg>window.scrollTo(0,500)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-12T17:44:13.833160" elapsed="0.009880"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T15:26:20.010578" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-03-12T17:44:15.846982" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T15:26:18.000016" elapsed="2.010844"/>
+<status status="PASS" start="2025-03-12T17:44:13.843682" elapsed="2.003537"/>
 </kw>
-<kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:20.087542" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
-<var>${html_source}</var>
-<doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T15:26:20.017085" elapsed="0.070664"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-03-12T15:26:20.092268" level="INFO">&lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}.swal-icon--warning{border-color:#f8bb86;-webkit-animation:pulseWarning .75s infinite alternate;animation:pulseWarning .75s infinite alternate}.swal-icon--warning__body{width:5px;height:47px;top:10px;border-radius:2px;margin-left:-2px}.swal-icon--warning__body,.swal-icon--warning__dot{position:absolute;left:50%;background-color:#f8bb86}.swal-icon--warning__dot{width:7px;height:7px;border-radius:50%;margin-left:-4px;bottom:-11px}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success{border-color:#a5dc86}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}.swal-icon--success__ring{width:80px;height:80px;border:4px solid hsla(98,55%,69%,.2);border-radius:50%;box-sizing:content-box;position:absolute;left:-4px;top:-4px;z-index:2}.swal-icon--success__hide-corners{width:5px;height:90px;background-color:#fff;padding:1px;position:absolute;left:28px;top:8px;z-index:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal-icon--success__line{height:5px;background-color:#a5dc86;display:block;border-radius:2px;position:absolute;z-index:2}.swal-icon--success__line--tip{width:25px;left:14px;top:46px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:animateSuccessTip .75s;animation:animateSuccessTip .75s}.swal-icon--success__line--long{width:47px;right:8px;top:38px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:animateSuccessLong .75s;animation:animateSuccessLong .75s}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info{border-color:#c9dae1}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-icon{width:80px;height:80px;border-width:4px;border-style:solid;border-radius:50%;padding:0;position:relative;box-sizing:content-box;margin:20px auto}.swal-icon:first-child{margin-top:32px}.swal-icon--custom{width:auto;height:auto;max-width:100%;border:none;border-radius:0}.swal-icon img{max-width:100%;max-height:100%}.swal-title{color:rgba(0,0,0,.65);font-weight:600;text-transform:none;position:relative;display:block;padding:13px 16px;font-size:27px;line-height:normal;text-align:center;margin-bottom:0}.swal-title:first-child{margin-top:26px}.swal-title:not(:first-child){padding-bottom:0}.swal-title:not(:last-child){margin-bottom:13px}.swal-text{font-size:16px;position:relative;float:none;line-height:normal;vertical-align:top;text-align:left;display:inline-block;margin:0;padding:0 10px;font-weight:400;color:rgba(0,0,0,.64);max-width:calc(100% - 20px);overflow-wrap:break-word;box-sizing:border-box}.swal-text:first-child{margin-top:45px}.swal-text:last-child{margin-bottom:45px}.swal-footer{text-align:right;padding-top:13px;margin-top:13px;padding:13px 16px;border-radius:inherit;border-top-left-radius:0;border-top-right-radius:0}.swal-button-container{margin:5px;display:inline-block;position:relative}.swal-button{background-color:#7cd1f9;color:#fff;border:none;box-shadow:none;border-radius:5px;font-weight:600;font-size:14px;padding:10px 24px;margin:0;cursor:pointer}.swal-button[not:disabled]:hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button[disabled]{opacity:.5;cursor:default}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel{color:#555;background-color:#efefef}.swal-button--cancel[not:disabled]:hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger{background-color:#e64942}.swal-button--danger[not:disabled]:hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content{padding:0 20px;margin-top:20px;font-size:medium}.swal-content:last-child{margin-bottom:20px}.swal-content__input,.swal-content__textarea{-webkit-appearance:none;background-color:#fff;border:none;font-size:14px;display:block;box-sizing:border-box;width:100%;border:1px solid rgba(0,0,0,.14);padding:10px 13px;border-radius:2px;transition:border-color .2s}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}.swal-content__textarea{resize:vertical}.swal-button--loading{color:transparent}.swal-button--loading~.swal-button__loader{opacity:1}.swal-button__loader{position:absolute;height:auto;width:43px;z-index:2;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);text-align:center;pointer-events:none;opacity:0}.swal-button__loader div{display:inline-block;float:none;vertical-align:baseline;width:9px;height:9px;padding:0;border:none;margin:2px;opacity:.4;border-radius:7px;background-color:hsla(0,0%,100%,.9);transition:background .2s;-webkit-animation:swal-loading-anim 1s infinite;animation:swal-loading-anim 1s infinite}.swal-button__loader div:nth-child(3n+2){-webkit-animation-delay:.15s;animation-delay:.15s}.swal-button__loader div:nth-child(3n+3){-webkit-animation-delay:.3s;animation-delay:.3s}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay{position:fixed;top:0;bottom:0;left:0;right:0;text-align:center;font-size:0;overflow-y:auto;background-color:rgba(0,0,0,.4);z-index:10000;pointer-events:none;opacity:0;transition:opacity .3s}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}.swal-overlay--show-modal{opacity:1;pointer-events:auto}.swal-overlay--show-modal .swal-modal{opacity:1;pointer-events:auto;box-sizing:border-box;-webkit-animation:showSweetAlert .3s;animation:showSweetAlert .3s;will-change:transform}.swal-modal{width:478px;opacity:0;pointer-events:none;background-color:#fff;text-align:center;border-radius:5px;position:static;margin:20px auto;display:inline-block;vertical-align:middle;-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;z-index:10001;transition:opacity .2s,-webkit-transform .3s;transition:transform .3s,opacity .2s;transition:transform .3s,opacity .2s,-webkit-transform .3s}@media (max-width:500px){.swal-modal{width:calc(100% - 20px)}}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}&lt;/style&gt;&lt;link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css"&gt;
-&lt;link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css"&gt;
-&lt;link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css"&gt;
-
-
-
-&lt;!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
---&gt;
-
-
-
-    &lt;meta charset="utf-8"&gt;
-    &lt;meta name="csrf-token" content="sk1k3726YXIVxSn7KJLUWsgaPKIWa7KOtk9qrvYL"&gt;
-    &lt;title&gt;Dashboard&lt;/title&gt;
-    &lt;base href="http://127.0.0.1:8000"&gt;
-    &lt;link href="img/Newlogo.png" rel="shortcut icon" type="image/x-icon"&gt;
-    &lt;!-- Font Awesome Icons --&gt;
-    &lt;link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/plugins/ijaboCropTool/ijaboCropTool.min.css"&gt;
-    &lt;!-- Theme style --&gt;
-    &lt;!-- Google Font: Source Sans Pro --&gt;
-    &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;amp;display=fallback"&gt;
-
-    &lt;!-- plugins:css --&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/feather/feather.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/mdi/css/materialdesignicons.min.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/ti-icons/css/themify-icons.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/typicons/typicons.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/simple-line-icons/css/simple-line-icons.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/css/vendor.bundle.base.css"&gt;
-    &lt;!-- endinject --&gt;
-    &lt;!-- Plugin css for this page --&gt;
-    &lt;!-- &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/datatables.net-bs4/dataTables.bootstrap4.css"&gt; --&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/js/select.dataTables.min.css"&gt;
-    &lt;!-- End plugin css for this page --&gt;
-    &lt;!-- inject:css --&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/css/styleadmin.css"&gt;
-
-    &lt;!-- endinject --&gt;
-    &lt;!-- &lt;link rel="shortcut icon" href="images/favicon.png" /&gt; --&gt;
-    &lt;link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"&gt;
-    &lt;!-- &lt;script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"&gt; &lt;/script&gt; --&gt;
-
-    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"&gt;
-    &lt;!-- &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"&gt; --&gt;
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-
-&lt;body style="height: auto;"&gt;
-    &lt;div class=" container-scroller sidebar-dark"&gt;
-        &lt;!-- navbar ข้างบน 
-    --&gt;
-        &lt;nav class=" navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row"&gt;
-            &lt;div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start"&gt;
-                &lt;div class="me-3"&gt;
-                    &lt;button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize"&gt;
-                        &lt;span class="icon-menu"&gt;&lt;/span&gt;
-                    &lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;!--   --&gt;
-            &lt;!-- Left navbar links --&gt;
-            &lt;div class="navbar-menu-wrapper d-flex align-items-top"&gt;
-                &lt;ul class="navbar-nav"&gt;
-                    &lt;li class="nav-item font-weight-semibold d-none d-lg-block ms-0"&gt;
-                    &lt;h1 class="welcome-text"&gt;ระบบจัดการข้อมูลการวิจัย &lt;span class="text-black fw-bold"&gt;&lt;/span&gt;&lt;/h1&gt;
-                        &lt;h3 class="welcome-sub-text"&gt; &lt;/h3&gt;
-                    &lt;/li&gt;
-                    
-                &lt;/ul&gt;
-                
-                &lt;ul class="navbar-nav ms-auto"&gt;
-                    &lt;li class="nav-item d-none d-lg-block"&gt;
-                        &lt;div id="datepicker-popup" class="input-group date datepicker navbar-date-picker"&gt;
-                            &lt;span class="input-group-addon input-group-prepend border-right"&gt;
-                                &lt;span class="icon-calendar input-group-text calendar-icon"&gt;&lt;/span&gt;
-                            &lt;/span&gt;
-                            &lt;input type="text" class="form-control"&gt;
-                        &lt;/div&gt;
-                    &lt;/li&gt;
-                    &lt;li class="nav-item"&gt;
-                        &lt;form class="search-form" action="#"&gt;
-                            &lt;i class="icon-search"&gt;&lt;/i&gt;
-                            &lt;input type="search" class="form-control" placeholder="Search Here" title="Search here"&gt;
-                        &lt;/form&gt;
-                    &lt;/li&gt;
-                    &lt;li class="nav-item dropdown"&gt;
-                        &lt;a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
-                            &lt;span class="flag-icon flag-icon-th"&gt;&lt;/span&gt;
-                            ไทย
-                        &lt;/a&gt;
-                        &lt;div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"&gt;
-                                                                                    &lt;a class="dropdown-item" href="http://127.0.0.1:8000/lang/en"&gt;&lt;span class="flag-icon flag-icon-us"&gt;&lt;/span&gt;
-                                English&lt;/a&gt;
-                                                                                                                                                                        &lt;a class="dropdown-item" href="http://127.0.0.1:8000/lang/zh"&gt;&lt;span class="flag-icon flag-icon-cn"&gt;&lt;/span&gt;
-                                中文&lt;/a&gt;
-                                                                                &lt;/div&gt;
-                    &lt;/li&gt;
-                    &lt;!-- &lt;li class="nav-item dropdown"&gt;
-                        &lt;a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
-                            aria-expanded="false"&gt;
-                            &lt;i class="icon-bell"&gt;&lt;/i&gt;
-                            &lt;span class="count"&gt;&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt; --&gt;
-                    &lt;!-- &lt;li class="nav-item dropdown d-none d-lg-block user-dropdown"&gt;
-                        &lt;a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"&gt;
-                            &lt;img class="img-xs rounded-circle" src="http://127.0.0.1:8000/images/imag_user/UIMG_202203296242bbe5c8689.jpg"
-                                alt="User profile picture"&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt; --&gt;
-                    &lt;!-- &lt;div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown"&gt;
-                            &lt;div class="dropdown-header text-center"&gt;
-                                &lt;img class="img-md rounded-circle" src="http://127.0.0.1:8000/images/imag_user/UIMG_202203296242bbe5c8689.jpg"
-                                    alt="Profile image"&gt;
-                                &lt;p class="mb-1 mt-3 font-weight-semibold"&gt;&lt;/p&gt;
-                                &lt;p class="fw-light text-muted mb-0"&gt;&lt;/p&gt;
-                            &lt;/div&gt;
-                            &lt;a class="dropdown-item"&gt;&lt;i
-                                    class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"&gt;&lt;/i&gt; My
-                                Profile &lt;span class="badge badge-pill badge-danger"&gt;1&lt;/span&gt;&lt;/a&gt;
-                            &lt;a class="dropdown-item"&gt;&lt;i
-                                    class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"&gt;&lt;/i&gt;
-                                Messages&lt;/a&gt;
-                            &lt;a class="dropdown-item"&gt;&lt;i
-                                    class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"&gt;&lt;/i&gt;
-                                Activity&lt;/a&gt;
-                            &lt;a class="dropdown-item"&gt;&lt;i
-                                    class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"&gt;&lt;/i&gt;
-                                FAQ&lt;/a&gt;
-                            &lt;a class="dropdown-item"&gt;&lt;i
-                                    class="dropdown-item-icon mdi mdi-power text-primary me-2"&gt;&lt;/i&gt;Sign Out&lt;/a&gt; --&gt;
-                    &lt;li class="nav-item d-none d-sm-inline-block"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault(); 
-                        document.getElementById ('logout-form').submit();"&gt; ออกจากระบบ &lt;i class="mdi mdi-logout"&gt;&lt;/i&gt;&lt;/a&gt;
-                        &lt;form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" class="d-none"&gt;
-                            &lt;input type="hidden" name="_token" value="sk1k3726YXIVxSn7KJLUWsgaPKIWa7KOtk9qrvYL"&gt;                        &lt;/form&gt;
-                    &lt;/li&gt;
-            &lt;/ul&gt;&lt;/div&gt;
-            
-            &lt;button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas"&gt;
-                &lt;span class="mdi mdi-menu"&gt;&lt;/span&gt;
-            &lt;/button&gt;
-
-        &lt;/nav&gt;
-        &lt;!-- navbar ข้างบน --&gt;
-        &lt;div class="container-fluid page-body-wrapper"&gt;
-            &lt;!-- Main Sidebar Container --&gt;
-            &lt;!-- &lt;div class="theme-setting-wrapper"&gt;
-                &lt;div id="settings-trigger"&gt;&lt;i class="mdi mdi-home"&gt;&lt;/i&gt;&lt;/div&gt;
-            &lt;/div&gt; --&gt;
-            &lt;nav class="sidebar sidebar-offcanvas" id="sidebar"&gt;
-                &lt;ul class="nav"&gt;
-                    &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link " href="http://127.0.0.1:8000/dashboard"&gt;
-                            &lt;i class="menu-icon mdi mdi-grid-large"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;แดชบอร์ด&lt;/span&gt;                        &lt;/a&gt;
-                    &lt;/li&gt;
-                    &lt;li class="nav-item nav-category"&gt;โปรไฟล์&lt;/li&gt;
-                    &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link " href="http://127.0.0.1:8000/profile"&gt;
-                            &lt;i class="menu-icon mdi mdi-account-circle-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;โปรไฟล์ผู้ใช้&lt;/span&gt;
-
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                    &lt;!-- &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link "
-                            href="http://127.0.0.1:8000/settings"&gt;
-                            &lt;i class="menu-icon mdi mdi mdi-settings-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;Settings&lt;/span&gt;
-
-                        &lt;/a&gt;
-                    &lt;/li&gt; --&gt;
-                    &lt;li class="nav-item nav-category"&gt;ตัวเลือก&lt;/li&gt;
-                                        &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/funds"&gt;
-                            &lt;i class="menu-icon mdi mdi-file-document-box-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;จัดการทุน&lt;/span&gt;
-
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/researchProjects"&gt;
-                            &lt;i class="menu-icon mdi mdi-book-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;โครงการวิจัย&lt;/span&gt;
-
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/researchGroups"&gt;
-                            &lt;i class="menu-icon mdi mdi-view-dashboard-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;กลุ่มวิจัย&lt;/span&gt;
-
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item active"&gt;
-                        &lt;a class="nav-link" data-bs-toggle="collapse" href="#ManagePublications" aria-expanded="false" aria-controls="ManagePublications"&gt;
-                            &lt;i class="menu-icon mdi mdi-book-open-page-variant"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;จัดการผลงานวิจัย&lt;/span&gt;
-                            &lt;i class="menu-arrow"&gt;&lt;/i&gt;
-                        &lt;/a&gt;
-                        &lt;div class="collapse show" id="ManagePublications"&gt;
-                            &lt;ul class="nav flex-column sub-menu"&gt;
-                                &lt;li class="nav-item"&gt; &lt;a class="nav-link" href="http://127.0.0.1:8000/papers"&gt;ผลงานวิจัยที่เผยแพร่&lt;/a&gt;&lt;/li&gt;
-                                &lt;li class="nav-item"&gt; &lt;a class="nav-link active" href="/books"&gt;หนังสือ&lt;/a&gt;&lt;/li&gt;
-                                &lt;li class="nav-item"&gt; &lt;a class="nav-link" href="/patents"&gt;ผลงานวิชาการอื่นๆ&lt;/a&gt;&lt;/li&gt;
-                            &lt;/ul&gt;
-                        &lt;/div&gt;
-                    &lt;/li&gt;
-                                                                                &lt;li class="nav-item nav-category"&gt;ผู้ดูแล&lt;/li&gt;
-                    &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/users"&gt;
-                            &lt;i class="menu-icon mdi mdi-account-multiple-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;ผู้ใช้&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/roles"&gt;
-                            &lt;i class="menu-icon mdi mdi-chart-gantt"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;บทบาท&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/permissions"&gt;
-                            &lt;i class="menu-icon mdi mdi-checkbox-marked-circle-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;สิทธิ์&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/departments"&gt;
-                            &lt;i class="menu-icon mdi mdi-animation-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;แผนก&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                    
-                                        &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/programs"&gt;
-                            &lt;i class="menu-icon mdi mdi-format-list-bulleted"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;จัดการโปรแกรม&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/experts"&gt;
-                            &lt;i class="menu-icon mdi mdi-buffer"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;จัดการความเชี่ยวชาญ&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                        &lt;!--                     &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" target="_blank" href="http://127.0.0.1:8000/logs/overall"&gt;
-                            &lt;i class="menu-icon mdi mdi-monitor-multiple"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;Logs System&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                     --&gt;
-
-                &lt;/ul&gt;
-            &lt;/nav&gt;
-
-            &lt;!-- Content Wrapper. Contains page content --&gt;
-            &lt;div class="main-panel"&gt;
-                &lt;div class="content-wrapper" style="min-height: 843px;"&gt;
-                    
-&lt;div class="container"&gt;
-        &lt;div class="card" style="padding: 16px;"&gt;
-        &lt;div class="card-body"&gt;
-            &lt;h4 class="card-title"&gt;หนังสือ
-                &lt;book&lt; h4=""&gt;
-                    &lt;a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="http://127.0.0.1:8000/books/create"&gt;&lt;i class="mdi mdi-plus btn-icon-prepend"&gt;&lt;/i&gt; เพิ่ม&lt;/a&gt;
-                    &lt;!-- &lt;div class="table-responsive"&gt; --&gt;
-                    &lt;div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"&gt;&lt;div class="row"&gt;&lt;div class="col-sm-12 col-md-6"&gt;&lt;div class="dataTables_length" id="example1_length"&gt;&lt;label&gt;แสดง &lt;select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm"&gt;&lt;option value="10"&gt;10&lt;/option&gt;&lt;option value="25"&gt;25&lt;/option&gt;&lt;option value="50"&gt;50&lt;/option&gt;&lt;option value="100"&gt;100&lt;/option&gt;&lt;/select&gt; รายการ&lt;/label&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="col-sm-12 col-md-6"&gt;&lt;div id="example1_filter" class="dataTables_filter"&gt;&lt;label&gt;ค้นหา:&lt;input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"&gt;&lt;/label&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="row"&gt;&lt;div class="col-sm-12"&gt;&lt;table id="example1" class="table table-striped dataTable no-footer" role="grid" aria-describedby="example1_info"&gt;
-                        &lt;thead&gt;
-                            &lt;tr role="row"&gt;&lt;th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="เลขที่: activate to sort column descending" style="width: 98.4125px;"&gt;เลขที่&lt;/th&gt;&lt;th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="ชื่อ: activate to sort column ascending" style="width: 72.45px;"&gt;ชื่อ&lt;/th&gt;&lt;th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="ปี: activate to sort column ascending" style="width: 55px;"&gt;ปี&lt;/th&gt;&lt;th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="แหล่งข่าว: activate to sort column ascending" style="width: 145.425px;"&gt;แหล่งข่าว&lt;/th&gt;&lt;th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="หน้าหนังสือ: activate to sort column ascending" style="width: 166.525px;"&gt;หน้าหนังสือ&lt;/th&gt;&lt;th width="280px" class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="การกระทำ: activate to sort column ascending" style="width: 280px;"&gt;การกระทำ&lt;/th&gt;&lt;/tr&gt;
-                            &lt;/thead&gt;&lt;thead&gt;
-                            &lt;/thead&gt;&lt;tbody&gt;
-                                                        &lt;tr class="odd"&gt;&lt;td valign="top" colspan="6" class="dataTables_empty"&gt;ไม่พบข้อมูลที่ตรงกัน&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;tbody&gt;
-                    &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="row"&gt;&lt;div class="col-sm-12 col-md-5"&gt;&lt;div class="dataTables_info" id="example1_info" role="status" aria-live="polite"&gt;ไม่มีข้อมูล&lt;/div&gt;&lt;/div&gt;&lt;div class="col-sm-12 col-md-7"&gt;&lt;div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"&gt;&lt;ul class="pagination"&gt;&lt;li class="paginate_button page-item previous disabled" id="example1_previous"&gt;&lt;a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link"&gt;ก่อนหน้า&lt;/a&gt;&lt;/li&gt;&lt;li class="paginate_button page-item next disabled" id="example1_next"&gt;&lt;a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link"&gt;ถัดไป&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-                    &lt;!-- &lt;/div&gt; --&gt;
-                    &lt;br&gt;
-
-        &lt;/book&lt;&gt;&lt;/h4&gt;&lt;/div&gt;
-    &lt;/div&gt;
-
-
-&lt;/div&gt;
-&lt;script src="https://code.jquery.com/jquery-3.3.1.js"&gt;&lt;/script&gt;
-&lt;script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer=""&gt;&lt;/script&gt;
-&lt;script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer=""&gt;&lt;/script&gt;
-&lt;script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer=""&gt;&lt;/script&gt;
-&lt;script&gt;
-    $(document).ready(function() {
-        // ดึง locale จาก Blade
-        let locale = "th";
-
-        let languageSettings = {};
-
-        if (locale === 'en') {
-            languageSettings = {
-                lengthMenu: "Show _MENU_ entries",
-                zeroRecords: "No matching records found",
-                info: "Showing _START_ to _END_ of _TOTAL_ entries",
-                infoEmpty: "No records available",
-                infoFiltered: "(filtered from _MAX_ total records)",
-                search: "Search:",
-                paginate: {
-                    first: "First",
-                    last: "Last",
-                    next: "Next",
-                    previous: "Previous"
-                }
-            };
-        } else if (locale === 'zh') {
-            languageSettings = {
-                lengthMenu: "显示 _MENU_ 条目",
-                zeroRecords: "未找到匹配的记录",
-                info: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                infoEmpty: "没有可用记录",
-                infoFiltered: "(从 _MAX_ 条记录中过滤)",
-                search: "搜索:",
-                paginate: {
-                    first: "首页",
-                    last: "末页",
-                    next: "下页",
-                    previous: "上页"
-                }
-            };
-        } else {
-            // สมมติว่าถ้าเป็น 'th' หรือภาษาอื่น ใช้ภาษาไทย
-            languageSettings = {
-                lengthMenu: "แสดง _MENU_ รายการ",
-                zeroRecords: "ไม่พบข้อมูลที่ตรงกัน",
-                info: "แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ",
-                infoEmpty: "ไม่มีข้อมูล",
-                infoFiltered: "(กรองจากทั้งหมด _MAX_ รายการ)",
-                search: "ค้นหา:",
-                paginate: {
-                    first: "หน้าแรก",
-                    last: "หน้าสุดท้าย",
-                    next: "ถัดไป",
-                    previous: "ก่อนหน้า"
-                }
-            };
-        }
-
-        var table1 = $('#example1').DataTable({
-            responsive: true,
-            language: languageSettings
-        });
-    });
-&lt;/script&gt;
-&lt;script type="text/javascript"&gt;
-    $('.show_confirm').click(function(event) {
-        var form = $(this).closest("form");
-        var name = $(this).data("name");
-        event.preventDefault();
-        swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) =&gt; {
-                if (willDelete) {
-                    swal("Delete Successfully", {
-                        icon: "success",
-                    }).then(function() {
-                        location.reload();
-                        form.submit();
-                    });
-                }
-            });
-    });
-&lt;/script&gt;
-                &lt;/div&gt;
-                &lt;footer class="footer"&gt;
-                    &lt;div class="d-sm-flex justify-content-center justify-content-sm-between"&gt;
-                    &lt;/div&gt;
-                &lt;/footer&gt;
-            &lt;/div&gt;
-
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;!-- plugins:js --&gt;
-    &lt;script src="http://127.0.0.1:8000/vendors/js/vendor.bundle.base.js"&gt;&lt;/script&gt;
-    &lt;!-- endinject --&gt;
-    &lt;!-- Plugin js for this page --&gt;
-    &lt;script src="http://127.0.0.1:8000/vendors/chart.js/Chart.min.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/vendors/progressbar.js/progressbar.min.js"&gt;&lt;/script&gt;
-
-    &lt;!-- End plugin js for this page --&gt;
-    &lt;!-- inject:js --&gt;
-    &lt;script src="http://127.0.0.1:8000/js/off-canvas.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/js/hoverable-collapse.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/js/template.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/js/settings.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/js/todolist.js"&gt;&lt;/script&gt;
-    &lt;!-- endinject --&gt;
-    &lt;!-- Custom js for this page--&gt;
-    &lt;script src="http://127.0.0.1:8000/js/dashboard.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/js/Chart.roundedBarCharts.js"&gt;&lt;/script&gt;
-    &lt;!-- End custom js for this page--&gt;
-
-    &lt;!-- Bootstrap 4 --&gt;
-    &lt;script src="plugins/bootstrap/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/plugins/ijaboCropTool/ijaboCropTool.min.js"&gt;&lt;/script&gt;
-    &lt;!-- AdminLTE App --&gt;
-    &lt;script src="dist/js/adminlte.min.js"&gt;&lt;/script&gt;
-
-    &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
-    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"&gt;&lt;/script&gt;
-
-    &lt;!-- Select2 JS --&gt;
-    &lt;script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"&gt;&lt;/script&gt;
-    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"&gt;&lt;/script&gt;
-
-    
-
-
-
-
-
-&lt;/body&gt;&lt;/html&gt;</msg>
-<arg>${html_source}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-03-12T15:26:20.091703" elapsed="0.001479"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>หนังสือ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:20.096891" elapsed="0.000533"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>แสดง</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:20.125387" elapsed="0.005345"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<arg>xpath=//th[contains(text(), 'เลขที่')]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:20.161841" elapsed="0.183701"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ชื่อ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:20.350667" elapsed="0.000562"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ปี</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:20.363306" elapsed="0.000468"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<arg>xpath=//th[contains(text(), 'แหล่งข่าว')]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:20.364399" elapsed="0.136714"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>หนังสือ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:20.503779" elapsed="0.000438"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//span[@id="select2-head0-container"]</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T17:44:15.848182" elapsed="0.042463"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:20.506903" level="INFO">Clicking element '//a[contains(@class, 'btn-primary') and contains(@class, 'btn-menu') and .//i[contains(@class, 'mdi-plus')]]'.</msg>
-<arg>${ADD_BUTTON_XPATH}</arg>
+<msg time="2025-03-12T17:44:15.892352" level="INFO">Clicking element '//span[@id="select2-head0-container"]'.</msg>
+<arg>//span[@id="select2-head0-container"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:20.506466" elapsed="5.932865"/>
+<status status="PASS" start="2025-03-12T17:44:15.891666" elapsed="0.131576"/>
 </kw>
-<kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:26.454786" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
-<var>${html_source}</var>
-<doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T15:26:26.442666" elapsed="0.012217"/>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-03-12T17:44:16.063075" level="INFO">Element '//span[@id="select2-head0-container"]' contains text 'พิพัธน์ เรืองแสง'.</msg>
+<arg>//span[@id="select2-head0-container"]</arg>
+<arg>พิพัธน์ เรืองแสง</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-03-12T17:44:16.024001" elapsed="0.039240"/>
 </kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>เพิ่มหนังสือ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:26.455452" elapsed="0.000418"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>กรอกรายละเอียดหนังสือ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:26.456666" elapsed="0.000423"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>สถานที่เผยแพร่</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:26.457789" elapsed="0.000413"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ปี (โฆษณา)</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:26.459980" elapsed="0.000478"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>จำนวนหน้า</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:26.461891" elapsed="0.000498"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T17:44:16.066138" level="INFO">Clicking element '//span[@id="select2-head0-container"]'.</msg>
+<arg>//span[@id="select2-head0-container"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T17:44:16.065181" elapsed="0.114901"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T15:26:27.467595" level="INFO">Slept 1 second.</msg>
+<msg time="2025-03-12T17:44:17.182137" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T15:26:26.462900" elapsed="1.005026"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:27.473062" level="INFO">Clicking element 'xpath=//a[@href='http://127.0.0.1:8000/books' and contains(text(),'ยกเลิก')]'.</msg>
-<arg>xpath=//a[@href='${SERVER}/books' and contains(text(),'ยกเลิก')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:27.472491" elapsed="3.343054"/>
+<status status="PASS" start="2025-03-12T17:44:16.180936" elapsed="1.001489"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]</arg>
+<arg>//span[@id="select2-selUser1-container"]</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T17:44:17.183940" elapsed="0.055687"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T17:44:17.241419" level="INFO">Clicking element '//span[@id="select2-selUser1-container"]'.</msg>
+<arg>//span[@id="select2-selUser1-container"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T17:44:17.240677" elapsed="0.107387"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-03-12T17:44:17.381785" level="INFO">Element '//span[@id="select2-selUser1-container"]' contains text 'ชัยพล กีรติกสิกร'.</msg>
+<arg>//span[@id="select2-selUser1-container"]</arg>
+<arg>ชัยพล กีรติกสิกร</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-03-12T17:44:17.348675" elapsed="0.033272"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-12T17:44:18.383707" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-12T17:44:17.383082" elapsed="1.000729"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-12T17:44:18.384330" level="INFO">Opening url 'http://127.0.0.1:8000/researchGroups'</msg>
+<arg>${SERVER}/researchGroups</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-12T17:44:18.384158" elapsed="0.951762"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADD_BUTTON_XPATH}</arg>
 <arg>timeout=2s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T15:26:30.816257" elapsed="0.054979"/>
+<status status="PASS" start="2025-03-12T17:44:19.336614" elapsed="0.024352"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:30.872226" level="INFO">Clicking element 'xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]'.</msg>
-<arg>xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:30.871873" elapsed="2.016147"/>
-</kw>
-<kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:32.900794" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
-<var>${html_source}</var>
-<doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T15:26:32.891957" elapsed="0.008958"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ผลงานวิชาการอื่นๆ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:32.901435" elapsed="0.000377"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>แสดง</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:32.902267" elapsed="0.000368"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[contains(@class, 'btn-primary') and contains(., 'เพิ่ม')]</arg>
-<arg>2s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T15:26:32.903102" elapsed="0.063456"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:33.016472" level="INFO">${button_text} = เพิ่ม</msg>
-<var>${button_text}</var>
-<arg>xpath=//a[contains(@class, 'btn-primary')]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:32.967271" elapsed="0.049280"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${button_text}</arg>
-<arg>เพิ่ม</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.016948" elapsed="0.000257"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ชื่อ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.017596" elapsed="0.000952"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ลำดับ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.019263" elapsed="0.000385"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>ประเภท</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.020780" elapsed="0.000262"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:33.094152" level="INFO">${text} = วันที่ได้รับลิขสิทธิ์</msg>
-<var>${text}</var>
-<arg>xpath=//th[contains(text(), 'วันที่ได้รับลิขสิทธิ์')]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.021458" elapsed="0.072803"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>วันที่ได้รับลิขสิทธิ์</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.094971" elapsed="0.000431"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:33.259940" level="INFO">${text} = เลขทะเบียน</msg>
-<var>${text}</var>
-<arg>xpath=//th[contains(text(), 'เลขทะเบียน')]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.096041" elapsed="0.163965"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>เลขทะเบียน</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.260441" elapsed="0.000271"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:33.338550" level="INFO">${text} = ผู้จัดทำ</msg>
-<var>${text}</var>
-<arg>xpath=//th[contains(text(), 'ผู้จัดทำ')]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.266083" elapsed="0.072541"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>ผู้จัดทำ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.339921" elapsed="0.000431"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>การกระทำ</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.341891" elapsed="0.000467"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:33.343418" level="INFO">Clicking element '//a[contains(@class, 'btn-primary') and contains(@class, 'btn-menu') and .//i[contains(@class, 'mdi-plus')]]'.</msg>
+<msg time="2025-03-12T17:44:19.362078" level="INFO">Clicking element '//a[contains(@class, 'btn-primary') and contains(@class, 'btn-menu') and .//i[contains(@class, 'mdi-plus')]]'.</msg>
 <arg>${ADD_BUTTON_XPATH}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:33.343013" elapsed="1.592464"/>
+<status status="PASS" start="2025-03-12T17:44:19.361737" elapsed="1.059753"/>
 </kw>
 <kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:34.946301" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
+<msg time="2025-03-12T17:44:20.431773" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
 <var>${html_source}</var>
 <doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T15:26:34.936106" elapsed="0.010329"/>
+<status status="PASS" start="2025-03-12T17:44:20.421982" elapsed="0.009892"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>เพิ่ม</arg>
+<arg>สร้างกลุ่มวิจัย</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:34.947244" elapsed="0.000367"/>
+<status status="PASS" start="2025-03-12T17:44:20.432311" elapsed="0.000336"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>กรอกข้อมูลรายละเอียดงานสิทธิบัตร, อนุสิทธิบัตร, ลิขสิทธิ์</arg>
+<arg>ชื่อกลุ่มวิจัย (ภาษาไทย)</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:34.947975" elapsed="0.000259"/>
+<status status="PASS" start="2025-03-12T17:44:20.432997" elapsed="0.000282"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ชื่อ</arg>
+<arg>ชื่อกลุ่มวิจัย (English)</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:34.948925" elapsed="0.000393"/>
+<status status="PASS" start="2025-03-12T17:44:20.433666" elapsed="0.000276"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>ประเภท</arg>
+<arg>คำอธิบายกลุ่มวิจัย (ภาษาไทย)</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:34.949826" elapsed="0.000419"/>
+<status status="PASS" start="2025-03-12T17:44:20.434307" elapsed="0.000248"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>คำอธิบายกลุ่มวิจัย (English)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:20.435190" elapsed="0.000527"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>รายละเอียดกลุ่มวิจัย (ภาษาไทย)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:20.437216" elapsed="0.000475"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>รายละเอียดกลุ่มวิจัย (English)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:20.438410" elapsed="0.000361"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>รูปภาพ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:20.439114" elapsed="0.000316"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>หัวหน้ากลุ่มวิจัย</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:20.440032" elapsed="0.000339"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>สมาชิกกลุ่มวิจัย</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T17:44:20.440735" elapsed="0.000294"/>
 </kw>
 <kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//select[@name='ac_type']</arg>
+<arg>//span[@id="select2-head0-container"]</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:34.951833" elapsed="0.362802"/>
+<status status="PASS" start="2025-03-12T17:44:20.441419" elapsed="0.294342"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:35.315702" level="INFO">Clicking element 'xpath=//select[@name='ac_type']'.</msg>
-<arg>xpath=//select[@name='ac_type']</arg>
+<msg time="2025-03-12T17:44:20.736962" level="INFO">Clicking element '//span[@id="select2-head0-container"]'.</msg>
+<arg>//span[@id="select2-head0-container"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:35.315318" elapsed="0.227701"/>
+<status status="PASS" start="2025-03-12T17:44:20.736563" elapsed="0.146671"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-03-12T17:44:20.907008" level="INFO">Element '//span[@id="select2-head0-container"]' contains text 'งามนิจ อาจอินทร์'.</msg>
+<arg>//span[@id="select2-head0-container"]</arg>
+<arg>งามนิจ อาจอินทร์</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-03-12T17:44:20.883719" elapsed="0.023455"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
-<arg>วันที่ได้รับลิขสิทธิ์</arg>
+<arg>งามนิจ</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:35.558957" elapsed="0.000559"/>
+<status status="PASS" start="2025-03-12T17:44:20.907735" elapsed="0.000437"/>
 </kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>เลขทะเบียน</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:35.560073" elapsed="0.000402"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-12T17:44:21.909839" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-12T17:44:20.908885" elapsed="1.001194"/>
 </kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>อาจารย์ในสาขา</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T15:26:35.560972" elapsed="0.000751"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>id=add-btn2</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T15:26:35.565003" elapsed="0.390863"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T15:26:35.959457" level="INFO">Clicking element 'id=add-btn2'.</msg>
-<arg>id=add-btn2</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T15:26:35.958942" elapsed="0.214321"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-03-12T15:26:36.178271" level="FAIL">'&lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}.swal-icon--warning{border-color:#f8bb86;-webkit-animation:pulseWarning .75s infinite alternate;animation:pulseWarning .75s infinite alternate}.swal-icon--warning__body{width:5px;height:47px;top:10px;border-radius:2px;margin-left:-2px}.swal-icon--warning__body,.swal-icon--warning__dot{position:absolute;left:50%;background-color:#f8bb86}.swal-icon--warning__dot{width:7px;height:7px;border-radius:50%;margin-left:-4px;bottom:-11px}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success{border-color:#a5dc86}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}.swal-icon--success__ring{width:80px;height:80px;border:4px solid hsla(98,55%,69%,.2);border-radius:50%;box-sizing:content-box;position:absolute;left:-4px;top:-4px;z-index:2}.swal-icon--success__hide-corners{width:5px;height:90px;background-color:#fff;padding:1px;position:absolute;left:28px;top:8px;z-index:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal-icon--success__line{height:5px;background-color:#a5dc86;display:block;border-radius:2px;position:absolute;z-index:2}.swal-icon--success__line--tip{width:25px;left:14px;top:46px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:animateSuccessTip .75s;animation:animateSuccessTip .75s}.swal-icon--success__line--long{width:47px;right:8px;top:38px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:animateSuccessLong .75s;animation:animateSuccessLong .75s}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info{border-color:#c9dae1}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-icon{width:80px;height:80px;border-width:4px;border-style:solid;border-radius:50%;padding:0;position:relative;box-sizing:content-box;margin:20px auto}.swal-icon:first-child{margin-top:32px}.swal-icon--custom{width:auto;height:auto;max-width:100%;border:none;border-radius:0}.swal-icon img{max-width:100%;max-height:100%}.swal-title{color:rgba(0,0,0,.65);font-weight:600;text-transform:none;position:relative;display:block;padding:13px 16px;font-size:27px;line-height:normal;text-align:center;margin-bottom:0}.swal-title:first-child{margin-top:26px}.swal-title:not(:first-child){padding-bottom:0}.swal-title:not(:last-child){margin-bottom:13px}.swal-text{font-size:16px;position:relative;float:none;line-height:normal;vertical-align:top;text-align:left;display:inline-block;margin:0;padding:0 10px;font-weight:400;color:rgba(0,0,0,.64);max-width:calc(100% - 20px);overflow-wrap:break-word;box-sizing:border-box}.swal-text:first-child{margin-top:45px}.swal-text:last-child{margin-bottom:45px}.swal-footer{text-align:right;padding-top:13px;margin-top:13px;padding:13px 16px;border-radius:inherit;border-top-left-radius:0;border-top-right-radius:0}.swal-button-container{margin:5px;display:inline-block;position:relative}.swal-button{background-color:#7cd1f9;color:#fff;border:none;box-shadow:none;border-radius:5px;font-weight:600;font-size:14px;padding:10px 24px;margin:0;cursor:pointer}.swal-button[not:disabled]:hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button[disabled]{opacity:.5;cursor:default}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel{color:#555;background-color:#efefef}.swal-button--cancel[not:disabled]:hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger{background-color:#e64942}.swal-button--danger[not:disabled]:hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content{padding:0 20px;margin-top:20px;font-size:medium}.swal-content:last-child{margin-bottom:20px}.swal-content__input,.swal-content__textarea{-webkit-appearance:none;background-color:#fff;border:none;font-size:14px;display:block;box-sizing:border-box;width:100%;border:1px solid rgba(0,0,0,.14);padding:10px 13px;border-radius:2px;transition:border-color .2s}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}.swal-content__textarea{resize:vertical}.swal-button--loading{color:transparent}.swal-button--loading~.swal-button__loader{opacity:1}.swal-button__loader{position:absolute;height:auto;width:43px;z-index:2;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);text-align:center;pointer-events:none;opacity:0}.swal-button__loader div{display:inline-block;float:none;vertical-align:baseline;width:9px;height:9px;padding:0;border:none;margin:2px;opacity:.4;border-radius:7px;background-color:hsla(0,0%,100%,.9);transition:background .2s;-webkit-animation:swal-loading-anim 1s infinite;animation:swal-loading-anim 1s infinite}.swal-button__loader div:nth-child(3n+2){-webkit-animation-delay:.15s;animation-delay:.15s}.swal-button__loader div:nth-child(3n+3){-webkit-animation-delay:.3s;animation-delay:.3s}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay{position:fixed;top:0;bottom:0;left:0;right:0;text-align:center;font-size:0;overflow-y:auto;background-color:rgba(0,0,0,.4);z-index:10000;pointer-events:none;opacity:0;transition:opacity .3s}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}.swal-overlay--show-modal{opacity:1;pointer-events:auto}.swal-overlay--show-modal .swal-modal{opacity:1;pointer-events:auto;box-sizing:border-box;-webkit-animation:showSweetAlert .3s;animation:showSweetAlert .3s;will-change:transform}.swal-modal{width:478px;opacity:0;pointer-events:none;background-color:#fff;text-align:center;border-radius:5px;position:static;margin:20px auto;display:inline-block;vertical-align:middle;-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;z-index:10001;transition:opacity .2s,-webkit-transform .3s;transition:transform .3s,opacity .2s;transition:transform .3s,opacity .2s,-webkit-transform .3s}@media (max-width:500px){.swal-modal{width:calc(100% - 20px)}}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}&lt;/style&gt;
-    &lt;meta charset="utf-8"&gt;
-    &lt;meta name="csrf-token" content="sk1k3726YXIVxSn7KJLUWsgaPKIWa7KOtk9qrvYL"&gt;
-    &lt;title&gt;Dashboard&lt;/title&gt;
-    &lt;base href="http://127.0.0.1:8000"&gt;
-    &lt;link href="img/Newlogo.png" rel="shortcut icon" type="image/x-icon"&gt;
-    &lt;!-- Font Awesome Icons --&gt;
-    &lt;link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/plugins/ijaboCropTool/ijaboCropTool.min.css"&gt;
-    &lt;!-- Theme style --&gt;
-    &lt;!-- Google Font: Source Sans Pro --&gt;
-    &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;amp;display=fallback"&gt;
-
-    &lt;!-- plugins:css --&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/feather/feather.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/mdi/css/materialdesignicons.min.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/ti-icons/css/themify-icons.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/typicons/typicons.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/simple-line-icons/css/simple-line-icons.css"&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/css/vendor.bundle.base.css"&gt;
-    &lt;!-- endinject --&gt;
-    &lt;!-- Plugin css for this page --&gt;
-    &lt;!-- &lt;link rel="stylesheet" href="http://127.0.0.1:8000/vendors/datatables.net-bs4/dataTables.bootstrap4.css"&gt; --&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/js/select.dataTables.min.css"&gt;
-    &lt;!-- End plugin css for this page --&gt;
-    &lt;!-- inject:css --&gt;
-    &lt;link rel="stylesheet" href="http://127.0.0.1:8000/css/styleadmin.css"&gt;
-
-    &lt;!-- endinject --&gt;
-    &lt;!-- &lt;link rel="shortcut icon" href="images/favicon.png" /&gt; --&gt;
-    &lt;link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"&gt;
-    &lt;!-- &lt;script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"&gt; &lt;/script&gt; --&gt;
-
-    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"&gt;
-    &lt;!-- &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"&gt; --&gt;
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-
-&lt;body style="height: auto;"&gt;
-    &lt;div class=" container-scroller sidebar-dark"&gt;
-        &lt;!-- navbar ข้างบน 
-    --&gt;
-        &lt;nav class=" navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row"&gt;
-            &lt;div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start"&gt;
-                &lt;div class="me-3"&gt;
-                    &lt;button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize"&gt;
-                        &lt;span class="icon-menu"&gt;&lt;/span&gt;
-                    &lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;!--   --&gt;
-            &lt;!-- Left navbar links --&gt;
-            &lt;div class="navbar-menu-wrapper d-flex align-items-top"&gt;
-                &lt;ul class="navbar-nav"&gt;
-                    &lt;li class="nav-item font-weight-semibold d-none d-lg-block ms-0"&gt;
-                    &lt;h1 class="welcome-text"&gt;ระบบจัดการข้อมูลการวิจัย &lt;span class="text-black fw-bold"&gt;&lt;/span&gt;&lt;/h1&gt;
-                        &lt;h3 class="welcome-sub-text"&gt; &lt;/h3&gt;
-                    &lt;/li&gt;
-                    
-                &lt;/ul&gt;
-                
-                &lt;ul class="navbar-nav ms-auto"&gt;
-                    &lt;li class="nav-item d-none d-lg-block"&gt;
-                        &lt;div id="datepicker-popup" class="input-group date datepicker navbar-date-picker"&gt;
-                            &lt;span class="input-group-addon input-group-prepend border-right"&gt;
-                                &lt;span class="icon-calendar input-group-text calendar-icon"&gt;&lt;/span&gt;
-                            &lt;/span&gt;
-                            &lt;input type="text" class="form-control"&gt;
-                        &lt;/div&gt;
-                    &lt;/li&gt;
-                    &lt;li class="nav-item"&gt;
-                        &lt;form class="search-form" action="#"&gt;
-                            &lt;i class="icon-search"&gt;&lt;/i&gt;
-                            &lt;input type="search" class="form-control" placeholder="Search Here" title="Search here"&gt;
-                        &lt;/form&gt;
-                    &lt;/li&gt;
-                    &lt;li class="nav-item dropdown"&gt;
-                        &lt;a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
-                            &lt;span class="flag-icon flag-icon-th"&gt;&lt;/span&gt;
-                            ไทย
-                        &lt;/a&gt;
-                        &lt;div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"&gt;
-                                                                                    &lt;a class="dropdown-item" href="http://127.0.0.1:8000/lang/en"&gt;&lt;span class="flag-icon flag-icon-us"&gt;&lt;/span&gt;
-                                English&lt;/a&gt;
-                                                                                                                                                                        &lt;a class="dropdown-item" href="http://127.0.0.1:8000/lang/zh"&gt;&lt;span class="flag-icon flag-icon-cn"&gt;&lt;/span&gt;
-                                中文&lt;/a&gt;
-                                                                                &lt;/div&gt;
-                    &lt;/li&gt;
-                    &lt;!-- &lt;li class="nav-item dropdown"&gt;
-                        &lt;a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
-                            aria-expanded="false"&gt;
-                            &lt;i class="icon-bell"&gt;&lt;/i&gt;
-                            &lt;span class="count"&gt;&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt; --&gt;
-                    &lt;!-- &lt;li class="nav-item dropdown d-none d-lg-block user-dropdown"&gt;
-                        &lt;a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"&gt;
-                            &lt;img class="img-xs rounded-circle" src="http://127.0.0.1:8000/images/imag_user/UIMG_202203296242bbe5c8689.jpg"
-                                alt="User profile picture"&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt; --&gt;
-                    &lt;!-- &lt;div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown"&gt;
-                            &lt;div class="dropdown-header text-center"&gt;
-                                &lt;img class="img-md rounded-circle" src="http://127.0.0.1:8000/images/imag_user/UIMG_202203296242bbe5c8689.jpg"
-                                    alt="Profile image"&gt;
-                                &lt;p class="mb-1 mt-3 font-weight-semibold"&gt;&lt;/p&gt;
-                                &lt;p class="fw-light text-muted mb-0"&gt;&lt;/p&gt;
-                            &lt;/div&gt;
-                            &lt;a class="dropdown-item"&gt;&lt;i
-                                    class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"&gt;&lt;/i&gt; My
-                                Profile &lt;span class="badge badge-pill badge-danger"&gt;1&lt;/span&gt;&lt;/a&gt;
-                            &lt;a class="dropdown-item"&gt;&lt;i
-                                    class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"&gt;&lt;/i&gt;
-                                Messages&lt;/a&gt;
-                            &lt;a class="dropdown-item"&gt;&lt;i
-                                    class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"&gt;&lt;/i&gt;
-                                Activity&lt;/a&gt;
-                            &lt;a class="dropdown-item"&gt;&lt;i
-                                    class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"&gt;&lt;/i&gt;
-                                FAQ&lt;/a&gt;
-                            &lt;a class="dropdown-item"&gt;&lt;i
-                                    class="dropdown-item-icon mdi mdi-power text-primary me-2"&gt;&lt;/i&gt;Sign Out&lt;/a&gt; --&gt;
-                    &lt;li class="nav-item d-none d-sm-inline-block"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault(); 
-                        document.getElementById ('logout-form').submit();"&gt; ออกจากระบบ &lt;i class="mdi mdi-logout"&gt;&lt;/i&gt;&lt;/a&gt;
-                        &lt;form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" class="d-none"&gt;
-                            &lt;input type="hidden" name="_token" value="sk1k3726YXIVxSn7KJLUWsgaPKIWa7KOtk9qrvYL"&gt;                        &lt;/form&gt;
-                    &lt;/li&gt;
-            &lt;/ul&gt;&lt;/div&gt;
-            
-            &lt;button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas"&gt;
-                &lt;span class="mdi mdi-menu"&gt;&lt;/span&gt;
-            &lt;/button&gt;
-
-        &lt;/nav&gt;
-        &lt;!-- navbar ข้างบน --&gt;
-        &lt;div class="container-fluid page-body-wrapper"&gt;
-            &lt;!-- Main Sidebar Container --&gt;
-            &lt;!-- &lt;div class="theme-setting-wrapper"&gt;
-                &lt;div id="settings-trigger"&gt;&lt;i class="mdi mdi-home"&gt;&lt;/i&gt;&lt;/div&gt;
-            &lt;/div&gt; --&gt;
-            &lt;nav class="sidebar sidebar-offcanvas" id="sidebar"&gt;
-                &lt;ul class="nav"&gt;
-                    &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link " href="http://127.0.0.1:8000/dashboard"&gt;
-                            &lt;i class="menu-icon mdi mdi-grid-large"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;แดชบอร์ด&lt;/span&gt;                        &lt;/a&gt;
-                    &lt;/li&gt;
-                    &lt;li class="nav-item nav-category"&gt;โปรไฟล์&lt;/li&gt;
-                    &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link " href="http://127.0.0.1:8000/profile"&gt;
-                            &lt;i class="menu-icon mdi mdi-account-circle-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;โปรไฟล์ผู้ใช้&lt;/span&gt;
-
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                    &lt;!-- &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link "
-                            href="http://127.0.0.1:8000/settings"&gt;
-                            &lt;i class="menu-icon mdi mdi mdi-settings-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;Settings&lt;/span&gt;
-
-                        &lt;/a&gt;
-                    &lt;/li&gt; --&gt;
-                    &lt;li class="nav-item nav-category"&gt;ตัวเลือก&lt;/li&gt;
-                                        &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/funds"&gt;
-                            &lt;i class="menu-icon mdi mdi-file-document-box-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;จัดการทุน&lt;/span&gt;
-
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/researchProjects"&gt;
-                            &lt;i class="menu-icon mdi mdi-book-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;โครงการวิจัย&lt;/span&gt;
-
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/researchGroups"&gt;
-                            &lt;i class="menu-icon mdi mdi-view-dashboard-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;กลุ่มวิจัย&lt;/span&gt;
-
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" data-bs-toggle="collapse" href="#ManagePublications" aria-expanded="false" aria-controls="ManagePublications"&gt;
-                            &lt;i class="menu-icon mdi mdi-book-open-page-variant"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;จัดการผลงานวิจัย&lt;/span&gt;
-                            &lt;i class="menu-arrow"&gt;&lt;/i&gt;
-                        &lt;/a&gt;
-                        &lt;div class="collapse" id="ManagePublications"&gt;
-                            &lt;ul class="nav flex-column sub-menu"&gt;
-                                &lt;li class="nav-item"&gt; &lt;a class="nav-link" href="http://127.0.0.1:8000/papers"&gt;ผลงานวิจัยที่เผยแพร่&lt;/a&gt;&lt;/li&gt;
-                                &lt;li class="nav-item"&gt; &lt;a class="nav-link" href="/books"&gt;หนังสือ&lt;/a&gt;&lt;/li&gt;
-                                &lt;li class="nav-item"&gt; &lt;a class="nav-link" href="/patents"&gt;ผลงานวิชาการอื่นๆ&lt;/a&gt;&lt;/li&gt;
-                            &lt;/ul&gt;
-                        &lt;/div&gt;
-                    &lt;/li&gt;
-                                                                                &lt;li class="nav-item nav-category"&gt;ผู้ดูแล&lt;/li&gt;
-                    &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/users"&gt;
-                            &lt;i class="menu-icon mdi mdi-account-multiple-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;ผู้ใช้&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/roles"&gt;
-                            &lt;i class="menu-icon mdi mdi-chart-gantt"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;บทบาท&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/permissions"&gt;
-                            &lt;i class="menu-icon mdi mdi-checkbox-marked-circle-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;สิทธิ์&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/departments"&gt;
-                            &lt;i class="menu-icon mdi mdi-animation-outline"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;แผนก&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                    
-                                        &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/programs"&gt;
-                            &lt;i class="menu-icon mdi mdi-format-list-bulleted"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;จัดการโปรแกรม&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                                            &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" href="http://127.0.0.1:8000/experts"&gt;
-                            &lt;i class="menu-icon mdi mdi-buffer"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;จัดการความเชี่ยวชาญ&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                                        &lt;!--                     &lt;li class="nav-item"&gt;
-                        &lt;a class="nav-link" target="_blank" href="http://127.0.0.1:8000/logs/overall"&gt;
-                            &lt;i class="menu-icon mdi mdi-monitor-multiple"&gt;&lt;/i&gt;
-                            &lt;span class="menu-title"&gt;Logs System&lt;/span&gt;
-                        &lt;/a&gt;
-                    &lt;/li&gt;
-                     --&gt;
-
-                &lt;/ul&gt;
-            &lt;/nav&gt;
-
-            &lt;!-- Content Wrapper. Contains page content --&gt;
-            &lt;div class="main-panel"&gt;
-                &lt;div class="content-wrapper" style="min-height: 730px;"&gt;
-                    &lt;div class="container"&gt;
-    
-    &lt;div class="col-md-8 grid-margin stretch-card"&gt;
-        &lt;div class="card" style="padding: 16px;"&gt;
-            &lt;div class="card-body"&gt;
-                &lt;h4 class="card-title"&gt;เพิ่ม&lt;/h4&gt;
-                &lt;p class="card-description"&gt;กรอกข้อมูลรายละเอียดงานสิทธิบัตร, อนุสิทธิบัตร, ลิขสิทธิ์&lt;/p&gt;
-
-                &lt;form class="forms-sample" action="http://127.0.0.1:8000/patents" method="POST"&gt;
-                    &lt;input type="hidden" name="_token" value="sk1k3726YXIVxSn7KJLUWsgaPKIWa7KOtk9qrvYL"&gt;
-                    &lt;!-- ชื่อผลงาน --&gt;
-                    &lt;div class="form-group row"&gt;
-                        &lt;label class="col-sm-3 col-form-label"&gt;ชื่อ&lt;/label&gt;
-                        &lt;div class="col-sm-9"&gt;
-                            &lt;input type="text" name="ac_name" value="" class="form-control" placeholder="ชื่อ"&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-
-                    &lt;!-- ประเภท --&gt;
-                    &lt;div class="form-group row"&gt;
-                        &lt;label class="col-sm-3 col-form-label"&gt;ประเภท&lt;/label&gt;
-                        &lt;div class="col-sm-9"&gt;
-                        &lt;select class="custom-select my-select" name="ac_type"&gt;
-                            &lt;option value="" disabled="" selected=""&gt;โปรดเลือกประเภท&lt;/option&gt;
-                            &lt;option value="สิทธิบัตร"&gt;สิทธิบัตร&lt;/option&gt;
-                            &lt;option value="อนุสิทธิบัตร"&gt;อนุสิทธิบัตร&lt;/option&gt;
-                            &lt;option value="ลิขสิทธิ์"&gt;ลิขสิทธิ์&lt;/option&gt;
-                        &lt;/select&gt;
-
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-
-                    &lt;!-- วันที่ได้รับลิขสิทธิ์ --&gt;
-                    &lt;div class="form-group row"&gt;
-                        &lt;label class="col-sm-3 col-form-label"&gt;วันที่ได้รับลิขสิทธิ์&lt;/label&gt;
-                        &lt;div class="col-sm-9"&gt;
-                            &lt;input type="date" name="ac_year" value="" class="form-control"&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-
-                    &lt;!-- เลขทะเบียน --&gt;
-                    &lt;div class="form-group row"&gt;
-                        &lt;label class="col-sm-3 col-form-label"&gt;เลขทะเบียน&lt;/label&gt;
-                        &lt;div class="col-sm-9"&gt;
-                            &lt;input type="text" name="ac_refnumber" value="" class="form-control" placeholder="เลขทะเบียน"&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-
-                    &lt;!-- อาจารย์ในสาขา --&gt;
-                    &lt;div class="form-group row"&gt;
-                        &lt;label class="col-sm-3 col-form-label"&gt;อาจารย์ในสาขา&lt;/label&gt;
-                        &lt;div class="col-sm-9"&gt;
-                            &lt;table class="table table-bordered" id="dynamicAddRemove"&gt;
-                                &lt;tbody&gt;&lt;tr&gt;
-                                    &lt;th&gt;
-                                        &lt;button type="button" name="add" id="add-btn2" class="btn btn-success btn-sm add"&gt;
-                                            &lt;i class="mdi mdi-plus"&gt;&lt;/i&gt;
-                                        &lt;/button&gt;
-                                    &lt;/th&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;&lt;/table&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-
-                    &lt;!-- บุคลลภายนอก --&gt;
-                    &lt;div class="form-group row"&gt;
-                        &lt;label class="col-sm-3 col-form-label"&gt;บุคลภายนอก&lt;/label&gt;
-                        &lt;div class="col-sm-9"&gt;
-                            &lt;div class="table-responsive"&gt;
-                                &lt;table class="table table-hover small-text" id="tb"&gt;
-                                    &lt;tbody&gt;&lt;tr class="tr-header"&gt;
-                                        &lt;th&gt;กรอกชื่อ (First name)&lt;/th&gt;
-                                        &lt;th&gt;กรอกนามสกุล (Last name)&lt;/th&gt;
-                                        &lt;th&gt;
-                                            &lt;a href="javascript:void(0);" id="addMore2" title="Add More Person"&gt;
-                                                &lt;i class="mdi mdi-plus"&gt;&lt;/i&gt;
-                                            &lt;/a&gt;
-                                        &lt;/th&gt;
-                                    &lt;/tr&gt;
-                                    &lt;tr&gt;
-                                        &lt;td&gt;&lt;input type="text" name="fname[]" class="form-control" placeholder="กรอกชื่อ (First name)"&gt;&lt;/td&gt;
-                                        &lt;td&gt;&lt;input type="text" name="lname[]" class="form-control" placeholder="กรอกนามสกุล (Last name)"&gt;&lt;/td&gt;
-                                        &lt;td&gt;&lt;a href="javascript:void(0);" class="remove"&gt;&lt;i class="mdi mdi-minus"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-                                    &lt;/tr&gt;
-                                &lt;/tbody&gt;&lt;/table&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-
-                    &lt;button type="submit" class="btn btn-primary me-2"&gt;บันทึก&lt;/button&gt;
-                    &lt;a class="btn btn-light" href="http://127.0.0.1:8000/patents"&gt;ยกเลิก&lt;/a&gt;
-                &lt;/form&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- JavaScript --&gt;
-&lt;script&gt;
-    $(document).ready(function() {
-        $("#add-btn2").click(function() {
-            var i = $("#dynamicAddRemove tr").length;
-            $("#dynamicAddRemove").append(
-                `&lt;tr&gt;
-                    &lt;td&gt;
-                        &lt;select id="selUser${i}" name="moreFields[${i}][userid]" class="form-control"&gt;
-                            &lt;option value=""&gt;เลือกสมาชิก&lt;/option&gt;
-                                                            &lt;option value="2"&gt;
-                                    งามนิจ อาจอินทร์
-                                &lt;/option&gt;
-                                                            &lt;option value="3"&gt;
-                                    จักรชัย โสอินทร์
-                                &lt;/option&gt;
-                                                            &lt;option value="4"&gt;
-                                    สมจิตร อาจอินทร์
-                                &lt;/option&gt;
-                                                            &lt;option value="5"&gt;
-                                    ชัยพล กีรติกสิกร
-                                &lt;/option&gt;
-                                                            &lt;option value="6"&gt;
-                                    ปัญญาพล หอระตะ
-                                &lt;/option&gt;
-                                                            &lt;option value="7"&gt;
-                                    ศาสตรา วงศ์ธนวสุ
-                                &lt;/option&gt;
-                                                            &lt;option value="8"&gt;
-                                    สิรภัทร เชี่ยวชาญวัฒนา
-                                &lt;/option&gt;
-                                                            &lt;option value="9"&gt;
-                                    คำรณ สุนัติ
-                                &lt;/option&gt;
-                                                            &lt;option value="10"&gt;
-                                    ชิตสุธา สุ่มเล็ก
-                                &lt;/option&gt;
-                                                            &lt;option value="11"&gt;
-                                    ณกร วัฒนกิจ
-                                &lt;/option&gt;
-                                                            &lt;option value="13"&gt;
-                                    บุญทรัพย์ ไวคำ
-                                &lt;/option&gt;
-                                                            &lt;option value="14"&gt;
-                                    ปวีณา วันชัย
-                                &lt;/option&gt;
-                                                            &lt;option value="15"&gt;
-                                    พิพัธน์ เรืองแสง
-                                &lt;/option&gt;
-                                                            &lt;option value="16"&gt;
-                                    พุธษดี ศิริแสงตระกูล
-                                &lt;/option&gt;
-                                                            &lt;option value="17"&gt;
-                                    มัลลิกา วัฒนะ
-                                &lt;/option&gt;
-                                                            &lt;option value="18"&gt;
-                                    วรารัตน์ สงฆ์แป้น
-                                &lt;/option&gt;
-                                                            &lt;option value="19"&gt;
-                                    สันติ ทินตะนัย
-                                &lt;/option&gt;
-                                                            &lt;option value="20"&gt;
-                                    สายยัญ สายยศ
-                                &lt;/option&gt;
-                                                            &lt;option value="21"&gt;
-                                    สิลดา อินทรโสธรฉันท์
-                                &lt;/option&gt;
-                                                            &lt;option value="22"&gt;
-                                    อุรฉัตร โคแก้ว
-                                &lt;/option&gt;
-                                                            &lt;option value="23"&gt;
-                                    อุราวรรณ จันทร์เกษ
-                                &lt;/option&gt;
-                                                            &lt;option value="24"&gt;
-                                    เพชร อิ่มทองคำ
-                                &lt;/option&gt;
-                                                            &lt;option value="25"&gt;
-                                    วชิราวุธ ธรรมวิเศษ
-                                &lt;/option&gt;
-                                                            &lt;option value="26"&gt;
-                                    วรัญญา วรรณศรี
-                                &lt;/option&gt;
-                                                            &lt;option value="27"&gt;
-                                    รภัสสิทธิ์ ชินภัทรจีรัสถ์
-                                &lt;/option&gt;
-                                                            &lt;option value="28"&gt;
-                                    ศักดิ์พจน์ ทองเลี่ยมนาค
-                                &lt;/option&gt;
-                                                            &lt;option value="29"&gt;
-                                    ธนพล ตั้งชูพงศ์
-                                &lt;/option&gt;
-                                                            &lt;option value="30"&gt;
-                                    ศรัณย์ อภิชนตระกูล
-                                &lt;/option&gt;
-                                                            &lt;option value="31"&gt;
-                                    รัศมี สุวรรณวีระกำธร
-                                &lt;/option&gt;
-                                                            &lt;option value="32"&gt;
-                                    ชานนท์ เดชสุภา
-                                &lt;/option&gt;
-                                                            &lt;option value="33"&gt;
-                                    ไพรสันต์ ผดุงเวียง
-                                &lt;/option&gt;
-                                                            &lt;option value="34"&gt;
-                                    สุมณฑา เกษมวิลาศ
-                                &lt;/option&gt;
-                                                            &lt;option value="36"&gt;
-                                    วัชระวัชระ ศรีต้นวงศ์
-                                &lt;/option&gt;
-                                                            &lt;option value="44"&gt;
-                                    วัชระ  ศรีต้นวงศ์
-                                &lt;/option&gt;
-                                                            &lt;option value="45"&gt;
-                                    อดิศร นาเรือง
-                                &lt;/option&gt;
-                                                            &lt;option value="46"&gt;
-                                    พงษ์ศธร จันทรย้อย
-                                &lt;/option&gt;
-                                                            &lt;option value="51"&gt;
-                                    พงศธร วงศ์พราวมาศ
-                                &lt;/option&gt;
-                                                            &lt;option value="52"&gt;
-                                    เศวตสิทธิ์ อิ่มนาง
-                                &lt;/option&gt;
-                                                            &lt;option value="53"&gt;
-                                    ธีรธรรม บุญประภาพันธุ์
-                                &lt;/option&gt;
-                                                            &lt;option value="54"&gt;
-                                    เดชฤทธิ์ แก้วประดับ
-                                &lt;/option&gt;
-                                                            &lt;option value="55"&gt;
-                                    ณัฐพงศ์ ฉิมวัย
-                                &lt;/option&gt;
-                                                            &lt;option value="56"&gt;
-                                    วชรพล เกตวงษา
-                                &lt;/option&gt;
-                                                            &lt;option value="57"&gt;
-                                    ชัยวิชิต แก้วกลม
-                                &lt;/option&gt;
-                                                            &lt;option value="58"&gt;
-                                    ปัทมวรรณ สถิรพงค์กุล
-                                &lt;/option&gt;
-                                                            &lt;option value="59"&gt;
-                                    ชนิตพล สังข์สายศิริกุล
-                                &lt;/option&gt;
-                                                            &lt;option value="60"&gt;
-                                    ภควัต กล้าหาญ
-                                &lt;/option&gt;
-                                                            &lt;option value="61"&gt;
-                                    ศิรินทร อ่อนอยู่
-                                &lt;/option&gt;
-                                                            &lt;option value="62"&gt;
-                                    SOULIVANH CHANTHAVISOUK
-                                &lt;/option&gt;
-                                                            &lt;option value="63"&gt;
-                                    ธนดล รัศมีเพ็ญ
-                                &lt;/option&gt;
-                                                            &lt;option value="64"&gt;
-                                    กิตติกาญจน์ เจริญรัตน์
-                                &lt;/option&gt;
-                                                            &lt;option value="65"&gt;
-                                    ธนวันต์ แวทไธสง
-                                &lt;/option&gt;
-                                                            &lt;option value="66"&gt;
-                                    ธนาธิป แวทไธสง
-                                &lt;/option&gt;
-                                                            &lt;option value="67"&gt;
-                                    ณัฐธิดา วรรธนะปกรณ์
-                                &lt;/option&gt;
-                                                            &lt;option value="68"&gt;
-                                    กฤดิกร วิชชาธรตระกูล
-                                &lt;/option&gt;
-                                                            &lt;option value="69"&gt;
-                                    ภาณุวัฒน์ แก้วบ่อ
-                                &lt;/option&gt;
-                                                            &lt;option value="70"&gt;
-                                    วชิรกาญจน์ เสือบัว
-                                &lt;/option&gt;
-                                                            &lt;option value="71"&gt;
-                                    พรรณศิริ ศิริสมพงษ์
-                                &lt;/option&gt;
-                                                            &lt;option value="72"&gt;
-                                    ธนโชติ พลน้ำเที่ยง
-                                &lt;/option&gt;
-                                                            &lt;option value="73"&gt;
-                                    ภูริณัฐ นิลละออง
-                                &lt;/option&gt;
-                                                            &lt;option value="74"&gt;
-                                    ฑิตยา ศรีวุฒิทรัพย์
-                                &lt;/option&gt;
-                                                            &lt;option value="75"&gt;
-                                    ธนาวุฒิ นาบรรดิฐ
-                                &lt;/option&gt;
-                                                            &lt;option value="76"&gt;
-                                    ธีรธัช ถวิลหวัง
-                                &lt;/option&gt;
-                                                            &lt;option value="77"&gt;
-                                    ภูมินทร์ ดวนขันธ์
-                                &lt;/option&gt;
-                                                            &lt;option value="78"&gt;
-                                    สิริวัฒน์ หิรัญชัชวาลย์
-                                &lt;/option&gt;
-                                                            &lt;option value="79"&gt;
-                                    ชวรัชต์ ทองโยธี
-                                &lt;/option&gt;
-                                                            &lt;option value="80"&gt;
-                                    นพัทธ์ ศรีจันทพงศ์
-                                &lt;/option&gt;
-                                                            &lt;option value="81"&gt;
-                                    ขวัญพิฌา ปะกิระคัง
-                                &lt;/option&gt;
-                                                            &lt;option value="82"&gt;
-                                    ณัฏฐ์สิทธิ์ แก้วสังหาร
-                                &lt;/option&gt;
-                                                            &lt;option value="83"&gt;
-                                    ณัฐนนท์ พลอยหวังบุญ
-                                &lt;/option&gt;
-                                                            &lt;option value="84"&gt;
-                                    แทนเทพ คำอ่อน
-                                &lt;/option&gt;
-                                                            &lt;option value="85"&gt;
-                                    พศิน ขอบุญส่งเสริม
-                                &lt;/option&gt;
-                                                            &lt;option value="86"&gt;
-                                    วสวัตติ์ บึงกาญจนา
-                                &lt;/option&gt;
-                                                            &lt;option value="87"&gt;
-                                    ณัฐพงษ์ วณิชวรนันท์
-                                &lt;/option&gt;
-                                                            &lt;option value="88"&gt;
-                                    SOPHA KHOEURT
-                                &lt;/option&gt;
-                                                            &lt;option value="89"&gt;
-                                    CHEN SET KIM
-                                &lt;/option&gt;
-                                                            &lt;option value="90"&gt;
-                                    ปณต ศรีนัครินทร์
-                                &lt;/option&gt;
-                                                            &lt;option value="91"&gt;
-                                    อภิชัย ศรีคุณแสน
-                                &lt;/option&gt;
-                                                            &lt;option value="92"&gt;
-                                    ภพปภพ อื้อจรรยา
-                                &lt;/option&gt;
-                                                            &lt;option value="93"&gt;
-                                    กรวิชญ์ ฟุ้งเฟื่อง
-                                &lt;/option&gt;
-                                                            &lt;option value="94"&gt;
-                                    ยุทธพงศ์ มนัสทิพารมณ์
-                                &lt;/option&gt;
-                                                            &lt;option value="95"&gt;
-                                    ยุพารัตน์ นพคุณโพธิ์สว่าง
-                                &lt;/option&gt;
-                                                            &lt;option value="96"&gt;
-                                    ยุรฉัตร เมธมุทา
-                                &lt;/option&gt;
-                                                            &lt;option value="97"&gt;
-                                    รัฐพล สงวนตระกูล
-                                &lt;/option&gt;
-                                                            &lt;option value="98"&gt;
-                                    สุเมธ ดวงมาลัย
-                                &lt;/option&gt;
-                                                            &lt;option value="99"&gt;
-                                    ภูริวัฒน์ ดาษดา
-                                &lt;/option&gt;
-                                                            &lt;option value="100"&gt;
-                                    พงษ์ศิลป์ จั่นแก้ว
-                                &lt;/option&gt;
-                                                            &lt;option value="101"&gt;
-                                    หริภัทร พงษ์สุวรรณ
-                                &lt;/option&gt;
-                                                            &lt;option value="102"&gt;
-                                    ณัฐวัตร คำภักดี
-                                &lt;/option&gt;
-                                                            &lt;option value="103"&gt;
-                                    สุธาสินี เอี่ยมสอาด
-                                &lt;/option&gt;
-                                                            &lt;option value="104"&gt;
-                                    คุณาวุฒิ บุญกว้าง
-                                &lt;/option&gt;
-                                                            &lt;option value="105"&gt;
-                                    นงค์นุช ไพบูลย์
-                                &lt;/option&gt;
-                                                            &lt;option value="106"&gt;
-                                    วุฒิชัย วิเชียรไชย
-                                &lt;/option&gt;
-                                                            &lt;option value="107"&gt;
-                                    จักรกฤษณ์ แก้วโยธา
-                                &lt;/option&gt;
-                                                            &lt;option value="108"&gt;
-                                    LOAN HO THI THUY
-                                &lt;/option&gt;
-                                                            &lt;option value="109"&gt;
-                                    SOVANNARITH HENG
-                                &lt;/option&gt;
-                                                            &lt;option value="110"&gt;
-                                    ภัทรพล วันนา
-                                &lt;/option&gt;
-                                                            &lt;option value="111"&gt;
-                                    เกวลี ผาใต้
-                                &lt;/option&gt;
-                                                            &lt;option value="112"&gt;
-                                    ธิดารัตน์ เหลืองรุ่งเรือง
-                                &lt;/option&gt;
-                                                            &lt;option value="113"&gt;
-                                    อนัญญา พรมโคตร
-                                &lt;/option&gt;
-                                                            &lt;option value="114"&gt;
-                                    ชรินทร์ญา หวังวัชรกุล
-                                &lt;/option&gt;
-                                                            &lt;option value="115"&gt;
-                                    สุรศักดิ์ ตั้งสกุล
-                                &lt;/option&gt;
-                                                            &lt;option value="116"&gt;
-                                    เสาวลักษณ์ ไทยกลาง
-                                &lt;/option&gt;
-                                                            &lt;option value="117"&gt;
-                                    พัชรนิกานต์ พงษ์ธนู
-                                &lt;/option&gt;
-                                                            &lt;option value="118"&gt;
-                                    ปิยณัฐ ศิริสวัสดิ์
-                                &lt;/option&gt;
-                                                            &lt;option value="119"&gt;
-                                    วุฒิชัย โนนสาคู
-                                &lt;/option&gt;
-                                                            &lt;option value="120"&gt;
-                                    NGUYEN ANH NHAT
-                                &lt;/option&gt;
-                                                            &lt;option value="121"&gt;
-                                    FLORENTINA YUNI ARINI
-                                &lt;/option&gt;
-                                                            &lt;option value="122"&gt;
-                                    ธนพล ตั้งชูพงศ์
-                                &lt;/option&gt;
-                                                            &lt;option value="123"&gt;
-                                    วรพจน์ สุวรรณภิภพ
-                                &lt;/option&gt;
-                                                            &lt;option value="124"&gt;
-                                    ชาติชาย ปุณริบูรณ์
-                                &lt;/option&gt;
-                                                            &lt;option value="125"&gt;
-                                    จตุรภรณ์ โชคภูเขียว
-                                &lt;/option&gt;
-                                                            &lt;option value="126"&gt;
-                                    ปริวัฏฐ์ เหลืองสุวิมล
-                                &lt;/option&gt;
-                                                            &lt;option value="127"&gt;
-                                    ชินาพัฒน์ สกุลราศรีสวย
-                                &lt;/option&gt;
-                                                            &lt;option value="128"&gt;
-                                    SALEUMSOUK SISANAH
-                                &lt;/option&gt;
-                                                            &lt;option value="129"&gt;
-                                    นิกร กรรณิกากลาง
-                                &lt;/option&gt;
-                                                            &lt;option value="130"&gt;
-                                    ศราวุธ ลิ้มประเสริฐ
-                                &lt;/option&gt;
-                                                            &lt;option value="131"&gt;
-                                    ยอดยศ ลิ้มรสธรรม
-                                &lt;/option&gt;
-                                                            &lt;option value="132"&gt;
-                                    อธิชา รายณะสุข
-                                &lt;/option&gt;
-                                                            &lt;option value="133"&gt;
-                                    อัศวโกวิท พึ่งสุข
-                                &lt;/option&gt;
-                                                            &lt;option value="134"&gt;
-                                    ภาวิดา กมลคุณากร
-                                &lt;/option&gt;
-                                                            &lt;option value="135"&gt;
-                                    สุพัตรา ภูมิแสน
-                                &lt;/option&gt;
-                                                            &lt;option value="136"&gt;
-                                    เชาว์วรรธน์ สิงห์ทอง
-                                &lt;/option&gt;
-                                                            &lt;option value="137"&gt;
-                                    วริษฐา สิทธิไพบูลย์
-                                &lt;/option&gt;
-                                                            &lt;option value="138"&gt;
-                                    พันแสง แพงวังทอง
-                                &lt;/option&gt;
-                                                            &lt;option value="139"&gt;
-                                    ยุวเรศ หลุดพา
-                                &lt;/option&gt;
-                                                            &lt;option value="140"&gt;
-                                    ศรัณย์ อภิชนตระกูล
-                                &lt;/option&gt;
-                                                            &lt;option value="141"&gt;
-                                    ไชยฤทธิ์ เศวตวงษ์
-                                &lt;/option&gt;
-                                                            &lt;option value="142"&gt;
-                                    วุฒิพงษ์ แสงมณี
-                                &lt;/option&gt;
-                                                            &lt;option value="143"&gt;
-                                    จุฑารัตน์ โคตรภูเวียง
-                                &lt;/option&gt;
-                                                            &lt;option value="144"&gt;
-                                    SHERLY VALENTINA
-                                &lt;/option&gt;
-                                                            &lt;option value="145"&gt;
-                                    พีรดนย์ สุขเกษม
-                                &lt;/option&gt;
-                                                            &lt;option value="146"&gt;
-                                    จิราวุฒิ ผิวพันคำ
-                                &lt;/option&gt;
-                                                            &lt;option value="147"&gt;
-                                    พิทยา ศิริปการ
-                                &lt;/option&gt;
-                                                            &lt;option value="148"&gt;
-                                    วุฒิไกร พิมพ์หล่อ
-                                &lt;/option&gt;
-                                                            &lt;option value="149"&gt;
-                                    อัครวรรษ หมั้นทรัพย์
-                                &lt;/option&gt;
-                                                            &lt;option value="150"&gt;
-                                    RAKSMEY PHANN
-                                &lt;/option&gt;
-                                                    &lt;/select&gt;
-                    &lt;/td&gt;
-                    &lt;td&gt;
-                        &lt;button type="button" class="btn btn-danger btn-sm remove-tr"&gt;&lt;i class="mdi mdi-minus"&gt;&lt;/i&gt;&lt;/button&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;`
-            );
-        });
-
-        $(document).on('click', '.remove-tr', function() {
-            $(this).parents('tr').remove();
-        });
-
-        $('#addMore2').on('click', function() {
-            var data = $("#tb tr:eq(1)").clone(true).appendTo("#tb");
-            data.find("input").val('');
-        });
-
-        $(document).on('click', '.remove', function() {
-            var trIndex = $(this).closest("tr").index();
-            if (trIndex &gt; 1) {
-                $(this).closest("tr").remove();
-            } else {
-                alert("Sorry!! Can't remove first row!");
-            }
-        });
-    });
-&lt;/script&gt;
-
-                &lt;/div&gt;
-                &lt;footer class="footer"&gt;
-                    &lt;div class="d-sm-flex justify-content-center justify-content-sm-between"&gt;
-                    &lt;/div&gt;
-                &lt;/footer&gt;
-            &lt;/div&gt;
-
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;!-- plugins:js --&gt;
-    &lt;script src="http://127.0.0.1:8000/vendors/js/vendor.bundle.base.js"&gt;&lt;/script&gt;
-    &lt;!-- endinject --&gt;
-    &lt;!-- Plugin js for this page --&gt;
-    &lt;script src="http://127.0.0.1:8000/vendors/chart.js/Chart.min.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/vendors/progressbar.js/progressbar.min.js"&gt;&lt;/script&gt;
-
-    &lt;!-- End plugin js for this page --&gt;
-    &lt;!-- inject:js --&gt;
-    &lt;script src="http://127.0.0.1:8000/js/off-canvas.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/js/hoverable-collapse.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/js/template.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/js/settings.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/js/todolist.js"&gt;&lt;/script&gt;
-    &lt;!-- endinject --&gt;
-    &lt;!-- Custom js for this page--&gt;
-    &lt;script src="http://127.0.0.1:8000/js/dashboard.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/js/Chart.roundedBarCharts.js"&gt;&lt;/script&gt;
-    &lt;!-- End custom js for this page--&gt;
-
-    &lt;!-- Bootstrap 4 --&gt;
-    &lt;script src="plugins/bootstrap/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
-    &lt;script src="http://127.0.0.1:8000/plugins/ijaboCropTool/ijaboCropTool.min.js"&gt;&lt;/script&gt;
-    &lt;!-- AdminLTE App --&gt;
-    &lt;script src="dist/js/adminlte.min.js"&gt;&lt;/script&gt;
-
-    &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
-    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"&gt;&lt;/script&gt;
-
-    &lt;!-- Select2 JS --&gt;
-    &lt;script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"&gt;&lt;/script&gt;
-    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"&gt;&lt;/script&gt;
-
-    
-
-
-
-
-
-&lt;/body&gt;&lt;/html&gt;' does not contain 'บุคคลภายนอก'</msg>
-<arg>${html_source}</arg>
-<arg>บุคคลภายนอก</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-03-12T15:26:36.175589" elapsed="0.005182">'&lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}t...
-    [ Message content over the limit has been removed. ]
-    &lt;script src="dist/js/adminlte.min.js"&gt;&lt;/script&gt;
-
-    &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
-    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"&gt;&lt;/script&gt;
-
-    &lt;!-- Select2 JS --&gt;
-    &lt;script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"&gt;&lt;/script&gt;
-    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"&gt;&lt;/script&gt;
-
-    
-
-
-
-
-
-&lt;/body&gt;&lt;/html&gt;' does not contain 'บุคคลภายนอก'</status>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>//button[@id='add-btn2']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-03-12T15:26:36.183362" elapsed="0.000094"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${DROPDOWN_XPATH}</var>
-<arg>//select[@class="form-control"]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-03-12T15:26:36.183967" elapsed="0.000077"/>
-</kw>
-<kw name="Get List Items" owner="SeleniumLibrary">
-<var>${options}</var>
-<arg>${DROPDOWN_XPATH}</arg>
-<doc>Returns all labels or values of selection list ``locator``.</doc>
-<status status="NOT RUN" start="2025-03-12T15:26:36.184623" elapsed="0.000067"/>
-</kw>
-<tag>ManagePublications</tag>
-<status status="FAIL" start="2025-03-12T15:25:44.295169" elapsed="51.890119">'&lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}t...
-    [ Message content over the limit has been removed. ]
-    &lt;script src="dist/js/adminlte.min.js"&gt;&lt;/script&gt;
-
-    &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
-    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"&gt;&lt;/script&gt;
-
-    &lt;!-- Select2 JS --&gt;
-    &lt;script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"&gt;&lt;/script&gt;
-    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"&gt;&lt;/script&gt;
-
-    
-
-
-
-
-
-&lt;/body&gt;&lt;/html&gt;' does not contain 'บุคคลภายนอก'</status>
+<tag>researchGroups</tag>
+<status status="PASS" start="2025-03-12T17:43:50.643702" elapsed="31.267162"/>
 </test>
-<status status="FAIL" start="2025-03-12T15:25:43.987093" elapsed="52.205437"/>
+<status status="PASS" start="2025-03-12T17:43:50.317361" elapsed="31.597424"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">ManagePublications</stat>
+<stat pass="1" fail="0" skip="0">researchGroups</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="UAT-Project-014">UAT-Project-014</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="UAT-Project-014">UAT-Project-014</stat>
 </suite>
 </statistics>
 <errors>

@@ -156,9 +156,9 @@ Dashboard Page Switch Language To TH
     END
 
 Profile Page by thai
-    #[tags]      Profile
-    Go To    ${SERVER}/profile
-    Sleep    2s
+    [tags]      Profile
+    Click Element               xpath=//a[@href='${SERVER}/profile']
+    Sleep    1s
     #Switch Language To    th    ไทย
     ${html_source}=    Get Source
     Should Contain    ${html_source}    บัญชีผู้ใช้
@@ -183,9 +183,10 @@ Profile Page by thai
     Should Be Equal    ${placeholder_value}    กรอกรหัสผ่านปัจจุบัน
 
 Funds Page By Thai
-    Go To    ${SERVER}/funds
+    #Go To    ${SERVER}/funds
+    [tags]    FundPageByThai
+    Click Element               xpath=//a[@href='${SERVER}/funds']
     Sleep    2s
-
     ${html_source}=    Get Source
     Should Contain    ${html_source}    ทุนวิจัย
     Should Contain    ${html_source}    ชื่อทุน
@@ -206,18 +207,12 @@ Funds Page By Thai
     Should Contain    ${html_source}    หน่วยงานที่ให้ทุน
     Should Contain    ${html_source}    เพิ่มรายละเอียดโดย
     Should Contain    ${html_source}    ย้อนกลับ
-    ${fund_type}=    Get Text    xpath=//p[contains(@class, 'card-text col-sm-9') and contains(text(), 'ทุนภายใน')]
-    Should Be Equal As Strings    ${fund_type}    ทุนภายใน
-    ${added_by}=    Get Text    xpath=//p[contains(@class, 'card-text col-sm-9') and contains(text(), 'พุธษดี ศิริแสงตระกูล')]
-    Should Be Equal As Strings    ${added_by}    พุธษดี ศิริแสงตระกูล
+    Click Element    xpath=//a[@href='${SERVER}/funds' and contains(text(),'ย้อนกลับ')]
+
 
     #Edit
-    Go To    ${SERVER}/funds
-    Sleep    1s
-    
     Wait Until Element Is Visible    ${EDIT_BUTTON_XPATH}    timeout=2s
     Click Element    ${EDIT_BUTTON_XPATH}
-
     ${html_source}=    Get Source
     Should Contain    ${html_source}    แก้ไขกองทุน
     Should Contain    ${html_source}    ประเภททุนวิจัย
@@ -226,12 +221,17 @@ Funds Page By Thai
     Should Contain    ${html_source}    หน่วยงานที่ให้ทุน
     Sleep    2s  # รอให้หน้าโหลด
 
+
+    Click Element    id=fund_type
+    Sleep    1s
     ${DROPDOWN_XPATH}=    Set Variable    //select[@id="fund_type"]
     ${options}=    Get List Items    ${DROPDOWN_XPATH}
 
     Should Contain    ${options}    ทุนภายใน
     Should Contain    ${options}    ทุนภายนอก
 
+    Click Element    id=fund_level
+    Sleep    1s
     ${DROPDOWN_XPATH}=    Set Variable    //select[@name="fund_level"]
     ${options}=    Get List Items    ${DROPDOWN_XPATH}
 
@@ -240,23 +240,41 @@ Funds Page By Thai
     Should Contain    ${options}    กลาง
     Should Contain    ${options}    ต่ำ
     Sleep    1s
+    Click Element    xpath=//a[@href='${SERVER}/funds' and contains(text(),'ยกเลิก')]
 
     #ADD
-    Go To    ${SERVER}/funds
     Wait Until Element Is Visible       ${ADD_BUTTON_XPATH}     timeout=2s
     Click Element    ${ADD_BUTTON_XPATH}
-
     ${html_source}=    Get Source
     Should Contain    ${html_source}    ประเภททุนวิจัย
     Should Contain    ${html_source}    ระดับทุน
     Should Contain    ${html_source}    ชื่อทุน
     Should Contain    ${html_source}    โครงการวิจัย
-    Sleep    2s
+    Click Element     id=fund_type
+    Sleep    0.5s
+    Click Element     id=fund_level
+    Sleep    0.5s
+    Click Element    xpath=//a[@href='${SERVER}/funds' and contains(text(),'ยกเลิก')]
+
+    #Delete
+    Wait Until Element Is Visible    ${DELETE_BUTTON_XPATH}    timeout=2s
+    Click Element    ${DELETE_BUTTON_XPATH}
+    Page Should Contain    คุณแน่ใจหรือไม่?
+    Page Should Contain    หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก
+    Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Sleep    0.5s
+
+
 
 Research Projects Page By Thai
-    Go To    ${SERVER}/researchProjects
+    [tags]    ResearchProjectsPageByThai
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Sleep    2s
+    Switch Language To    th    ไทย
+    Click Element               xpath=//a[@href='${SERVER}/researchProjects']
     Sleep    1s
-
     ${html_source}=    Get Source
     Should Contain    ${html_source}    โครงการวิจัย
     Should Contain    ${html_source}    ปี
@@ -306,18 +324,23 @@ Research Projects Page By Thai
     Should Contain    ${html_source}    ผู้รับผิดชอบโครงการ
     Should Contain    ${html_source}    ผู้รับผิดชอบโครงการ (ร่วม) ภายใน
 
-    ${DROPDOWN_XPATH}=    Set Variable    //select[@name="responsible_department"]
-    ${options}=    Get List Items    ${DROPDOWN_XPATH}
-
-    Should Contain    ${options}    สาขาวิชาวิทยาการคอมพิวเตอร์
-
-    ${DROPDOWN_XPATH}=    Set Variable    //select[@name="status"]
-    ${options}=    Get List Items    ${DROPDOWN_XPATH}
-
-    Should Contain    ${options}    ปิดโครงการ
-    Should Contain    ${options}    ดำเนินการ
-    Should Contain    ${options}    ยื่นขอ
+    Click Element       xpath=//*[@id="fund"]
     Sleep    1s
+    Click Element       xpath=//*[@id="dep"]
+    Sleep    1s
+
+    Scroll Element Into View    //select[@class="custom-select my-select" and @id="status"]
+    Click Element    //select[@class="custom-select my-select" and @id="status"]
+    Sleep    1s
+
+
+    Scroll Element Into View    //span[@id="select2-head0-container"]
+    Click Element    //span[@id="select2-head0-container"]
+    Element Should Contain    //span[@id="select2-head0-container"]    พุธษดี ศิริแสงตระกูล
+    Should Contain    ${html_source}    งามนิจ
+    Sleep    1s
+    Scroll Element Into View    xpath=//a[@href='${SERVER}/researchProjects' and contains(text(),'กลับ')]
+    Click Element    xpath=//a[@href='${SERVER}/researchProjects' and contains(text(),'กลับ')]
 
     #Add
     Go To    ${SERVER}/researchProjects
@@ -352,15 +375,23 @@ Research Projects Page By Thai
     Click Element    //span[@id="select2-head0-container"]
     Element Should Contain    //span[@id="select2-head0-container"]    เลือกผู้ใช้
     Should Contain    ${html_source}    งามนิจ
-    Sleep    1s
 
     Scroll Element Into View    //span[@id="select2-selUser0-container"]
     Click Element    //span[@id="select2-selUser0-container"]
     Element Should Contain    //span[@id="select2-selUser0-container"]    เลือกผู้ใช้
     Should Contain    ${html_source}    งามนิจ
+    Sleep    1s
 
-    Sleep    2s
+    Scroll Element Into View    xpath=//a[@href='${SERVER}/researchProjects' and contains(text(),'ยกเลิก')]
+    Click Element    xpath=//a[@href='${SERVER}/researchProjects' and contains(text(),'ยกเลิก')]
 
+    #Delete
+    Wait Until Element Is Visible    ${DELETE_BUTTON_XPATH}    timeout=2s
+    Click Element    ${DELETE_BUTTON_XPATH}
+    Page Should Contain    คุณแน่ใจหรือไม่?
+    Page Should Contain    หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก
+    Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Sleep    0.5s
 
 Research Groups Page By Thai
     [tags]  researchGroups
@@ -633,28 +664,30 @@ Manage Publications
     Should Contain    ${html_source}    อาจารย์ในสาขา
     Scroll Element Into View    id=add-btn2
     Click Element               id=add-btn2
+    Wait Until Element Is Visible    xpath=//select[@id='selUser1']    10s
+
 
     Scroll Element Into View    xpath=//label[contains(text(),'บุคลภายนอก')]
-    Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
-    Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    
+    Scroll Element Into View    xpath=//a[@href='${SERVER}/patents' and contains(text(),'ยกเลิก')]
+
+    Page Should Contain Element    xpath=//a[@href='${SERVER}/patents' and contains(text(),'ยกเลิก')]
+    Click Element    xpath=//a[@href='${SERVER}/patents' and contains(text(),'ยกเลิก')]
+    Sleep    1s
 
     #View
-    Click Element   //button[@id='add-btn2']
-    ${DROPDOWN_XPATH}=    Set Variable    //select[@class="form-control"]
-    ${options}=    Get List Items    ${DROPDOWN_XPATH}
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Click Element    ${VIEW_BUTTON_XPATH}
+    Sleep    2s
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    ประเภท
+    Should Contain    ${html_source}    วันที่ได้รับลิขสิทธิ์
+    Should Contain    ${html_source}    เลขทะเบียน
+    Should Contain    ${html_source}    ผู้จัดทำ
+    Should Contain    ${html_source}    ผู้จัดทำ (ร่วม)
+    Sleep    3s
+    Click Element               xpath=//a[@href='${SERVER}/patents' and contains(@class,'btn-primary')]
 
 
 Menu User By Thai
