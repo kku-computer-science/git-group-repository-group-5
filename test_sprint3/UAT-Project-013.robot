@@ -533,7 +533,7 @@ Navigate To Research Publications
      
     Click Element   ${ADD_BUTTON_XPATH}
     ${html_source}=    Get Source
-    Should Contain    ${html_source}    เพิ่มวารผลงานตีพิมพ์
+    Should Contain    ${html_source}    เพิ่มผลงานตีพิมพ์
     Should Contain    ${html_source}    กรอกข้อมูลรายละเอียดงานวิจัย
     Should Contain    ${html_source}    แหล่งเผยแพร่งานวิจัย
     Should Contain    ${html_source}    ชื่องานวิจัย
@@ -662,7 +662,7 @@ Navigate To Research Publications
 
     Wait Until Element Is Visible    //span[@id="select2-selUser0-container"]    timeout=5s
     Click Element    //span[@id="select2-selUser0-container"]
-    Element Should Contain    //span[@id="select2-selUser0-container"]    ชิตสุธา สุ่มเล็ก
+    Element Should Contain    //span[@id="select2-selUser0-container"]    พุธษดี ศิริแสงตระกูล
     Click Element    //span[@id="select2-selUser0-container"]
 
     #books
