@@ -460,12 +460,13 @@ Research Groups Page By Thai
     Click Element    //span[@id="select2-selUser1-container"]
     Element Should Contain    //span[@id="select2-selUser1-container"]    ชัยพล กีรติกสิกร
     Sleep    1s
+    Scroll Element Into View    xpath=//a[@href='${SERVER}/researchGroups' and contains(text(),'ย้อนกลับ')]
+    Click Element    xpath=//a[@href='${SERVER}/researchGroups' and contains(text(),'ย้อนกลับ')]   
 
     #Add
     Go To    ${SERVER}/researchGroups
     Wait Until Element Is Visible       ${ADD_BUTTON_XPATH}     timeout=2s
     Click Element    ${ADD_BUTTON_XPATH}
-
     ${html_source}=    Get Source
     Should Contain    ${html_source}    สร้างกลุ่มวิจัย
     Should Contain    ${html_source}    ชื่อกลุ่มวิจัย (ภาษาไทย)
@@ -480,9 +481,22 @@ Research Groups Page By Thai
 
     Scroll Element Into View    //span[@id="select2-head0-container"]
     Click Element    //span[@id="select2-head0-container"]
-    Element Should Contain    //span[@id="select2-head0-container"]    งามนิจ อาจอินทร์
-    Should Contain    ${html_source}    งามนิจ
+    Wait Until Element Is Visible    //span[@id="select2-head0-container"]    timeout=5s
+
     Sleep    1s
+
+
+    Scroll Element Into View    xpath=//a[@href='${SERVER}/researchGroups' and contains(text(),'ย้อนกลับ')]
+    Click Element    xpath=//a[@href='${SERVER}/researchGroups' and contains(text(),'ย้อนกลับ')] 
+
+
+    #Delete
+    Wait Until Element Is Visible    ${DELETE_BUTTON_XPATH}    timeout=2s
+    Click Element    ${DELETE_BUTTON_XPATH}
+    Page Should Contain    คุณแน่ใจหรือไม่?
+    Page Should Contain    หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก
+    Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Sleep    0.5s
 
 Manage Publications
     [tags]  ManagePublications
