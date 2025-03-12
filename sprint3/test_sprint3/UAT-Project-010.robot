@@ -3,7 +3,7 @@ Library           SeleniumLibrary
 Library    String
 
 * Variables *
-${SERVER}                    http://127.0.0.1:8000
+${SERVER}                    https://csgroup568.cpkkuhost.com
 ${USER_USERNAME}             615020084-7
 ${USER_PASSWORD}             615020084-7
 ${LOGIN URL}                  ${SERVER}/login
