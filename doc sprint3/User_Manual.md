@@ -24,25 +24,34 @@
    เมื่อเลือกเป็นภาษาไทย
    ![Menu Step 2](../img_sprint3/menu2.png)
    เมื่อเลือกเป็นภาษาจีน
-   
+   ![Menu Step 3](../img_sprint3/menu3.png)
 
+3. ในส่วนของเมนูต่างในหน้าหลักก็สามารถเปลี่ยนภาษาได้ตามที่่เลือกในทุกหน้า
 
+   เช่นในเมนู researcher Detail 
+   ในภาษาอังกฤษ
+   ![researcherD Step 1](../img_sprint3/researcherD.png)
+   ในภาษาไทย
+   ![researcherD Step 2](../img_sprint3/researcherD2.png)
+   ในภาษาจีน
+   ![researcherD Step 3](../img_sprint3/researcherD3.png)
 
+   ในเมนู Research Project
+   ในภาษาอังกฤษ
+   ![researcherD Step 1](../img_sprint3/researcherP1.png)
+   ในภาษาไทย
+   ![researcherD Step 2](../img_sprint3/researcherP2.png)
+   ในภาษาจีน
+   ![researcherD Step 3](../img_sprint3/researcherP3.png)
 
 ---
-
-## 2. เปลี่ยนภาษา หน้า Dashboard 
-
-1. คลิกที่เมนู **"LOGIN"**  
-   ![Login Button](../img_sprint2/1.jpg)  
-
-2. กรอกข้อมูลสำหรับเข้าสู่ระบบ:  
-   ![Login Page](../img_sprint2/4.jpg)  
-
-3. กด **"LOGIN"** เพื่อเข้าถึงระบบ  
-
-4. คลิกที่ **Dropdown** เพื่อเลือกภาษาที่ต้องการ  
-   ![Dashboard Step 1](../img_sprint2/5.jpg)  
-   ![Dashboard Step 2](../img_sprint2/6.jpg)  
+## 2. เปลี่ยนภาษา หน้า Login
+1. เมื่อเข้าสู่หน้า Login แล้วภาษาจะเปลี่ยนตามที่เราเลือก
+   ในภาษาอังกฤษ 
+   ![Login Step 1](../img_sprint3/login.png)
+   ในภาษาไทย
+   ![Login Step 2](../img_sprint3/login2.png)
+   ในภาษาจีน
+   ![Login Step 3](../img_sprint3/login3.png)
 
 ---
