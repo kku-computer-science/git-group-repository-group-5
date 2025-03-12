@@ -593,19 +593,55 @@ Manage Publications
     Should Contain    ${html_source}    สถานที่เผยแพร่
     Should Contain    ${html_source}    ปี (โฆษณา)
     Should Contain    ${html_source}    จำนวนหน้า
-
-
-
-
-
-
+    Sleep    1s
+    Click Element               xpath=//a[@href='${SERVER}/books' and contains(text(),'ยกเลิก')]
 
 
 #Patents
-    Click Element    xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]
     Wait Until Element Is Visible    xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]    timeout=2s
     Click Element    xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]
 
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    ผลงานวิชาการอื่นๆ
+    Should Contain    ${html_source}    แสดง
+    Wait Until Element Is Visible    xpath=//a[contains(@class, 'btn-primary') and contains(., 'เพิ่ม')]    2s
+    ${button_text}=    Get Text    xpath=//a[contains(@class, 'btn-primary')]
+    Should Contain    ${button_text}    เพิ่ม
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    ลำดับ
+    Should Contain    ${html_source}    ประเภท
+    ${text}=    Get Text    xpath=//th[contains(text(), 'วันที่ได้รับลิขสิทธิ์')]
+    Should Contain    ${text}    วันที่ได้รับลิขสิทธิ์
+    ${text}=    Get Text    xpath=//th[contains(text(), 'เลขทะเบียน')]
+    Should Contain    ${text}    เลขทะเบียน
+    ${text}=    Get Text    xpath=//th[contains(text(), 'ผู้จัดทำ')]
+    Should Contain    ${text}    ผู้จัดทำ
+    Should Contain    ${html_source}    การกระทำ
+
+    #Add
+    Click Element   ${ADD_BUTTON_XPATH}
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    เพิ่ม
+    Should Contain    ${html_source}    กรอกข้อมูลรายละเอียดงานสิทธิบัตร, อนุสิทธิบัตร, ลิขสิทธิ์
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    ประเภท
+    Scroll Element Into View    xpath=//select[@name='ac_type']
+    Click Element               xpath=//select[@name='ac_type']
+
+    Should Contain    ${html_source}    วันที่ได้รับลิขสิทธิ์
+    Should Contain    ${html_source}    เลขทะเบียน
+    Should Contain    ${html_source}    อาจารย์ในสาขา
+    Scroll Element Into View    id=add-btn2
+    Click Element               id=add-btn2
+
+    Scroll Element Into View    xpath=//label[contains(text(),'บุคลภายนอก')]
+    Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+
+    #View
+    Click Element   //button[@id='add-btn2']
+    ${DROPDOWN_XPATH}=    Set Variable    //select[@class="form-control"]
+    ${options}=    Get List Items    ${DROPDOWN_XPATH}
 
 
 
