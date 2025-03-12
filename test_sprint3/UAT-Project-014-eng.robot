@@ -933,6 +933,7 @@ Department By ENG
 
 
 Manage Programs Page ENG
+    [tags]  ManageProgram
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
@@ -966,7 +967,7 @@ Manage Programs Page ENG
     Scroll Element Into View    //select[@id="degree"]
     Wait Until Element Is Visible    //select[@id="degree"]    timeout=2s
     Click Element    //select[@id="degree"]
-    Element Should Contain    //select[@id="degree"]    Banchelor of Science 
+    Element Should Contain    //select[@id="degree"]    Bachelor of Science
     Sleep    1s
     Scroll Element Into View    //select[@id="department"]
     Wait Until Element Is Visible    //select[@id="department"]    timeout=2s
@@ -979,16 +980,16 @@ Manage Programs Page ENG
     Click Element    xpath=//a[contains(@class, 'btn btn-danger')]
 
 
-    # Edit Program CN
+    # Edit Program ENG
     Wait Until Element Is Visible    //a[contains(@class, 'btn btn-outline-success btn-sm')]/i[contains(@class, 'mdi mdi-pencil')]    timeout=2s
     Click Element    //a[contains(@class, 'btn btn-outline-success btn-sm')]/i[contains(@class, 'mdi mdi-pencil')]
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'modal')]    timeout=2s
     ${html_source}=    Get Source
-    Should Contain    ${html_source}    编辑
-    Should Contain    ${html_source}    学位
-    Should Contain    ${html_source}    系
-    Should Contain    ${html_source}    泰语名称
-    Should Contain    ${html_source}    英语名称
+    Should Contain    ${html_source}    Edit
+    Should Contain    ${html_source}    Degree Level
+    Should Contain    ${html_source}    Department
+    Should Contain    ${html_source}    Name (Thai)
+    Should Contain    ${html_source}    Name (English)
     Scroll Element Into View    //select[@id="degree"]
     Wait Until Element Is Visible    //select[@id="degree"]    timeout=2s
     Click Element    //select[@id="degree"]
@@ -997,36 +998,18 @@ Manage Programs Page ENG
     Wait Until Element Is Visible    //select[@id="department"]    timeout=2s
     Click Element    //select[@id="department"]
     Sleep    1s
-    Wait Until Element Is Visible    xpath=//a[contains(@class, 'btn btn-danger') and contains(., '取消')]    timeout=2s
+    Wait Until Element Is Visible    xpath=//a[contains(@class, 'btn btn-danger') and contains(., 'Cancel')]    timeout=2s
     ${button_text}=    Get Text    xpath=//a[contains(@class, 'btn btn-danger')]
-    Should Contain    ${button_text}    取消
+    Should Contain    ${button_text}    Cancel
     Click Element    xpath=//a[contains(@class, 'btn btn-danger')]
     
 
-    # Delete Program CN
-    Go To    ${SERVER}/programs
-    Wait Until Element Is Visible    //button[contains(@class, 'btn btn-outline-danger btn-sm')]    timeout=2s
-    ${delete_button_title}=    Get Element Attribute    //button[contains(@class, 'btn btn-outline-danger btn-sm')]    title
-    Should Contain    ${delete_button_title}    删除
-    Click Element    //button[contains(@class, 'btn btn-outline-danger btn-sm')]
-    Sleep    2s  # รอ SweetAlert ปรากฏ
-    Wait Until Element Is Visible    xpath=//table[@id='example1']    timeout=2s 
-    ${row_count}=    Get Element Count    xpath=//table[@id='example1']/tbody/tr
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal-title')]    timeout=2s
-    ${swal_title}=    Get Text    xpath=//div[contains(@class, 'swal-title')]
-    Should Contain    ${swal_title}    您确定吗？
-    ${swal_text}=    Get Text    xpath=//div[contains(@class, 'swal-text')]
-    Should Contain    ${swal_text}    如果您删除它，它将永远消失。
-    ${cancel_button_text}=    Get Text    xpath=//button[contains(@class, 'swal-button--cancel')]
-    Should Contain    ${cancel_button_text}    取消
-    ${confirm_button_text}=    Get Text    xpath=//button[contains(@class, 'swal-button--confirm')]
-    Should Contain    ${confirm_button_text}    好的
-
-    # จำลองกด "ยกเลิก" (ไม่ลบจริง)
-    Click Element    xpath=//button[contains(@class, 'swal-button--cancel')]
-    Sleep    2s
-    Element Should Not Be Visible    xpath=//div[contains(@class, 'swal-title')]
-    Close Browser
+    #Delete
+    Click Element    id=delete-program
+    Page Should Contain    Are you sure?
+    Page Should Contain    If you delete this, it will be gone forever.
+    Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='cancel']
+    Sleep    0.5s
 
 
 
