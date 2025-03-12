@@ -154,15 +154,20 @@ Dashboard Page Switch Language To TH
     FOR    ${word}    IN    @{EXPECTED_WORDS_DASHBOARD_TH}
         Should Contain    ${html_source}    ${word}
     END
+    Close Browser
 
 Profile Page by thai
     [tags]      Profile
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Sleep    0.5s
+    Switch Language To    th    ไทย
     Click Element               xpath=//a[@href='${SERVER}/profile']
     Sleep    1s
-    #Switch Language To    th    ไทย
     ${html_source}=    Get Source
-    Should Contain    ${html_source}    บัญชีผู้ใช้
-    Should Contain    ${html_source}    รหัสผ่าน
+    Page Should Contain    บัญชีผู้ใช้
+    Page Should Contain    รหัสผ่าน
 
     Click Element    xpath=//span[contains(@class, 'menu-title') and text()='บัญชีผู้ใช้']
     Sleep    2s
@@ -181,10 +186,15 @@ Profile Page by thai
     Should Contain    ${html_source}    การตั้งค่ารหัสผ่าน
     ${placeholder_value}=    Get Element Attribute    id=inputpassword    placeholder
     Should Be Equal    ${placeholder_value}    กรอกรหัสผ่านปัจจุบัน
+    Close Browser
 
 Funds Page By Thai
     #Go To    ${SERVER}/funds
     [tags]    FundPageByThai
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Switch Language To    th    ไทย
     Click Element               xpath=//a[@href='${SERVER}/funds']
     Sleep    2s
     ${html_source}=    Get Source
@@ -263,7 +273,7 @@ Funds Page By Thai
     Page Should Contain    หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    0.5s
-
+    Close Browser
 
 
 Research Projects Page By Thai
@@ -392,6 +402,7 @@ Research Projects Page By Thai
     Page Should Contain    หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    0.5s
+    Close Browser
 
 Research Groups Page By Thai
     [tags]  researchGroups
@@ -497,7 +508,8 @@ Research Groups Page By Thai
     Page Should Contain    หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    0.5s
-
+    Close Browser
+    
 Manage Publications
     [tags]  ManagePublications
     Open Browser To Login Page
@@ -587,7 +599,7 @@ Manage Publications
 
     Scroll Element Into View    id=submit
 
-    Scroll Element Into View    xpath=//*[contains(text(),'บุคคลภายนอก')]
+
     Should Contain              ${html_source}    บุคคลภายนอก
     Scroll Element Into View    id=pos2
     Click Element               id=pos2
@@ -681,9 +693,6 @@ Manage Publications
     Sleep    1s
     Wait Until Element Is Visible    xpath=//select[@id='selUser1']    10s
     Click Element    id=selUser1
-
-
-    Scroll Element Into View    xpath=//label[contains(text(),'บุคลภายนอก')]
     
     Scroll Element Into View    xpath=//a[@href='${SERVER}/patents' and contains(text(),'ยกเลิก')]
 
@@ -704,7 +713,7 @@ Manage Publications
     Should Contain    ${html_source}    ผู้จัดทำ (ร่วม)
     Sleep    3s
     Click Element               xpath=//a[@href='${SERVER}/patents' and contains(@class,'btn-primary')]
-
+    Close Browser
 
 Menu User By Thai
     [tags]  userByTHAI
@@ -745,8 +754,8 @@ Menu User By Thai
     Execute JavaScript    window.scrollTo(0,1500)
     Sleep    1s
     Element Text Should Be    xpath=//button[contains(@class, "btn btn-primary mt-5")]    ส่งข้อมูล
-    Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']    10 seconds
-    Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']
+    Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='ยังไม่ได้เลือก']    10 seconds
+    Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='ยังไม่ได้เลือก']
     Sleep    1s
     Execute JavaScript    window.scrollTo(0,1500)
     Click Element    xpath=//*[@id="cat"]
@@ -783,6 +792,7 @@ Menu User By Thai
     ${html_source}=    Get Source
     Page Should Contain    นำเข้าข้อมูลไฟล์
     Sleep    1s
+    Close Browser
 
 Roles By Thai
     [tags]  RoleByThai
@@ -835,6 +845,7 @@ Roles By Thai
     Execute JavaScript    window.scrollTo(0,1500)
     Sleep    1s
     Page Should Contain Element    //button[@class="btn btn-primary" and text()="ส่งข้อมูล"]
+    Close Browser
 
 Permission By Thai
     [tags]  PermissionByThai
@@ -890,6 +901,7 @@ Permission By Thai
     Sleep    1s
     ${URL}    Set Variable    ${SERVER}/permissions
     Click Element    xpath=//a[@class='btn btn-primary' and @href='${URL}']
+    Close Browser
 
 Department By Thai
     [tags]  DepartmentByThai
@@ -938,6 +950,7 @@ Department By Thai
     Page Should Contain Element    //button[contains(@class, 'swal-button--confirm') and contains(@class, 'swal-button--danger') and text()='ตกลง']
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    1s
+    Close Browser
 
 Experts By Thai
     [tags]  ExpertsByThai
@@ -974,13 +987,7 @@ Experts By Thai
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    1s
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Close Browser
 
-
-
-
-
-
-*** Comment ***
-#English Testing
 
 
