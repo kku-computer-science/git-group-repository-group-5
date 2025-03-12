@@ -190,6 +190,9 @@ Profile Page by eng
 Funds Page By Eng
     #Go To    ${SERVER}/funds
     [tags]    FundPageByEng
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
     Click Element               xpath=//a[@href='${SERVER}/funds']
     Sleep    2s
     ${html_source}=    Get Source

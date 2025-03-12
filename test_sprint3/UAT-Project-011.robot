@@ -158,12 +158,16 @@ Dashboard Page Switch Language To TH
 
 Profile Page by thai
     [tags]      Profile
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Sleep    0.5s
+    Switch Language To    th    ไทย
     Click Element               xpath=//a[@href='${SERVER}/profile']
     Sleep    1s
-    #Switch Language To    th    ไทย
     ${html_source}=    Get Source
-    Should Contain    ${html_source}    บัญชีผู้ใช้
-    Should Contain    ${html_source}    รหัสผ่าน
+    Page Should Contain    บัญชีผู้ใช้
+    Page Should Contain    รหัสผ่าน
 
     Click Element    xpath=//span[contains(@class, 'menu-title') and text()='บัญชีผู้ใช้']
     Sleep    2s
@@ -187,6 +191,10 @@ Profile Page by thai
 Funds Page By Thai
     #Go To    ${SERVER}/funds
     [tags]    FundPageByThai
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Switch Language To    th    ไทย
     Click Element               xpath=//a[@href='${SERVER}/funds']
     Sleep    2s
     ${html_source}=    Get Source
