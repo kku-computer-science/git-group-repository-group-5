@@ -8,8 +8,8 @@ ${USER_USERNAME}             pusadee@kku.ac.th
 ${USER_PASSWORD}             123456789
 ${LOGIN URL}                  ${SERVER}/login
 ${USER URL}                  ${SERVER}/dashboard
-${CHROME_BROWSER_PATH}    /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
-${CHROME_DRIVER_PATH}    /usr/local/bin/chromedriver
+${CHROME_BROWSER_PATH}    E:/Software Engineering/chromefortesting/chrome.exe
+${CHROME_DRIVER_PATH}    E:/Software Engineering/chromefortesting/chromedriver.exe
 ${VIEW_BUTTON_XPATH}    //a[contains(@class, 'btn-outline-primary')]/i[contains(@class, 'mdi-eye')]
 ${EDIT_BUTTON_XPATH}    //a[contains(@class, 'btn-outline-success') or @title='Edit']
 ${ADD_BUTTON_XPATH}     //a[contains(@class, 'btn-primary') and contains(@class, 'btn-menu') and .//i[contains(@class, 'mdi-plus')]]

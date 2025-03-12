@@ -9,8 +9,8 @@ ${USER_USERNAME}             staff@gmail.com
 ${USER_PASSWORD}             123456789
 ${LOGIN URL}                  ${SERVER}/login
 ${USER URL}                  ${SERVER}/dashboard
-${CHROME_BROWSER_PATH}    C:/Users/ACER/testing/chrome.exe  
-${CHROME_DRIVER_PATH}    C:/Users/ACER/testing/chromedriver.exe  
+${CHROME_BROWSER_PATH}    E:/Software Engineering/chromefortesting/chrome.exe
+${CHROME_DRIVER_PATH}    E:/Software Engineering/chromefortesting/chromedriver.exe
 ${VIEW_BUTTON_XPATH}    //a[contains(@class, 'btn-outline-primary')]/i[contains(@class, 'mdi-eye')]
 ${EDIT_BUTTON_XPATH}    //a[contains(@class, 'btn-outline-success') and @title='แก้ไข']
 ${ADD_BUTTON_XPATH}     //a[contains(@class, 'btn-primary') and contains(@class, 'btn-menu') and .//i[contains(@class, 'mdi-plus')]]
@@ -178,6 +178,7 @@ Check InCo User
 * Test Cases *
 TC1:Dashboard and Profile Page Switch Language To TH
     # Dashboard Page Switch Language To TH
+    [tags]     TC1
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
@@ -189,6 +190,8 @@ TC1:Dashboard and Profile Page Switch Language To TH
     END
 
 TC2:Profile Page Switch Language To TH
+    #Open profile
+    [tags]     TC2
     Go To    ${SERVER}/profile
     Click Element    xpath=//span[contains(@class, 'menu-title') and text()='บัญชีผู้ใช้']
     Sleep    1s

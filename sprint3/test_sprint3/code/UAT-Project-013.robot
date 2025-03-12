@@ -7,8 +7,8 @@ ${USER_USERNAME}             admin@gmail.com
 ${USER_PASSWORD}             12345678
 ${LOGIN URL}                  ${SERVER}/login
 ${USER URL}                  ${SERVER}/dashboard
-${CHROME_BROWSER_PATH}    C:/Users/ACER/testing/chrome.exe  
-${CHROME_DRIVER_PATH}    C:/Users/ACER/testing/chromedriver.exe 
+${CHROME_BROWSER_PATH}    E:/Software Engineering/chromefortesting/chrome.exe
+${CHROME_DRIVER_PATH}    E:/Software Engineering/chromefortesting/chromedriver.exe
 
 ${VIEW_BUTTON_XPATH}    //a[contains(@class, 'btn-outline-primary')]/i[contains(@class, 'mdi-eye')]
 ${EDIT_BUTTON_XPATH}    //a[contains(@class, 'btn-outline-success') and @title='แก้ไข']

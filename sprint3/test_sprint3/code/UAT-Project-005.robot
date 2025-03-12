@@ -6,6 +6,8 @@ Test Teardown    Close Browser
 ${BROWSER}           chrome
 ${HOME_URL}          https://csgroup568.cpkkuhost.com/
 ${WAIT_TIME}        3s
+${CHROME_BROWSER_PATH}    E:/Software Engineering/chromefortesting/chrome.exe
+${CHROME_DRIVER_PATH}    E:/Software Engineering/chromefortesting/chromedriver.exe
 
 # ตัวแปรของเมนูและ dropdown
 ${RESEARCHER_MENU}    xpath=//a[@id='navbarDropdown']
@@ -68,8 +70,33 @@ ${EXPECTED_RESEARCHER_INTEREST_EN}    Research interests
 ${EXPECTED_RESEARCHER_INTEREST_CN}    技能
 
 *** Keywords ***
+Open Browser By Testing
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    ${chrome_options.binary_location}=    Set Variable    ${CHROME_BROWSER_PATH}
+	Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${chrome_options}    add_argument    --start-maximized
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
+    Call Method    ${chrome_options}    add_argument    --disable-infobars
+    ${service}=    Evaluate    sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")
+	Create Webdriver    Chrome    options=${chrome_options}    service=${service}
+    Maximize Browser Window
+
 Open Browser To Home Page
-    Open Browser    ${HOME_URL}    ${BROWSER}
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    ${chrome_options.binary_location}=    Set Variable    ${CHROME_BROWSER_PATH}
+	Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${chrome_options}    add_argument    --start-maximized
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
+    Call Method    ${chrome_options}    add_argument    --disable-infobars
+    ${service}=    Evaluate    sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")
+	Create Webdriver    Chrome    options=${chrome_options}    service=${service}
+    Go To    ${HOME_URL}
     Maximize Browser Window
 
 Wait And Click
