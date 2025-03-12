@@ -25,6 +25,10 @@ Teacher และ Headproject สามารถเข้าสู่ระบ�
 > **Email:** [pusadee@kku.ac.th](mailto:pusadee@kku.ac.th)  
 > **Password:** 123456789
 
+### **การใช้งานการเปลี่ยนภาษาในหน้า Dashboard **
+ใช้ปุ่ม Dropdown เพื่อเลือกภาษาที่ต้องการ ดังรูป
+
+![examswitch](../img_sprint3/switchlang-en.png)  
 ### **เปลี่ยนภาษาใน Dashboard และเมนูต่างๆ**
 - **Dashboard** 🏳️ อังกฤษ | 🇹🇭 ไทย | 🇨🇳 จีน
 - **User Profile** 🏳️ อังกฤษ | 🇹🇭 ไทย | 🇨🇳 จีน
@@ -33,12 +37,22 @@ Teacher และ Headproject สามารถเข้าสู่ระบ�
 - **Research Group** 🏳️ อังกฤษ | 🇹🇭 ไทย | 🇨🇳 จีน
 - **Manage Publications** 🏳️ อังกฤษ | 🇹🇭 ไทย | 🇨🇳 จีน
 
+### **ตัวอย่างการใช้งานการแปลภาษา**
+![Teacher - English](../img_sprint3/teacher-en.png)  
+![Teacher - Thai](../img_sprint3/teacher-th.png)  
+![Teacher - Chinese](../img_sprint3/teacher-cn.png)
+
 ---
 
 ## **Role: Staff**
 Staff สามารถเข้าสู่ระบบผ่าน **Dashboard** โดยใช้ **USERNAME และ PASSWORD** เช่น:
 > **Email:** [staff@gmail.com](mailto:staff@gmail.com)  
 > **Password:** 123456789
+
+### **การใช้งานการเปลี่ยนภาษาในหน้า Dashboard **
+ใช้ปุ่ม Dropdown เพื่อเลือกภาษาที่ต้องการ ดังรูป
+
+![examswitch](../img_sprint3/switchlang-en.png)  
 
 ### **เปลี่ยนภาษาใน Dashboard และเมนูต่างๆ**
 - **Dashboard** 🏳️ อังกฤษ | 🇹🇭 ไทย | 🇨🇳 จีน
@@ -50,6 +64,11 @@ Staff สามารถเข้าสู่ระบบผ่าน **Dashboar
 - **Departments** 🏳️ อังกฤษ | 🇹🇭 ไทย | 🇨🇳 จีน
 - **Manage Programs** 🏳️ อังกฤษ | 🇹🇭 ไทย | 🇨🇳 จีน
 
+### **ตัวอย่างการใช้งานการแปลภาษา**
+![Staff - English](../img_sprint3/staff-profile-en.png)  
+![Staff - Thai](../img_sprint3/staff-profile-th.png)  
+![Staff - Chinese](../img_sprint3/staff-profile-cn.png)
+
 ---
 
 ## **Role: Student**
@@ -57,9 +76,19 @@ Student สามารถเข้าสู่ระบบผ่าน **Dashbo
 > **Email:** 615020084-7  
 > **Password:** 615020084-7
 
+### **การใช้งานการเปลี่ยนภาษาในหน้า Dashboard **
+ใช้ปุ่ม Dropdown เพื่อเลือกภาษาที่ต้องการ ดังรูป
+
+![examswitch](../img_sprint3/switchlang-en.png)  
+
 ### **เปลี่ยนภาษาใน Dashboard และเมนูต่างๆ**
 - **Dashboard** 🏳️ อังกฤษ | 🇹🇭 ไทย | 🇨🇳 จีน
 - **User Profile** 🏳️ อังกฤษ | 🇹🇭 ไทย | 🇨🇳 จีน
+
+### **ตัวอย่างการใช้งานการแปลภาษา**
+![Student Profile - English](../img_sprint3/student-profile-en.png)  
+![Student Profile - Thai](../img_sprint3/student-profile-th.png)  
+![Student Profile - Chinese](../img_sprint3/student-profile-cn.png)
 
 ---
 
