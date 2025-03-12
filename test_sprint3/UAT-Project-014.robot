@@ -917,7 +917,7 @@ Department By Thai
 
     #Edit
     #Click Element    ${EDIT_BUTTON_XPATH}
-    Click Element    xpath=//a[@href='${SERVER}/permissions/1/edit']
+    Click Element    xpath=//a[@href='${SERVER}/departments/1/edit']
 
     Page Should Contain    แก้ไขแผนก
     Page Should Contain    ชื่อแผนก (ภาษาไทย)
