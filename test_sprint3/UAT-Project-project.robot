@@ -4,7 +4,7 @@ Test Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}           chrome
-${HOME_URL}          http://127.0.0.1:8000/
+${HOME_URL}          https://csgroup568.cpkkuhost.com/
 ${WAIT_TIME}        3s
 
 # ตัวแปรสำหรับเมนู Research Project (ปรับ locator ให้ตรงกับหน้าเว็บของคุณ)

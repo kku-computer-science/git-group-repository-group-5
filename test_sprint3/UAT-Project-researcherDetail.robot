@@ -5,7 +5,7 @@ Test Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}           chrome
-${HOME_URL}          http://127.0.0.1:8000/
+${HOME_URL}          https://csgroup568.cpkkuhost.com/
 ${WAIT_TIME}        5s
 
 # ตัวแปรของเมนูและ dropdown

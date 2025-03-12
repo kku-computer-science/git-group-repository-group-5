@@ -6,7 +6,7 @@ Test Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}    chrome
-${URL}        http://127.0.0.1:8000/researchgroup  
+${URL}        https://csgroup568.cpkkuhost.com/researchgroup  
 ${WAIT_TIME}  3s
 
 # Research Group Name (AGT)
