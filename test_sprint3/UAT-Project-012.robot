@@ -155,9 +155,13 @@ Dashboard Page Switch Language To ENG
     FOR    ${word}    IN    @{EXPECTED_WORDS_USER_EN}
         Should Contain    ${html_source}    ${word}
     END
+    Close Browser
 
 Profile Page by eng
     [tags]      ProfileByEng
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
     Click Element               xpath=//a[@href='${SERVER}/profile']
     Sleep    1s
     ${html_source}=    Get Source
@@ -181,6 +185,7 @@ Profile Page by eng
     Should Contain    ${html_source}    Password Settings
     ${placeholder_value}=    Get Element Attribute    id=inputpassword    placeholder
     Should Be Equal    ${placeholder_value}    Enter current password
+    Close Browser
 
 Funds Page By Eng
     #Go To    ${SERVER}/funds
@@ -261,6 +266,7 @@ Funds Page By Eng
     Page Should Contain    If you delete this, it will be gone forever.
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='Cancel']
     Sleep    0.5s
+    Close Browser
 
 Research Projects Page By Eng
     [tags]    ResearchProjectsPageByEng
@@ -383,6 +389,7 @@ Research Projects Page By Eng
     Page Should Contain    If you delete this, it will be gone forever.
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='Cancel']
     Sleep    0.5s
+    Close Browser
 
 Research Groups Page By Eng
     [tags]  researchGroups
@@ -487,6 +494,7 @@ Research Groups Page By Eng
     Page Should Contain    If you delete this, it will be gone forever.
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='Cancel']
     Sleep    0.5s
+    Close Browser
 
 Manage Publications
     [tags]  ManagePublications
@@ -687,6 +695,7 @@ Manage Publications
     Should Contain    ${html_source}    Co-Creator
     Sleep    3s
     Click Element               xpath=//a[@href='${SERVER}/patents' and contains(@class,'btn-primary')]
+    Close Browser
 
 Menu User By Eng
     [tags]  userByENG
@@ -726,8 +735,8 @@ Menu User By Eng
     Execute JavaScript    window.scrollTo(0,1500)
     Sleep    1s
     Element Text Should Be    xpath=//button[contains(@class, "btn btn-primary mt-5")]    Submit
-    Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']    10 seconds
-    Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']
+    Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='Nothing selected']    10 seconds
+    Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='Nothing selected']
     Sleep    1s
     Execute JavaScript    window.scrollTo(0,1500)
     Click Element    xpath=//*[@id="cat"]
@@ -824,6 +833,7 @@ Roles By ENG
     Page Should Contain Element    //button[@class="btn btn-primary" and text()="Submit"]
     Scroll Element Into View    xpath=//a[@href='${SERVER}/roles']
     Click Element    xpath=//a[@href='${SERVER}/roles']
+    Close Browser
 
 Permission By ENG
     [tags]  PermissionByENG
@@ -878,7 +888,7 @@ Permission By ENG
     Sleep    1s
     ${URL}    Set Variable    ${SERVER}/permissions
     Click Element    xpath=//a[@class='btn btn-primary' and @href='${URL}']
-
+    Close Browser
 
 
 Department By ENG
@@ -929,7 +939,7 @@ Department By ENG
     Page Should Contain Element    //button[contains(@class, 'swal-button--confirm') and contains(@class, 'swal-button--danger') and text()='ok']
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='cancel']
     Sleep    1s
-
+    Close Browser
 
 
 Manage Programs Page ENG
@@ -1010,6 +1020,7 @@ Manage Programs Page ENG
     Page Should Contain    If you delete this, it will be gone forever.
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='cancel']
     Sleep    0.5s
+    Close Browser
 
 
 
@@ -1030,6 +1041,7 @@ Experts By ENG
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
+    Sleep    1s
     Scroll Element Into View    xpath=//a[@href='${SERVER}/experts']
     Sleep    1s
     Click Element    xpath=//a[@href='${SERVER}/experts']
@@ -1060,3 +1072,4 @@ Experts By ENG
     Sleep    1s
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='Cancel']
 
+    Close Browser

@@ -154,6 +154,7 @@ Dashboard Page Switch Language To TH
     FOR    ${word}    IN    @{EXPECTED_WORDS_DASHBOARD_TH}
         Should Contain    ${html_source}    ${word}
     END
+    Close Browser
 
 Profile Page by thai
     [tags]      Profile
@@ -181,6 +182,7 @@ Profile Page by thai
     Should Contain    ${html_source}    การตั้งค่ารหัสผ่าน
     ${placeholder_value}=    Get Element Attribute    id=inputpassword    placeholder
     Should Be Equal    ${placeholder_value}    กรอกรหัสผ่านปัจจุบัน
+    Close Browser
 
 Funds Page By Thai
     #Go To    ${SERVER}/funds
@@ -263,7 +265,7 @@ Funds Page By Thai
     Page Should Contain    หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    0.5s
-
+    Close Browser
 
 
 Research Projects Page By Thai
@@ -392,6 +394,7 @@ Research Projects Page By Thai
     Page Should Contain    หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    0.5s
+    Close Browser
 
 Research Groups Page By Thai
     [tags]  researchGroups
@@ -497,7 +500,8 @@ Research Groups Page By Thai
     Page Should Contain    หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    0.5s
-
+    Close Browser
+    
 Manage Publications
     [tags]  ManagePublications
     Open Browser To Login Page
@@ -701,7 +705,7 @@ Manage Publications
     Should Contain    ${html_source}    ผู้จัดทำ (ร่วม)
     Sleep    3s
     Click Element               xpath=//a[@href='${SERVER}/patents' and contains(@class,'btn-primary')]
-
+    Close Browser
 
 Menu User By Thai
     [tags]  userByTHAI
@@ -780,6 +784,7 @@ Menu User By Thai
     ${html_source}=    Get Source
     Page Should Contain    นำเข้าข้อมูลไฟล์
     Sleep    1s
+    Close Browser
 
 Roles By Thai
     [tags]  RoleByThai
@@ -832,6 +837,7 @@ Roles By Thai
     Execute JavaScript    window.scrollTo(0,1500)
     Sleep    1s
     Page Should Contain Element    //button[@class="btn btn-primary" and text()="ส่งข้อมูล"]
+    Close Browser
 
 Permission By Thai
     [tags]  PermissionByThai
@@ -887,6 +893,7 @@ Permission By Thai
     Sleep    1s
     ${URL}    Set Variable    ${SERVER}/permissions
     Click Element    xpath=//a[@class='btn btn-primary' and @href='${URL}']
+    Close Browser
 
 Department By Thai
     [tags]  DepartmentByThai
@@ -935,6 +942,7 @@ Department By Thai
     Page Should Contain Element    //button[contains(@class, 'swal-button--confirm') and contains(@class, 'swal-button--danger') and text()='ตกลง']
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    1s
+    Close Browser
 
 Experts By Thai
     [tags]  ExpertsByThai
@@ -971,13 +979,7 @@ Experts By Thai
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    1s
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Close Browser
 
-
-
-
-
-
-*** Comment ***
-#English Testing
 
 
