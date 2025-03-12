@@ -58,7 +58,23 @@
                 <div class="form-group row">
                     <p class="col-sm-3"><b>{{ trans('users.role') }}</b></p>
                     <div class="col-sm-8">
-                        {!! Form::select('roles[]', $roles, $userRole, array('class' => 'selectpicker','multiple data-live-search'=>"true")) !!}
+                        @php
+                        // สร้างอาเรย์ใหม่สำหรับ roles ที่แปลภาษา
+                        $localizedRoles = [];
+                        foreach ($roles as $k => $v) {
+                        // สมมติ $roles = ['admin' => 'admin', 'headproject' => 'headproject', ...]
+                        // $k = 'admin', $v = 'admin'
+                        // ให้ key = 'admin' เหมือนเดิม, แต่ value = trans('users.role_admin') (ถ้า $v == 'admin')
+                        $localizedRoles[$k] = trans('users.role_'.$v);
+                        }
+                        @endphp
+
+                        {!! Form::select('roles[]', $localizedRoles, [], [
+                        'class' => 'selectpicker',
+                        'multiple',
+                        'data-none-selected-text' => trans('users.nothing_selected')
+                        ]) !!}
+
                     </div>
                 </div>
 

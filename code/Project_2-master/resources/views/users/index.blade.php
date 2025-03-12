@@ -138,11 +138,26 @@
                             <td>{{ $user->email }}</td>
                             <td>
                                 @if(!empty($user->getRoleNames()))
-                                @foreach($user->getRoleNames() as $val)
-                                <label class="badge badge-dark">{{ $val }}</label>
+                                @foreach($user->getRoleNames() as $role)
+                                @php
+                                // กำหนด mapping สำหรับ role แต่ละตัว
+                                $role_translations = [
+                                'student' => ['th' => 'นักศึกษา', 'zh' => '学生'],
+                                'teacher' => ['th' => 'อาจารย์', 'zh' => '老师'],
+                                'admin' => ['th' => 'ผู้ดูแลระบบ', 'zh' => '管理员'],
+                                'staff' => ['th' => 'พนักงาน', 'zh' => '员工'],
+                                'headproject'=> ['th' => 'หัวหน้าโครงการ', 'zh' => '项目负责人']
+                                ];
+                                // กำหนดค่า locale ที่ใช้งานอยู่ (เช่น 'th' สำหรับภาษาไทย, 'zh' สำหรับภาษาจีน)
+                                $locale = app()->getLocale();
+                                // ตรวจสอบว่ามีการกำหนดค่าการแปลหรือไม่ ถ้าไม่มีก็ใช้ค่าปกติ
+                                $translated_role = isset($role_translations[$role][$locale]) ? $role_translations[$role][$locale] : $role;
+                                @endphp
+                                <label class="badge badge-dark">{{ $translated_role }}</label>
                                 @endforeach
                                 @endif
                             </td>
+
                             <td>
                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
                                     <li class="list-inline-item">
