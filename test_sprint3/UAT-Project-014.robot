@@ -572,7 +572,6 @@ Manage Publications
 
 #books
     Click Element    xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]
-    Sleep    0.5s
     Wait Until Element Is Visible    xpath=//a[contains(@href, '/books') and contains(text(), 'หนังสือ')]    timeout=2s
     Click Element    xpath=//a[contains(@href, '/books') and contains(text(), 'หนังสือ')]
     Sleep    2s
