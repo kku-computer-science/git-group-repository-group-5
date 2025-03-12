@@ -547,7 +547,7 @@ Manage Publications
     Scroll Element Into View    id=pos2
     Click Element               id=pos2
 
-    
+
     # View
     Go To    ${SERVER}/papers
     Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
@@ -567,15 +567,42 @@ Manage Publications
     Should Contain    ${html_source}    เล่มที่
     Should Contain    ${html_source}    ฉบับที่
     Should Contain    ${html_source}    เลขหน้า
+    Scroll Element Into View    xpath=//a[contains(text(),'กลับ')]
+    Click Element    xpath=//a[contains(text(),'กลับ')]
 
-    
+#books
+    Click Element    xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]
+    Sleep    0.5s
+    Wait Until Element Is Visible    xpath=//a[contains(@href, '/books') and contains(text(), 'หนังสือ')]    timeout=2s
+    Click Element    xpath=//a[contains(@href, '/books') and contains(text(), 'หนังสือ')]
+    Sleep    2s
+
+    ${html_source}=    Get Source
+    Log    ${html_source}
+    Should Contain    ${html_source}    หนังสือ
+    Should Contain    ${html_source}    แสดง
+    Get Text    xpath=//th[contains(text(), 'เลขที่')]
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    ปี
+    Get Text    xpath=//th[contains(text(), 'แหล่งข่าว')]
+    Should Contain    ${html_source}    หนังสือ
+
+    Click Element   ${ADD_BUTTON_XPATH}
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    เพิ่มหนังสือ
+    Should Contain    ${html_source}    กรอกรายละเอียดหนังสือ
+    Should Contain    ${html_source}    สถานที่เผยแพร่
+    Should Contain    ${html_source}    ปี (โฆษณา)
+    Should Contain    ${html_source}    จำนวนหน้า
 
 
 
 
 
 
-    #Patents
+
+
+#Patents
     Click Element    xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]
     Wait Until Element Is Visible    xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]    timeout=2s
     Click Element    xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]
