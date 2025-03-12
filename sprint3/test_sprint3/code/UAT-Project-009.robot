@@ -189,6 +189,7 @@ TC1:Dashboard and Profile Page Switch Language To TH
     END
 
 TC2:Profile Page Switch Language To TH
+    #Open profile
     Go To    ${SERVER}/profile
     Click Element    xpath=//span[contains(@class, 'menu-title') and text()='บัญชีผู้ใช้']
     Sleep    1s
