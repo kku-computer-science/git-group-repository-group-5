@@ -85,6 +85,8 @@ Admin สามารถเข้าสู่ระบบผ่าน **Dashboar
 
 > **Email:** [admin@gmail.com](mailto\:admin@gmail.com)\
 > **Password:** 12345678
+เปลี่ยนภาษาได้จาก Dropdown ดังภาพ
+![switch-lang](path/to/chinese-image.png)  
 
 ### **เปลี่ยนภาษาใน Dashboard และเมนูต่างๆ**
 
