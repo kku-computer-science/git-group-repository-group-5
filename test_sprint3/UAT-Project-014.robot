@@ -752,8 +752,8 @@ Menu User By Thai
     Click Element    xpath=//*[@id="cat"]
     Sleep    1s
     Click Element    xpath=//*[@id="subcat"]
-
-    Go To    ${SERVER}/users
+    Page Should Contain Element    xpath=//a[@href='${SERVER}/users' and contains(text(),'ยกเลิก')]
+    Click Element    xpath=//a[@href='${SERVER}/users' and contains(text(),'ยกเลิก')]
 
     #New User
     Go To    ${SERVER}/users/create
@@ -774,19 +774,22 @@ Menu User By Thai
     Sleep    1s
     Click Element    xpath=//*[@id="subcat"]
     Go To    ${SERVER}/users
+    Scroll Element Into View    xpath=//a[@href='${SERVER}/users']
+
+    Click Element    xpath=//a[@href='${SERVER}/users']
 
     #importfiles
-    Go To    ${SERVER}/importfiles
+    Click Element    xpath=//a[@href='${SERVER}/importfiles']
     ${html_source}=    Get Source
     Page Should Contain    นำเข้าข้อมูลไฟล์
-
+    Sleep    1s
 
 Roles By Thai
     [tags]  RoleByThai
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
-    Go To    ${SERVER}/roles
+    Click Element    xpath=//a[@href='${SERVER}/roles']
     Switch Language To    th    ไทย
     ${html_source}=    Get Source
     Should Contain    ${html_source}    ชื่อ
@@ -821,6 +824,7 @@ Roles By Thai
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Page Should Contain Element    //button[contains(@class, 'swal-button--confirm') and contains(@class, 'swal-button--danger') and text()='ตกลง']
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Sleep    1s
 
     #Add
     Wait Until Element Is Visible   ${ADD_BUTTON_XPATH}     timeout=10s
