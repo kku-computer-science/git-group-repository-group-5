@@ -637,3 +637,49 @@ Permission By Thai
     Sleep    1s
     ${URL}    Set Variable    ${SERVER}/permissions
     Click Element    xpath=//a[@class='btn btn-primary' and @href='${URL}']
+
+Department By Thai
+    [tags]  DepartmentByThai
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Go To    ${SERVER}/departments
+    Switch Language To    th    ไทย
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    แผนกทั้งหมด
+    Should Contain    ${html_source}    ชื่อ
+    Should Contain    ${html_source}    การกระทำ
+
+    #View
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Click Element    ${VIEW_BUTTON_XPATH}
+    Page Should Contain    แผนก
+    Page Should Contain    ชื่อแผนก (ภาษาไทย)
+    Page Should Contain    ชื่อแผนก (ภาษาอังกฤษ)
+    Page Should Contain    สาขาวิชาวิทยาการคอมพิวเตอร์
+    Sleep    1s
+    ${URL}    Set Variable    ${SERVER}/departments
+    Sleep    1s
+    Click Element    xpath=//a[@class='btn btn-primary' and @href='${URL}']
+
+    #Edit
+    Click Element    ${EDIT_BUTTON_XPATH}
+    Page Should Contain    แก้ไขแผนก
+    Page Should Contain    ชื่อแผนก (ภาษาไทย)
+    Page Should Contain    ชื่อแผนก (ภาษาอังกฤษ)
+    Sleep    1s
+    ${URL}    Set Variable    ${SERVER}/departments
+    Sleep    1s
+    Click Element    xpath=//a[@class='btn btn-primary' and @href='${URL}']
+    Sleep    1s
+
+    #Delete
+    Wait Until Element Is Visible   ${DELETE_BUTTON_XPATH}     timeout=10s
+    Click Element    ${DELETE_BUTTON_XPATH}
+    Sleep    1s
+    Page Should Contain    คุณแน่ใจไหม?
+    Page Should Contain    หากคุณลบข้อมูลนี้ มันจะหายไปตลอดกาล
+    Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Page Should Contain Element    //button[contains(@class, 'swal-button--confirm') and contains(@class, 'swal-button--danger') and text()='ตกลง']
+    Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Sleep    1s
