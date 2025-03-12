@@ -678,7 +678,9 @@ Manage Publications
     Should Contain    ${html_source}    อาจารย์ในสาขา
     Scroll Element Into View    id=add-btn2
     Click Element               id=add-btn2
+    Sleep    1s
     Wait Until Element Is Visible    xpath=//select[@id='selUser1']    10s
+    Click Element    id=selUser1
 
 
     Scroll Element Into View    xpath=//label[contains(text(),'บุคลภายนอก')]
