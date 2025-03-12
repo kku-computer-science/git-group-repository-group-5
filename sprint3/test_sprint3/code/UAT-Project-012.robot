@@ -738,8 +738,8 @@ Menu User By Eng
     Execute JavaScript    window.scrollTo(0,1500)
     Sleep    1s
     Element Text Should Be    xpath=//button[contains(@class, "btn btn-primary mt-5")]    Submit
-    Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']    10 seconds
-    Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']
+    Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='Nothing selected']    10 seconds
+    Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='Nothing selected']
     Sleep    1s
     Execute JavaScript    window.scrollTo(0,1500)
     Click Element    xpath=//*[@id="cat"]
