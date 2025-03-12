@@ -2,7 +2,7 @@
 Library           SeleniumLibrary
 
 * Variables *
-${SERVER}                    https://csgroup568.cpkkuhost.com
+${SERVER}                    http://127.0.0.1:8000
 ${USER_USERNAME}             admin@gmail.com
 ${USER_PASSWORD}             12345678
 ${LOGIN URL}                  ${SERVER}/login
@@ -587,7 +587,7 @@ Manage Publications
 
     Scroll Element Into View    id=submit
 
-    Scroll Element Into View    xpath=//*[contains(text(),'บุคคลภายนอก')]
+
     Should Contain              ${html_source}    บุคคลภายนอก
     Scroll Element Into View    id=pos2
     Click Element               id=pos2
@@ -681,9 +681,6 @@ Manage Publications
     Sleep    1s
     Wait Until Element Is Visible    xpath=//select[@id='selUser1']    10s
     Click Element    id=selUser1
-
-
-    Scroll Element Into View    xpath=//label[contains(text(),'บุคลภายนอก')]
     
     Scroll Element Into View    xpath=//a[@href='${SERVER}/patents' and contains(text(),'ยกเลิก')]
 
