@@ -916,7 +916,9 @@ Department By Thai
     Click Element    xpath=//a[@class='btn btn-primary' and @href='${URL}']
 
     #Edit
-    Click Element    ${EDIT_BUTTON_XPATH}
+    #Click Element    ${EDIT_BUTTON_XPATH}
+    Click Element    xpath=//a[@href='${SERVER}/permissions/1/edit']
+
     Page Should Contain    แก้ไขแผนก
     Page Should Contain    ชื่อแผนก (ภาษาไทย)
     Page Should Contain    ชื่อแผนก (ภาษาอังกฤษ)
@@ -972,3 +974,13 @@ Experts By Thai
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    1s
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+
+
+
+
+
+
+*** Comment ***
+#English Testing
+
+
