@@ -683,3 +683,40 @@ Department By Thai
     Page Should Contain Element    //button[contains(@class, 'swal-button--confirm') and contains(@class, 'swal-button--danger') and text()='ตกลง']
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    1s
+
+Experts By Thai
+    [tags]  ExpertsByThai
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Switch Language To    th    ไทย
+    Scroll Element Into View    xpath=//a[@href='${SERVER}/experts']
+    Sleep    1s
+    Click Element    xpath=//a[@href='${SERVER}/experts']
+    Sleep    1s
+    Page Should Contain    หมายเลขประจำตัว
+    Page Should Contain    ชื่ออาจารย์
+    Page Should Contain    ชื่อ
+    Page Should Contain    การกระทำ
+    Page Should Contain    ความเชี่ยวชาญของอาจารย์
+    Page Should Contain    คำรณ สุนัติ
+
+    #Edit
+    Click Element    xpath=//a[@id='edit-expertise']
+    Sleep    1s
+    Page Should Contain    แก้ไขความเชี่ยวชาญ
+    Page Should Contain    ชื่อ
+    Page Should Contain    ส่ง
+    Page Should Contain    ยกเลิก
+    ${URL}    Set Variable    ${SERVER}/experts
+    Click Element    xpath=//a[@class='btn btn-danger' and @href='${URL}']
+    Sleep    1s
+
+    #Delete
+    Click Element    xpath=//button[@id='delete-expertise']
+    Page Should Contain    คุณแน่ใจหรือไม่?
+    Page Should Contain    หากลบข้อมูลนี้จะไม่สามารถกู้คืนได้
+    Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    Sleep    1s
+    Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
+    
