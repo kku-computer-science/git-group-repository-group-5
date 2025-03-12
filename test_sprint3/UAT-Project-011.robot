@@ -2,7 +2,7 @@
 Library           SeleniumLibrary
 
 * Variables *
-${SERVER}                    http://127.0.0.1:8000
+${SERVER}                    https://csgroup568.cpkkuhost.com
 ${USER_USERNAME}             admin@gmail.com
 ${USER_PASSWORD}             12345678
 ${LOGIN URL}                  ${SERVER}/login
@@ -742,8 +742,8 @@ Menu User By Thai
     Execute JavaScript    window.scrollTo(0,1500)
     Sleep    1s
     Element Text Should Be    xpath=//button[contains(@class, "btn btn-primary mt-5")]    ส่งข้อมูล
-    Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']    10 seconds
-    Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']
+    Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='ยังไม่ได้เลือก']    10 seconds
+    Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='ยังไม่ได้เลือก']
     Sleep    1s
     Execute JavaScript    window.scrollTo(0,1500)
     Click Element    xpath=//*[@id="cat"]
