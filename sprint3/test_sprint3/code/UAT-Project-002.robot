@@ -5,9 +5,10 @@ Library          String
 Test Teardown    Close Browser
 
 *** Variables ***
-${BROWSER}       Chrome
-${URL}           https://csgroup568.cpkkuhost.com/
-${WAIT_TIME}     5s
+${SERVER}                    https://csgroup568.cpkkuhost.com
+${CHROME_BROWSER_PATH}        E:/Software Engineering/chromefortesting/chrome.exe
+${CHROME_DRIVER_PATH}         E:/Software Engineering/chromefortesting/chromedriver.exe
+${WAIT_TIME}                 5s
 
 # ✅ Locator สำหรับ Dropdown Researchers
 ${RESEARCHERS_MENU}       xpath=//a[@id="navbarDropdown"]
@@ -81,9 +82,21 @@ ${LANG_TO_CHINESE}      xpath=//a[contains(text(), "中文")]
 ...    zh=@{EXPECTED_DROPDOWN_CHINESE}
 
 *** Keywords ***
-Open Browser To Home Page
-    Open Browser    ${URL}    ${BROWSER}
+Open Browser By Testing
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    ${chrome_options.binary_location}=    Set Variable    ${CHROME_BROWSER_PATH}
+    Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${chrome_options}    add_argument    --start-maximized
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
+    Call Method    ${chrome_options}    add_argument    --disable-infobars
+    ${service}=    Evaluate    sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")
+    Create Webdriver    Chrome    options=${chrome_options}    service=${service}
     Maximize Browser Window
+    Go To    ${SERVER}
+    Sleep    ${WAIT_TIME}
 
 Wait And Click
     [Arguments]    ${locator}
@@ -93,7 +106,6 @@ Wait And Click
 
 Select Language And Verify
     [Arguments]    ${lang_code}    ${lang_locator}
-    # หากไม่ใช่ภาษาอังกฤษ (default) ให้ทำการเปลี่ยนภาษา
     IF  '${lang_code}' != 'en'
         Scroll Element Into View    ${LANG_DROPDOWN}
         Wait And Click    ${LANG_DROPDOWN}
@@ -130,26 +142,17 @@ Verify Page Contains Texts
     END
 
 *** Test Cases ***
-
-## test droup
 Test Researchers Dropdown In English
     [Documentation]    เปลี่ยนภาษาเป็นอังกฤษแล้วตรวจสอบเมนู Researchers และข้อความในหน้าเว็บ
-    Open Browser To Home Page
-    Sleep    ${WAIT_TIME}
+    Open Browser By Testing
     Select Language And Verify    en    ${LANG_TO_ENGLISH}
 
 Test Researchers Dropdown In Thai
     [Documentation]    เปลี่ยนภาษาเป็นไทยแล้วตรวจสอบเมนู Researchers และข้อความในหน้าเว็บ
-    Open Browser To Home Page
-    Sleep    ${WAIT_TIME}
+    Open Browser By Testing
     Select Language And Verify    th    ${LANG_TO_THAI}
 
 Test Researchers Dropdown In Chinese
     [Documentation]    เปลี่ยนภาษาเป็นจีนแล้วตรวจสอบเมนู Researchers และข้อความในหน้าเว็บ
-    Open Browser To Home Page
-    Sleep    ${WAIT_TIME}
+    Open Browser By Testing
     Select Language And Verify    zh    ${LANG_TO_CHINESE}
-
-
-
-

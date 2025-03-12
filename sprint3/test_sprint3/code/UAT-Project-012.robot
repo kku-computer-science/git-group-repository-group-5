@@ -784,6 +784,7 @@ Menu User By Eng
     ${html_source}=    Get Source
     Page Should Contain    Import
     Sleep    1s
+    Close Browser
 
 Roles By ENG
     [tags]  RoleByENG
@@ -1038,13 +1039,11 @@ Manage Programs Page ENG
 
 
 
-
 Experts By ENG
     [tags]  ExpertsByENG
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
-    Sleep    1s
     Scroll Element Into View    xpath=//a[@href='${SERVER}/experts']
     Sleep    1s
     Click Element    xpath=//a[@href='${SERVER}/experts']
@@ -1074,5 +1073,4 @@ Experts By ENG
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='Cancel']
     Sleep    1s
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='Cancel']
-
     Close Browser

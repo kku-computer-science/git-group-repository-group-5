@@ -161,13 +161,12 @@ Profile Page by thai
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
-    Sleep    0.5s
-    Switch Language To    th    ไทย
     Click Element               xpath=//a[@href='${SERVER}/profile']
     Sleep    1s
+    #Switch Language To    th    ไทย
     ${html_source}=    Get Source
-    Page Should Contain    บัญชีผู้ใช้
-    Page Should Contain    รหัสผ่าน
+    Should Contain    ${html_source}    บัญชีผู้ใช้
+    Should Contain    ${html_source}    รหัสผ่าน
 
     Click Element    xpath=//span[contains(@class, 'menu-title') and text()='บัญชีผู้ใช้']
     Sleep    2s
@@ -194,7 +193,6 @@ Funds Page By Thai
     Open Browser To Login Page
     Login Page Should Be Open
     User Login
-    Switch Language To    th    ไทย
     Click Element               xpath=//a[@href='${SERVER}/funds']
     Sleep    2s
     ${html_source}=    Get Source
@@ -509,7 +507,7 @@ Research Groups Page By Thai
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    0.5s
     Close Browser
-    
+
 Manage Publications
     [tags]  ManagePublications
     Open Browser To Login Page
@@ -599,7 +597,7 @@ Manage Publications
 
     Scroll Element Into View    id=submit
 
-
+    Scroll Element Into View    xpath=//*[contains(text(),'บุคคลภายนอก')]
     Should Contain              ${html_source}    บุคคลภายนอก
     Scroll Element Into View    id=pos2
     Click Element               id=pos2
@@ -693,6 +691,9 @@ Manage Publications
     Sleep    1s
     Wait Until Element Is Visible    xpath=//select[@id='selUser1']    10s
     Click Element    id=selUser1
+
+
+    Scroll Element Into View    xpath=//label[contains(text(),'บุคลภายนอก')]
     
     Scroll Element Into View    xpath=//a[@href='${SERVER}/patents' and contains(text(),'ยกเลิก')]
 
@@ -754,8 +755,8 @@ Menu User By Thai
     Execute JavaScript    window.scrollTo(0,1500)
     Sleep    1s
     Element Text Should Be    xpath=//button[contains(@class, "btn btn-primary mt-5")]    ส่งข้อมูล
-    Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='ยังไม่ได้เลือก']    10 seconds
-    Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='ยังไม่ได้เลือก']
+    Wait Until Element Is Visible    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']    10 seconds
+    Click Element    xpath=//div[@class='filter-option-inner-inner' and text()='teacher']
     Sleep    1s
     Execute JavaScript    window.scrollTo(0,1500)
     Click Element    xpath=//*[@id="cat"]
@@ -988,6 +989,5 @@ Experts By Thai
     Sleep    1s
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Close Browser
-
 
 

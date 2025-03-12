@@ -5,9 +5,10 @@ Library          String
 Test Teardown    Close Browser
 
 *** Variables ***
-${BROWSER}       Chrome
-${URL}           https://csgroup568.cpkkuhost.com/
-${WAIT_TIME}     5s
+${SERVER}                    https://csgroup568.cpkkuhost.com
+${CHROME_BROWSER_PATH}        E:/Software Engineering/chromefortesting/chrome.exe
+${CHROME_DRIVER_PATH}         E:/Software Engineering/chromefortesting/chromedriver.exe
+${WAIT_TIME}                 5s
 
 # ✅ Locator สำหรับ Dropdown และเมนูภาษา
 ${LANG_DROPDOWN}        xpath=//a[@id="navbarDropdownMenuLink"]
@@ -45,9 +46,21 @@ ${EXPECTED_CHINESE_TEXT}    报告总文章数 (5年累计)
 ...    [参考]
 
 *** Keywords ***
-Open Browser To Home Page
-    Open Browser    ${URL}    ${BROWSER}
+Open Browser By Testing
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    ${chrome_options.binary_location}=    Set Variable    ${CHROME_BROWSER_PATH}
+    Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${chrome_options}    add_argument    --start-maximized
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
+    Call Method    ${chrome_options}    add_argument    --disable-infobars
+    ${service}=    Evaluate    sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")
+    Create Webdriver    Chrome    options=${chrome_options}    service=${service}
     Maximize Browser Window
+    Go To    ${SERVER}
+    Sleep    ${WAIT_TIME}
 
 Wait And Click
     [Arguments]    ${locator}
@@ -81,8 +94,7 @@ Verify Banner For Language
 *** Test Cases ***
 English To Thai
     [Documentation]    Starting from English, switch to Thai and verify texts and banner.
-    Open Browser To Home Page
-    Sleep    ${WAIT_TIME}
+    Open Browser By Testing
     Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
     Verify Banner For Language    p1_en
     Select Language    ${LANG_TO_THAI}    ${EXPECTED_THAI_TEXT}
@@ -91,8 +103,7 @@ English To Thai
 
 English To Chinese
     [Documentation]    Starting from English, switch to Chinese and verify texts and banner.
-    Open Browser To Home Page
-    Sleep    ${WAIT_TIME}
+    Open Browser By Testing
     Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
     Verify Banner For Language    p1_en
     Select Language    ${LANG_TO_CHINESE}    ${EXPECTED_CHINESE_TEXT}
