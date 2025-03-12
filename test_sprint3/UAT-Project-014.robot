@@ -453,6 +453,144 @@ Research Groups Page By Thai
     Should Contain    ${html_source}    งามนิจ
     Sleep    1s
 
+Manage Publications
+    [tags]  ManagePublications
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Switch Language To    th    ไทย
+    Sleep    2s
+
+    #Papers
+    Click Element    xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]
+    Wait Until Element Is Visible    xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]    timeout=5s
+    
+    # "ผลงานวิจัยที่เผยแพร่"
+    Click Element    xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]
+
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    งานวิจัยที่ตีพิมพ์
+    Should Contain    ${html_source}    ชื่อเรื่อง
+    Should Contain    ${html_source}    ลำดับ
+    Should Contain    ${html_source}    ประเภท
+    Should Contain    ${html_source}    ปีที่ตีพิมพ์
+    Should Contain    ${html_source}    การกระทำ
+    Should Contain    ${html_source}    ค้นหา
+     
+    Click Element   ${ADD_BUTTON_XPATH}
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    เพิ่มผลงานตีพิมพ์
+    Should Contain    ${html_source}    กรอกข้อมูลรายละเอียดงานวิจัย
+    Should Contain    ${html_source}    แหล่งเผยแพร่งานวิจัย
+    Should Contain    ${html_source}    ชื่องานวิจัย
+    Should Contain    ${html_source}    บทคัดย่อ
+    Should Contain    ${html_source}    คำสำคัญ
+
+
+    Scroll Element Into View    id=paper_type
+    Click Element    id=paper_type
+    ${DROPDOWN_XPATH}=    Set Variable    //select[@class="custom-select my-select" and @name="paper_type"]
+    ${options}=    Get List Items    ${DROPDOWN_XPATH}
+    Should Contain    ${options}    วารสาร
+    Sleep    0.5s
+
+
+
+    Scroll Element Into View    id=paper_subtype
+    Click Element    id=paper_subtype
+    ${DROPDOWN_XPATH}=    Set Variable    //select[@class="custom-select my-select" and @name="paper_subtype"]
+    ${options}=    Get List Items    ${DROPDOWN_XPATH}
+    Should Contain    ${options}    โปรดเลือกประเภทย่อย
+    Should Contain    ${options}    บทความ
+    Should Contain    ${options}    บทความในการประชุมวิชาการ
+    Should Contain    ${options}    บรรณาธิการ
+    Should Contain    ${options}    บทวิจารณ์
+    Should Contain    ${options}    คำแก้ไข
+    Should Contain    ${options}    บทในหนังสือ
+
+
+    Sleep    0.5s
+    Scroll Element Into View    id=publication
+    Click Element    id=publication
+    ${DROPDOWN_XPATH}=    Set Variable    //select[@class="custom-select my-select" and @name="publication"]
+    ${options}=    Get List Items    ${DROPDOWN_XPATH}
+    Should Contain    ${options}    หนังสือนานาชาติ
+
+    Scroll Element Into View    xpath=//*[contains(text(),'ประเภทเอกสาร')]
+    Should Contain              ${html_source}    ประเภทเอกสาร
+
+    Scroll Element Into View    xpath=//*[contains(text(),'ประเภทย่อย')]
+    Should Contain              ${html_source}    ประเภทย่อย
+
+    Scroll Element Into View    xpath=//*[contains(text(),'การตีพิมพ์')]
+    Should Contain              ${html_source}    การตีพิมพ์
+
+    Scroll Element Into View    xpath=//*[contains(text(),'การอ้างอิง')]
+    Should Contain              ${html_source}    การอ้างอิง
+
+    Scroll Element Into View    xpath=//*[contains(text(),'เลขหน้า')]
+    Should Contain              ${html_source}    เลขหน้า
+
+    Scroll Element Into View    xpath=//*[contains(text(),'ทุนสนับสนุน')]
+    Should Contain              ${html_source}    ทุนสนับสนุน
+
+    Scroll Element Into View    xpath=//*[contains(text(),'บุคคลภายในสาขา')]
+    Should Contain              ${html_source}    บุคคลภายในสาขา
+    Scroll Element Into View    id=selUser0
+    Click Element               id=selUser0
+    Click Element               id=pos
+
+    Scroll Element Into View    id=submit
+
+    Scroll Element Into View    xpath=//*[contains(text(),'บุคคลภายนอก')]
+    Should Contain              ${html_source}    บุคคลภายนอก
+    Scroll Element Into View    id=pos2
+    Click Element               id=pos2
+
+    
+    # View
+    Go To    ${SERVER}/papers
+    Wait Until Element Is Visible    ${VIEW_BUTTON_XPATH}    timeout=10s
+    Click Element    ${VIEW_BUTTON_XPATH}
+    Sleep    2s
+    ${html_source}=    Get Source
+    Should Contain    ${html_source}    รายละเอียดงานวารสาร
+    Should Contain    ${html_source}    ชื่อเรื่อง
+    Should Contain    ${html_source}    บทคัดย่อ
+    Should Contain    ${html_source}    คำสำคัญ
+    Should Contain    ${html_source}    ประเภท
+    Should Contain    ${html_source}    ประเภทเอกสาร
+    Should Contain    ${html_source}    การตีพิมพ์
+    Should Contain    ${html_source}    ผู้เขียน
+    Should Contain    ${html_source}    ชื่องานวารสาร
+    Should Contain    ${html_source}    ปีที่ตีพิมพ์
+    Should Contain    ${html_source}    เล่มที่
+    Should Contain    ${html_source}    ฉบับที่
+    Should Contain    ${html_source}    เลขหน้า
+
+    
+
+
+
+
+
+
+    #Patents
+    Click Element    xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]
+    Wait Until Element Is Visible    xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]    timeout=2s
+    Click Element    xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -719,4 +857,3 @@ Experts By Thai
     Page Should Contain Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
     Sleep    1s
     Click Element    //button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']
-    

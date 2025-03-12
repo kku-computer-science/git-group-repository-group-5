@@ -1,151 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-03-12T13:40:44.434570" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-03-12T14:54:29.611044" rpa="false" schemaversion="5">
 <suite id="s1" name="UAT-Project-014" source="C:\Users\Lenovo\Documents\GitHub\git-group-repository-group-5\test_sprint3\UAT-Project-014.robot">
-<test id="s1-t1" name="Experts By Thai" line="687">
+<test id="s1-t1" name="Manage Publications" line="456">
 <kw name="Open Browser To Login Page">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T13:40:44.680453" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002349C6D7CB0&gt;</msg>
+<msg time="2025-03-12T14:54:29.886147" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000026941B3FCB0&gt;</msg>
 <var>${chrome_options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T13:40:44.680227" elapsed="0.000254"/>
+<status status="PASS" start="2025-03-12T14:54:29.885907" elapsed="0.000270"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-03-12T13:40:44.680741" level="INFO">${chrome_options.binary_location} = E:/Software Engineering/chromefortesting/chrome.exe</msg>
+<msg time="2025-03-12T14:54:29.886420" level="INFO">${chrome_options.binary_location} = E:/Software Engineering/chromefortesting/chrome.exe</msg>
 <var>${chrome_options.binary_location}</var>
 <arg>${CHROME_BROWSER_PATH}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-03-12T13:40:44.680580" elapsed="0.000183"/>
+<status status="PASS" start="2025-03-12T14:54:29.886279" elapsed="0.000159"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-gpu</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T13:40:44.680847" elapsed="0.000136"/>
+<status status="PASS" start="2025-03-12T14:54:29.886511" elapsed="0.000079"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T13:40:44.681053" elapsed="0.000086"/>
+<status status="PASS" start="2025-03-12T14:54:29.886653" elapsed="0.000069"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T13:40:44.681209" elapsed="0.000076"/>
+<status status="PASS" start="2025-03-12T14:54:29.886786" elapsed="0.000074"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--start-maximized</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T13:40:44.681358" elapsed="0.000066"/>
+<status status="PASS" start="2025-03-12T14:54:29.886915" elapsed="0.000062"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-extensions</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T13:40:44.681474" elapsed="0.000060"/>
+<status status="PASS" start="2025-03-12T14:54:29.887027" elapsed="0.000061"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-popup-blocking</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T13:40:44.681583" elapsed="0.000059"/>
+<status status="PASS" start="2025-03-12T14:54:29.887141" elapsed="0.000075"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${chrome_options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-infobars</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-03-12T13:40:44.681690" elapsed="0.000059"/>
+<status status="PASS" start="2025-03-12T14:54:29.887268" elapsed="0.000064"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T13:40:44.682427" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x000002349C6D7A10&gt;</msg>
+<msg time="2025-03-12T14:54:29.887874" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x0000026941B3FA10&gt;</msg>
 <var>${service}</var>
 <arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T13:40:44.681813" elapsed="0.000640"/>
+<status status="PASS" start="2025-03-12T14:54:29.887384" elapsed="0.000513"/>
 </kw>
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:44.682673" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-03-12T14:54:29.888130" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
 <arg>Chrome</arg>
 <arg>options=${chrome_options}</arg>
 <arg>service=${service}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-03-12T13:40:44.682534" elapsed="1.190606"/>
+<status status="PASS" start="2025-03-12T14:54:29.887985" elapsed="1.113708"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:45.873512" level="INFO">Opening url 'http://127.0.0.1:8000/login'</msg>
+<msg time="2025-03-12T14:54:31.002175" level="INFO">Opening url 'http://127.0.0.1:8000/login'</msg>
 <arg>${LOGIN URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-03-12T13:40:45.873348" elapsed="0.393851"/>
+<status status="PASS" start="2025-03-12T14:54:31.001948" elapsed="0.359071"/>
 </kw>
 <kw name="Login Page Should Be Open">
 <kw name="Location Should Be" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:46.279553" level="INFO">Current location is 'http://127.0.0.1:8000/login'.</msg>
+<msg time="2025-03-12T14:54:31.369019" level="INFO">Current location is 'http://127.0.0.1:8000/login'.</msg>
 <arg>${LOGIN URL}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<status status="PASS" start="2025-03-12T13:40:46.268220" elapsed="0.011432"/>
+<status status="PASS" start="2025-03-12T14:54:31.361863" elapsed="0.007289"/>
 </kw>
-<status status="PASS" start="2025-03-12T13:40:46.267726" elapsed="0.012007"/>
+<status status="PASS" start="2025-03-12T14:54:31.361388" elapsed="0.008207"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T13:40:46.279829" elapsed="0.003096"/>
+<status status="PASS" start="2025-03-12T14:54:31.369853" elapsed="0.003027"/>
 </kw>
-<status status="PASS" start="2025-03-12T13:40:44.679797" elapsed="1.603359"/>
+<status status="PASS" start="2025-03-12T14:54:29.885434" elapsed="1.487551"/>
 </kw>
 <kw name="Login Page Should Be Open">
 <kw name="Location Should Be" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:46.289946" level="INFO">Current location is 'http://127.0.0.1:8000/login'.</msg>
+<msg time="2025-03-12T14:54:31.379883" level="INFO">Current location is 'http://127.0.0.1:8000/login'.</msg>
 <arg>${LOGIN URL}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<status status="PASS" start="2025-03-12T13:40:46.283994" elapsed="0.006086"/>
+<status status="PASS" start="2025-03-12T14:54:31.373459" elapsed="0.006514"/>
 </kw>
-<status status="PASS" start="2025-03-12T13:40:46.283655" elapsed="0.006551"/>
+<status status="PASS" start="2025-03-12T14:54:31.373259" elapsed="0.006817"/>
 </kw>
 <kw name="User Login">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:46.291054" level="INFO">Typing text 'admin@gmail.com' into text field 'id=username'.</msg>
+<msg time="2025-03-12T14:54:31.380922" level="INFO">Typing text 'admin@gmail.com' into text field 'id=username'.</msg>
 <arg>id=username</arg>
 <arg>${USER_USERNAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:40:46.290721" elapsed="0.097720"/>
+<status status="PASS" start="2025-03-12T14:54:31.380604" elapsed="0.077200"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:46.388871" level="INFO">Typing text '12345678' into text field 'id=password'.</msg>
+<msg time="2025-03-12T14:54:31.458171" level="INFO">Typing text '12345678' into text field 'id=password'.</msg>
 <arg>id=password</arg>
 <arg>${USER_PASSWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:40:46.388629" elapsed="0.082520"/>
+<status status="PASS" start="2025-03-12T14:54:31.457960" elapsed="0.104288"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:46.471571" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<msg time="2025-03-12T14:54:31.562750" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
 <arg>xpath=//button[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:40:46.471357" elapsed="0.056582"/>
+<status status="PASS" start="2025-03-12T14:54:31.562427" elapsed="1.777576"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T13:40:48.528829" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-03-12T14:54:35.340635" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T13:40:46.528090" elapsed="2.001023"/>
+<status status="PASS" start="2025-03-12T14:54:33.340188" elapsed="2.000655"/>
 </kw>
 <kw name="Location Should Be" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:48.539656" level="INFO">Current location is 'http://127.0.0.1:8000/dashboard'.</msg>
+<msg time="2025-03-12T14:54:35.349147" level="INFO">Current location is 'http://127.0.0.1:8000/dashboard'.</msg>
 <arg>${USER URL}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<status status="PASS" start="2025-03-12T13:40:48.529552" elapsed="0.010234"/>
+<status status="PASS" start="2025-03-12T14:54:35.341181" elapsed="0.008091"/>
 </kw>
-<status status="PASS" start="2025-03-12T13:40:46.290516" elapsed="2.249409"/>
+<status status="PASS" start="2025-03-12T14:54:31.380369" elapsed="3.969029"/>
 </kw>
 <kw name="Switch Language To">
 <if>
@@ -154,64 +154,64 @@
 <var>${new_lang}</var>
 <arg>id=navbarDropdownMenuLink</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-03-12T13:40:48.541294" elapsed="0.000038"/>
+<status status="NOT RUN" start="2025-03-12T14:54:35.351088" elapsed="0.000049"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${new_lang}</arg>
 <arg>${expected_language}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-03-12T13:40:48.541484" elapsed="0.000030"/>
+<status status="NOT RUN" start="2025-03-12T14:54:35.351367" elapsed="0.000050"/>
 </kw>
 <return>
-<status status="NOT RUN" start="2025-03-12T13:40:48.541786" elapsed="0.000050"/>
+<status status="NOT RUN" start="2025-03-12T14:54:35.351964" elapsed="0.000109"/>
 </return>
-<status status="NOT RUN" start="2025-03-12T13:40:48.540986" elapsed="0.000908"/>
+<status status="NOT RUN" start="2025-03-12T14:54:35.350719" elapsed="0.001519"/>
 </branch>
-<status status="PASS" start="2025-03-12T13:40:48.540949" elapsed="0.001012"/>
+<status status="PASS" start="2025-03-12T14:54:35.350580" elapsed="0.001765"/>
 </if>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>id=navbarDropdownMenuLink</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T13:40:48.542132" elapsed="0.034700"/>
+<status status="PASS" start="2025-03-12T14:54:35.352608" elapsed="0.016824"/>
 </kw>
 <kw name="Mouse Over" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:48.577139" level="INFO">Simulating Mouse Over on element 'id=navbarDropdownMenuLink'.</msg>
+<msg time="2025-03-12T14:54:35.369731" level="INFO">Simulating Mouse Over on element 'id=navbarDropdownMenuLink'.</msg>
 <arg>id=navbarDropdownMenuLink</arg>
 <doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:40:48.576988" elapsed="0.312361"/>
+<status status="PASS" start="2025-03-12T14:54:35.369583" elapsed="0.278600"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:48.889790" level="INFO">Clicking element 'id=navbarDropdownMenuLink'.</msg>
+<msg time="2025-03-12T14:54:35.648592" level="INFO">Clicking element 'id=navbarDropdownMenuLink'.</msg>
 <arg>id=navbarDropdownMenuLink</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:40:48.889562" elapsed="0.060141"/>
+<status status="PASS" start="2025-03-12T14:54:35.648371" elapsed="0.087707"/>
 </kw>
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:48.950151" level="INFO">Executing JavaScript:
+<msg time="2025-03-12T14:54:35.736595" level="INFO">Executing JavaScript:
 document.querySelector('#navbarDropdownMenuLink').click();
 Without any arguments.</msg>
 <arg>document.querySelector('#navbarDropdownMenuLink').click();</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T13:40:48.949850" elapsed="0.003883"/>
+<status status="PASS" start="2025-03-12T14:54:35.736266" elapsed="0.004509"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//div[contains(@class, 'dropdown-menu')]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T13:40:48.953866" elapsed="0.242560"/>
+<status status="PASS" start="2025-03-12T14:54:35.740909" elapsed="0.238230"/>
 </kw>
 <kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:49.210233" level="INFO">${dropdown_html} = 
+<msg time="2025-03-12T14:54:35.993201" level="INFO">${dropdown_html} = 
                                                                                                                                             &lt;a class="dropdown-item" href="http://127.0.0.1:8000/lang/t...</msg>
 <var>${dropdown_html}</var>
 <arg>xpath=//div[contains(@class, 'dropdown-menu')]</arg>
 <arg>innerHTML</arg>
 <doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:40:49.196603" elapsed="0.013700"/>
+<status status="PASS" start="2025-03-12T14:54:35.979394" elapsed="0.013960"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-03-12T13:40:49.210821" level="INFO">Dropdown HTML: 
+<msg time="2025-03-12T14:54:35.993947" level="INFO">Dropdown HTML: 
                                                                                                                                             &lt;a class="dropdown-item" href="http://127.0.0.1:8000/lang/th"&gt;&lt;span class="flag-icon flag-icon-th"&gt;&lt;/span&gt;
                                 ไทย&lt;/a&gt;
                                                                                                                 &lt;a class="dropdown-item" href="http://127.0.0.1:8000/lang/zh"&gt;&lt;span class="flag-icon flag-icon-cn"&gt;&lt;/span&gt;
@@ -219,192 +219,556 @@ Without any arguments.</msg>
                                                                                 </msg>
 <arg>Dropdown HTML: ${dropdown_html}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-03-12T13:40:49.210532" elapsed="0.000386"/>
+<status status="PASS" start="2025-03-12T14:54:35.993708" elapsed="0.000325"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:49.211433" level="INFO">Clicking element 'xpath=//a[contains(@href, "/lang/th")]'.</msg>
+<msg time="2025-03-12T14:54:35.994402" level="INFO">Clicking element 'xpath=//a[contains(@href, "/lang/th")]'.</msg>
 <arg>xpath=//a[contains(@href, "/lang/${lang_code}")]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:40:49.211105" elapsed="0.607877"/>
+<status status="PASS" start="2025-03-12T14:54:35.994175" elapsed="1.223997"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T13:40:54.819954" level="INFO">Slept 5 seconds.</msg>
+<msg time="2025-03-12T14:54:42.220111" level="INFO">Slept 5 seconds.</msg>
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T13:40:49.819280" elapsed="5.000980"/>
+<status status="PASS" start="2025-03-12T14:54:37.218392" elapsed="5.001994"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:54.848531" level="INFO">${new_lang} = ไทย</msg>
+<msg time="2025-03-12T14:54:42.247811" level="INFO">${new_lang} = ไทย</msg>
 <var>${new_lang}</var>
 <arg>id=navbarDropdownMenuLink</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:40:54.820677" elapsed="0.027910"/>
+<status status="PASS" start="2025-03-12T14:54:42.220774" elapsed="0.027069"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${new_lang}</arg>
 <arg>${expected_language}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T13:40:54.848783" elapsed="0.000246"/>
+<status status="PASS" start="2025-03-12T14:54:42.247984" elapsed="0.000143"/>
 </kw>
 <arg>th</arg>
 <arg>ไทย</arg>
-<status status="PASS" start="2025-03-12T13:40:48.540560" elapsed="6.308564"/>
+<status status="PASS" start="2025-03-12T14:54:35.350207" elapsed="6.897968"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-12T14:54:44.249789" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-12T14:54:42.248578" elapsed="2.001499"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:44.251808" level="INFO">Clicking element 'xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]'.</msg>
+<arg>xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:54:44.251304" elapsed="0.157257"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T14:54:44.409037" elapsed="0.030387"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:44.440821" level="INFO">Clicking element 'xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]'.</msg>
+<arg>xpath=//a[contains(@href, '/papers') and contains(text(), 'ผลงานวิจัยที่เผยแพร่')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:54:44.440258" elapsed="3.650049"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:48.111103" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
+<var>${html_source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-03-12T14:54:48.090742" elapsed="0.020456"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>งานวิจัยที่ตีพิมพ์</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:48.111714" elapsed="0.000695"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ชื่อเรื่อง</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:48.113483" elapsed="0.000600"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ลำดับ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:48.114725" elapsed="0.000482"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ประเภท</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:48.115702" elapsed="0.001049"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ปีที่ตีพิมพ์</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:48.117284" elapsed="0.000230"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>การกระทำ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:48.117835" elapsed="0.000618"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ค้นหา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:48.119738" elapsed="0.000763"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:48.125666" level="INFO">Clicking element '//a[contains(@class, 'btn-primary') and contains(@class, 'btn-menu') and .//i[contains(@class, 'mdi-plus')]]'.</msg>
+<arg>${ADD_BUTTON_XPATH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:54:48.122831" elapsed="0.885479"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:49.020280" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
+<var>${html_source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-03-12T14:54:49.008940" elapsed="0.011478"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>เพิ่มผลงานตีพิมพ์</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:49.020913" elapsed="0.001041"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>กรอกข้อมูลรายละเอียดงานวิจัย</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:49.023091" elapsed="0.000426"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>แหล่งเผยแพร่งานวิจัย</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:49.023987" elapsed="0.000356"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ชื่องานวิจัย</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:49.024775" elapsed="0.000337"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>บทคัดย่อ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:49.025477" elapsed="0.000315"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>คำสำคัญ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:49.026889" elapsed="0.000401"/>
 </kw>
 <kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//a[@href='${SERVER}/experts']</arg>
+<arg>id=paper_type</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T13:40:54.849771" elapsed="0.313496"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T13:40:56.164627" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T13:40:55.163942" elapsed="1.000884"/>
+<status status="PASS" start="2025-03-12T14:54:49.027706" elapsed="0.314445"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:56.166033" level="INFO">Clicking element 'xpath=//a[@href='http://127.0.0.1:8000/experts']'.</msg>
-<arg>xpath=//a[@href='${SERVER}/experts']</arg>
+<msg time="2025-03-12T14:54:49.343418" level="INFO">Clicking element 'id=paper_type'.</msg>
+<arg>id=paper_type</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:40:56.165546" elapsed="1.272034"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T13:40:58.438596" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T13:40:57.438006" elapsed="1.000965"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:58.497971" level="INFO">Current page contains text 'หมายเลขประจำตัว'.</msg>
-<arg>หมายเลขประจำตัว</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:40:58.442267" elapsed="0.055907"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:58.540723" level="INFO">Current page contains text 'ชื่ออาจารย์'.</msg>
-<arg>ชื่ออาจารย์</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:40:58.499340" elapsed="0.041560"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:58.602267" level="INFO">Current page contains text 'ชื่อ'.</msg>
-<arg>ชื่อ</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:40:58.547425" elapsed="0.054974"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:58.619372" level="INFO">Current page contains text 'การกระทำ'.</msg>
-<arg>การกระทำ</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:40:58.602879" elapsed="0.016609"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:58.656863" level="INFO">Current page contains text 'ความเชี่ยวชาญของอาจารย์'.</msg>
-<arg>ความเชี่ยวชาญของอาจารย์</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:40:58.619851" elapsed="0.037351"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:58.782757" level="INFO">Current page contains text 'คำรณ สุนัติ'.</msg>
-<arg>คำรณ สุนัติ</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:40:58.658385" elapsed="0.124834"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:58.784226" level="INFO">Clicking element 'xpath=//a[@id='edit-expertise']'.</msg>
-<arg>xpath=//a[@id='edit-expertise']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:40:58.783793" elapsed="0.102523"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T13:40:59.888265" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T13:40:58.887288" elapsed="1.001143"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:59.906469" level="INFO">Current page contains text 'แก้ไขความเชี่ยวชาญ'.</msg>
-<arg>แก้ไขความเชี่ยวชาญ</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:40:59.889053" elapsed="0.017489"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:59.940347" level="INFO">Current page contains text 'ชื่อ'.</msg>
-<arg>ชื่อ</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:40:59.907044" elapsed="0.033425"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:40:59.957433" level="INFO">Current page contains text 'ส่ง'.</msg>
-<arg>ส่ง</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:40:59.941056" elapsed="0.016478"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:41:00.035704" level="INFO">Current page contains text 'ยกเลิก'.</msg>
-<arg>ยกเลิก</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:40:59.957799" elapsed="0.078158"/>
+<status status="PASS" start="2025-03-12T14:54:49.342986" elapsed="0.117025"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-03-12T13:41:00.037241" level="INFO">${URL} = http://127.0.0.1:8000/experts</msg>
-<var>${URL}</var>
-<arg>${SERVER}/experts</arg>
+<msg time="2025-03-12T14:54:49.461026" level="INFO">${DROPDOWN_XPATH} = //select[@class="custom-select my-select" and @name="paper_type"]</msg>
+<var>${DROPDOWN_XPATH}</var>
+<arg>//select[@class="custom-select my-select" and @name="paper_type"]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-03-12T13:41:00.036750" elapsed="0.000561"/>
+<status status="PASS" start="2025-03-12T14:54:49.460596" elapsed="0.000507"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:41:00.038560" level="INFO">Clicking element 'xpath=//a[@class='btn btn-danger' and @href='http://127.0.0.1:8000/experts']'.</msg>
-<arg>xpath=//a[@class='btn btn-danger' and @href='${URL}']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:41:00.038121" elapsed="1.168317"/>
+<kw name="Get List Items" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:49.596302" level="INFO">${options} = ['โปรดเลือกประเภทเอกสาร', 'วารสาร', 'รายงานการประชุมวิชาการ', 'ชุดหนังสือ', 'หนังสือ']</msg>
+<var>${options}</var>
+<arg>${DROPDOWN_XPATH}</arg>
+<doc>Returns all labels or values of selection list ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:54:49.461890" elapsed="0.134490"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>วารสาร</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:49.597140" elapsed="0.000503"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T13:41:02.207659" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
+<msg time="2025-03-12T14:54:50.099053" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T13:41:01.206879" elapsed="1.001076"/>
+<status status="PASS" start="2025-03-12T14:54:49.598100" elapsed="0.501140"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>id=paper_subtype</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:50.099736" elapsed="0.290610"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:41:02.209640" level="INFO">Clicking element 'xpath=//button[@id='delete-expertise']'.</msg>
-<arg>xpath=//button[@id='delete-expertise']</arg>
+<msg time="2025-03-12T14:54:50.391426" level="INFO">Clicking element 'id=paper_subtype'.</msg>
+<arg>id=paper_subtype</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:41:02.208948" elapsed="0.124647"/>
+<status status="PASS" start="2025-03-12T14:54:50.391037" elapsed="0.132337"/>
 </kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:41:02.354286" level="INFO">Current page contains text 'คุณแน่ใจหรือไม่?'.</msg>
-<arg>คุณแน่ใจหรือไม่?</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:41:02.334160" elapsed="0.020318"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-12T14:54:50.523789" level="INFO">${DROPDOWN_XPATH} = //select[@class="custom-select my-select" and @name="paper_subtype"]</msg>
+<var>${DROPDOWN_XPATH}</var>
+<arg>//select[@class="custom-select my-select" and @name="paper_subtype"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-12T14:54:50.523628" elapsed="0.000182"/>
 </kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:41:02.393381" level="INFO">Current page contains text 'หากลบข้อมูลนี้จะไม่สามารถกู้คืนได้'.</msg>
-<arg>หากลบข้อมูลนี้จะไม่สามารถกู้คืนได้</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-03-12T13:41:02.355604" elapsed="0.037951"/>
+<kw name="Get List Items" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:50.590068" level="INFO">${options} = ['โปรดเลือกประเภทย่อย', 'บทความ', 'บทความในการประชุมวิชาการ', 'บรรณาธิการ', 'บทวิจารณ์', 'คำแก้ไข', 'บทในหนังสือ']</msg>
+<var>${options}</var>
+<arg>${DROPDOWN_XPATH}</arg>
+<doc>Returns all labels or values of selection list ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:54:50.524026" elapsed="0.066079"/>
 </kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:41:02.412827" level="INFO">Current page contains element '//button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']'.</msg>
-<arg>//button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-03-12T13:41:02.394134" elapsed="0.018948"/>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>โปรดเลือกประเภทย่อย</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:50.590350" elapsed="0.000142"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>บทความ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:50.590621" elapsed="0.000092"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>บทความในการประชุมวิชาการ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:50.590817" elapsed="0.000086"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>บรรณาธิการ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:50.591053" elapsed="0.000109"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>บทวิจารณ์</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:50.591266" elapsed="0.000082"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>คำแก้ไข</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:50.591443" elapsed="0.000074"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>บทในหนังสือ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:50.591615" elapsed="0.000076"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-12T14:54:51.092092" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-12T14:54:50.591830" elapsed="0.500483"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>id=publication</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:51.093204" elapsed="0.323231"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T13:41:02.417030" level="INFO">Clicking element '//button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']'.</msg>
-<arg>//button[contains(@class, 'swal-button--cancel') and text()='ยกเลิก']</arg>
+<msg time="2025-03-12T14:54:51.417784" level="INFO">Clicking element 'id=publication'.</msg>
+<arg>id=publication</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T13:41:02.414164" elapsed="0.086799"/>
+<status status="PASS" start="2025-03-12T14:54:51.417369" elapsed="0.106041"/>
 </kw>
-<tag>ExpertsByThai</tag>
-<status status="PASS" start="2025-03-12T13:40:44.679039" elapsed="17.822319"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-12T14:54:51.524082" level="INFO">${DROPDOWN_XPATH} = //select[@class="custom-select my-select" and @name="publication"]</msg>
+<var>${DROPDOWN_XPATH}</var>
+<arg>//select[@class="custom-select my-select" and @name="publication"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-12T14:54:51.523838" elapsed="0.000279"/>
+</kw>
+<kw name="Get List Items" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:51.790854" level="INFO">${options} = ['โปรดเลือกประเภท', 'วารสารนานาชาติ', 'หนังสือนานาชาติ', 'การประชุมวิชาการนานาชาติ', 'การประชุมวิชาการในประเทศ', 'วารสารในประเทศ', 'หนังสือในประเทศ', 'นิตยสารในประเทศ', 'บทในหนังสือ']</msg>
+<var>${options}</var>
+<arg>${DROPDOWN_XPATH}</arg>
+<doc>Returns all labels or values of selection list ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:54:51.524593" elapsed="0.266297"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>หนังสือนานาชาติ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:51.791148" elapsed="0.000151"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//*[contains(text(),'ประเภทเอกสาร')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:51.791472" elapsed="0.281501"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ประเภทเอกสาร</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:52.074596" elapsed="0.001033"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//*[contains(text(),'ประเภทย่อย')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:52.077230" elapsed="0.322637"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ประเภทย่อย</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:52.403894" elapsed="0.000868"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//*[contains(text(),'การตีพิมพ์')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:52.405495" elapsed="0.319900"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>การตีพิมพ์</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:52.726161" elapsed="0.000626"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//*[contains(text(),'การอ้างอิง')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:52.727410" elapsed="0.308367"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>การอ้างอิง</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:53.036747" elapsed="0.000575"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//*[contains(text(),'เลขหน้า')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:53.038297" elapsed="0.340995"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>เลขหน้า</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:53.380082" elapsed="0.000479"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//*[contains(text(),'ทุนสนับสนุน')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:53.381220" elapsed="0.294206"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ทุนสนับสนุน</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:53.676028" elapsed="0.000291"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//*[contains(text(),'บุคคลภายในสาขา')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:53.676814" elapsed="0.296270"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>บุคคลภายในสาขา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:53.973803" elapsed="0.000557"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>id=selUser0</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:53.974841" elapsed="0.351427"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:54.328077" level="INFO">Clicking element 'id=selUser0'.</msg>
+<arg>id=selUser0</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:54:54.327845" elapsed="0.163014"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:54.492110" level="INFO">Clicking element 'id=pos'.</msg>
+<arg>id=pos</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:54:54.491574" elapsed="0.107563"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>id=submit</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:54.599514" elapsed="0.296283"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//*[contains(text(),'บุคคลภายนอก')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:54.896760" elapsed="0.312364"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>บุคคลภายนอก</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:54:55.209793" elapsed="0.000607"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>id=pos2</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-12T14:54:55.210841" elapsed="0.291241"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:55.503049" level="INFO">Clicking element 'id=pos2'.</msg>
+<arg>id=pos2</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:54:55.502723" elapsed="0.108166"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:55.611363" level="INFO">Opening url 'http://127.0.0.1:8000/papers'</msg>
+<arg>${SERVER}/papers</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-12T14:54:55.611209" elapsed="2.740815"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VIEW_BUTTON_XPATH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T14:54:58.352754" elapsed="0.759975"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:54:59.113214" level="INFO">Clicking element '//a[contains(@class, 'btn-outline-primary')]/i[contains(@class, 'mdi-eye')]'.</msg>
+<arg>${VIEW_BUTTON_XPATH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:54:59.113026" elapsed="0.845127"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-12T14:55:01.959105" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-12T14:54:59.958553" elapsed="2.000749"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:55:01.966086" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
+<var>${html_source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.960400" elapsed="0.005721"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>รายละเอียดงานวารสาร</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.966323" elapsed="0.000160"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ชื่อเรื่อง</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.966601" elapsed="0.000167"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>บทคัดย่อ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.967052" elapsed="0.000265"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>คำสำคัญ</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.967548" elapsed="0.000283"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ประเภท</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.968049" elapsed="0.000098"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ประเภทเอกสาร</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.968390" elapsed="0.000138"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>การตีพิมพ์</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.968730" elapsed="0.000120"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ผู้เขียน</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.968981" elapsed="0.000092"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ชื่องานวารสาร</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.969154" elapsed="0.000094"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ปีที่ตีพิมพ์</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.969327" elapsed="0.000080"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>เล่มที่</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.969482" elapsed="0.000081"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>ฉบับที่</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.969646" elapsed="0.000210"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>เลขหน้า</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.970070" elapsed="0.000210"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:55:01.970503" level="INFO">Clicking element 'xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]'.</msg>
+<arg>xpath=//span[contains(text(), 'จัดการผลงานวิจัย')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:55:01.970396" elapsed="0.106814"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]</arg>
+<arg>timeout=2s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T14:55:02.077625" elapsed="0.019286"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:55:02.097850" level="INFO">Clicking element 'xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]'.</msg>
+<arg>xpath=//a[contains(@href, '/patents') and contains(text(), 'ผลงานวิชาการอื่นๆ')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:55:02.097494" elapsed="1.584177"/>
+</kw>
+<tag>ManagePublications</tag>
+<status status="PASS" start="2025-03-12T14:54:29.884693" elapsed="33.797589"/>
 </test>
-<status status="PASS" start="2025-03-12T13:40:44.436276" elapsed="18.066253"/>
+<status status="PASS" start="2025-03-12T14:54:29.612325" elapsed="34.071267"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">ExpertsByThai</stat>
+<stat pass="1" fail="0" skip="0">ManagePublications</stat>
 </tag>
 <suite>
 <stat pass="1" fail="0" skip="0" id="s1" name="UAT-Project-014">UAT-Project-014</stat>
