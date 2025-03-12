@@ -154,6 +154,32 @@ Dashboard Page Switch Language To TH
     END
     Close Browser
 
+Dashboard Page Switch Language To EN
+    [Tags]    UAT001-OpenUserPage
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Sleep    2s
+    Switch Language To    en    English
+    ${html_source}=    Get Source
+    FOR    ${word}    IN    @{EXPECTED_WORDS_USER_EN}
+        Should Contain    ${html_source}    ${word}
+    END
+    Close Browser
+
+Dashboard Page Switch Language To ZH
+    [Tags]    UAT001-OpenUserPage
+    Open Browser To Login Page
+    Login Page Should Be Open
+    User Login
+    Sleep    2s
+    Switch Language To    zh    中文
+    ${html_source}=    Get Source
+    FOR    ${word}    IN    @{EXPECTED_WORDS_USER_CN}
+        Should Contain    ${html_source}    ${word}
+    END
+    Close Browser
+
 Profile Page Switch Language To TH
     [tags]      Profile
     Open Browser To Login Page
